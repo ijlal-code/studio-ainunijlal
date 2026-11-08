@@ -4,16 +4,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ainun Ijlal Studio">
-    <title>Ainun Ijlal Studio — Web & Digital Showcase</title>
+    <meta name="google-site-verification" content="FUEDcnvmTEhIYWQindNMe8VvT7FzW7EuGecAGWEkS7w">
+    <meta name="description" content="Ainun Ijlal Studio menyediakan layanan pembuatan landing page, company profile, undangan digital, portofolio, dan aplikasi web kustom.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://studio.ainunijlal.com/">
+    <title>Ainun Ijlal Studio | Jasa Pembuatan Website & Landing Page</title>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="Ainun Ijlal Studio">
+    <meta property="og:title" content="Ainun Ijlal Studio | Jasa Pembuatan Website & Landing Page">
+    <meta property="og:description" content="Jelajahi inspirasi website dan konsultasikan pembuatan landing page, company profile, portofolio, undangan digital, atau aplikasi web kustom.">
+    <meta property="og:url" content="https://studio.ainunijlal.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ainun Ijlal Studio | Jasa Pembuatan Website & Landing Page">
+    <meta name="twitter:description" content="Jelajahi inspirasi website dan konsultasikan pembuatan website atau aplikasi web kustom.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://studio.ainunijlal.com/#website",
+                "url": "https://studio.ainunijlal.com/",
+                "name": "Ainun Ijlal Studio",
+                "inLanguage": "id",
+                "publisher": { "@id": "https://studio.ainunijlal.com/#organization" }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://studio.ainunijlal.com/#organization",
+                "name": "Ainun Ijlal Studio",
+                "url": "https://studio.ainunijlal.com/",
+                "logo": "https://studio.ainunijlal.com/logo.png",
+                "email": "ijlalainun@gmail.com",
+                "telephone": "+62-877-1620-8495",
+                "sameAs": [
+                    "https://www.linkedin.com/in/ainunijlal",
+                    "https://www.instagram.com/ainunijlal_ai/",
+                    "https://www.tiktok.com/@ainunijlal",
+                    "https://www.youtube.com/@ainunijlal"
+                ]
+            }
+        ]
+    }
+    </script>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <script>
-        document.documentElement.classList.add('has-loader');
-        setTimeout(function() {
-            document.documentElement.classList.remove('has-loader');
-        }, 15000);
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,7 +60,7 @@
 </head>
 
 <body>
-    <div class="loading-screen" id="loading-screen" role="status" aria-live="polite"
+    <div class="loading-screen" id="loading-screen" hidden aria-hidden="true" role="status" aria-live="polite"
         aria-label="Memuat preview portofolio">
         <div class="loading-content">
             <div class="loading-mark"><img src="{{ asset('logo.png') }}" alt=""></div>
@@ -148,14 +184,14 @@
                     <p data-i18n="service1Desc">Untuk promosi produk, bisnis, atau acara.</p><a
                         class="btn btn-wa project-wa service-contact" href="https://wa.me/6287716208495"
                         target="_blank" rel="noopener noreferrer" data-kind="service" data-project="Landing Page"
-                        data-project-en="Landing Page" data-i18n="contactMe">Hubungi saya</a>
+                        data-project-en="Landing Page" data-i18n="consult">Konsultasi via WhatsApp</a>
                 </article>
                 <article class="service-card"><span>02</span>
                     <h3 data-i18n="service2">Company Profile</h3>
                     <p data-i18n="service2Desc">Perkenalkan bisnis dan layanan Anda secara profesional.</p><a
                         class="btn btn-wa project-wa service-contact" href="https://wa.me/6287716208495"
                         target="_blank" rel="noopener noreferrer" data-kind="service" data-project="Company Profile"
-                        data-project-en="Company Profile" data-i18n="contactMe">Hubungi saya</a>
+                        data-project-en="Company Profile" data-i18n="consult">Konsultasi via WhatsApp</a>
                 </article>
                 <article class="service-card"><span>03</span>
                     <h3 data-i18n="service3">Undangan Digital</h3>
@@ -163,7 +199,7 @@
                         class="btn btn-wa project-wa service-contact" href="https://wa.me/6287716208495"
                         target="_blank" rel="noopener noreferrer" data-kind="service"
                         data-project="Undangan Digital" data-project-en="Digital Invitation"
-                        data-i18n="contactMe">Hubungi saya</a>
+                        data-i18n="consult">Konsultasi via WhatsApp</a>
                 </article>
                 <article class="service-card"><span>04</span>
                     <h3 data-i18n="service4">Portofolio Profesional</h3>
@@ -171,7 +207,7 @@
                         class="btn btn-wa project-wa service-contact" href="https://wa.me/6287716208495"
                         target="_blank" rel="noopener noreferrer" data-kind="service"
                         data-project="Portofolio Profesional" data-project-en="Professional Portfolio"
-                        data-i18n="contactMe">Hubungi saya</a>
+                        data-i18n="consult">Konsultasi via WhatsApp</a>
                 </article>
                 <article class="service-card"><span>05</span>
                     <h3 data-i18n="service5">Aplikasi Web Kustom</h3>
@@ -179,7 +215,7 @@
                         class="btn btn-wa project-wa service-contact" href="https://wa.me/6287716208495"
                         target="_blank" rel="noopener noreferrer" data-kind="service"
                         data-project="Aplikasi Web Kustom" data-project-en="Custom Web Application"
-                        data-i18n="contactMe">Hubungi saya</a>
+                        data-i18n="consult">Konsultasi via WhatsApp</a>
                 </article>
             </div>
         </section>
