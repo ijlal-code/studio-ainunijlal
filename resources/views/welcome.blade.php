@@ -18,6 +18,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Ainun Ijlal Studio | Jasa Pembuatan Website & Landing Page">
     <meta name="twitter:description" content="Jelajahi inspirasi website dan konsultasikan pembuatan website atau aplikasi web kustom.">
+    @verbatim
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -48,6 +49,7 @@
         ]
     }
     </script>
+    @endverbatim
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
