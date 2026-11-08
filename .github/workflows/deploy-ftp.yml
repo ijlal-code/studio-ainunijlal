@@ -41,11 +41,11 @@ jobs:
       - name: Hapus penanda Vite development
         run: rm -f public/hot
 
-      # Mengganti FTPS dengan rsync via SSH (bebas error FIN packet / FTP timeout)
-      - name: Sinkronisasi file via rsync (Password SSH)
+     # Sinkronisasi hanya file yang berubah (tanpa --delete, menggunakan checksum)
+      - name: Sinkronisasi file via rsync (Incremental / Changed Only)
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avz --delete \
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" rsync -avzc \
             -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT || '21098' }}" \
             --exclude='/.git/' \
             --exclude='/.github/' \

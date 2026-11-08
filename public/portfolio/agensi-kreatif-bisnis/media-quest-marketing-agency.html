@@ -1,689 +1,2901 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Media Quest is a full-service marketing agency building brands through strategy, creative production and performance marketing.">
-<meta name="theme-color" content="#0d343f">
-<title>Media Quest — Make Your Brand Impossible to Ignore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#0d343f;--orange:#ff6724;--charcoal:#353031;--white:#fff;--light:#f5f4f3;--muted:#b9c3c5;--border:#e2dfdd;--max:1400px;--gutter:clamp(20px,3.4vw,48px);--section:clamp(68px,7vw,108px)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:82px}
-body{margin:0;color:var(--charcoal);font-family:Barlow,Arial,sans-serif;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit}
-button,a{-webkit-tap-highlight-color:transparent}
-img{display:block;max-width:100%}
-.container{width:min(100% - var(--gutter)*2,var(--max));margin-inline:auto}
-section{padding-block:var(--section)}
-h1,h2,h3,.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:900;text-transform:uppercase;line-height:.94;margin:0}
-p{line-height:1.65}
-.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);font-size:14px;margin:0 0 18px}
-.section-title{font-size:clamp(42px,5.4vw,76px);letter-spacing:-1.5px;max-width:760px}
-.section-copy{font-size:18px;color:#666;max-width:610px}
-.accent{color:var(--orange)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 28px;background:var(--orange);color:white;font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:2px solid var(--orange);transition:transform .25s,background .25s,border-color .25s}
-.btn:hover{transform:translateY(-3px);background:#e95719;border-color:#e95719}
-.btn-outline{background:transparent;border-color:rgba(255,255,255,.7)}
-.btn-outline:hover{background:white;color:var(--navy);border-color:white}
-.btn-dark{background:var(--navy);border-color:var(--navy)}
-.btn-dark:hover{background:#174b58;border-color:#174b58}
-header{height:76px;position:fixed;inset:0 0 auto;z-index:1000;background:rgba(13,52,63,.97);border-bottom:3px solid var(--orange);backdrop-filter:blur(12px)}
-.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;color:white;min-width:max-content}
-.brand-mark{width:39px;height:39px;background:var(--orange);display:grid;place-items:center;font-family:"Barlow Condensed";font-size:30px;font-weight:900;line-height:1;color:white}
-.brand-name{font-family:"Barlow Condensed";font-weight:900;font-size:27px;letter-spacing:1px;text-transform:uppercase}
-.brand-name small{display:block;font:600 8px Barlow,sans-serif;letter-spacing:2.3px;margin-top:-3px;color:#b9c7ca}
-.nav-links{display:flex;align-items:center;gap:clamp(14px,2.1vw,30px)}
-.nav-links a{font-family:"Barlow Condensed";font-size:14px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#e7eeee;transition:color .2s}
-.nav-links a:hover{color:var(--orange)}
-.nav-actions{display:flex;align-items:center;gap:12px}
-.lang-switch{display:flex;border:1px solid rgba(255,255,255,.35);padding:3px}
-.lang-switch button{background:transparent;border:0;color:#d7e0e2;padding:7px 9px;font-family:"Barlow Condensed";font-weight:800;font-size:12px;cursor:pointer}
-.lang-switch button.active{background:var(--orange);color:white}
-.nav-cta{padding:11px 17px;font-size:14px}
-.menu-toggle{display:none;background:transparent;border:0;color:white;font-size:28px;cursor:pointer}
-.hero{min-height:850px;min-height:100svh;padding:150px 0 72px;background:var(--navy);color:white;position:relative;isolation:isolate;display:flex;align-items:center}
-.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(7,31,38,.97) 0%,rgba(7,31,38,.87) 48%,rgba(7,31,38,.48) 100%),url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=72") center/cover}
-.hero:after{content:"";position:absolute;z-index:-1;right:-100px;bottom:0;width:42%;height:12px;background:var(--orange);transform:skewX(-35deg)}
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:clamp(34px,6vw,90px)}
-.hero-copy{max-width:780px}
-.hero .eyebrow{color:#ff8b58}
-.hero h1{font-size:clamp(62px,8.2vw,116px);letter-spacing:-2px;line-height:.87;margin-bottom:28px}
-.hero h1 span{color:var(--orange);display:block}
-.hero-desc{font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#d4dfe1;max-width:590px;margin:0 0 30px}
-.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:0;margin-top:58px;border-top:1px solid rgba(255,255,255,.22);padding-top:25px}
-.stat{padding:0 28px;border-right:1px solid rgba(255,255,255,.2)}
-.stat:first-child{padding-left:0}.stat:last-child{border:0}
-.stat strong{font:900 clamp(30px,3.2vw,44px)/1 "Barlow Condensed";display:block;color:white}
-.stat span{display:block;margin-top:7px;font:700 12px "Barlow Condensed";letter-spacing:1.3px;text-transform:uppercase;color:#b7c5c8}
-.hero-visual{position:relative;min-height:450px;display:flex;align-items:flex-end}
-.hero-image{width:100%;height:440px;object-fit:cover;filter:saturate(.78);box-shadow:22px 22px 0 var(--orange);animation:heroImage .9s .35s both}
-.video-card{position:absolute;left:-42px;bottom:30px;background:white;color:var(--navy);padding:15px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 18px 45px #061e2470}
-.play{width:42px;height:42px;background:var(--orange);display:grid;place-items:center;color:white;font-size:16px}
-.video-card b{display:block;font:800 17px "Barlow Condensed";text-transform:uppercase}
-.video-card small{display:block;color:#758186;font-size:11px;margin-top:3px}
-.award{position:absolute;right:-16px;top:12px;background:var(--orange);color:white;padding:16px 19px;text-align:center;transform:rotate(4deg);box-shadow:0 12px 25px #0003}
-.award strong{font:900 26px "Barlow Condensed";display:block}.award span{font:700 10px "Barlow Condensed";letter-spacing:1.3px}
-.marquee{overflow:hidden;background:var(--orange);color:white;padding:14px 0}
-.marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite}
-.marquee span{font:800 18px "Barlow Condensed";letter-spacing:2px;text-transform:uppercase;padding:0 26px;white-space:nowrap}
-.marquee span:after{content:"✦";padding-left:48px}
-.problem{background:var(--light)}
-.problem-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,8vw,120px);align-items:start}
-.problem h2{font-size:clamp(46px,6vw,82px)}
-.problem-copy{font-size:18px;color:#656061;margin:8px 0 30px}
-.problem-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
-.problem-item{display:flex;gap:12px;align-items:flex-start;font-weight:600}
-.check{width:25px;height:25px;flex:none;background:var(--orange);color:white;display:grid;place-items:center;font-size:14px;font-weight:800}
-.solution{background:white}
-.solution-top{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end;margin-bottom:55px}
-.solution-top h2{font-size:clamp(48px,6vw,80px)}
-.solution-top p{font-size:18px;color:#666;max-width:560px}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pillar{padding:30px;background:var(--light);border-top:4px solid var(--orange);transition:transform .25s,background .25s}
-.pillar:hover{transform:translateY(-7px);background:#f0eeec}
-.pillar-num{font:900 46px "Barlow Condensed";color:var(--orange);opacity:.8}
-.pillar h3{font-size:29px;margin:14px 0 10px}
-.pillar p{color:#686264;margin:0}
-.experience{background:var(--navy);color:white}
-.experience-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.experience h2{font-size:clamp(48px,6.3vw,84px)}
-.experience-copy{color:#c5d0d2;font-size:18px;max-width:600px}
-.industry-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-.industry-tags span{border:1px solid #789096;color:#dce5e6;padding:9px 13px;font:700 12px "Barlow Condensed";letter-spacing:1.2px;text-transform:uppercase}
-.achievement-panel{padding:35px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2)}
-.achievement-panel .eyebrow{margin-bottom:25px}
-.achievement{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:17px;color:#e1e9ea}
-.achievement:last-child{border:0}
-.achievement b{font:900 32px "Barlow Condensed";color:var(--orange);min-width:58px}
-.testimonials{background:var(--light)}
-.testimonial-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:38px}
-.rating{font:800 14px "Barlow Condensed";letter-spacing:1px;text-transform:uppercase;text-align:right}
-.rating strong{display:block;font:900 36px "Barlow Condensed";color:var(--orange)}
-.testimonial-window{overflow:hidden}
-.testimonial-track{display:flex;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
-.testimonial-card{min-width:100%;background:white;border-top:5px solid var(--orange);padding:clamp(26px,4vw,48px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
-.quote-mark{font:900 70px/.6 "Barlow Condensed";color:var(--orange)}
-.testimonial-card blockquote{font-size:clamp(18px,2vw,24px);line-height:1.5;margin:20px 0 28px;max-width:920px}
-.person strong{font:800 20px "Barlow Condensed";text-transform:uppercase;display:block}
-.person span{font-size:13px;color:#7b7475}
-.slider-controls{display:flex;gap:8px;margin-top:20px}
-.slider-controls button{width:44px;height:44px;border:1px solid #bcb6b5;background:transparent;color:var(--navy);font-size:20px;cursor:pointer;transition:.2s}
-.slider-controls button:hover{background:var(--orange);border-color:var(--orange);color:white}
-.work{background:var(--charcoal);color:white}
-.work-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
-.work h2{font-size:clamp(48px,6vw,82px)}
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.work-card{position:relative;overflow:hidden;aspect-ratio:4/3;background:#1f1d1d}
-.work-card img{width:100%;height:100%;object-fit:cover;opacity:.72;transition:transform .6s,opacity .4s}
-.work-card:hover img{transform:scale(1.07);opacity:.42}
-.work-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:linear-gradient(transparent 30%,rgba(0,0,0,.78))}
-.work-overlay span{font:800 12px "Barlow Condensed";letter-spacing:1.8px;color:var(--orange);text-transform:uppercase}
-.work-overlay h3{font-size:clamp(23px,2.4vw,34px);margin-top:7px}
-.clients{background:var(--light);text-align:center}
-.clients h2{font-size:clamp(40px,5vw,66px);margin-bottom:12px}
-.client-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
-.client-logo{min-height:112px;background:white;display:grid;place-items:center;padding:20px;color:#596368;font:900 24px "Barlow Condensed";letter-spacing:1px;text-transform:uppercase}
-.client-logo:nth-child(2n){color:var(--navy)}
-.services{background:white}
-.services-head{max-width:720px;margin-bottom:50px}
-.services-head h2{font-size:clamp(48px,6vw,80px)}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:var(--border)}
-.service{background:var(--light);padding:32px 25px;min-height:310px;border-top:5px solid var(--orange);transition:background .25s}
-.service:hover{background:#ece9e7}
-.service-number{font:900 48px "Barlow Condensed";color:var(--orange)}
-.service h3{font-size:30px;margin:14px 0}
-.service ul{list-style:none;padding:0;margin:0}
-.service li{padding:8px 0;color:#625d5e;font-size:15px;border-bottom:1px solid #ddd8d6}
-.service li:last-child{border:0}
-.process{background:var(--navy);color:white}
-.process-head{text-align:center;margin:0 auto 50px;max-width:760px}
-.process-head h2{font-size:clamp(46px,6vw,78px)}
-.process-head p{color:#c4d0d2;font-size:18px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.step{position:relative;padding:40px 34px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);min-height:300px;transition:background .25s}
-.step:hover{background:rgba(255,255,255,.1)}
-.step-number{position:absolute;right:24px;top:12px;font:900 88px "Barlow Condensed";color:rgba(255,255,255,.08)}
-.step-label{font:800 13px "Barlow Condensed";letter-spacing:2px;color:var(--orange);text-transform:uppercase}
-.step h3{font-size:38px;margin:20px 0 14px}
-.step p{color:#c4d0d2;max-width:330px}
-.faq{background:white}
-.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
-.faq-intro h2{font-size:clamp(48px,6vw,78px)}
-.faq-intro p{color:#686264;font-size:18px}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:0;text-align:left;cursor:pointer;color:var(--charcoal);font:800 21px "Barlow Condensed";text-transform:uppercase}
-.faq-plus{width:34px;height:34px;flex:none;display:grid;place-items:center;background:var(--light);color:var(--navy);font:400 25px Barlow;transition:.25s}
-.faq-item.open .faq-plus{background:var(--orange);color:white;transform:rotate(45deg)}
-.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
-.faq-answer>div{overflow:hidden}
-.faq-answer p{margin:0;padding:0 45px 0 0;color:#6c6667}
-.faq-item.open .faq-answer{grid-template-rows:1fr}
-.faq-item.open .faq-answer p{padding-bottom:22px}
-.final-cta{background:var(--charcoal);color:white;text-align:center;position:relative;overflow:hidden}
-.final-cta:before{content:"MQ";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:900 34vw "Barlow Condensed";color:rgba(255,255,255,.025);pointer-events:none}
-.final-cta .container{position:relative}
-.final-cta h2{font-size:clamp(52px,8vw,108px);max-width:1050px;margin:0 auto 25px}
-.final-cta p{color:#c8c1c1;max-width:590px;margin:0 auto 30px;font-size:18px}
-.contact{background:var(--light)}
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:start}
-.contact h2{font-size:clamp(48px,6vw,76px)}
-.contact-copy{font-size:18px;color:#686264;max-width:470px}
-.contact-detail{display:flex;gap:14px;align-items:center;margin-top:24px;font-weight:600}
-.contact-icon{width:42px;height:42px;display:grid;place-items:center;background:var(--navy);color:white;font-size:18px}
-.contact-form{background:white;border-top:5px solid var(--orange);padding:clamp(24px,4vw,48px);box-shadow:0 20px 55px rgba(20,25,25,.06)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:flex;flex-direction:column;gap:8px}
-.field.full{grid-column:1/-1}
-.field label{font:800 13px "Barlow Condensed";letter-spacing:1.3px;text-transform:uppercase}
-.field input,.field textarea,.field select{width:100%;border:1px solid #ddd8d6;background:#fbfaf9;padding:14px 15px;outline:none;color:var(--charcoal);transition:border .2s}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--orange)}
-.field textarea{min-height:130px;resize:vertical}
-.form-status{font-size:14px;color:var(--navy);margin:12px 0 0;min-height:20px}
-footer{background:var(--navy);color:white;border-top:3px solid var(--orange);padding:58px 0 24px}
-.footer-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:42px;padding-bottom:45px}
-.footer-brand p{max-width:280px;color:#b9c7ca;font-size:14px}
-.footer-col h3{font:800 15px "Barlow Condensed";letter-spacing:1.8px;color:var(--orange);margin-bottom:18px}
-.footer-col a{display:block;color:#d1dcde;font-size:14px;margin:11px 0;transition:color .2s}
-.footer-col a:hover{color:var(--orange)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;justify-content:space-between;gap:20px;color:#aebdc0;font-size:13px}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.hero .hero-copy>*{animation:fadeUp .8s both}
-.hero .hero-copy>*:nth-child(1){animation-delay:.05s}.hero .hero-copy>*:nth-child(2){animation-delay:.16s}.hero .hero-copy>*:nth-child(3){animation-delay:.32s}.hero .hero-copy>*:nth-child(4){animation-delay:.46s}.hero .hero-copy>*:nth-child(5){animation-delay:.62s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes heroImage{from{opacity:0;transform:translateY(24px) scale(1.035)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes marquee{to{transform:translateX(-50%)}}
-@media(max-width:1100px){.nav-links{gap:13px}.nav-links a{font-size:12px}.hero-grid{gap:45px}.hero-visual{min-height:370px}.hero-image{height:370px}.services-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:73px;left:0;right:0;background:var(--navy);padding:22px var(--gutter) 28px;flex-direction:column;align-items:stretch;gap:0;border-bottom:3px solid var(--orange);max-height:calc(100vh - 76px);overflow:auto}.nav-links.open{display:flex}.nav-links a{font-size:17px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}.nav-cta{display:none}.hero-grid{grid-template-columns:1fr}.hero{padding-top:135px}.hero-copy{max-width:800px}.hero-visual{max-width:640px;min-height:350px;margin:10px auto 0;width:90%}.hero-image{height:350px}.problem-grid,.solution-top,.experience-grid,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:35px}.work-grid{grid-template-columns:repeat(2,1fr)}.client-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){:root{--gutter:20px;--section:68px}.brand-name{font-size:23px}.brand-mark{width:35px;height:35px}.nav-actions{gap:8px}.lang-switch button{padding:7px 6px}.hero{padding:125px 0 58px;min-height:auto}.hero h1{font-size:clamp(56px,14vw,78px);letter-spacing:-1px}.hero-desc{font-size:16px}.hero-buttons{display:grid;grid-template-columns:1fr 1fr}.hero-buttons .btn{padding:14px 12px;font-size:14px}.hero-stats{margin-top:40px}.stat{padding:0 12px}.stat strong{font-size:30px}.stat span{font-size:9px;letter-spacing:.7px}.hero-visual{width:88%;min-height:270px}.hero-image{height:270px;box-shadow:12px 12px 0 var(--orange)}.video-card{left:-25px;bottom:18px;padding:10px}.video-card b{font-size:14px}.video-card small{font-size:9px}.award{right:-18px;top:0;padding:10px 13px}.award strong{font-size:21px}.problem-list{grid-template-columns:1fr}.pillars,.steps{grid-template-columns:1fr}.pillar{padding:25px}.testimonial-head,.work-head{align-items:flex-start;flex-direction:column}.rating{text-align:left}.testimonial-card{grid-template-columns:1fr;gap:10px}.work-grid{grid-template-columns:1fr}.work-card{aspect-ratio:4/3}.client-grid{grid-template-columns:repeat(2,1fr);gap:8px}.client-logo{min-height:85px;font-size:20px}.services-grid{grid-template-columns:1fr}.service{min-height:auto;padding:27px}.step{min-height:260px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.contact-form{padding:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.footer-brand{grid-column:1/-1}.footer-bottom{flex-direction:column}.final-cta h2{font-size:clamp(48px,13vw,72px)}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.marquee-track{animation:none}}
-</style>
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
-html [data-mx]:not([data-mx="words"]){opacity:0}
-.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
-.mx-w>span{display:inline-block}
-[data-mx="words"] .mx-w>span{translate:0 112%}
-.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
-@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
-html,body{overflow-x:clip}
-/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
-.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
-.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
-.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
-.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
-.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
-.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
-@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
-.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
-.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
-.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
-.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
-.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
-.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
-.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
-.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
-.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
-.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
-.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
-.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
-.mx-contact .mx-t{min-width:0;flex:1}
-.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
-.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
-.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
-.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
-@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
-@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
-@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
-@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
-@media(max-width:420px){.nav-inner{gap:10px}.brand{gap:8px}.brand-name{font-size:19px}.brand-name small{letter-spacing:1px}.brand-mark{width:32px;height:32px}.lang-switch button{padding:7px 4px}}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Media Quest is a full-service marketing agency building brands through strategy, creative production and performance marketing.">
+  <meta name="theme-color" content="#0d343f">
+  <title>Media Quest — Make Your Brand Impossible to Ignore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0d343f;
+      --orange: #ff6724;
+      --charcoal: #353031;
+      --white: #fff;
+      --light: #f5f4f3;
+      --muted: #b9c3c5;
+      --border: #e2dfdd;
+      --max: 1400px;
+      --gutter: clamp(20px, 3.4vw, 48px);
+      --section: clamp(68px, 7vw, 108px)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 82px
+    }
+
+    body {
+      margin: 0;
+      color: var(--charcoal);
+      font-family: Barlow, Arial, sans-serif;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    .container {
+      width: min(100% - var(--gutter)*2, var(--max));
+      margin-inline: auto
+    }
+
+    section {
+      padding-block: var(--section)
+    }
+
+    h1,
+    h2,
+    h3,
+    .display {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: .94;
+      margin: 0
+    }
+
+    p {
+      line-height: 1.65
+    }
+
+    .eyebrow {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-size: 14px;
+      margin: 0 0 18px
+    }
+
+    .section-title {
+      font-size: clamp(42px, 5.4vw, 76px);
+      letter-spacing: -1.5px;
+      max-width: 760px
+    }
+
+    .section-copy {
+      font-size: 18px;
+      color: #666;
+      max-width: 610px
+    }
+
+    .accent {
+      color: var(--orange)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 28px;
+      background: var(--orange);
+      color: white;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 2px solid var(--orange);
+      transition: transform .25s, background .25s, border-color .25s
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #e95719;
+      border-color: #e95719
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, .7)
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--navy);
+      border-color: white
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      border-color: var(--navy)
+    }
+
+    .btn-dark:hover {
+      background: #174b58;
+      border-color: #174b58
+    }
+
+    header {
+      height: 76px;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(13, 52, 63, .97);
+      border-bottom: 3px solid var(--orange);
+      backdrop-filter: blur(12px)
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: white;
+      min-width: max-content
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      background: var(--orange);
+      display: grid;
+      place-items: center;
+      font-family: "Barlow Condensed";
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+      color: white
+    }
+
+    .brand-name {
+      font-family: "Barlow Condensed";
+      font-weight: 900;
+      font-size: 27px;
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .brand-name small {
+      display: block;
+      font: 600 8px Barlow, sans-serif;
+      letter-spacing: 2.3px;
+      margin-top: -3px;
+      color: #b9c7ca
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2.1vw, 30px)
+    }
+
+    .nav-links a {
+      font-family: "Barlow Condensed";
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #e7eeee;
+      transition: color .2s
+    }
+
+    .nav-links a:hover {
+      color: var(--orange)
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .lang-switch {
+      display: flex;
+      border: 1px solid rgba(255, 255, 255, .35);
+      padding: 3px
+    }
+
+    .lang-switch button {
+      background: transparent;
+      border: 0;
+      color: #d7e0e2;
+      padding: 7px 9px;
+      font-family: "Barlow Condensed";
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer
+    }
+
+    .lang-switch button.active {
+      background: var(--orange);
+      color: white
+    }
+
+    .nav-cta {
+      padding: 11px 17px;
+      font-size: 14px
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer
+    }
+
+    .hero {
+      min-height: 850px;
+      min-height: 100svh;
+      padding: 150px 0 72px;
+      background: var(--navy);
+      color: white;
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(90deg, rgba(7, 31, 38, .97) 0%, rgba(7, 31, 38, .87) 48%, rgba(7, 31, 38, .48) 100%), url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=72") center/cover
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -100px;
+      bottom: 0;
+      width: 42%;
+      height: 12px;
+      background: var(--orange);
+      transform: skewX(-35deg)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: clamp(34px, 6vw, 90px)
+    }
+
+    .hero-copy {
+      max-width: 780px
+    }
+
+    .hero .eyebrow {
+      color: #ff8b58
+    }
+
+    .hero h1 {
+      font-size: clamp(62px, 8.2vw, 116px);
+      letter-spacing: -2px;
+      line-height: .87;
+      margin-bottom: 28px
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+      display: block
+    }
+
+    .hero-desc {
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.6;
+      color: #d4dfe1;
+      max-width: 590px;
+      margin: 0 0 30px
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 58px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      padding-top: 25px
+    }
+
+    .stat {
+      padding: 0 28px;
+      border-right: 1px solid rgba(255, 255, 255, .2)
+    }
+
+    .stat:first-child {
+      padding-left: 0
+    }
+
+    .stat:last-child {
+      border: 0
+    }
+
+    .stat strong {
+      font: 900 clamp(30px, 3.2vw, 44px)/1 "Barlow Condensed";
+      display: block;
+      color: white
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      font: 700 12px "Barlow Condensed";
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: #b7c5c8
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 450px;
+      display: flex;
+      align-items: flex-end
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      filter: saturate(.78);
+      box-shadow: 22px 22px 0 var(--orange);
+      animation: heroImage .9s .35s both
+    }
+
+    .video-card {
+      position: absolute;
+      left: -42px;
+      bottom: 30px;
+      background: white;
+      color: var(--navy);
+      padding: 15px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 18px 45px #061e2470
+    }
+
+    .play {
+      width: 42px;
+      height: 42px;
+      background: var(--orange);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 16px
+    }
+
+    .video-card b {
+      display: block;
+      font: 800 17px "Barlow Condensed";
+      text-transform: uppercase
+    }
+
+    .video-card small {
+      display: block;
+      color: #758186;
+      font-size: 11px;
+      margin-top: 3px
+    }
+
+    .award {
+      position: absolute;
+      right: -16px;
+      top: 12px;
+      background: var(--orange);
+      color: white;
+      padding: 16px 19px;
+      text-align: center;
+      transform: rotate(4deg);
+      box-shadow: 0 12px 25px #0003
+    }
+
+    .award strong {
+      font: 900 26px "Barlow Condensed";
+      display: block
+    }
+
+    .award span {
+      font: 700 10px "Barlow Condensed";
+      letter-spacing: 1.3px
+    }
+
+    .marquee {
+      overflow: hidden;
+      background: var(--orange);
+      color: white;
+      padding: 14px 0
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite
+    }
+
+    .marquee span {
+      font: 800 18px "Barlow Condensed";
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 26px;
+      white-space: nowrap
+    }
+
+    .marquee span:after {
+      content: "✦";
+      padding-left: 48px
+    }
+
+    .problem {
+      background: var(--light)
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(40px, 8vw, 120px);
+      align-items: start
+    }
+
+    .problem h2 {
+      font-size: clamp(46px, 6vw, 82px)
+    }
+
+    .problem-copy {
+      font-size: 18px;
+      color: #656061;
+      margin: 8px 0 30px
+    }
+
+    .problem-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 26px
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-weight: 600
+    }
+
+    .check {
+      width: 25px;
+      height: 25px;
+      flex: none;
+      background: var(--orange);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 800
+    }
+
+    .solution {
+      background: white
+    }
+
+    .solution-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: end;
+      margin-bottom: 55px
+    }
+
+    .solution-top h2 {
+      font-size: clamp(48px, 6vw, 80px)
+    }
+
+    .solution-top p {
+      font-size: 18px;
+      color: #666;
+      max-width: 560px
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .pillar {
+      padding: 30px;
+      background: var(--light);
+      border-top: 4px solid var(--orange);
+      transition: transform .25s, background .25s
+    }
+
+    .pillar:hover {
+      transform: translateY(-7px);
+      background: #f0eeec
+    }
+
+    .pillar-num {
+      font: 900 46px "Barlow Condensed";
+      color: var(--orange);
+      opacity: .8
+    }
+
+    .pillar h3 {
+      font-size: 29px;
+      margin: 14px 0 10px
+    }
+
+    .pillar p {
+      color: #686264;
+      margin: 0
+    }
+
+    .experience {
+      background: var(--navy);
+      color: white
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center
+    }
+
+    .experience h2 {
+      font-size: clamp(48px, 6.3vw, 84px)
+    }
+
+    .experience-copy {
+      color: #c5d0d2;
+      font-size: 18px;
+      max-width: 600px
+    }
+
+    .industry-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px
+    }
+
+    .industry-tags span {
+      border: 1px solid #789096;
+      color: #dce5e6;
+      padding: 9px 13px;
+      font: 700 12px "Barlow Condensed";
+      letter-spacing: 1.2px;
+      text-transform: uppercase
+    }
+
+    .achievement-panel {
+      padding: 35px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .2)
+    }
+
+    .achievement-panel .eyebrow {
+      margin-bottom: 25px
+    }
+
+    .achievement {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .15);
+      font-size: 17px;
+      color: #e1e9ea
+    }
+
+    .achievement:last-child {
+      border: 0
+    }
+
+    .achievement b {
+      font: 900 32px "Barlow Condensed";
+      color: var(--orange);
+      min-width: 58px
+    }
+
+    .testimonials {
+      background: var(--light)
+    }
+
+    .testimonial-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 38px
+    }
+
+    .rating {
+      font: 800 14px "Barlow Condensed";
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: right
+    }
+
+    .rating strong {
+      display: block;
+      font: 900 36px "Barlow Condensed";
+      color: var(--orange)
+    }
+
+    .testimonial-window {
+      overflow: hidden
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.22, .61, .36, 1)
+    }
+
+    .testimonial-card {
+      min-width: 100%;
+      background: white;
+      border-top: 5px solid var(--orange);
+      padding: clamp(26px, 4vw, 48px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: end
+    }
+
+    .quote-mark {
+      font: 900 70px/.6 "Barlow Condensed";
+      color: var(--orange)
+    }
+
+    .testimonial-card blockquote {
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.5;
+      margin: 20px 0 28px;
+      max-width: 920px
+    }
+
+    .person strong {
+      font: 800 20px "Barlow Condensed";
+      text-transform: uppercase;
+      display: block
+    }
+
+    .person span {
+      font-size: 13px;
+      color: #7b7475
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px
+    }
+
+    .slider-controls button {
+      width: 44px;
+      height: 44px;
+      border: 1px solid #bcb6b5;
+      background: transparent;
+      color: var(--navy);
+      font-size: 20px;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .slider-controls button:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: white
+    }
+
+    .work {
+      background: var(--charcoal);
+      color: white
+    }
+
+    .work-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 45px
+    }
+
+    .work h2 {
+      font-size: clamp(48px, 6vw, 82px)
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #1f1d1d
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .72;
+      transition: transform .6s, opacity .4s
+    }
+
+    .work-card:hover img {
+      transform: scale(1.07);
+      opacity: .42
+    }
+
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      background: linear-gradient(transparent 30%, rgba(0, 0, 0, .78))
+    }
+
+    .work-overlay span {
+      font: 800 12px "Barlow Condensed";
+      letter-spacing: 1.8px;
+      color: var(--orange);
+      text-transform: uppercase
+    }
+
+    .work-overlay h3 {
+      font-size: clamp(23px, 2.4vw, 34px);
+      margin-top: 7px
+    }
+
+    .clients {
+      background: var(--light);
+      text-align: center
+    }
+
+    .clients h2 {
+      font-size: clamp(40px, 5vw, 66px);
+      margin-bottom: 12px
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 44px
+    }
+
+    .client-logo {
+      min-height: 112px;
+      background: white;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      color: #596368;
+      font: 900 24px "Barlow Condensed";
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .client-logo:nth-child(2n) {
+      color: var(--navy)
+    }
+
+    .services {
+      background: white
+    }
+
+    .services-head {
+      max-width: 720px;
+      margin-bottom: 50px
+    }
+
+    .services-head h2 {
+      font-size: clamp(48px, 6vw, 80px)
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      background: var(--border)
+    }
+
+    .service {
+      background: var(--light);
+      padding: 32px 25px;
+      min-height: 310px;
+      border-top: 5px solid var(--orange);
+      transition: background .25s
+    }
+
+    .service:hover {
+      background: #ece9e7
+    }
+
+    .service-number {
+      font: 900 48px "Barlow Condensed";
+      color: var(--orange)
+    }
+
+    .service h3 {
+      font-size: 30px;
+      margin: 14px 0
+    }
+
+    .service ul {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .service li {
+      padding: 8px 0;
+      color: #625d5e;
+      font-size: 15px;
+      border-bottom: 1px solid #ddd8d6
+    }
+
+    .service li:last-child {
+      border: 0
+    }
+
+    .process {
+      background: var(--navy);
+      color: white
+    }
+
+    .process-head {
+      text-align: center;
+      margin: 0 auto 50px;
+      max-width: 760px
+    }
+
+    .process-head h2 {
+      font-size: clamp(46px, 6vw, 78px)
+    }
+
+    .process-head p {
+      color: #c4d0d2;
+      font-size: 18px
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px
+    }
+
+    .step {
+      position: relative;
+      padding: 40px 34px;
+      background: rgba(255, 255, 255, .055);
+      border: 1px solid rgba(255, 255, 255, .14);
+      min-height: 300px;
+      transition: background .25s
+    }
+
+    .step:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .step-number {
+      position: absolute;
+      right: 24px;
+      top: 12px;
+      font: 900 88px "Barlow Condensed";
+      color: rgba(255, 255, 255, .08)
+    }
+
+    .step-label {
+      font: 800 13px "Barlow Condensed";
+      letter-spacing: 2px;
+      color: var(--orange);
+      text-transform: uppercase
+    }
+
+    .step h3 {
+      font-size: 38px;
+      margin: 20px 0 14px
+    }
+
+    .step p {
+      color: #c4d0d2;
+      max-width: 330px
+    }
+
+    .faq {
+      background: white
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px
+    }
+
+    .faq-intro h2 {
+      font-size: clamp(48px, 6vw, 78px)
+    }
+
+    .faq-intro p {
+      color: #686264;
+      font-size: 18px
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border)
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      background: none;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      color: var(--charcoal);
+      font: 800 21px "Barlow Condensed";
+      text-transform: uppercase
+    }
+
+    .faq-plus {
+      width: 34px;
+      height: 34px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      background: var(--light);
+      color: var(--navy);
+      font: 400 25px Barlow;
+      transition: .25s
+    }
+
+    .faq-item.open .faq-plus {
+      background: var(--orange);
+      color: white;
+      transform: rotate(45deg)
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .35s
+    }
+
+    .faq-answer>div {
+      overflow: hidden
+    }
+
+    .faq-answer p {
+      margin: 0;
+      padding: 0 45px 0 0;
+      color: #6c6667
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr
+    }
+
+    .faq-item.open .faq-answer p {
+      padding-bottom: 22px
+    }
+
+    .final-cta {
+      background: var(--charcoal);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .final-cta:before {
+      content: "MQ";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font: 900 34vw "Barlow Condensed";
+      color: rgba(255, 255, 255, .025);
+      pointer-events: none
+    }
+
+    .final-cta .container {
+      position: relative
+    }
+
+    .final-cta h2 {
+      font-size: clamp(52px, 8vw, 108px);
+      max-width: 1050px;
+      margin: 0 auto 25px
+    }
+
+    .final-cta p {
+      color: #c8c1c1;
+      max-width: 590px;
+      margin: 0 auto 30px;
+      font-size: 18px
+    }
+
+    .contact {
+      background: var(--light)
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(40px, 7vw, 100px);
+      align-items: start
+    }
+
+    .contact h2 {
+      font-size: clamp(48px, 6vw, 76px)
+    }
+
+    .contact-copy {
+      font-size: 18px;
+      color: #686264;
+      max-width: 470px
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-top: 24px;
+      font-weight: 600
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: white;
+      font-size: 18px
+    }
+
+    .contact-form {
+      background: white;
+      border-top: 5px solid var(--orange);
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: 0 20px 55px rgba(20, 25, 25, .06)
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .field.full {
+      grid-column: 1/-1
+    }
+
+    .field label {
+      font: 800 13px "Barlow Condensed";
+      letter-spacing: 1.3px;
+      text-transform: uppercase
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid #ddd8d6;
+      background: #fbfaf9;
+      padding: 14px 15px;
+      outline: none;
+      color: var(--charcoal);
+      transition: border .2s
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--orange)
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical
+    }
+
+    .form-status {
+      font-size: 14px;
+      color: var(--navy);
+      margin: 12px 0 0;
+      min-height: 20px
+    }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      border-top: 3px solid var(--orange);
+      padding: 58px 0 24px
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr;
+      gap: 42px;
+      padding-bottom: 45px
+    }
+
+    .footer-brand p {
+      max-width: 280px;
+      color: #b9c7ca;
+      font-size: 14px
+    }
+
+    .footer-col h3 {
+      font: 800 15px "Barlow Condensed";
+      letter-spacing: 1.8px;
+      color: var(--orange);
+      margin-bottom: 18px
+    }
+
+    .footer-col a {
+      display: block;
+      color: #d1dcde;
+      font-size: 14px;
+      margin: 11px 0;
+      transition: color .2s
+    }
+
+    .footer-col a:hover {
+      color: var(--orange)
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .16);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #aebdc0;
+      font-size: 13px
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.22, .61, .36, 1), transform .75s cubic-bezier(.22, .61, .36, 1)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .hero .hero-copy>* {
+      animation: fadeUp .8s both
+    }
+
+    .hero .hero-copy>*:nth-child(1) {
+      animation-delay: .05s
+    }
+
+    .hero .hero-copy>*:nth-child(2) {
+      animation-delay: .16s
+    }
+
+    .hero .hero-copy>*:nth-child(3) {
+      animation-delay: .32s
+    }
+
+    .hero .hero-copy>*:nth-child(4) {
+      animation-delay: .46s
+    }
+
+    .hero .hero-copy>*:nth-child(5) {
+      animation-delay: .62s
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes heroImage {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(1.035)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+      }
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @media(max-width:1100px) {
+      .nav-links {
+        gap: 13px
+      }
+
+      .nav-links a {
+        font-size: 12px
+      }
+
+      .hero-grid {
+        gap: 45px
+      }
+
+      .hero-visual {
+        min-height: 370px
+      }
+
+      .hero-image {
+        height: 370px
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:900px) {
+      .menu-toggle {
+        display: block
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        padding: 22px var(--gutter) 28px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-bottom: 3px solid var(--orange);
+        max-height: calc(100vh - 76px);
+        overflow: auto
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .nav-links a {
+        font-size: 17px;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .1)
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding-top: 135px
+      }
+
+      .hero-copy {
+        max-width: 800px
+      }
+
+      .hero-visual {
+        max-width: 640px;
+        min-height: 350px;
+        margin: 10px auto 0;
+        width: 90%
+      }
+
+      .hero-image {
+        height: 350px
+      }
+
+      .problem-grid,
+      .solution-top,
+      .experience-grid,
+      .faq-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px
+      }
+
+      .work-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .client-grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:600px) {
+      :root {
+        --gutter: 20px;
+        --section: 68px
+      }
+
+      .brand-name {
+        font-size: 23px
+      }
+
+      .brand-mark {
+        width: 35px;
+        height: 35px
+      }
+
+      .nav-actions {
+        gap: 8px
+      }
+
+      .lang-switch button {
+        padding: 7px 6px
+      }
+
+      .hero {
+        padding: 125px 0 58px;
+        min-height: auto
+      }
+
+      .hero h1 {
+        font-size: clamp(56px, 14vw, 78px);
+        letter-spacing: -1px
+      }
+
+      .hero-desc {
+        font-size: 16px
+      }
+
+      .hero-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .hero-buttons .btn {
+        padding: 14px 12px;
+        font-size: 14px
+      }
+
+      .hero-stats {
+        margin-top: 40px
+      }
+
+      .stat {
+        padding: 0 12px
+      }
+
+      .stat strong {
+        font-size: 30px
+      }
+
+      .stat span {
+        font-size: 9px;
+        letter-spacing: .7px
+      }
+
+      .hero-visual {
+        width: 88%;
+        min-height: 270px
+      }
+
+      .hero-image {
+        height: 270px;
+        box-shadow: 12px 12px 0 var(--orange)
+      }
+
+      .video-card {
+        left: -25px;
+        bottom: 18px;
+        padding: 10px
+      }
+
+      .video-card b {
+        font-size: 14px
+      }
+
+      .video-card small {
+        font-size: 9px
+      }
+
+      .award {
+        right: -18px;
+        top: 0;
+        padding: 10px 13px
+      }
+
+      .award strong {
+        font-size: 21px
+      }
+
+      .problem-list {
+        grid-template-columns: 1fr
+      }
+
+      .pillars,
+      .steps {
+        grid-template-columns: 1fr
+      }
+
+      .pillar {
+        padding: 25px
+      }
+
+      .testimonial-head,
+      .work-head {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .rating {
+        text-align: left
+      }
+
+      .testimonial-card {
+        grid-template-columns: 1fr;
+        gap: 10px
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr
+      }
+
+      .work-card {
+        aspect-ratio: 4/3
+      }
+
+      .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px
+      }
+
+      .client-logo {
+        min-height: 85px;
+        font-size: 20px
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr
+      }
+
+      .service {
+        min-height: auto;
+        padding: 27px
+      }
+
+      .step {
+        min-height: 260px
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr
+      }
+
+      .field.full {
+        grid-column: auto
+      }
+
+      .contact-form {
+        padding: 24px
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 20px
+      }
+
+      .footer-brand {
+        grid-column: 1/-1
+      }
+
+      .footer-bottom {
+        flex-direction: column
+      }
+
+      .final-cta h2 {
+        font-size: clamp(48px, 13vw, 72px)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none
+      }
+
+      .marquee-track {
+        animation: none
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <style id="mx-style">
+    /* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+    html [data-mx]:not([data-mx="words"]) {
+      opacity: 0
+    }
+
+    .mx-w {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding: .1em .04em .16em;
+      margin: -.1em -.04em -.16em
+    }
+
+    .mx-w>span {
+      display: inline-block
+    }
+
+    [data-mx="words"] .mx-w>span {
+      translate: 0 112%
+    }
+
+    .mx-fin .mx-w {
+      overflow: visible;
+      padding: 0;
+      margin: 0
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      [data-mx] {
+        opacity: 1 !important
+      }
+
+      [data-mx="words"] .mx-w>span {
+        translate: none !important
+      }
+    }
+
+    html,
+    body {
+      overflow-x: clip
+    }
+
+    /* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+    .mx-contact {
+      --ac: #d4af37;
+      --on: #111;
+      --glow: rgba(212, 175, 55, .22);
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding: clamp(56px, 9vw, 120px) clamp(16px, 4vw, 48px);
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #f4f5f7;
+      text-align: left;
+      position: relative;
+      z-index: 1
+    }
+
+    .mx-contact *,
+    .mx-contact *::before,
+    .mx-contact *::after {
+      box-sizing: border-box
+    }
+
+    .mx-contact .mx-panel {
+      position: relative;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: clamp(24px, 4vw, 56px);
+      align-items: center;
+      padding: clamp(22px, 4.5vw, 56px);
+      border-radius: clamp(20px, 3vw, 32px);
+      background: radial-gradient(110% 130% at 100% 0%, var(--glow), transparent 58%), linear-gradient(160deg, #10131a, #090b10);
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 34px 80px -34px rgba(0, 0, 0, .6);
+      overflow: hidden;
+      isolation: isolate
+    }
+
+    .mx-contact .mx-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      -webkit-mask-image: radial-gradient(80% 90% at 0% 100%, #000, transparent 70%);
+      mask-image: radial-gradient(80% 90% at 0% 100%, #000, transparent 70%)
+    }
+
+    .mx-contact .mx-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 7px 14px 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(255, 255, 255, .05);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      text-transform: none;
+      color: #e9ebef
+    }
+
+    .mx-contact .mx-badge i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ac);
+      box-shadow: 0 0 0 0 var(--glow);
+      animation: mxPulse 2.4s ease-out infinite
+    }
+
+    @keyframes mxPulse {
+      70% {
+        box-shadow: 0 0 0 10px transparent
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 transparent
+      }
+    }
+
+    .mx-contact .mx-title {
+      margin: 0 0 16px;
+      padding: 0;
+      font-family: inherit;
+      font-size: clamp(1.55rem, 1rem + 2.6vw, 2.7rem);
+      font-weight: 650;
+      line-height: 1.14;
+      letter-spacing: -.02em;
+      text-transform: none;
+      color: #fff;
+      max-width: none
+    }
+
+    .mx-contact .mx-text {
+      margin: 0 0 26px;
+      padding: 0;
+      max-width: 52ch;
+      font-size: clamp(.95rem, .9rem + .2vw, 1.05rem);
+      line-height: 1.65;
+      color: rgba(244, 245, 247, .72)
+    }
+
+    .mx-contact .mx-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: var(--ac);
+      color: var(--on);
+      font-weight: 650;
+      font-size: .97rem;
+      text-decoration: none;
+      border: 0;
+      transition: transform .25s, box-shadow .25s, filter .25s
+    }
+
+    .mx-contact .mx-cta svg {
+      width: 18px;
+      height: 18px;
+      transition: transform .25s
+    }
+
+    .mx-contact .mx-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -12px var(--ac);
+      filter: brightness(1.05)
+    }
+
+    .mx-contact .mx-cta:hover svg {
+      transform: translateX(3px)
+    }
+
+    .mx-contact .mx-note {
+      margin: 0 0 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(244, 245, 247, .5)
+    }
+
+    .mx-contact .mx-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .mx-contact .mx-tile {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 64px;
+      padding: 11px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: #fff;
+      text-decoration: none;
+      transition: transform .25s, background .25s, border-color .25s
+    }
+
+    .mx-contact .mx-tile:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .09);
+      border-color: var(--ac)
+    }
+
+    .mx-contact a:focus-visible {
+      outline: 2px solid var(--ac);
+      outline-offset: 3px
+    }
+
+    .mx-contact .mx-ico {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #fff
+    }
+
+    .mx-contact .mx-ico svg {
+      width: 24px;
+      height: 24px;
+      display: block
+    }
+
+    .mx-contact .mx-t {
+      min-width: 0;
+      flex: 1
+    }
+
+    .mx-contact .mx-t b {
+      display: block;
+      font-size: .96rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #fff
+    }
+
+    .mx-contact .mx-t small {
+      display: block;
+      margin-top: 2px;
+      font-size: .8rem;
+      line-height: 1.3;
+      color: rgba(244, 245, 247, .62);
+      overflow-wrap: anywhere
+    }
+
+    .mx-contact .mx-go {
+      flex: none;
+      width: 18px;
+      height: 18px;
+      opacity: .5;
+      transition: transform .25s, opacity .25s
+    }
+
+    .mx-contact .mx-tile:hover .mx-go {
+      transform: translateX(3px);
+      opacity: 1
+    }
+
+    @media (max-width:900px) {
+      .mx-contact .mx-panel {
+        grid-template-columns: 1fr
+      }
+
+      .mx-contact .mx-text {
+        max-width: none
+      }
+    }
+
+    @media (min-width:560px) and (max-width:900px) {
+      .mx-contact .mx-links {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .mx-contact .mx-links li:last-child {
+        grid-column: 1/-1
+      }
+    }
+
+    @media (max-width:380px) {
+      .mx-contact {
+        padding-left: 12px;
+        padding-right: 12px
+      }
+
+      .mx-contact .mx-panel {
+        padding: 20px 16px
+      }
+
+      .mx-contact .mx-cta {
+        width: 100%;
+        justify-content: center
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .mx-contact .mx-badge i {
+        animation: none
+      }
+
+      .mx-contact * {
+        transition: none !important
+      }
+    }
+
+    @media(max-width:420px) {
+      .nav-inner {
+        gap: 10px
+      }
+
+      .brand {
+        gap: 8px
+      }
+
+      .brand-name {
+        font-size: 19px
+      }
+
+      .brand-name small {
+        letter-spacing: 1px
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px
+      }
+
+      .lang-switch button {
+        padding: 7px 4px
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <div class="container nav-inner">
-    <a class="brand" href="#home" aria-label="Media Quest home"><span class="brand-mark">M</span><span class="brand-name">Media Quest<small>FULL SERVICE MARKETING</small></span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#home" data-en="Home" data-id="Beranda">Home</a><a href="#services" data-en="Services" data-id="Layanan">Services</a><a href="#about" data-en="About" data-id="Tentang">About</a><a href="#work" data-en="Our Work" data-id="Portfolio">Our Work</a><a href="#process" data-en="Process" data-id="Proses">Process</a><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="lang-switch" aria-label="Language selector"><button class="active" data-lang="en" aria-pressed="true">EN</button><button data-lang="id" aria-pressed="false">ID</button></div>
-      <a class="btn nav-cta" href="#contact" data-en="Let's Talk" data-id="Mari Bicara">Let's Talk</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <header>
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="Media Quest home"><span class="brand-mark">M</span><span
+          class="brand-name">Media Quest<small>FULL SERVICE MARKETING</small></span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" data-en="Home" data-id="Beranda">Home</a><a href="#services" data-en="Services"
+          data-id="Layanan">Services</a><a href="#about" data-en="About" data-id="Tentang">About</a><a href="#work"
+          data-en="Our Work" data-id="Portfolio">Our Work</a><a href="#process" data-en="Process"
+          data-id="Proses">Process</a><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" aria-label="Language selector"><button class="active" data-lang="en"
+            aria-pressed="true">EN</button><button data-lang="id" aria-pressed="false">ID</button></div>
+        <a class="btn nav-cta" href="#contact" data-en="Let's Talk" data-id="Mari Bicara">Let's Talk</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-en="Creative storytelling · Strategic advertising · Real growth"
+            data-id="Cerita kreatif · Iklan strategis · Pertumbuhan nyata">Creative storytelling · Strategic advertising
+            · Real growth</p>
+          <h1 data-en-html="MAKE YOUR BRAND <span>IMPOSSIBLE TO IGNORE.</span>"
+            data-id-html="BUAT BRAND ANDA <span>SULIT UNTUK DIABAIKAN.</span>">MAKE YOUR BRAND <span>IMPOSSIBLE TO
+              IGNORE.</span></h1>
+          <p class="hero-desc"
+            data-en="We turn ambitious businesses into memorable brands. Strategy, video, websites, SEO, social media and advertising — all working together to move your business forward."
+            data-id="Kami mengubah bisnis ambisius menjadi brand yang mudah diingat. Strategi, video, website, SEO, media sosial, dan iklan bekerja bersama untuk mendorong bisnis Anda berkembang.">
+            We turn ambitious businesses into memorable brands. Strategy, video, websites, SEO, social media and
+            advertising — all working together to move your business forward.</p>
+          <div class="hero-buttons"><a class="btn" href="#contact" data-en="Start a Conversation ↗"
+              data-id="Mulai Konsultasi ↗">Start a Conversation ↗</a><a class="btn btn-outline" href="#work"
+              data-en="Explore Our Work" data-id="Lihat Portfolio">Explore Our Work</a></div>
+          <div class="hero-stats">
+            <div class="stat"><strong>25+</strong><span data-en="Years in Business" data-id="Tahun Pengalaman">Years in
+                Business</span></div>
+            <div class="stat"><strong>93%</strong><span data-en="Yearly Retention"
+                data-id="Retensi Klien Tahunan">Yearly Retention</span></div>
+            <div class="stat"><strong>3×</strong><span data-en="Average Ad CTR" data-id="Rata-rata CTR Iklan">Average Ad
+                CTR</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-image"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=72"
+            alt="Desk with laptop and notes" decoding="async">
+          <div class="award"><strong>25+</strong><span data-en="YEARS OF IDEAS" data-id="TAHUN PENUH IDE">YEARS OF
+              IDEAS</span></div>
+          <div class="video-card"><span class="play">▶</span><span><b data-en="Ideas into impact"
+                data-id="Ide menjadi dampak">Ideas into impact</b><small data-en="Strategy that moves business"
+                data-id="Strategi yang menggerakkan bisnis">Strategy that moves business</small></span></div>
+        </div>
+      </div>
+    </section>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track"><span>Strategy</span><span>Creative Production</span><span>Digital
+          Marketing</span><span>Brand Growth</span><span>Strategy</span><span>Creative Production</span><span>Digital
+          Marketing</span><span>Brand Growth</span></div>
+    </div>
+    <section class="problem" id="about">
+      <div class="container problem-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Move forward when others are held back"
+            data-id="Melangkah lebih jauh dari yang lain">Move forward when others are held back</p>
+          <h2 data-en-html="YOUR BRAND DESERVES TO BE <span class='accent'>THE AUTHORITY.</span>"
+            data-id-html="BRAND ANDA LAYAK MENJADI <span class='accent'>YANG TERDEPAN.</span>">YOUR BRAND DESERVES TO BE
+            <span class="accent">THE AUTHORITY.</span></h2>
+        </div>
+        <div class="reveal">
+          <p class="problem-copy"
+            data-en="A great business can still be overlooked when its story is unclear. We bring your message, visuals and marketing efforts together so the right people understand why you matter."
+            data-id="Bisnis yang hebat tetap bisa terlewat ketika ceritanya tidak tersampaikan dengan jelas. Kami menyatukan pesan, visual, dan aktivitas pemasaran agar pelanggan memahami alasan bisnis Anda layak dipilih.">
+            A great business can still be overlooked when its story is unclear. We bring your message, visuals and
+            marketing efforts together so the right people understand why you matter.</p>
+          <div class="problem-list">
+            <div class="problem-item"><span class="check">✓</span><span
+                data-en="Turn cold introductions into warm conversations"
+                data-id="Ubah calon pelanggan asing menjadi percakapan yang hangat">Turn cold introductions into warm
+                conversations</span></div>
+            <div class="problem-item"><span class="check">✓</span><span data-en="Attract the right customers and talent"
+                data-id="Tarik pelanggan dan talenta yang tepat">Attract the right customers and talent</span></div>
+            <div class="problem-item"><span class="check">✓</span><span data-en="Build a brand people remember"
+                data-id="Bangun brand yang mudah diingat">Build a brand people remember</span></div>
+            <div class="problem-item"><span class="check">✓</span><span
+                data-en="Bring every marketing effort into one direction"
+                data-id="Satukan seluruh aktivitas pemasaran">Bring every marketing effort into one direction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="solution">
+      <div class="container">
+        <div class="solution-top reveal">
+          <div>
+            <p class="eyebrow" data-en="Your team, extended" data-id="Tim pemasaran yang lebih lengkap">Your team,
+              extended</p>
+            <h2 data-en-html="YOUR <span class='accent'>MARKETING</span> DEPARTMENT."
+              data-id-html="DEPARTEMEN <span class='accent'>PEMASARAN</span> ANDA.">YOUR <span
+                class="accent">MARKETING</span> DEPARTMENT.</h2>
+          </div>
+          <p data-en="Get the thinking, talent and execution of a complete marketing team — without the complexity of building one from scratch. We work alongside you, stay connected and keep every asset working toward the same goal."
+            data-id="Dapatkan strategi, talenta, dan eksekusi dari tim pemasaran lengkap tanpa kerumitan membangunnya dari awal. Kami bekerja bersama Anda dan menjaga setiap aset tetap menuju tujuan yang sama.">
+            Get the thinking, talent and execution of a complete marketing team — without the complexity of building one
+            from scratch. We work alongside you, stay connected and keep every asset working toward the same goal.</p>
+        </div>
+        <div class="pillars">
+          <article class="pillar reveal">
+            <div class="pillar-num">01</div>
+            <h3 data-en="No Long-Term Contracts" data-id="Tanpa Kontrak Jangka Panjang">No Long-Term Contracts</h3>
+            <p data-en="A partnership built on results, trust and the value we bring every month."
+              data-id="Kemitraan yang dibangun dari hasil, kepercayaan, dan nilai yang kami berikan setiap bulan.">A
+              partnership built on results, trust and the value we bring every month.</p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pillar-num">02</div>
+            <h3 data-en="You Own the Assets" data-id="Aset Tetap Milik Anda">You Own the Assets</h3>
+            <p data-en="Your brand, content and creative assets remain yours. We build value that lasts."
+              data-id="Brand, konten, dan aset kreatif tetap menjadi milik Anda. Kami membangun nilai jangka panjang.">
+              Your brand, content and creative assets remain yours. We build value that lasts.</p>
+          </article>
+          <article class="pillar reveal">
+            <div class="pillar-num">03</div>
+            <h3 data-en="Consistent Contact" data-id="Komunikasi Konsisten">Consistent Contact</h3>
+            <p data-en="Clear communication, thoughtful collaboration and direct access to your team."
+              data-id="Komunikasi yang jelas, kolaborasi terarah, dan akses langsung ke tim kami.">Clear communication,
+              thoughtful collaboration and direct access to your team.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="experience">
+      <div class="container experience-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Experience that makes a difference" data-id="Pengalaman yang memberi dampak">
+            Experience that makes a difference</p>
+          <h2 data-en-html="BUILT ON EXPERIENCE. <span class='accent'>DRIVEN BY WHAT'S NEXT.</span>"
+            data-id-html="BERLANDASKAN PENGALAMAN. <span class='accent'>BERGERAK MENUJU MASA DEPAN.</span>">BUILT ON
+            EXPERIENCE. <span class="accent">DRIVEN BY WHAT'S NEXT.</span></h2>
+          <p class="experience-copy"
+            data-en="Since 1999, we've helped organizations communicate with clarity, connect with the right audience and turn ambitious plans into measurable progress."
+            data-id="Sejak 1999, kami membantu berbagai organisasi berkomunikasi dengan jelas, terhubung dengan audiens yang tepat, dan mengubah rencana besar menjadi kemajuan yang terukur.">
+            Since 1999, we've helped organizations communicate with clarity, connect with the right audience and turn
+            ambitious plans into measurable progress.</p>
+          <div class="industry-tags">
+            <span>Industrial</span><span>Telecom</span><span>Restaurants</span><span>Healthcare</span><span>Non-profits</span>
+          </div>
+        </div>
+        <div class="achievement-panel reveal">
+          <p class="eyebrow" data-en="A few things we're proud of" data-id="Beberapa hal yang kami banggakan">A few
+            things we're proud of</p>
+          <div class="achievement"><b>20+</b><span data-en="Year-long client partnerships built on trust"
+              data-id="Kemitraan klien lebih dari 20 tahun yang dibangun atas kepercayaan">Year-long client partnerships
+              built on trust</span></div>
+          <div class="achievement"><b>95%</b><span data-en="Annual client retention highlighted in our experience"
+              data-id="Retensi klien tahunan yang mencerminkan pengalaman kami">Annual client retention highlighted in
+              our experience</span></div>
+          <div class="achievement"><b>360°</b><span data-en="Connected thinking across brand, content and campaigns"
+              data-id="Strategi terhubung untuk brand, konten, dan kampanye">Connected thinking across brand, content
+              and campaigns</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials">
+      <div class="container">
+        <div class="testimonial-head reveal">
+          <div>
+            <p class="eyebrow" data-en="Partnership speaks louder" data-id="Kepercayaan berbicara lebih kuat">
+              Partnership speaks louder</p>
+            <h2 class="section-title" data-en="WHAT CLIENTS VALUE." data-id="APA KATA PARA KLIEN.">WHAT CLIENTS VALUE.
+            </h2>
+          </div>
+          <div class="rating"><strong>5.0 ★★★★★</strong><span data-en="Client experience matters"
+              data-id="Pengalaman klien adalah prioritas">Client experience matters</span></div>
+        </div>
+        <div class="testimonial-window reveal">
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="testimonial-card">
+              <div>
+                <div class="quote-mark">“</div>
+                <blockquote
+                  data-en="The best partnerships are the ones where the team understands your business, brings ideas to the table and makes the work feel effortless."
+                  data-id="Kemitraan terbaik hadir ketika tim memahami bisnis Anda, membawa ide-ide segar, dan membuat proses kerja terasa lebih mudah.">
+                  The best partnerships are the ones where the team understands your business, brings ideas to the table
+                  and makes the work feel effortless.</blockquote>
+                <div class="person"><strong>Tony King</strong><span>K&B Oilfield Services</span></div>
+              </div>
+              <div class="person"><strong>01 / 03</strong><span data-en="Client perspective"
+                  data-id="Perspektif klien">Client perspective</span></div>
+            </article>
+            <article class="testimonial-card">
+              <div>
+                <div class="quote-mark">“</div>
+                <blockquote
+                  data-en="Clear communication and thoughtful creative work make a real difference. It feels like having a marketing team right beside us."
+                  data-id="Komunikasi yang jelas dan karya kreatif yang matang memberikan dampak nyata. Rasanya seperti memiliki tim pemasaran sendiri.">
+                  Clear communication and thoughtful creative work make a real difference. It feels like having a
+                  marketing team right beside us.</blockquote>
+                <div class="person"><strong>Matt Faggione</strong><span>Etex</span></div>
+              </div>
+              <div class="person"><strong>02 / 03</strong><span data-en="Client perspective"
+                  data-id="Perspektif klien">Client perspective</span></div>
+            </article>
+            <article class="testimonial-card">
+              <div>
+                <div class="quote-mark">“</div>
+                <blockquote
+                  data-en="A strong creative partner helps turn complex ideas into a message people can understand, remember and act on."
+                  data-id="Mitra kreatif yang kuat membantu mengubah ide kompleks menjadi pesan yang mudah dipahami, diingat, dan ditindaklanjuti.">
+                  A strong creative partner helps turn complex ideas into a message people can understand, remember and
+                  act on.</blockquote>
+                <div class="person"><strong>Justin Waite</strong><span>Client Partner</span></div>
+              </div>
+              <div class="person"><strong>03 / 03</strong><span data-en="Client perspective"
+                  data-id="Perspektif klien">Client perspective</span></div>
+            </article>
+          </div>
+        </div>
+        <div class="slider-controls"><button id="prevTestimonial" aria-label="Previous testimonial">←</button><button
+            id="nextTestimonial" aria-label="Next testimonial">→</button></div>
+      </div>
+    </section>
+    <section class="work" id="work">
+      <div class="container">
+        <div class="work-head reveal">
+          <div>
+            <p class="eyebrow" data-en="Ideas made visible" data-id="Ide yang menjadi nyata">Ideas made visible</p>
+            <h2 data-en-html="WORK THAT <span class='accent'>MOVES</span> PEOPLE."
+              data-id-html="KARYA YANG <span class='accent'>MENGGERAKKAN</span> AUDIENS.">WORK THAT <span
+                class="accent">MOVES</span> PEOPLE.</h2>
+          </div><a class="btn" href="#contact" data-en="Build Something Together ↗"
+            data-id="Bangun Sesuatu Bersama ↗">Build Something Together ↗</a>
+        </div>
+        <div class="work-grid">
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=72"
+              alt="Analytics dashboard on screen" decoding="async">
+            <div class="work-overlay"><span>Oil &amp; Gas</span>
+              <h3>Thomas Oilfield Services</h3>
+            </div>
+          </article>
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=72"
+              alt="Fine dining dish" decoding="async">
+            <div class="work-overlay"><span>Hospitality</span>
+              <h3>Serenity Ranch Table</h3>
+            </div>
+          </article>
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=72"
+              alt="Industrial equipment" decoding="async">
+            <div class="work-overlay"><span>Heavy Equipment</span>
+              <h3>LTC Rental Sales</h3>
+            </div>
+          </article>
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=72"
+              alt="Modern workspace" decoding="async">
+            <div class="work-overlay"><span>Non-profit</span>
+              <h3>Community Healthcore</h3>
+            </div>
+          </article>
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=72"
+              alt="Modern workspace" decoding="async">
+            <div class="work-overlay"><span>Telecom</span>
+              <h3>Etex</h3>
+            </div>
+          </article>
+          <article class="work-card reveal"><img loading="lazy"
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=72"
+              alt="Modern company workspace" decoding="async">
+            <div class="work-overlay"><span>Healthcare</span>
+              <h3>Longview Regional Medical Center</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="clients">
+      <div class="container reveal">
+        <p class="eyebrow" data-en="Trusted by ambitious teams" data-id="Dipercaya oleh tim yang terus berkembang">
+          Trusted by ambitious teams</p>
+        <h2 data-en="BUILT ON GOOD COMPANY." data-id="TUMBUH BERSAMA MITRA TERBAIK.">BUILT ON GOOD COMPANY.</h2>
+        <p class="section-copy" style="margin:12px auto 0"
+          data-en="Strong relationships create stronger work. We value every team that trusts us with its next chapter."
+          data-id="Hubungan yang kuat menghasilkan karya yang lebih baik. Kami menghargai setiap tim yang mempercayakan langkah berikutnya kepada kami.">
+          Strong relationships create stronger work. We value every team that trusts us with its next chapter.</p>
+        <div class="client-grid">
+          <div class="client-logo">THOMAS</div>
+          <div class="client-logo">ETEX</div>
+          <div class="client-logo">AFCC</div>
+          <div class="client-logo">LTC</div>
+          <div class="client-logo">HEALTHCORE</div>
+          <div class="client-logo">MEDSHOP</div>
+          <div class="client-logo">WELLNESS POINTE</div>
+          <div class="client-logo">RUGARU</div>
+        </div>
+      </div>
+    </section>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-head reveal">
+          <p class="eyebrow" data-en="One connected growth engine" data-id="Satu strategi pertumbuhan terpadu">One
+            connected growth engine</p>
+          <h2 data-en-html="EVERYTHING YOUR BRAND NEEDS TO <span class='accent'>GROW.</span>"
+            data-id-html="SEMUA YANG BRAND ANDA BUTUHKAN UNTUK <span class='accent'>TUMBUH.</span>">EVERYTHING YOUR
+            BRAND NEEDS TO <span class="accent">GROW.</span></h2>
+          <p class="section-copy"
+            data-en="From the first strategic question to the final performance report, we connect every part of your marketing."
+            data-id="Dari pertanyaan strategis pertama hingga laporan performa akhir, kami menghubungkan setiap bagian pemasaran Anda.">
+            From the first strategic question to the final performance report, we connect every part of your marketing.
+          </p>
+        </div>
+        <div class="services-grid">
+          <article class="service reveal">
+            <div class="service-number">01</div>
+            <h3 data-en="Strategy" data-id="Strategi">Strategy</h3>
+            <ul>
+              <li>Ideal Customer Profile</li>
+              <li>Competitor Research</li>
+              <li>Unique Selling Point</li>
+              <li>Brand Identity</li>
+            </ul>
+          </article>
+          <article class="service reveal">
+            <div class="service-number">02</div>
+            <h3 data-en="Production" data-id="Produksi">Production</h3>
+            <ul>
+              <li>Video &amp; Photography</li>
+              <li>Graphic Design</li>
+              <li>Web Design &amp; Development</li>
+              <li>Creative Campaigns</li>
+            </ul>
+          </article>
+          <article class="service reveal">
+            <div class="service-number">03</div>
+            <h3 data-en="Distribution" data-id="Distribusi">Distribution</h3>
+            <ul>
+              <li>Google Ads &amp; SEO</li>
+              <li>Social Media</li>
+              <li>Print &amp; Direct Mail</li>
+              <li>Outdoor, TV &amp; Radio</li>
+            </ul>
+          </article>
+          <article class="service reveal">
+            <div class="service-number">04</div>
+            <h3 data-en="Analytics" data-id="Analitik">Analytics</h3>
+            <ul>
+              <li>Performance Reports</li>
+              <li>Strategy Meetings</li>
+              <li>Campaign Optimization</li>
+              <li>Refine &amp; Grow</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="process" id="process">
+      <div class="container">
+        <div class="process-head reveal">
+          <p class="eyebrow" data-en="A clear path forward" data-id="Langkah yang terarah">A clear path forward</p>
+          <h2 data-en="LISTEN. LAUNCH. <span class='accent'>LAND.</span>"
+            data-id="DENGARKAN. LUNCURKAN. <span class='accent'>CAPAI.</span>">LISTEN. LAUNCH. <span
+              class="accent">LAND.</span></h2>
+          <p data-en="Our strongest partnerships follow three simple steps, with your goals at the center of every decision."
+            data-id="Kemitraan terbaik kami mengikuti tiga langkah sederhana dengan tujuan bisnis Anda sebagai pusat setiap keputusan.">
+            Our strongest partnerships follow three simple steps, with your goals at the center of every decision.</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><span class="step-number">01</span><span class="step-label">Step One</span>
+            <h3 data-en="Listen" data-id="Dengarkan">Listen</h3>
+            <p data-en="We learn your industry, competitors, customers and ambitions before shaping a plan that fits."
+              data-id="Kami mempelajari industri, kompetitor, pelanggan, dan ambisi Anda sebelum menyusun strategi yang tepat.">
+              We learn your industry, competitors, customers and ambitions before shaping a plan that fits.</p>
+          </article>
+          <article class="step reveal"><span class="step-number">02</span><span class="step-label">Step Two</span>
+            <h3 data-en="Launch" data-id="Luncurkan">Launch</h3>
+            <p data-en="We create the brand video, website, creative materials and campaigns that bring your story to life."
+              data-id="Kami membuat video brand, website, materi kreatif, dan kampanye yang menghidupkan cerita bisnis Anda.">
+              We create the brand video, website, creative materials and campaigns that bring your story to life.</p>
+          </article>
+          <article class="step reveal"><span class="step-number">03</span><span class="step-label">Step Three</span>
+            <h3 data-en="Land" data-id="Capai">Land</h3>
+            <p data-en="We keep momentum through ongoing marketing, performance reviews and smarter next steps."
+              data-id="Kami menjaga momentum melalui pemasaran berkelanjutan, evaluasi performa, dan langkah berikutnya yang lebih cerdas.">
+              We keep momentum through ongoing marketing, performance reviews and smarter next steps.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <p class="eyebrow" data-en="Good questions. Clear answers." data-id="Pertanyaan penting. Jawaban jelas.">Good
+            questions. Clear answers.</p>
+          <h2 data-en="A FEW THINGS YOU MAY BE WONDERING." data-id="HAL YANG MUNGKIN INGIN ANDA TANYAKAN.">A FEW THINGS
+            YOU MAY BE WONDERING.</h2>
+          <p data-en="Every partnership starts with a conversation. Here are a few helpful things to know."
+            data-id="Setiap kemitraan dimulai dengan percakapan. Berikut beberapa hal yang perlu Anda ketahui.">Every
+            partnership starts with a conversation. Here are a few helpful things to know.</p>
+        </div>
+        <div class="faq-list reveal">
+          <div class="faq-item open"><button class="faq-question" aria-expanded="true"><span data-en="Do you use AI?"
+                data-id="Apakah Anda menggunakan AI?">Do you use AI?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer">
+              <div>
+                <p data-en="AI can help our team move faster and explore possibilities. Strategy, creative direction and final decisions remain guided by experienced professionals who understand your business."
+                  data-id="AI dapat membantu tim bekerja lebih cepat dan mengeksplorasi berbagai kemungkinan. Strategi, arahan kreatif, dan keputusan akhir tetap dipandu oleh profesional berpengalaman yang memahami bisnis Anda.">
+                  AI can help our team move faster and explore possibilities. Strategy, creative direction and final
+                  decisions remain guided by experienced professionals who understand your business.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span
+                data-en="Do I need a long-term contract?" data-id="Apakah saya harus terikat kontrak jangka panjang?">Do
+                I need a long-term contract?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer">
+              <div>
+                <p data-en="Our approach is built around a valuable working relationship, not locking clients into unnecessary long-term commitments. We will discuss a scope that fits your goals."
+                  data-id="Pendekatan kami berfokus pada hubungan kerja yang bernilai, bukan mengikat klien dengan komitmen jangka panjang yang tidak diperlukan. Kami akan membahas ruang lingkup yang sesuai dengan tujuan Anda.">
+                  Our approach is built around a valuable working relationship, not locking clients into unnecessary
+                  long-term commitments. We will discuss a scope that fits your goals.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span
+                data-en="Who owns the creative assets?" data-id="Siapa pemilik aset kreatif?">Who owns the creative
+                assets?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer">
+              <div>
+                <p data-en="The source blueprint emphasizes client ownership of delivered assets. The exact terms can be confirmed in the project agreement."
+                  data-id="Blueprint sumber menekankan bahwa aset yang diserahkan menjadi milik klien. Ketentuan pastinya dapat dikonfirmasi dalam kesepakatan proyek.">
+                  The source blueprint emphasizes client ownership of delivered assets. The exact terms can be confirmed
+                  in the project agreement.</p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item"><button class="faq-question" aria-expanded="false"><span
+                data-en="Can you manage all our marketing?" data-id="Bisakah Anda mengelola seluruh pemasaran kami?">Can
+                you manage all our marketing?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer">
+              <div>
+                <p data-en="Yes. Services can span strategy, creative production, digital distribution and performance analytics, coordinated around your business priorities."
+                  data-id="Bisa. Layanan dapat mencakup strategi, produksi kreatif, distribusi digital, dan analitik performa yang diselaraskan dengan prioritas bisnis Anda.">
+                  Yes. Services can span strategy, creative production, digital distribution and performance analytics,
+                  coordinated around your business priorities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="final-cta">
+      <div class="container reveal">
+        <p class="eyebrow" data-en="Ready for the next chapter?" data-id="Siap untuk langkah berikutnya?">Ready for the
+          next chapter?</p>
+        <h2 data-en-html="LET'S MAKE YOUR BRAND <span class='accent'>MATTER.</span>"
+          data-id-html="SAATNYA MEMBUAT BRAND ANDA <span class='accent'>BERMAKNA.</span>">LET'S MAKE YOUR BRAND <span
+            class="accent">MATTER.</span></h2>
+        <p data-en="Your business has a story worth telling. Let's give it the strategy, creativity and reach it deserves."
+          data-id="Bisnis Anda memiliki cerita yang layak dikenal. Mari berikan strategi, kreativitas, dan jangkauan yang pantas untuknya.">
+          Your business has a story worth telling. Let's give it the strategy, creativity and reach it deserves.</p><a
+          class="btn" href="#contact" data-en="Let's Build What's Next ↗" data-id="Bangun Langkah Berikutnya ↗">Let's
+          Build What's Next ↗</a>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-en="Start with a conversation" data-id="Awali dengan percakapan">Start with a
+            conversation</p>
+          <h2 data-en-html="LET'S TALK ABOUT <span class='accent'>WHAT'S POSSIBLE.</span>"
+            data-id-html="MARI BAHAS <span class='accent'>PELUANG ANDA.</span>">LET'S TALK ABOUT <span
+              class="accent">WHAT'S POSSIBLE.</span></h2>
+          <p class="contact-copy"
+            data-en="Tell us where you want to go. We'll help you think through the next move and the right way to get there."
+            data-id="Ceritakan tujuan yang ingin Anda capai. Kami akan membantu merancang langkah berikutnya dan cara terbaik untuk mencapainya.">
+            Tell us where you want to go. We'll help you think through the next move and the right way to get there.</p>
+          <div class="contact-detail"><span class="contact-icon">✉</span><span>hello@mediaquestweb.com</span></div>
+          <div class="contact-detail"><span class="contact-icon">⌖</span><span data-en="Longview, Texas, United States"
+              data-id="Longview, Texas, Amerika Serikat">Longview, Texas, United States</span></div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-grid">
+            <div class="field"><label for="name" data-en="Your Name" data-id="Nama Anda">Your Name</label><input
+                id="name" name="name" required placeholder="Jane Smith"></div>
+            <div class="field"><label for="email" data-en="Email Address" data-id="Alamat Email">Email
+                Address</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+            <div class="field full"><label for="source" data-en="How did you hear about us?"
+                data-id="Dari mana Anda mengenal kami?">How did you hear about us?</label><select id="source"
+                name="source">
+                <option value="">Select an option</option>
+                <option>Google</option>
+                <option>Social Media</option>
+                <option>Referral</option>
+                <option>Other</option>
+              </select></div>
+            <div class="field full"><label for="message" data-en="Tell us about your project"
+                data-id="Ceritakan tentang proyek Anda">Tell us about your project</label><textarea id="message"
+                name="message" required placeholder="What are you looking to achieve?"></textarea></div>
+            <div class="field full"><button class="btn btn-dark" type="submit" data-en="Send Your Message ↗"
+                data-id="Kirim Pesan Anda ↗">Send Your Message ↗</button>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title"
+    style="--ac:#ff6724;--on:#111111;--glow:rgba(255,103,36,.24)">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#FEDA75" />
+          <stop offset=".3" stop-color="#FA7E1E" />
+          <stop offset=".55" stop-color="#D62976" />
+          <stop offset=".8" stop-color="#962FBF" />
+          <stop offset="1" stop-color="#4F5BD5" />
+        </linearGradient>
+        <symbol id="mxi-gmail" viewBox="0 0 24 24">
+          <path fill="#EA4335"
+            d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+        </symbol>
+        <symbol id="mxi-linkedin" viewBox="0 0 24 24">
+          <path fill="#0A66C2"
+            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </symbol>
+        <symbol id="mxi-instagram" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1" />
+          <circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1" />
+          <circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)" />
+        </symbol>
+        <symbol id="mxi-tiktok" viewBox="0 0 24 24">
+          <path id="mxTk"
+            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            fill="#25F4EE" transform="translate(-.7 -.5)" />
+          <path
+            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            fill="#FE2C55" transform="translate(.7 .5)" />
+          <path
+            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+            fill="#000" />
+        </symbol>
+        <symbol id="mxi-youtube" viewBox="0 0 24 24">
+          <rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000" />
+          <path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff" />
+        </symbol>
+        <symbol id="mxi-go" viewBox="0 0 24 24">
+          <path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </symbol>
+      </defs>
+    </svg>
+    <div class="mx-panel">
+      <div class="mx-intro" data-mx-v="left">
+        <p class="mx-badge"><i></i><span data-mxt="badge">Open for collaboration</span></p>
+        <h2 class="mx-title" id="mx-ct-title" data-mxt="title">Interested in working together, endorsements, or a
+          website like this?</h2>
+        <p class="mx-text" data-mxt="text">Get in touch for collaborations, endorsements, or professional landing page
+          and website design, from concept and design to animation and launch.</p>
+        <a class="mx-cta"
+          href="mailto:ijlalainun@gmail.com?subject=Collaboration%20/%20website%20design%20inquiry"><span
+            data-mxt="cta">Send an email</span><svg viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#mxi-go" />
+          </svg></a>
+      </div>
+      <div class="mx-side">
+        <p class="mx-note" data-mxt="note">Find me on</p>
+        <ul class="mx-links" data-mx-group="up">
+          <li><a class="mx-tile"
+              href="mailto:ijlalainun@gmail.com?subject=Collaboration%20/%20website%20design%20inquiry"><span
+                class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#mxi-gmail" />
+                </svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg
+                class="mx-go" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#mxi-go" />
+              </svg></a></li>
+          <li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank"
+              rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#mxi-linkedin" />
+                </svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg
+                class="mx-go" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#mxi-go" />
+              </svg></a></li>
+          <li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank"
+              rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#mxi-instagram" />
+                </svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#mxi-go" />
+              </svg></a></li>
+          <li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank"
+              rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#mxi-tiktok" />
+                </svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#mxi-go" />
+              </svg></a></li>
+          <li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank"
+              rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#mxi-youtube" />
+                </svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg
+                class="mx-go" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#mxi-go" />
+              </svg></a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</header>
-<main>
-<section class="hero" id="home">
- <div class="container hero-grid">
-  <div class="hero-copy">
-   <p class="eyebrow" data-en="Creative storytelling · Strategic advertising · Real growth" data-id="Cerita kreatif · Iklan strategis · Pertumbuhan nyata">Creative storytelling · Strategic advertising · Real growth</p>
-   <h1 data-en-html="MAKE YOUR BRAND <span>IMPOSSIBLE TO IGNORE.</span>" data-id-html="BUAT BRAND ANDA <span>SULIT UNTUK DIABAIKAN.</span>">MAKE YOUR BRAND <span>IMPOSSIBLE TO IGNORE.</span></h1>
-   <p class="hero-desc" data-en="We turn ambitious businesses into memorable brands. Strategy, video, websites, SEO, social media and advertising — all working together to move your business forward." data-id="Kami mengubah bisnis ambisius menjadi brand yang mudah diingat. Strategi, video, website, SEO, media sosial, dan iklan bekerja bersama untuk mendorong bisnis Anda berkembang.">We turn ambitious businesses into memorable brands. Strategy, video, websites, SEO, social media and advertising — all working together to move your business forward.</p>
-   <div class="hero-buttons"><a class="btn" href="#contact" data-en="Start a Conversation ↗" data-id="Mulai Konsultasi ↗">Start a Conversation ↗</a><a class="btn btn-outline" href="#work" data-en="Explore Our Work" data-id="Lihat Portfolio">Explore Our Work</a></div>
-   <div class="hero-stats">
-    <div class="stat"><strong>25+</strong><span data-en="Years in Business" data-id="Tahun Pengalaman">Years in Business</span></div>
-    <div class="stat"><strong>93%</strong><span data-en="Yearly Retention" data-id="Retensi Klien Tahunan">Yearly Retention</span></div>
-    <div class="stat"><strong>3×</strong><span data-en="Average Ad CTR" data-id="Rata-rata CTR Iklan">Average Ad CTR</span></div>
-   </div>
-  </div>
-  <div class="hero-visual">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=72" alt="Desk with laptop and notes" decoding="async">
-   <div class="award"><strong>25+</strong><span data-en="YEARS OF IDEAS" data-id="TAHUN PENUH IDE">YEARS OF IDEAS</span></div>
-   <div class="video-card"><span class="play">▶</span><span><b data-en="Ideas into impact" data-id="Ide menjadi dampak">Ideas into impact</b><small data-en="Strategy that moves business" data-id="Strategi yang menggerakkan bisnis">Strategy that moves business</small></span></div>
-  </div>
- </div>
-</section>
-<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Strategy</span><span>Creative Production</span><span>Digital Marketing</span><span>Brand Growth</span><span>Strategy</span><span>Creative Production</span><span>Digital Marketing</span><span>Brand Growth</span></div></div>
-<section class="problem" id="about"><div class="container problem-grid">
- <div class="reveal"><p class="eyebrow" data-en="Move forward when others are held back" data-id="Melangkah lebih jauh dari yang lain">Move forward when others are held back</p><h2 data-en-html="YOUR BRAND DESERVES TO BE <span class='accent'>THE AUTHORITY.</span>" data-id-html="BRAND ANDA LAYAK MENJADI <span class='accent'>YANG TERDEPAN.</span>">YOUR BRAND DESERVES TO BE <span class="accent">THE AUTHORITY.</span></h2></div>
- <div class="reveal"><p class="problem-copy" data-en="A great business can still be overlooked when its story is unclear. We bring your message, visuals and marketing efforts together so the right people understand why you matter." data-id="Bisnis yang hebat tetap bisa terlewat ketika ceritanya tidak tersampaikan dengan jelas. Kami menyatukan pesan, visual, dan aktivitas pemasaran agar pelanggan memahami alasan bisnis Anda layak dipilih.">A great business can still be overlooked when its story is unclear. We bring your message, visuals and marketing efforts together so the right people understand why you matter.</p>
-  <div class="problem-list">
-   <div class="problem-item"><span class="check">✓</span><span data-en="Turn cold introductions into warm conversations" data-id="Ubah calon pelanggan asing menjadi percakapan yang hangat">Turn cold introductions into warm conversations</span></div>
-   <div class="problem-item"><span class="check">✓</span><span data-en="Attract the right customers and talent" data-id="Tarik pelanggan dan talenta yang tepat">Attract the right customers and talent</span></div>
-   <div class="problem-item"><span class="check">✓</span><span data-en="Build a brand people remember" data-id="Bangun brand yang mudah diingat">Build a brand people remember</span></div>
-   <div class="problem-item"><span class="check">✓</span><span data-en="Bring every marketing effort into one direction" data-id="Satukan seluruh aktivitas pemasaran">Bring every marketing effort into one direction</span></div>
-  </div>
- </div>
-</div></section>
-<section class="solution"><div class="container">
- <div class="solution-top reveal"><div><p class="eyebrow" data-en="Your team, extended" data-id="Tim pemasaran yang lebih lengkap">Your team, extended</p><h2 data-en-html="YOUR <span class='accent'>MARKETING</span> DEPARTMENT." data-id-html="DEPARTEMEN <span class='accent'>PEMASARAN</span> ANDA.">YOUR <span class="accent">MARKETING</span> DEPARTMENT.</h2></div><p data-en="Get the thinking, talent and execution of a complete marketing team — without the complexity of building one from scratch. We work alongside you, stay connected and keep every asset working toward the same goal." data-id="Dapatkan strategi, talenta, dan eksekusi dari tim pemasaran lengkap tanpa kerumitan membangunnya dari awal. Kami bekerja bersama Anda dan menjaga setiap aset tetap menuju tujuan yang sama.">Get the thinking, talent and execution of a complete marketing team — without the complexity of building one from scratch. We work alongside you, stay connected and keep every asset working toward the same goal.</p></div>
- <div class="pillars">
-  <article class="pillar reveal"><div class="pillar-num">01</div><h3 data-en="No Long-Term Contracts" data-id="Tanpa Kontrak Jangka Panjang">No Long-Term Contracts</h3><p data-en="A partnership built on results, trust and the value we bring every month." data-id="Kemitraan yang dibangun dari hasil, kepercayaan, dan nilai yang kami berikan setiap bulan.">A partnership built on results, trust and the value we bring every month.</p></article>
-  <article class="pillar reveal"><div class="pillar-num">02</div><h3 data-en="You Own the Assets" data-id="Aset Tetap Milik Anda">You Own the Assets</h3><p data-en="Your brand, content and creative assets remain yours. We build value that lasts." data-id="Brand, konten, dan aset kreatif tetap menjadi milik Anda. Kami membangun nilai jangka panjang.">Your brand, content and creative assets remain yours. We build value that lasts.</p></article>
-  <article class="pillar reveal"><div class="pillar-num">03</div><h3 data-en="Consistent Contact" data-id="Komunikasi Konsisten">Consistent Contact</h3><p data-en="Clear communication, thoughtful collaboration and direct access to your team." data-id="Komunikasi yang jelas, kolaborasi terarah, dan akses langsung ke tim kami.">Clear communication, thoughtful collaboration and direct access to your team.</p></article>
- </div>
-</div></section>
-<section class="experience"><div class="container experience-grid">
- <div class="reveal"><p class="eyebrow" data-en="Experience that makes a difference" data-id="Pengalaman yang memberi dampak">Experience that makes a difference</p><h2 data-en-html="BUILT ON EXPERIENCE. <span class='accent'>DRIVEN BY WHAT'S NEXT.</span>" data-id-html="BERLANDASKAN PENGALAMAN. <span class='accent'>BERGERAK MENUJU MASA DEPAN.</span>">BUILT ON EXPERIENCE. <span class="accent">DRIVEN BY WHAT'S NEXT.</span></h2><p class="experience-copy" data-en="Since 1999, we've helped organizations communicate with clarity, connect with the right audience and turn ambitious plans into measurable progress." data-id="Sejak 1999, kami membantu berbagai organisasi berkomunikasi dengan jelas, terhubung dengan audiens yang tepat, dan mengubah rencana besar menjadi kemajuan yang terukur.">Since 1999, we've helped organizations communicate with clarity, connect with the right audience and turn ambitious plans into measurable progress.</p><div class="industry-tags"><span>Industrial</span><span>Telecom</span><span>Restaurants</span><span>Healthcare</span><span>Non-profits</span></div></div>
- <div class="achievement-panel reveal"><p class="eyebrow" data-en="A few things we're proud of" data-id="Beberapa hal yang kami banggakan">A few things we're proud of</p><div class="achievement"><b>20+</b><span data-en="Year-long client partnerships built on trust" data-id="Kemitraan klien lebih dari 20 tahun yang dibangun atas kepercayaan">Year-long client partnerships built on trust</span></div><div class="achievement"><b>95%</b><span data-en="Annual client retention highlighted in our experience" data-id="Retensi klien tahunan yang mencerminkan pengalaman kami">Annual client retention highlighted in our experience</span></div><div class="achievement"><b>360°</b><span data-en="Connected thinking across brand, content and campaigns" data-id="Strategi terhubung untuk brand, konten, dan kampanye">Connected thinking across brand, content and campaigns</span></div></div>
-</div></section>
-<section class="testimonials"><div class="container">
- <div class="testimonial-head reveal"><div><p class="eyebrow" data-en="Partnership speaks louder" data-id="Kepercayaan berbicara lebih kuat">Partnership speaks louder</p><h2 class="section-title" data-en="WHAT CLIENTS VALUE." data-id="APA KATA PARA KLIEN.">WHAT CLIENTS VALUE.</h2></div><div class="rating"><strong>5.0 ★★★★★</strong><span data-en="Client experience matters" data-id="Pengalaman klien adalah prioritas">Client experience matters</span></div></div>
- <div class="testimonial-window reveal"><div class="testimonial-track" id="testimonialTrack">
-  <article class="testimonial-card"><div><div class="quote-mark">“</div><blockquote data-en="The best partnerships are the ones where the team understands your business, brings ideas to the table and makes the work feel effortless." data-id="Kemitraan terbaik hadir ketika tim memahami bisnis Anda, membawa ide-ide segar, dan membuat proses kerja terasa lebih mudah.">The best partnerships are the ones where the team understands your business, brings ideas to the table and makes the work feel effortless.</blockquote><div class="person"><strong>Tony King</strong><span>K&B Oilfield Services</span></div></div><div class="person"><strong>01 / 03</strong><span data-en="Client perspective" data-id="Perspektif klien">Client perspective</span></div></article>
-  <article class="testimonial-card"><div><div class="quote-mark">“</div><blockquote data-en="Clear communication and thoughtful creative work make a real difference. It feels like having a marketing team right beside us." data-id="Komunikasi yang jelas dan karya kreatif yang matang memberikan dampak nyata. Rasanya seperti memiliki tim pemasaran sendiri.">Clear communication and thoughtful creative work make a real difference. It feels like having a marketing team right beside us.</blockquote><div class="person"><strong>Matt Faggione</strong><span>Etex</span></div></div><div class="person"><strong>02 / 03</strong><span data-en="Client perspective" data-id="Perspektif klien">Client perspective</span></div></article>
-  <article class="testimonial-card"><div><div class="quote-mark">“</div><blockquote data-en="A strong creative partner helps turn complex ideas into a message people can understand, remember and act on." data-id="Mitra kreatif yang kuat membantu mengubah ide kompleks menjadi pesan yang mudah dipahami, diingat, dan ditindaklanjuti.">A strong creative partner helps turn complex ideas into a message people can understand, remember and act on.</blockquote><div class="person"><strong>Justin Waite</strong><span>Client Partner</span></div></div><div class="person"><strong>03 / 03</strong><span data-en="Client perspective" data-id="Perspektif klien">Client perspective</span></div></article>
- </div></div><div class="slider-controls"><button id="prevTestimonial" aria-label="Previous testimonial">←</button><button id="nextTestimonial" aria-label="Next testimonial">→</button></div>
-</div></section>
-<section class="work" id="work"><div class="container">
- <div class="work-head reveal"><div><p class="eyebrow" data-en="Ideas made visible" data-id="Ide yang menjadi nyata">Ideas made visible</p><h2 data-en-html="WORK THAT <span class='accent'>MOVES</span> PEOPLE." data-id-html="KARYA YANG <span class='accent'>MENGGERAKKAN</span> AUDIENS.">WORK THAT <span class="accent">MOVES</span> PEOPLE.</h2></div><a class="btn" href="#contact" data-en="Build Something Together ↗" data-id="Bangun Sesuatu Bersama ↗">Build Something Together ↗</a></div>
- <div class="work-grid">
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=72" alt="Analytics dashboard on screen" decoding="async"><div class="work-overlay"><span>Oil &amp; Gas</span><h3>Thomas Oilfield Services</h3></div></article>
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=72" alt="Fine dining dish" decoding="async"><div class="work-overlay"><span>Hospitality</span><h3>Serenity Ranch Table</h3></div></article>
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=72" alt="Industrial equipment" decoding="async"><div class="work-overlay"><span>Heavy Equipment</span><h3>LTC Rental Sales</h3></div></article>
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=72" alt="Modern workspace" decoding="async"><div class="work-overlay"><span>Non-profit</span><h3>Community Healthcore</h3></div></article>
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=72" alt="Modern workspace" decoding="async"><div class="work-overlay"><span>Telecom</span><h3>Etex</h3></div></article>
-  <article class="work-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=72" alt="Modern company workspace" decoding="async"><div class="work-overlay"><span>Healthcare</span><h3>Longview Regional Medical Center</h3></div></article>
- </div>
-</div></section>
-<section class="clients"><div class="container reveal"><p class="eyebrow" data-en="Trusted by ambitious teams" data-id="Dipercaya oleh tim yang terus berkembang">Trusted by ambitious teams</p><h2 data-en="BUILT ON GOOD COMPANY." data-id="TUMBUH BERSAMA MITRA TERBAIK.">BUILT ON GOOD COMPANY.</h2><p class="section-copy" style="margin:12px auto 0" data-en="Strong relationships create stronger work. We value every team that trusts us with its next chapter." data-id="Hubungan yang kuat menghasilkan karya yang lebih baik. Kami menghargai setiap tim yang mempercayakan langkah berikutnya kepada kami.">Strong relationships create stronger work. We value every team that trusts us with its next chapter.</p><div class="client-grid"><div class="client-logo">THOMAS</div><div class="client-logo">ETEX</div><div class="client-logo">AFCC</div><div class="client-logo">LTC</div><div class="client-logo">HEALTHCORE</div><div class="client-logo">MEDSHOP</div><div class="client-logo">WELLNESS POINTE</div><div class="client-logo">RUGARU</div></div></div></section>
-<section class="services" id="services"><div class="container">
- <div class="services-head reveal"><p class="eyebrow" data-en="One connected growth engine" data-id="Satu strategi pertumbuhan terpadu">One connected growth engine</p><h2 data-en-html="EVERYTHING YOUR BRAND NEEDS TO <span class='accent'>GROW.</span>" data-id-html="SEMUA YANG BRAND ANDA BUTUHKAN UNTUK <span class='accent'>TUMBUH.</span>">EVERYTHING YOUR BRAND NEEDS TO <span class="accent">GROW.</span></h2><p class="section-copy" data-en="From the first strategic question to the final performance report, we connect every part of your marketing." data-id="Dari pertanyaan strategis pertama hingga laporan performa akhir, kami menghubungkan setiap bagian pemasaran Anda.">From the first strategic question to the final performance report, we connect every part of your marketing.</p></div>
- <div class="services-grid">
-  <article class="service reveal"><div class="service-number">01</div><h3 data-en="Strategy" data-id="Strategi">Strategy</h3><ul><li>Ideal Customer Profile</li><li>Competitor Research</li><li>Unique Selling Point</li><li>Brand Identity</li></ul></article>
-  <article class="service reveal"><div class="service-number">02</div><h3 data-en="Production" data-id="Produksi">Production</h3><ul><li>Video &amp; Photography</li><li>Graphic Design</li><li>Web Design &amp; Development</li><li>Creative Campaigns</li></ul></article>
-  <article class="service reveal"><div class="service-number">03</div><h3 data-en="Distribution" data-id="Distribusi">Distribution</h3><ul><li>Google Ads &amp; SEO</li><li>Social Media</li><li>Print &amp; Direct Mail</li><li>Outdoor, TV &amp; Radio</li></ul></article>
-  <article class="service reveal"><div class="service-number">04</div><h3 data-en="Analytics" data-id="Analitik">Analytics</h3><ul><li>Performance Reports</li><li>Strategy Meetings</li><li>Campaign Optimization</li><li>Refine &amp; Grow</li></ul></article>
- </div>
-</div></section>
-<section class="process" id="process"><div class="container">
- <div class="process-head reveal"><p class="eyebrow" data-en="A clear path forward" data-id="Langkah yang terarah">A clear path forward</p><h2 data-en="LISTEN. LAUNCH. <span class='accent'>LAND.</span>" data-id="DENGARKAN. LUNCURKAN. <span class='accent'>CAPAI.</span>">LISTEN. LAUNCH. <span class="accent">LAND.</span></h2><p data-en="Our strongest partnerships follow three simple steps, with your goals at the center of every decision." data-id="Kemitraan terbaik kami mengikuti tiga langkah sederhana dengan tujuan bisnis Anda sebagai pusat setiap keputusan.">Our strongest partnerships follow three simple steps, with your goals at the center of every decision.</p></div>
- <div class="steps">
-  <article class="step reveal"><span class="step-number">01</span><span class="step-label">Step One</span><h3 data-en="Listen" data-id="Dengarkan">Listen</h3><p data-en="We learn your industry, competitors, customers and ambitions before shaping a plan that fits." data-id="Kami mempelajari industri, kompetitor, pelanggan, dan ambisi Anda sebelum menyusun strategi yang tepat.">We learn your industry, competitors, customers and ambitions before shaping a plan that fits.</p></article>
-  <article class="step reveal"><span class="step-number">02</span><span class="step-label">Step Two</span><h3 data-en="Launch" data-id="Luncurkan">Launch</h3><p data-en="We create the brand video, website, creative materials and campaigns that bring your story to life." data-id="Kami membuat video brand, website, materi kreatif, dan kampanye yang menghidupkan cerita bisnis Anda.">We create the brand video, website, creative materials and campaigns that bring your story to life.</p></article>
-  <article class="step reveal"><span class="step-number">03</span><span class="step-label">Step Three</span><h3 data-en="Land" data-id="Capai">Land</h3><p data-en="We keep momentum through ongoing marketing, performance reviews and smarter next steps." data-id="Kami menjaga momentum melalui pemasaran berkelanjutan, evaluasi performa, dan langkah berikutnya yang lebih cerdas.">We keep momentum through ongoing marketing, performance reviews and smarter next steps.</p></article>
- </div>
-</div></section>
-<section class="faq"><div class="container faq-grid">
- <div class="faq-intro reveal"><p class="eyebrow" data-en="Good questions. Clear answers." data-id="Pertanyaan penting. Jawaban jelas.">Good questions. Clear answers.</p><h2 data-en="A FEW THINGS YOU MAY BE WONDERING." data-id="HAL YANG MUNGKIN INGIN ANDA TANYAKAN.">A FEW THINGS YOU MAY BE WONDERING.</h2><p data-en="Every partnership starts with a conversation. Here are a few helpful things to know." data-id="Setiap kemitraan dimulai dengan percakapan. Berikut beberapa hal yang perlu Anda ketahui.">Every partnership starts with a conversation. Here are a few helpful things to know.</p></div>
- <div class="faq-list reveal">
-  <div class="faq-item open"><button class="faq-question" aria-expanded="true"><span data-en="Do you use AI?" data-id="Apakah Anda menggunakan AI?">Do you use AI?</span><span class="faq-plus">+</span></button><div class="faq-answer"><div><p data-en="AI can help our team move faster and explore possibilities. Strategy, creative direction and final decisions remain guided by experienced professionals who understand your business." data-id="AI dapat membantu tim bekerja lebih cepat dan mengeksplorasi berbagai kemungkinan. Strategi, arahan kreatif, dan keputusan akhir tetap dipandu oleh profesional berpengalaman yang memahami bisnis Anda.">AI can help our team move faster and explore possibilities. Strategy, creative direction and final decisions remain guided by experienced professionals who understand your business.</p></div></div></div>
-  <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-en="Do I need a long-term contract?" data-id="Apakah saya harus terikat kontrak jangka panjang?">Do I need a long-term contract?</span><span class="faq-plus">+</span></button><div class="faq-answer"><div><p data-en="Our approach is built around a valuable working relationship, not locking clients into unnecessary long-term commitments. We will discuss a scope that fits your goals." data-id="Pendekatan kami berfokus pada hubungan kerja yang bernilai, bukan mengikat klien dengan komitmen jangka panjang yang tidak diperlukan. Kami akan membahas ruang lingkup yang sesuai dengan tujuan Anda.">Our approach is built around a valuable working relationship, not locking clients into unnecessary long-term commitments. We will discuss a scope that fits your goals.</p></div></div></div>
-  <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-en="Who owns the creative assets?" data-id="Siapa pemilik aset kreatif?">Who owns the creative assets?</span><span class="faq-plus">+</span></button><div class="faq-answer"><div><p data-en="The source blueprint emphasizes client ownership of delivered assets. The exact terms can be confirmed in the project agreement." data-id="Blueprint sumber menekankan bahwa aset yang diserahkan menjadi milik klien. Ketentuan pastinya dapat dikonfirmasi dalam kesepakatan proyek.">The source blueprint emphasizes client ownership of delivered assets. The exact terms can be confirmed in the project agreement.</p></div></div></div>
-  <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-en="Can you manage all our marketing?" data-id="Bisakah Anda mengelola seluruh pemasaran kami?">Can you manage all our marketing?</span><span class="faq-plus">+</span></button><div class="faq-answer"><div><p data-en="Yes. Services can span strategy, creative production, digital distribution and performance analytics, coordinated around your business priorities." data-id="Bisa. Layanan dapat mencakup strategi, produksi kreatif, distribusi digital, dan analitik performa yang diselaraskan dengan prioritas bisnis Anda.">Yes. Services can span strategy, creative production, digital distribution and performance analytics, coordinated around your business priorities.</p></div></div></div>
- </div>
-</div></section>
-<section class="final-cta"><div class="container reveal"><p class="eyebrow" data-en="Ready for the next chapter?" data-id="Siap untuk langkah berikutnya?">Ready for the next chapter?</p><h2 data-en-html="LET'S MAKE YOUR BRAND <span class='accent'>MATTER.</span>" data-id-html="SAATNYA MEMBUAT BRAND ANDA <span class='accent'>BERMAKNA.</span>">LET'S MAKE YOUR BRAND <span class="accent">MATTER.</span></h2><p data-en="Your business has a story worth telling. Let's give it the strategy, creativity and reach it deserves." data-id="Bisnis Anda memiliki cerita yang layak dikenal. Mari berikan strategi, kreativitas, dan jangkauan yang pantas untuknya.">Your business has a story worth telling. Let's give it the strategy, creativity and reach it deserves.</p><a class="btn" href="#contact" data-en="Let's Build What's Next ↗" data-id="Bangun Langkah Berikutnya ↗">Let's Build What's Next ↗</a></div></section>
-<section class="contact" id="contact"><div class="container contact-grid">
- <div class="reveal"><p class="eyebrow" data-en="Start with a conversation" data-id="Awali dengan percakapan">Start with a conversation</p><h2 data-en-html="LET'S TALK ABOUT <span class='accent'>WHAT'S POSSIBLE.</span>" data-id-html="MARI BAHAS <span class='accent'>PELUANG ANDA.</span>">LET'S TALK ABOUT <span class="accent">WHAT'S POSSIBLE.</span></h2><p class="contact-copy" data-en="Tell us where you want to go. We'll help you think through the next move and the right way to get there." data-id="Ceritakan tujuan yang ingin Anda capai. Kami akan membantu merancang langkah berikutnya dan cara terbaik untuk mencapainya.">Tell us where you want to go. We'll help you think through the next move and the right way to get there.</p><div class="contact-detail"><span class="contact-icon">✉</span><span>hello@mediaquestweb.com</span></div><div class="contact-detail"><span class="contact-icon">⌖</span><span data-en="Longview, Texas, United States" data-id="Longview, Texas, Amerika Serikat">Longview, Texas, United States</span></div></div>
- <form class="contact-form reveal" id="contactForm">
-  <div class="form-grid">
-   <div class="field"><label for="name" data-en="Your Name" data-id="Nama Anda">Your Name</label><input id="name" name="name" required placeholder="Jane Smith"></div>
-   <div class="field"><label for="email" data-en="Email Address" data-id="Alamat Email">Email Address</label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
-   <div class="field full"><label for="source" data-en="How did you hear about us?" data-id="Dari mana Anda mengenal kami?">How did you hear about us?</label><select id="source" name="source"><option value="">Select an option</option><option>Google</option><option>Social Media</option><option>Referral</option><option>Other</option></select></div>
-   <div class="field full"><label for="message" data-en="Tell us about your project" data-id="Ceritakan tentang proyek Anda">Tell us about your project</label><textarea id="message" name="message" required placeholder="What are you looking to achieve?"></textarea></div>
-   <div class="field full"><button class="btn btn-dark" type="submit" data-en="Send Your Message ↗" data-id="Kirim Pesan Anda ↗">Send Your Message ↗</button><p class="form-status" id="formStatus" aria-live="polite"></p></div>
-  </div>
- </form>
-</div></section>
-</main>
-<div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#ff6724;--on:#111111;--glow:rgba(255,103,36,.24)">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
-<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
-<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
-<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
-<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
-<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
-<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
-<div class="mx-panel">
-<div class="mx-intro" data-mx-v="left">
-<p class="mx-badge"><i></i><span data-mxt="badge">Open for collaboration</span></p>
-<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Interested in working together, endorsements, or a website like this?</h2>
-<p class="mx-text" data-mxt="text">Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.</p>
-<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Collaboration%20/%20website%20design%20inquiry"><span data-mxt="cta">Send an email</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
-</div>
-<div class="mx-side">
-<p class="mx-note" data-mxt="note">Find me on</p>
-<ul class="mx-links" data-mx-group="up">
-<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Collaboration%20/%20website%20design%20inquiry"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
-<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
-<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
-<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
-<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
-</ul>
-</div>
-</div>
-</div>
 
-<footer><div class="container">
- <div class="footer-grid">
-  <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">M</span><span class="brand-name">Media Quest<small>FULL SERVICE MARKETING</small></span></a><p data-en="Creative thinking. Strategic action. Marketing that moves your business forward." data-id="Pemikiran kreatif. Aksi strategis. Pemasaran yang mendorong bisnis Anda maju.">Creative thinking. Strategic action. Marketing that moves your business forward.</p></div>
-  <div class="footer-col"><h3 data-en="EXPLORE" data-id="JELAJAHI">EXPLORE</h3><a href="#about" data-en="About Us" data-id="Tentang Kami">About Us</a><a href="#work" data-en="Our Work" data-id="Portfolio">Our Work</a><a href="#process" data-en="Our Process" data-id="Proses Kami">Our Process</a><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></div>
-  <div class="footer-col"><h3 data-en="SERVICES" data-id="LAYANAN">SERVICES</h3><a href="#services">Strategy</a><a href="#services">Video &amp; Photography</a><a href="#services">Web Design &amp; SEO</a><a href="#services">Advertising</a></div>
-  <div class="footer-col"><h3 data-en="GET IN TOUCH" data-id="HUBUNGI KAMI">GET IN TOUCH</h3><a href="mailto:hello@mediaquestweb.com">hello@mediaquestweb.com</a><a href="#contact" data-en="Start a Project ↗" data-id="Mulai Proyek ↗">Start a Project ↗</a><a href="#home">LinkedIn</a></div>
- </div>
- <div class="footer-bottom"><span>© 2026 Media Quest. <span data-en="All rights reserved." data-id="Hak cipta dilindungi.">All rights reserved.</span></span><span data-en="Strategy · Creativity · Growth" data-id="Strategi · Kreativitas · Pertumbuhan">Strategy · Creativity · Growth</span></div>
-</div></footer>
-<script>
-const langButtons=document.querySelectorAll('[data-lang]');
-function setLanguage(lang){
- document.documentElement.lang=lang;
- langButtons.forEach(b=>{const active=b.dataset.lang===lang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
- document.querySelectorAll('[data-en][data-id]').forEach(el=>{el.textContent=el.dataset[lang];});
- document.querySelectorAll('[data-en-html][data-id-html]').forEach(el=>{el.innerHTML=el.dataset[lang+'Html'];});
- const name=document.querySelector('#name'),email=document.querySelector('#email'),message=document.querySelector('#message');
- if(name)name.placeholder=lang==='id'?'Nama lengkap':'Jane Smith';
- if(email)email.placeholder=lang==='id'?'nama@email.com':'you@company.com';
- if(message)message.placeholder=lang==='id'?'Apa yang ingin Anda capai?':'What are you looking to achieve?';
- const select=document.querySelector('#source');if(select)select.options[0].text=lang==='id'?'Pilih salah satu':'Select an option';
-}
-langButtons.forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
-const menuToggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
-menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'×':'☰';});
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}});
-const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*75+'ms';revealObserver.observe(el);});
-let slide=0;const track=document.getElementById('testimonialTrack'),slides=track.children.length;
-function moveSlide(dir){slide=(slide+dir+slides)%slides;track.style.transform=`translateX(-${slide*100}%)`;}
-document.getElementById('prevTestimonial').addEventListener('click',()=>moveSlide(-1));
-document.getElementById('nextTestimonial').addEventListener('click',()=>moveSlide(1));
-let autoSlide=setInterval(()=>moveSlide(1),6500);
-const testimonialArea=document.querySelector('.testimonial-window');
-testimonialArea.addEventListener('mouseenter',()=>clearInterval(autoSlide));
-testimonialArea.addEventListener('mouseleave',()=>{clearInterval(autoSlide);autoSlide=setInterval(()=>moveSlide(1),6500);});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(autoSlide);else{clearInterval(autoSlide);autoSlide=setInterval(()=>moveSlide(1),6500);}});
-document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.closest('.faq-item'),wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(other=>{other.classList.remove('open');other.querySelector('.faq-question').setAttribute('aria-expanded','false');});if(!wasOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}}));
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const status=document.getElementById('formStatus');const lang=document.documentElement.lang;status.textContent=lang==='id'?'Formulir siap. Hubungkan form ini ke backend atau layanan formulir agar pesan benar-benar terkirim.':'Form is ready. Connect this form to a backend or form service to deliver messages.';});
-</script>
-<script id="mx-script">window.__MX_BG=["https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=72"];
-(function () {
-  'use strict';
-  var d = document, root = d.documentElement;
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">M</span><span
+              class="brand-name">Media Quest<small>FULL SERVICE MARKETING</small></span></a>
+          <p data-en="Creative thinking. Strategic action. Marketing that moves your business forward."
+            data-id="Pemikiran kreatif. Aksi strategis. Pemasaran yang mendorong bisnis Anda maju.">Creative thinking.
+            Strategic action. Marketing that moves your business forward.</p>
+        </div>
+        <div class="footer-col">
+          <h3 data-en="EXPLORE" data-id="JELAJAHI">EXPLORE</h3><a href="#about" data-en="About Us"
+            data-id="Tentang Kami">About Us</a><a href="#work" data-en="Our Work" data-id="Portfolio">Our Work</a><a
+            href="#process" data-en="Our Process" data-id="Proses Kami">Our Process</a><a href="#contact"
+            data-en="Contact" data-id="Kontak">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3 data-en="SERVICES" data-id="LAYANAN">SERVICES</h3><a href="#services">Strategy</a><a
+            href="#services">Video &amp; Photography</a><a href="#services">Web Design &amp; SEO</a><a
+            href="#services">Advertising</a>
+        </div>
+        <div class="footer-col">
+          <h3 data-en="GET IN TOUCH" data-id="HUBUNGI KAMI">GET IN TOUCH</h3><a
+            href="mailto:hello@mediaquestweb.com">hello@mediaquestweb.com</a><a href="#contact"
+            data-en="Start a Project ↗" data-id="Mulai Proyek ↗">Start a Project ↗</a><a href="#home">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Media Quest. <span data-en="All rights reserved."
+            data-id="Hak cipta dilindungi.">All rights reserved.</span></span><span
+          data-en="Strategy · Creativity · Growth" data-id="Strategi · Kreativitas · Pertumbuhan">Strategy · Creativity
+          · Growth</span></div>
+    </div>
+  </footer>
+  <script>
+    const langButtons = document.querySelectorAll('[data-lang]');
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      langButtons.forEach(b => { const active = b.dataset.lang === lang; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active)); });
+      document.querySelectorAll('[data-en][data-id]').forEach(el => { el.textContent = el.dataset[lang]; });
+      document.querySelectorAll('[data-en-html][data-id-html]').forEach(el => { el.innerHTML = el.dataset[lang + 'Html']; });
+      const name = document.querySelector('#name'), email = document.querySelector('#email'), message = document.querySelector('#message');
+      if (name) name.placeholder = lang === 'id' ? 'Nama lengkap' : 'Jane Smith';
+      if (email) email.placeholder = lang === 'id' ? 'nama@email.com' : 'you@company.com';
+      if (message) message.placeholder = lang === 'id' ? 'Apa yang ingin Anda capai?' : 'What are you looking to achieve?';
+      const select = document.querySelector('#source'); if (select) select.options[0].text = lang === 'id' ? 'Pilih salah satu' : 'Select an option';
+    }
+    langButtons.forEach(b => b.addEventListener('click', () => setLanguage(b.dataset.lang)));
+    const menuToggle = document.getElementById('menuToggle'), navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); menuToggle.textContent = open ? '×' : '☰'; });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.textContent = '☰'; }));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.textContent = '☰'; } });
+    const revealObserver = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }) }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 75 + 'ms'; revealObserver.observe(el); });
+    let slide = 0; const track = document.getElementById('testimonialTrack'), slides = track.children.length;
+    function moveSlide(dir) { slide = (slide + dir + slides) % slides; track.style.transform = `translateX(-${slide * 100}%)`; }
+    document.getElementById('prevTestimonial').addEventListener('click', () => moveSlide(-1));
+    document.getElementById('nextTestimonial').addEventListener('click', () => moveSlide(1));
+    let autoSlide = setInterval(() => moveSlide(1), 6500);
+    const testimonialArea = document.querySelector('.testimonial-window');
+    testimonialArea.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    testimonialArea.addEventListener('mouseleave', () => { clearInterval(autoSlide); autoSlide = setInterval(() => moveSlide(1), 6500); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) clearInterval(autoSlide); else { clearInterval(autoSlide); autoSlide = setInterval(() => moveSlide(1), 6500); } });
+    document.querySelectorAll('.faq-question').forEach(btn => btn.addEventListener('click', () => { const item = btn.closest('.faq-item'), wasOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(other => { other.classList.remove('open'); other.querySelector('.faq-question').setAttribute('aria-expanded', 'false'); }); if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); } }));
+    document.getElementById('contactForm').addEventListener('submit', e => { e.preventDefault(); const status = document.getElementById('formStatus'); const lang = document.documentElement.lang; status.textContent = lang === 'id' ? 'Formulir siap. Hubungkan form ini ke backend atau layanan formulir agar pesan benar-benar terkirim.' : 'Form is ready. Connect this form to a backend or form service to deliver messages.'; });
+  </script>
+  <script id="mx-script">window.__MX_BG = ["https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=72"];
+    (function () {
+      'use strict';
+      var d = document, root = d.documentElement;
 
-  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
-  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
-  function bad(img) {
-    if (img.src === PH) return;
-    img.removeAttribute('srcset');
-    img.src = PH;
-  }
-  d.addEventListener('error', function (e) {
-    if (e.target && e.target.tagName === 'IMG') bad(e.target);
-  }, true);
-  Array.prototype.forEach.call(d.images, function (i) {
-    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
-  });
-  (window.__MX_BG || []).forEach(function (u) {
-    var im = new Image();
-    im.onerror = function () {
-      var id = (u.match(/photo-[\w-]+/) || [''])[0];
-      if (!id) return;
-      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
-        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
-          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+      var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+      function bad(img) {
+        if (img.src === PH) return;
+        img.removeAttribute('srcset');
+        img.src = PH;
+      }
+      d.addEventListener('error', function (e) {
+        if (e.target && e.target.tagName === 'IMG') bad(e.target);
+      }, true);
+      Array.prototype.forEach.call(d.images, function (i) {
+        if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
       });
-    };
-    im.src = u;
-  });
+      (window.__MX_BG || []).forEach(function (u) {
+        var im = new Image();
+        im.onerror = function () {
+          var id = (u.match(/photo-[\w-]+/) || [''])[0];
+          if (!id) return;
+          Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+            if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+              el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+          });
+        };
+        im.src = u;
+      });
 
-  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
-  var T = {
-    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
-    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
-  };
-  function applyLang() {
-    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
-    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
-      var v = T[l][el.getAttribute('data-mxt')];
-      if (v) el.textContent = v;
-    });
-  }
-  applyLang();
-  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
-
-  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
-  if (!('IntersectionObserver' in window) || !root.animate) return;
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  try {
-    var small = innerWidth < 700;
-    var Y = small ? 20 : 42, X = small ? 26 : 56;
-    var EASE = 'cubic-bezier(.22,1,.36,1)';
-    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
-    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
-    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
-
-    function usable(el) {
-      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
-      var cs = getComputedStyle(el);
-      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
-      if (cs.animationName !== 'none') return false;
-      return true;
-    }
-
-    function kf(v, hooked) {
-      var f, t;
-      switch (v) {
-        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
-        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
-        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
-        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
-        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
-        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
-        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
-        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
-        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
-        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
-        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+      var T = {
+        id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+        en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+      };
+      function applyLang() {
+        var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+        Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+          var v = T[l][el.getAttribute('data-mxt')];
+          if (v) el.textContent = v;
+        });
       }
-      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
-      return [f, t];
-    }
+      applyLang();
+      try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) { }
 
-    function add(el, v, delay, dur, kind) {
-      var hooked = el.matches(HOOK);
-      el.setAttribute('data-mxc', '1');
-      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
-      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
-      items.push(it); map.set(el, it);
-    }
+      /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+      if (!('IntersectionObserver' in window) || !root.animate) return;
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    /* pisah kata judul (aman: hanya node teks + inline) */
-    function split(h) {
-      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
-      if (h.textContent.length > 170) return null;
-      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
-      var kids = h.querySelectorAll('*');
-      for (var k = 0; k < kids.length; k++) {
-        var c = getComputedStyle(kids[k]);
-        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
-      }
-      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
-      var n = 0, inner = [];
-      (function walk(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
-          if (c.nodeType === 3) {
-            var frag = d.createDocumentFragment();
-            c.textContent.split(/(\s+)/).forEach(function (p) {
-              if (!p) return;
-              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
-              var o = d.createElement('span'), i = d.createElement('span');
-              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+      try {
+        var small = innerWidth < 700;
+        var Y = small ? 20 : 42, X = small ? 26 : 56;
+        var EASE = 'cubic-bezier(.22,1,.36,1)';
+        var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+        var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+        var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+        function usable(el) {
+          if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+          var cs = getComputedStyle(el);
+          if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+          if (cs.animationName !== 'none') return false;
+          return true;
+        }
+
+        function kf(v, hooked) {
+          var f, t;
+          switch (v) {
+            case 'left': f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+            case 'right': f = { opacity: 0, translate: X + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+            case 'scale': f = { opacity: 0, scale: .9 }; t = { opacity: 1, scale: 1 }; break;
+            case 'zoom': f = { opacity: 0, scale: 1.2 }; t = { opacity: 1, scale: 1 }; break;
+            case 'tilt': f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+            case 'blur': f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+            case 'clipup': f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+            case 'clipleft': f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+            case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+            case 'circle': f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+            default: f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+          }
+          if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+          return [f, t];
+        }
+
+        function add(el, v, delay, dur, kind) {
+          var hooked = el.matches(HOOK);
+          el.setAttribute('data-mxc', '1');
+          if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+          var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+          items.push(it); map.set(el, it);
+        }
+
+        /* pisah kata judul (aman: hanya node teks + inline) */
+        function split(h) {
+          if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+          if (h.textContent.length > 170) return null;
+          var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+          var kids = h.querySelectorAll('*');
+          for (var k = 0; k < kids.length; k++) {
+            var c = getComputedStyle(kids[k]);
+            if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+          }
+          if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+          var n = 0, inner = [];
+          (function walk(node) {
+            Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+              if (c.nodeType === 3) {
+                var frag = d.createDocumentFragment();
+                c.textContent.split(/(\s+)/).forEach(function (p) {
+                  if (!p) return;
+                  if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+                  var o = d.createElement('span'), i = d.createElement('span');
+                  o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+                });
+                c.parentNode.replaceChild(frag, c);
+              } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
             });
-            c.parentNode.replaceChild(frag, c);
-          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+          })(h);
+          return (n > 0 && n <= 20) ? inner : null;
+        }
+
+        /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+        var plan = [];
+        Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+        var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+        Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+          var k = c.children, n = k.length;
+          if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+          var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+          for (i = 0; i < n; i++) {
+            var e = k[i];
+            if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+            if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+            if (e.offsetTop === first) cols++;
+          }
+          if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
         });
-      })(h);
-      return (n > 0 && n <= 20) ? inner : null;
-    }
 
-    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
-    var plan = [];
-    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
-
-    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
-    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
-      var k = c.children, n = k.length;
-      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
-      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
-      for (i = 0; i < n; i++) {
-        var e = k[i];
-        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
-        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
-        if (e.offsetTop === first) cols++;
-      }
-      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
-    });
-
-    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
-    var bgs = [];
-    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
-      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
-    });
-
-    /* --- fase 2: tandai & jadwalkan --- */
-    plan.forEach(function (p) {
-      var el = p.el;
-      if (p.t === 'explicit') {
-        if (el.hasAttribute('data-mx-group')) {
-          var v = el.getAttribute('data-mx-group') || 'up';
-          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
-        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
-        return;
-      }
-      if (el.closest('[data-mxc]')) return;
-      var v = GV[gi++ % GV.length];
-      Array.prototype.forEach.call(el.children, function (c, i) {
-        if (!usable(c)) return;
-        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
-        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
-        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
-      });
-    });
-
-    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
-    var HMED = ['scale', 'tilt', 'left', 'right'];
-    var TXT = ['up', 'blur', 'up', 'left'];
-    function media(el) {
-      if (!usable(el)) return;
-      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
-      if (el.closest(HOOK) && !el.matches(HOOK)) return;
-      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
-      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
-      if (v === 'zoom' && !par) v = 'scale';
-      add(el, v, 0, 1100, 'media');
-    }
-    Array.prototype.forEach.call(singles, function (el) {
-      if (el.closest('[data-mxc]')) return;
-      var tag = el.tagName;
-      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
-      if (!usable(el)) return;
-      if (el.closest(HOOK) && !el.matches(HOOK)) return;
-      if (/^H[12]$/.test(tag)) {
-        var w = el.matches(HOOK) ? null : split(el);
-        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
-      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
-      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
-      else add(el, 'up', 0, 800);
-    });
-    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
-
-    /* --- animasi saat masuk viewport --- */
-    function finish(it) {
-      if (it.done) return; it.done = true;
-      it.el.removeAttribute('data-mx');
-      if (it.v === 'words') it.el.classList.add('mx-fin');
-    }
-    function play(it, instant) {
-      if (it.done) return;
-      var el = it.el;
-      if (instant) { finish(it); return; }
-      if (it.v === 'words' && it.words) {
-        var last = null;
-        it.words.forEach(function (w, i) {
-          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+        var bgs = [];
+        Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+          if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
         });
-        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
-        el.removeAttribute('data-mx');
-        el.classList.add('mx-run');
-        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
-        it.done = true;
-        return;
+
+        /* --- fase 2: tandai & jadwalkan --- */
+        plan.forEach(function (p) {
+          var el = p.el;
+          if (p.t === 'explicit') {
+            if (el.hasAttribute('data-mx-group')) {
+              var v = el.getAttribute('data-mx-group') || 'up';
+              Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+            } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+            return;
+          }
+          if (el.closest('[data-mxc]')) return;
+          var v = GV[gi++ % GV.length];
+          Array.prototype.forEach.call(el.children, function (c, i) {
+            if (!usable(c)) return;
+            var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+            if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+            add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+          });
+        });
+
+        var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+        var HMED = ['scale', 'tilt', 'left', 'right'];
+        var TXT = ['up', 'blur', 'up', 'left'];
+        function media(el) {
+          if (!usable(el)) return;
+          var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+          if (el.closest(HOOK) && !el.matches(HOOK)) return;
+          var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+          var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+          if (v === 'zoom' && !par) v = 'scale';
+          add(el, v, 0, 1100, 'media');
+        }
+        Array.prototype.forEach.call(singles, function (el) {
+          if (el.closest('[data-mxc]')) return;
+          var tag = el.tagName;
+          if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+          if (!usable(el)) return;
+          if (el.closest(HOOK) && !el.matches(HOOK)) return;
+          if (/^H[12]$/.test(tag)) {
+            var w = el.matches(HOOK) ? null : split(el);
+            if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+          } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+          else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+          else add(el, 'up', 0, 800);
+        });
+        bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+        /* --- animasi saat masuk viewport --- */
+        function finish(it) {
+          if (it.done) return; it.done = true;
+          it.el.removeAttribute('data-mx');
+          if (it.v === 'words') it.el.classList.add('mx-fin');
+        }
+        function play(it, instant) {
+          if (it.done) return;
+          var el = it.el;
+          if (instant) { finish(it); return; }
+          if (it.v === 'words' && it.words) {
+            var last = null;
+            it.words.forEach(function (w, i) {
+              last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+            });
+            if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+            el.removeAttribute('data-mx');
+            el.classList.add('mx-run');
+            setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+            it.done = true;
+            return;
+          }
+          var fr = kf(it.v, it.hooked);
+          if (!Object.keys(fr[0]).length) { finish(it); return; }
+          var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+          it.done = true;
+          a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+        }
+
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            io.unobserve(e.target);
+            var it = map.get(e.target); if (it) play(it, false);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+        items.forEach(function (it) { io.observe(it.el); });
+
+        /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+        var tm;
+        function sweep() {
+          items.forEach(function (it) {
+            if (it.done) return;
+            var r = it.el.getBoundingClientRect();
+            var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+            if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+          });
+        }
+        addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+        addEventListener('load', function () { setTimeout(sweep, 400); });
+        addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+      } catch (err) {
+        /* gagal aman: tampilkan semua konten */
+        Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+        if (window.console) console.warn('motion layer off:', err);
       }
-      var fr = kf(it.v, it.hooked);
-      if (!Object.keys(fr[0]).length) { finish(it); return; }
-      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
-      it.done = true;
-      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
-    }
-
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        io.unobserve(e.target);
-        var it = map.get(e.target); if (it) play(it, false);
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-    items.forEach(function (it) { io.observe(it.el); });
-
-    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
-    var tm;
-    function sweep() {
-      items.forEach(function (it) {
-        if (it.done) return;
-        var r = it.el.getBoundingClientRect();
-        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
-        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
-      });
-    }
-    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
-    addEventListener('load', function () { setTimeout(sweep, 400); });
-    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
-  } catch (err) {
-    /* gagal aman: tampilkan semua konten */
-    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
-    if (window.console) console.warn('motion layer off:', err);
-  }
-})();
-</script>
+    })();
+  </script>
 </body>
+
 </html>
