@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141416">
+  <meta name="description" content="CONCRÈTE — Pengelolaan aset residensial dan hunian furnished premium di Lausanne dan Paris.">
+  <title>CONCRÈTE — Property Management Switzerland</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --dark:#141416;--dark-2:#202024;--white:#fff;--khaki:#dcd9c8;
+      --cream:#fffdf1;--brown:#5f4242;--muted:#97968d;--ink:#242326;
+      --gutter:clamp(18px,4vw,64px);--container:1440px;
+      --section-space:clamp(82px,9vw,150px);--ease:cubic-bezier(.22,.61,.36,1);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--dark);color:var(--white);font-family:"DM Sans",Arial,sans-serif;font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
+    body.menu-open{overflow:hidden}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit}
+    .container{width:min(calc(100% - 2 * var(--gutter)),var(--container));margin-inline:auto}
+    .site-header{height:82px;position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);background:rgba(20,20,22,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .brand{display:inline-flex;align-items:center;gap:12px;white-space:nowrap}
+    .brand-symbol{width:28px;height:28px;display:grid;place-items:center;font-family:"Playfair Display",Georgia,serif;font-size:27px;line-height:1;color:var(--khaki)}
+    .brand-name{font-size:12px;font-weight:500;letter-spacing:.22em}
+    .desktop-nav{display:flex;align-items:center;gap:clamp(18px,2.7vw,42px);margin-left:auto;margin-right:38px}
+    .desktop-nav a,.language-switch button{font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+    .desktop-nav a{color:rgba(255,255,255,.78);transition:color .25s}
+    .desktop-nav a:hover{color:var(--khaki)}
+    .header-right{display:flex;align-items:center;gap:24px}
+    .language-switch{display:flex;gap:8px;align-items:center}
+    .language-switch button{border:0;background:none;padding:7px 0;cursor:pointer;color:rgba(255,255,255,.48)}
+    .language-switch button.active{color:var(--white)}
+    .language-switch span{font-size:10px;color:#777}
+    .menu-toggle{display:none;width:42px;height:42px;border:0;background:none;cursor:pointer;padding:10px}
+    .menu-toggle i{display:block;height:1px;background:white;margin:7px 0;transition:transform .25s}
+    .mobile-panel{display:none}
+    .eyebrow{font-size:10px;letter-spacing:.19em;text-transform:uppercase;font-weight:500;margin:0 0 24px}
+    .eyebrow.muted{color:var(--muted)}
+    .hero{min-height:780px;height:100svh;max-height:1100px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:150px var(--gutter) 58px;background:var(--dark)}
+    .hero-image{position:absolute;inset:0 0 0 31%;overflow:hidden}
+    .hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#141416 0%,rgba(20,20,22,.74) 19%,rgba(20,20,22,.18) 65%,rgba(20,20,22,.2)),linear-gradient(0deg,rgba(20,20,22,.88),transparent 45%)}
+    .hero-image img{transform:scale(1.08);animation:hero-image-in 1.8s var(--ease) both;filter:brightness(.72) saturate(.76)}
+    .hero-content{position:relative;z-index:2;width:min(100%,1100px);margin:0 auto}
+    .hero-kicker{color:var(--khaki);opacity:0;animation:fade-in .7s .25s forwards}
+    .hero-title{font-family:"Playfair Display",Georgia,serif;font-size:clamp(62px,10.5vw,154px);line-height:.86;letter-spacing:-.065em;font-weight:400;margin:0 0 36px;max-width:1120px}
+    .hero-title span{display:block;overflow:hidden;padding:0 .06em .1em 0}
+    .hero-title b{display:block;font-weight:400;transform:translateY(115%);animation:title-up 1s var(--ease) forwards}
+    .hero-title span:nth-child(2) b{animation-delay:.14s}
+    .hero-title span:nth-child(3) b{animation-delay:.28s}
+    .hero-bottom{display:grid;grid-template-columns:minmax(220px,1.2fr) repeat(3,minmax(110px,.65fr));gap:28px;align-items:end;margin-top:42px;max-width:1100px}
+    .hero-description{font-size:14px;line-height:1.8;color:rgba(255,255,255,.76);max-width:440px;margin:0}
+    .hero-stat{border-left:1px solid rgba(255,255,255,.35);padding-left:20px}
+    .hero-stat strong{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:38px;line-height:1;display:block;margin-bottom:8px}
+    .hero-stat span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+    .hero-cta{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+    .button{min-height:48px;padding:13px 19px;display:inline-flex;align-items:center;justify-content:space-between;gap:28px;border:1px solid currentColor;font-size:10px;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,color .25s,border-color .25s}
+    .button .arrow{font-size:17px;transition:transform .25s}
+    .button:hover .arrow{transform:translate(4px,-2px)}
+    .button-light{color:var(--dark);background:var(--cream);border-color:var(--cream)}
+    .button-light:hover{background:var(--khaki);border-color:var(--khaki)}
+    .button-outline{color:white;background:transparent}
+    .button-outline:hover{background:white;color:var(--dark)}
+    .scroll-cue{position:absolute;right:var(--gutter);top:50%;writing-mode:vertical-rl;font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:12px}
+    .scroll-cue:after{content:"";height:48px;width:1px;background:var(--khaki);animation:scroll-line 1.8s ease-in-out infinite}
+    .section{padding:var(--section-space) var(--gutter)}
+    .section-inner{max-width:var(--container);margin:auto}
+    .section-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 34px}
+    .section-label span{color:var(--brown);margin-right:12px}
+    .display-title{font-family:"Playfair Display",Georgia,serif;font-size:clamp(40px,6.2vw,86px);line-height:1.02;letter-spacing:-.055em;font-weight:400;margin:0;max-width:1000px}
+    .presentation{background:var(--khaki);color:var(--ink)}
+    .presentation .section-label{color:#69685f}
+    .presentation .section-label span{color:var(--brown)}
+    .presentation-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(35px,7vw,110px);align-items:end}
+    .presentation-copy{padding-bottom:6px}
+    .presentation-copy .display-title{font-size:clamp(39px,5.5vw,76px);max-width:800px}
+    .presentation-text{font-size:14px;line-height:1.9;color:#55534c;max-width:510px;margin:32px 0 0}
+    .presentation-image{height:clamp(330px,42vw,590px);overflow:hidden}
+    .presentation-image img{transform:scale(1.06);transition:transform 1.3s var(--ease)}
+    .presentation-image.is-visible img{transform:scale(1)}
+    .stats{background:var(--cream);color:var(--ink);padding-block:clamp(75px,8vw,120px)}
+    .stats-heading{text-align:center;margin-bottom:60px}
+    .stats-heading .section-label{color:#77756c}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+    .stat{text-align:center;padding:12px 20px}
+    .stat strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:clamp(56px,8vw,112px);font-weight:400;line-height:.95;letter-spacing:-.06em}
+    .stat h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin:22px 0 9px}
+    .stat p{font-size:12px;color:#77756c;max-width:230px;margin:0 auto;line-height:1.7}
+    .steps{background:var(--cream);color:var(--ink);padding-top:40px}
+    .steps-head{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:end;margin-bottom:72px}
+    .steps-head .display-title{font-size:clamp(40px,5.8vw,78px)}
+    .steps-intro{font-size:14px;line-height:1.9;color:#77756c;max-width:430px;margin:0 0 8px}
+    .benefit-list{border-top:1px solid rgba(36,35,38,.24)}
+    .benefit{display:grid;grid-template-columns:90px minmax(220px,.9fr) 1.1fr;gap:25px;padding:29px 0;border-bottom:1px solid rgba(36,35,38,.24);align-items:start}
+    .benefit-number{font-family:"Playfair Display",Georgia,serif;font-size:27px;color:#8b8174}
+    .benefit h3{font-family:"Playfair Display",Georgia,serif;font-size:clamp(22px,2.5vw,32px);font-weight:400;line-height:1.15;margin:0;max-width:360px}
+    .benefit p{font-size:13px;line-height:1.85;color:#77756c;margin:2px 0 0;max-width:500px}
+    .steps-cta{margin-top:38px}
+    .button-dark{background:var(--dark);color:white;border-color:var(--dark)}
+    .button-dark:hover{background:var(--brown);border-color:var(--brown)}
+    .residents{background:var(--dark);color:white}
+    .residents-head{display:grid;grid-template-columns:1fr .7fr;gap:50px;align-items:end;margin-bottom:70px}
+    .residents-head .display-title{max-width:850px}
+    .residents-intro{font-size:13px;line-height:1.9;color:rgba(255,255,255,.62);max-width:380px;margin:0 0 8px}
+    .resident-stack{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:start}
+    .resident-list{display:flex;flex-direction:column;gap:0}
+    .resident-item{padding:25px 0 30px;border-top:1px solid rgba(255,255,255,.22);display:grid;grid-template-columns:55px 1fr;gap:16px}
+    .resident-item:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+    .resident-item .num{font-family:"Playfair Display",Georgia,serif;font-size:25px;color:var(--khaki)}
+    .resident-item h3{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:25px;margin:0 0 10px}
+    .resident-item p{font-size:12px;line-height:1.85;color:rgba(255,255,255,.58);margin:0;max-width:470px}
+    .resident-visual{position:relative;height:680px}
+    .resident-photo{position:sticky;top:120px;height:500px;overflow:hidden}
+    .resident-photo img{filter:brightness(.82) saturate(.78);transition:opacity .45s,transform 1s var(--ease)}
+    .resident-photo.is-changing img{transform:scale(1.04);opacity:.65}
+    .resident-caption{position:absolute;bottom:0;left:0;background:var(--khaki);color:var(--ink);padding:16px 20px;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+    .compare{background:var(--khaki);color:var(--ink)}
+    .compare-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:65px}
+    .compare-head .display-title{max-width:850px}
+    .compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .city-card{position:relative;min-height:510px;background:#c9c5b4;overflow:hidden;padding:35px;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate}
+    .city-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,22,.05),rgba(20,20,22,.72));z-index:-1}
+    .city-card img{position:absolute;inset:0;z-index:-2;filter:brightness(.72) saturate(.72);transition:transform 1.2s var(--ease)}
+    .city-card:hover img{transform:scale(1.04)}
+    .city-top{display:flex;justify-content:space-between;align-items:center;color:white}
+    .city-index{font-size:10px;letter-spacing:.18em}
+    .cube{width:48px;height:48px;position:relative;transform:rotate(-28deg) skewY(8deg);transform-style:preserve-3d;animation:cube-float 7s ease-in-out infinite}
+    .cube:before,.cube:after,.cube span{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.08)}
+    .cube:before{transform:translate(12px,-12px) skewY(-28deg) scale(.78);transform-origin:top left}
+    .cube:after{transform:translate(12px,12px) skewX(-28deg) scale(.78);transform-origin:top left}
+    .cube span{transform:translate(0,0)}
+    .city-bottom{color:white;max-width:500px}
+    .city-bottom h3{font-family:"Playfair Display",Georgia,serif;font-size:clamp(42px,5vw,68px);font-weight:400;letter-spacing:-.04em;margin:0 0 15px}
+    .city-bottom p{font-size:13px;line-height:1.8;color:rgba(255,255,255,.8);max-width:430px;margin:0 0 20px}
+    .city-address{font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.75)}
+    .about{background:var(--dark);color:white;padding-bottom:clamp(90px,12vw,180px)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
+    .about-copy .display-title{font-size:clamp(43px,6vw,82px)}
+    .about-copy>p:not(.section-label){font-size:14px;line-height:1.9;color:rgba(255,255,255,.66);max-width:490px;margin:28px 0 32px}
+    .about-images{height:560px;position:relative}
+    .about-image{position:absolute;overflow:hidden}
+    .about-image.one{left:0;top:0;width:70%;height:76%}
+    .about-image.two{right:0;bottom:0;width:56%;height:54%;border:8px solid var(--dark)}
+    .about-image img{filter:brightness(.82) saturate(.78);transition:transform 1s var(--ease)}
+    .about-image:hover img{transform:scale(1.04)}
+    .about-note{font-size:10px;line-height:1.8;color:var(--muted);margin-top:22px;max-width:420px}
+    .site-footer{background:#0d0d0f;color:white;padding:60px var(--gutter) 25px}
+    .footer-main{max-width:var(--container);margin:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:50px;padding-bottom:65px}
+    .footer-brand .brand-symbol{font-size:38px;width:42px;height:42px}
+    .footer-brand .brand-name{font-size:14px}
+    .footer-tagline{font-family:"Playfair Display",Georgia,serif;font-size:clamp(23px,2.6vw,34px);line-height:1.25;max-width:380px;margin:25px 0 0;color:var(--khaki)}
+    .footer-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:7px 0 22px}
+    .footer-links{display:grid;gap:13px}
+    .footer-links a{font-size:12px;color:rgba(255,255,255,.76);width:max-content;max-width:100%;transition:color .2s}
+    .footer-links a:hover{color:var(--khaki)}
+    .footer-bottom{max-width:var(--container);margin:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:20px;align-items:center;color:#88878a;font-size:9px;letter-spacing:.12em}
+    .footer-bottom a{color:#b7b4a7}
+    [data-reveal]{opacity:0;transform:translate3d(0,22px,0);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    [data-reveal].is-visible{opacity:1;transform:translate3d(0,0,0)}
+    .image-reveal{clip-path:inset(0 0 0 0);opacity:0;transition:opacity 1s var(--ease),clip-path 1.1s var(--ease)}
+    .image-reveal.is-visible{opacity:1}
+    @keyframes title-up{to{transform:translateY(0)}}
+    @keyframes fade-in{to{opacity:1}}
+    @keyframes hero-image-in{from{transform:scale(1.16)}to{transform:scale(1.08)}}
+    @keyframes scroll-line{0%,100%{transform:scaleY(.65);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+    @keyframes cube-float{0%,100%{transform:translateY(0) rotate(-28deg) skewY(8deg)}50%{transform:translateY(-10px) rotate(-20deg) skewY(8deg)}}
+    @media(max-width:1050px){
+      .desktop-nav{gap:18px;margin-right:20px}
+      .hero-bottom{grid-template-columns:1fr 1fr}
+      .hero-description{grid-column:1/-1}
+      .hero-cta{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+      .presentation-grid,.steps-head,.residents-head{grid-template-columns:1fr 1fr;gap:35px}
+      .resident-visual{height:590px}.resident-photo{height:430px}
+    }
+    @media(max-width:760px){
+      .site-header{height:70px}.desktop-nav,.header-right>.language-switch{display:none}.menu-toggle{display:block}
+      .mobile-panel{display:flex;position:fixed;z-index:95;inset:70px 0 0;background:var(--dark);padding:45px var(--gutter);flex-direction:column;gap:23px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .3s,transform .3s,visibility .3s}
+      .mobile-panel.open{opacity:1;visibility:visible;transform:translateY(0)}
+      .mobile-panel>a{font-family:"Playfair Display",Georgia,serif;font-size:clamp(34px,9vw,54px);line-height:1.1}
+      .mobile-panel .language-switch{margin-top:auto;display:flex}
+      .mobile-panel .language-switch button{font-size:12px}
+      .menu-toggle[aria-expanded=true] i:first-child{transform:translateY(4px) rotate(45deg)}
+      .menu-toggle[aria-expanded=true] i:last-child{transform:translateY(-4px) rotate(-45deg)}
+      .hero{min-height:820px;height:auto;padding-top:140px;padding-bottom:48px}
+      .hero-image{inset:0 0 0 0}.hero-image:after{background:linear-gradient(90deg,rgba(20,20,22,.78),rgba(20,20,22,.3)),linear-gradient(0deg,#141416 0%,rgba(20,20,22,.4) 70%)}
+      .hero-title{font-size:clamp(55px,13vw,100px)}
+      .hero-bottom{grid-template-columns:1fr 1fr;gap:25px;margin-top:35px}
+      .hero-description{grid-column:1/-1;max-width:500px}
+      .hero-stat{padding-left:13px}.hero-stat strong{font-size:32px}
+      .hero-cta{grid-column:1/-1;display:grid;grid-template-columns:1fr}
+      .hero-cta .button{width:100%}.scroll-cue{display:none}
+      .presentation-grid,.steps-head,.residents-head,.about-grid{grid-template-columns:1fr}
+      .presentation-grid{gap:35px}.presentation-image{height:360px}
+      .stats-grid{gap:36px}.stat{padding:0 8px}.stat strong{font-size:clamp(48px,12vw,76px)}
+      .steps-head{gap:25px;margin-bottom:48px}
+      .benefit{grid-template-columns:45px 1fr;gap:12px;padding:23px 0}
+      .benefit p{grid-column:2}
+      .residents-head{gap:24px;margin-bottom:40px}
+      .resident-stack{grid-template-columns:1fr;gap:35px}
+      .resident-visual{height:390px;order:-1}
+      .resident-photo{position:relative;top:auto;height:350px}
+      .compare-head{display:block;margin-bottom:38px}
+      .compare-grid{grid-template-columns:1fr}
+      .city-card{min-height:440px;padding:25px}
+      .about-grid{gap:45px}.about-images{height:430px;order:-1}
+      .footer-main{grid-template-columns:1fr 1fr;gap:40px 24px}
+      .footer-main>div:first-child{grid-column:1/-1}
+      .footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}
+    }
+    @media(max-width:440px){
+      :root{--gutter:18px;--section-space:82px}
+      .hero{min-height:800px}.hero-title{font-size:clamp(49px,13vw,68px)}
+      .hero-bottom{gap:22px}.hero-stat strong{font-size:28px}
+      .presentation-image{height:285px}
+      .stats-grid{grid-template-columns:1fr;gap:38px}
+      .stat strong{font-size:70px}
+      .resident-visual{height:320px}.resident-photo{height:290px}
+      .city-card{min-height:400px}
+      .about-images{height:350px}
+      .footer-main{grid-template-columns:1fr;gap:35px}
+      .footer-main>div:first-child{grid-column:auto}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      [data-reveal],.image-reveal{opacity:1;transform:none;clip-path:none}
+      .hero-title b{transform:none}
+    }
+  </style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Concrète home"><span class="brand-symbol">C.</span><span class="brand-name">CONCRÈTE</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#model" data-i18n="nav_model">Model</a>
+      <a href="#expertise" data-i18n="nav_expertise">Expertise</a>
+      <a href="#residents" data-i18n="nav_residents">Residents</a>
+      <a href="#locations" data-i18n="nav_locations">Locations</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <div class="language-switch" aria-label="Language">
+        <button class="active" data-lang="id" aria-pressed="true">ID</button><span>/</span><button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel"><i></i><i></i></button>
+    </div>
+  </header>
+  <nav class="mobile-panel" id="mobile-panel" aria-hidden="true">
+    <a href="#model" data-i18n="nav_model">Model</a><a href="#expertise" data-i18n="nav_expertise">Expertise</a>
+    <a href="#residents" data-i18n="nav_residents">Residents</a><a href="#locations" data-i18n="nav_locations">Locations</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <div class="language-switch"><button class="active" data-lang="id" aria-pressed="true">ID</button><span>/</span><button data-lang="en" aria-pressed="false">EN</button></div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=72" alt="Interior apartemen kontemporer dengan cahaya alami" fetchpriority="high" decoding="async"></div>
+      <div class="hero-content">
+        <p class="eyebrow hero-kicker" data-i18n="hero_kicker">PROPERTY MANAGEMENT · SWITZERLAND</p>
+        <h1 class="hero-title"><span><b>Property</b></span><span><b>Management</b></span><span><b>Switzerland</b></span></h1>
+        <div class="hero-bottom">
+          <p class="hero-description" data-i18n="hero_desc">Pengelolaan aset residensial dan hunian furnished untuk pemilik properti, investor institusional, serta mitra korporat.</p>
+          <div class="hero-stat"><strong>20 ans</strong><span data-i18n="hero_stat1">Pengalaman di Suisse Romande</span></div>
+          <div class="hero-stat"><strong>+50%</strong><span data-i18n="hero_stat2">Potensi peningkatan TRI</span></div>
+          <div class="hero-stat"><strong>5</strong><span data-i18n="hero_stat3">Klien institusional</span></div>
+          <div class="hero-cta">
+            <a class="button button-light" href="#contact"><span data-i18n="hero_cta1">Pemilik & institusi</span><span class="arrow">↗</span></a>
+            <a class="button button-outline" href="#residents"><span data-i18n="hero_cta2">Hunian & corporate housing</span><span class="arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue"><span data-i18n="scroll">SCROLL TO EXPLORE</span></div>
+    </section>
+
+    <section class="section presentation" id="model">
+      <div class="section-inner">
+        <p class="section-label" data-reveal><span>01</span><span data-i18n="label_presentation">TRUST & PERFORMANCE</span></p>
+        <div class="presentation-grid">
+          <div class="presentation-copy">
+            <h2 class="display-title" data-reveal data-i18n="presentation_title">Mitra tepercaya bagi investor institusional dan pemilik properti.</h2>
+            <p class="presentation-text" data-reveal data-i18n="presentation_text">Kami mengoperasikan dan meningkatkan nilai portofolio residensial untuk perusahaan asuransi, dana pensiun, family office, dan pemilik properti privat. Pendekatan kami menggabungkan kepastian operasional, kualitas penghuni, dan perlindungan aset jangka panjang.</p>
+          </div>
+          <figure class="presentation-image image-reveal" data-reveal><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=72" alt="Ruang keluarga apartemen premium" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats">
+      <div class="section-inner">
+        <div class="stats-heading"><p class="section-label" data-reveal data-i18n="label_numbers">IN A FEW NUMBERS</p><h2 class="display-title" data-reveal data-i18n="stats_title">Kinerja yang dibangun melalui pengalaman.</h2></div>
+        <div class="stats-grid">
+          <article class="stat" data-reveal><strong data-count="24">24</strong><h3 data-i18n="stat1_title">Bangunan dikelola</h3><p data-i18n="stat1_desc">Portofolio residensial yang dioperasikan dengan perhatian pada kualitas.</p></article>
+          <article class="stat" data-reveal><strong data-count="7" data-suffix=" bulan">7 mois</strong><h3 data-i18n="stat2_title">Durasi rata-rata kontrak</h3><p data-i18n="stat2_desc">Hunian jangka menengah dengan kebutuhan penghuni yang terkurasi.</p></article>
+          <article class="stat" data-reveal><strong data-count="100" data-suffix=" %">100 %</strong><h3 data-i18n="stat3_title">Kontinuitas arus sewa</h3><p data-i18n="stat3_desc">Model operasional yang dirancang untuk menjaga kepastian pembayaran.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps" id="expertise">
+      <div class="section-inner">
+        <p class="section-label" data-reveal><span>02</span><span data-i18n="label_expertise">ASSET MANAGEMENT & OPERATIONS</span></p>
+        <div class="steps-head">
+          <h2 class="display-title" data-reveal data-i18n="steps_title">Ketenangan dari pendapatan yang terjamin, tanpa risiko kekosongan sewa.</h2>
+          <p class="steps-intro" data-reveal data-i18n="steps_intro">Alternatif terhadap pengelolaan tradisional dan ketidakpastian sewa turistik. Kami mengambil pendekatan operator menyeluruh untuk menjaga pendapatan dan kondisi aset.</p>
+        </div>
+        <div class="benefit-list">
+          <article class="benefit" data-reveal><span class="benefit-number">01</span><h3 data-i18n="benefit1_title">Pembayaran sewa terjamin</h3><p data-i18n="benefit1_desc">Arus pembayaran yang teratur melalui kerangka kontrak yang jelas, membantu pemilik mengurangi ketidakpastian pendapatan.</p></article>
+          <article class="benefit" data-reveal><span class="benefit-number">02</span><h3 data-i18n="benefit2_title">Tanpa kekosongan struktural</h3><p data-i18n="benefit2_desc">Jaringan perusahaan dan institusi mendukung permintaan hunian yang konsisten untuk masa tinggal jangka menengah dan panjang.</p></article>
+          <article class="benefit" data-reveal><span class="benefit-number">03</span><h3 data-i18n="benefit3_title">Hasil bersih yang optimal</h3><p data-i18n="benefit3_desc">Model operator terpadu dengan struktur biaya yang transparan, tanpa biaya pengelolaan pasif yang tersembunyi.</p></article>
+          <article class="benefit" data-reveal><span class="benefit-number">04</span><h3 data-i18n="benefit4_title">Perlindungan nilai aset</h3><p data-i18n="benefit4_desc">Inspeksi, pemeliharaan berkelanjutan, dan perawatan preventif membantu menjaga kualitas properti dalam jangka panjang.</p></article>
+        </div>
+        <div class="steps-cta" data-reveal><a class="button button-dark" href="#contact"><span data-i18n="estimate">Estimasi mandat</span><span class="arrow">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section residents" id="residents">
+      <div class="section-inner">
+        <p class="section-label" data-reveal><span>03</span><span data-i18n="label_residents">RESIDENT QUALITY</span></p>
+        <div class="residents-head">
+          <h2 class="display-title" data-reveal data-i18n="residents_title">Penghuni berkualitas dengan profil yang diseleksi secara cermat.</h2>
+          <p class="residents-intro" data-reveal data-i18n="residents_intro">Hunian furnished kami dirancang untuk kebutuhan profesional dan akademik dengan standar kenyamanan, keandalan, dan kualitas tinggal yang tinggi.</p>
+        </div>
+        <div class="resident-stack">
+          <div class="resident-list">
+            <article class="resident-item" data-resident="0" data-reveal><span class="num">01</span><div><h3 data-i18n="resident1_title">Ekosistem akademik Léman</h3><p data-i18n="resident1_desc">Profesor tamu, peneliti postdoctoral, dan peserta pendidikan eksekutif dari institusi seperti EPFL dan EHL.</p></div></article>
+            <article class="resident-item" data-resident="1" data-reveal><span class="num">02</span><div><h3 data-i18n="resident2_title">Korporat & kesehatan</h3><p data-i18n="resident2_desc">Manajer perusahaan multinasional, konsultan, serta tenaga medis spesialis yang membutuhkan hunian praktis dan berkualitas.</p></div></article>
+            <article class="resident-item" data-resident="2" data-reveal><span class="num">03</span><div><h3 data-i18n="resident3_title">Mobilitas profesional</h3><p data-i18n="resident3_desc">Eksekutif dan karyawan dalam penugasan internasional atau perpindahan kerja sementara.</p></div></article>
+          </div>
+          <div class="resident-visual">
+            <figure class="resident-photo image-reveal" id="resident-photo"><img id="resident-image" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=72" alt="Interior apartemen furnished modern" loading="lazy" decoding="async"></figure>
+            <div class="resident-caption" id="resident-caption" data-i18n="resident_caption">FURNISHED RESIDENTIAL LIVING</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compare" id="locations">
+      <div class="section-inner">
+        <p class="section-label" data-reveal><span>04</span><span data-i18n="label_locations">DOUBLE PRESENCE</span></p>
+        <div class="compare-head"><h2 class="display-title" data-reveal data-i18n="locations_title">Keahlian yang berakar di dua lokasi strategis.</h2></div>
+        <div class="compare-grid">
+          <article class="city-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=1400&q=72" alt="Pemandangan kota Lausanne" loading="lazy" decoding="async">
+            <div class="city-top"><span class="city-index">01 / SWITZERLAND</span><div class="cube" aria-hidden="true"><span></span></div></div>
+            <div class="city-bottom"><h3>Lausanne</h3><p data-i18n="lausanne_desc">Pengelolaan aset residensial sesuai hukum sewa Swiss, dengan hunian furnished jangka panjang yang terhubung ke pusat bisnis dan kampus.</p><div class="city-address">AVENUE DU GRAMMONT · 1007 LAUSANNE</div></div>
+          </article>
+          <article class="city-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=72" alt="Pemandangan kota Paris" loading="lazy" decoding="async">
+            <div class="city-top"><span class="city-index">02 / FRANCE</span><div class="cube" aria-hidden="true"><span></span></div></div>
+            <div class="city-bottom"><h3>Paris</h3><p data-i18n="paris_desc">Operasional hunian sesuai regulasi Paris, termasuk kontrak mobility lease dan civil code lease untuk kebutuhan profesional.</p><div class="city-address">RUE DE COURCELLES · 75017 PARIS</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="contact">
+      <div class="section-inner about-grid">
+        <div class="about-copy">
+          <p class="section-label" data-reveal><span>05</span><span data-i18n="label_owners">PROPERTY OWNERS</span></p>
+          <h2 class="display-title" data-reveal data-i18n="about_title">Anda memiliki gedung, portofolio, atau unit residensial?</h2>
+          <p data-reveal data-i18n="about_text">Percayakan aset Anda kepada kami untuk mengurangi kekosongan sewa dan menjaga hasil bersih yang lebih pasti. Kami menyiapkan studi teknis dan proyeksi finansial sesuai karakter properti Anda.</p>
+          <a class="button button-light" href="mailto:contact@concretemanagement.ch?subject=Property%20management%20inquiry"><span data-i18n="about_cta">Minta simulasi pendapatan sewa</span><span class="arrow">↗</span></a>
+          <p class="about-note" data-i18n="about_note">Studi awal dan proyeksi finansial secara rahasia dalam 48 jam, tanpa komitmen.</p>
+        </div>
+        <div class="about-images">
+          <figure class="about-image one image-reveal" data-reveal><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=72" alt="Interior hunian premium" loading="lazy" decoding="async"></figure>
+          <figure class="about-image two image-reveal" data-reveal><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=72" alt="Ruang makan apartemen modern" loading="lazy" decoding="async"></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#dcd9c8;--on:#111111;--glow:rgba(220,217,200,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-main">
+      <div>
+        <a class="brand footer-brand" href="#top"><span class="brand-symbol">C.</span><span class="brand-name">CONCRÈTE</span></a>
+        <p class="footer-tagline" data-i18n="footer_tagline">Mengelola properti dengan kepastian. Menjaga nilai untuk masa depan.</p>
+      </div>
+      <div class="footer-col"><h4 data-i18n="footer_explore">Explore</h4><div class="footer-links">
+        <a href="#model" data-i18n="nav_model">Model</a><a href="#expertise" data-i18n="nav_expertise">Expertise</a><a href="#residents" data-i18n="nav_residents">Residents</a><a href="#locations" data-i18n="nav_locations">Locations</a>
+      </div></div>
+      <div class="footer-col"><h4 data-i18n="footer_contact">Contact</h4><div class="footer-links">
+        <a href="mailto:contact@concretemanagement.ch">contact@concretemanagement.ch</a><a href="#contact" data-i18n="footer_inquiry">Permintaan simulasi</a><a href="#top">Lausanne · Paris</a>
+      </div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 CONCRÈTE. <span data-i18n="rights">All rights reserved.</span></span><span>PROPERTY MANAGEMENT · SWITZERLAND & FRANCE</span><a href="#top" data-i18n="back_top">Kembali ke atas ↑</a></div>
+  </footer>
+
+  <script>
+    const copy = {
+      id:{
+        nav_model:"Model",nav_expertise:"Keahlian",nav_residents:"Penghuni",nav_locations:"Lokasi",nav_contact:"Kontak",
+        hero_kicker:"PROPERTY MANAGEMENT · SWITZERLAND",hero_desc:"Pengelolaan aset residensial dan hunian furnished untuk pemilik properti, investor institusional, serta mitra korporat.",
+        hero_stat1:"Pengalaman di Suisse Romande",hero_stat2:"Potensi peningkatan TRI",hero_stat3:"Klien institusional",hero_cta1:"Pemilik & institusi",hero_cta2:"Hunian & corporate housing",scroll:"GULIR UNTUK MENJELAJAH",
+        label_presentation:"KEPERCAYAAN & KINERJA",presentation_title:"Mitra tepercaya bagi investor institusional dan pemilik properti.",presentation_text:"Kami mengoperasikan dan meningkatkan nilai portofolio residensial untuk perusahaan asuransi, dana pensiun, family office, dan pemilik properti privat. Pendekatan kami menggabungkan kepastian operasional, kualitas penghuni, dan perlindungan aset jangka panjang.",
+        label_numbers:"DALAM BEBERAPA ANGKA",stats_title:"Kinerja yang dibangun melalui pengalaman.",stat1_title:"Bangunan dikelola",stat1_desc:"Portofolio residensial yang dioperasikan dengan perhatian pada kualitas.",stat2_title:"Durasi rata-rata kontrak",stat2_desc:"Hunian jangka menengah dengan kebutuhan penghuni yang terkurasi.",stat3_title:"Kontinuitas arus sewa",stat3_desc:"Model operasional yang dirancang untuk menjaga kepastian pembayaran.",
+        label_expertise:"PENGELOLAAN ASET & OPERASIONAL",steps_title:"Ketenangan dari pendapatan yang terjamin, tanpa risiko kekosongan sewa.",steps_intro:"Alternatif terhadap pengelolaan tradisional dan ketidakpastian sewa turistik. Kami mengambil pendekatan operator menyeluruh untuk menjaga pendapatan dan kondisi aset.",
+        benefit1_title:"Pembayaran sewa terjamin",benefit1_desc:"Arus pembayaran yang teratur melalui kerangka kontrak yang jelas, membantu pemilik mengurangi ketidakpastian pendapatan.",benefit2_title:"Tanpa kekosongan struktural",benefit2_desc:"Jaringan perusahaan dan institusi mendukung permintaan hunian yang konsisten untuk masa tinggal jangka menengah dan panjang.",benefit3_title:"Hasil bersih yang optimal",benefit3_desc:"Model operator terpadu dengan struktur biaya yang transparan, tanpa biaya pengelolaan pasif yang tersembunyi.",benefit4_title:"Perlindungan nilai aset",benefit4_desc:"Inspeksi, pemeliharaan berkelanjutan, dan perawatan preventif membantu menjaga kualitas properti dalam jangka panjang.",estimate:"Estimasi mandat",
+        label_residents:"KUALITAS PENGHUNI",residents_title:"Penghuni berkualitas dengan profil yang diseleksi secara cermat.",residents_intro:"Hunian furnished kami dirancang untuk kebutuhan profesional dan akademik dengan standar kenyamanan, keandalan, dan kualitas tinggal yang tinggi.",resident1_title:"Ekosistem akademik Léman",resident1_desc:"Profesor tamu, peneliti postdoctoral, dan peserta pendidikan eksekutif dari institusi seperti EPFL dan EHL.",resident2_title:"Korporat & kesehatan",resident2_desc:"Manajer perusahaan multinasional, konsultan, serta tenaga medis spesialis yang membutuhkan hunian praktis dan berkualitas.",resident3_title:"Mobilitas profesional",resident3_desc:"Eksekutif dan karyawan dalam penugasan internasional atau perpindahan kerja sementara.",resident_caption:"HUNIAN RESIDENSIAL FURNISHED",
+        label_locations:"DUA LOKASI STRATEGIS",locations_title:"Keahlian yang berakar di dua lokasi strategis.",lausanne_desc:"Pengelolaan aset residensial sesuai hukum sewa Swiss, dengan hunian furnished jangka panjang yang terhubung ke pusat bisnis dan kampus.",paris_desc:"Operasional hunian sesuai regulasi Paris, termasuk kontrak mobility lease dan civil code lease untuk kebutuhan profesional.",
+        label_owners:"PEMILIK PROPERTI",about_title:"Anda memiliki gedung, portofolio, atau unit residensial?",about_text:"Percayakan aset Anda kepada kami untuk mengurangi kekosongan sewa dan menjaga hasil bersih yang lebih pasti. Kami menyiapkan studi teknis dan proyeksi finansial sesuai karakter properti Anda.",about_cta:"Minta simulasi pendapatan sewa",about_note:"Studi awal dan proyeksi finansial secara rahasia dalam 48 jam, tanpa komitmen.",
+        footer_tagline:"Mengelola properti dengan kepastian. Menjaga nilai untuk masa depan.",footer_explore:"JELAJAHI",footer_contact:"KONTAK",footer_inquiry:"Permintaan simulasi",rights:"Hak cipta dilindungi.",back_top:"Kembali ke atas ↑"
+      },
+      en:{
+        nav_model:"Our model",nav_expertise:"Expertise",nav_residents:"Residents",nav_locations:"Locations",nav_contact:"Contact",
+        hero_kicker:"PROPERTY MANAGEMENT · SWITZERLAND",hero_desc:"Residential asset management and furnished housing operations for property owners, institutional investors, and corporate partners.",
+        hero_stat1:"Years in Suisse Romande",hero_stat2:"Potential IRR uplift",hero_stat3:"Institutional clients",hero_cta1:"Owners & institutions",hero_cta2:"Residences & corporate housing",scroll:"SCROLL TO EXPLORE",
+        label_presentation:"TRUST & PERFORMANCE",presentation_title:"A trusted partner for institutional investors and private landlords.",presentation_text:"We operate and enhance residential portfolios for insurance companies, pension funds, family offices, and private property owners. Our approach combines operational certainty, resident quality, and long-term asset preservation.",
+        label_numbers:"IN A FEW NUMBERS",stats_title:"Performance built through experience.",stat1_title:"Buildings operated",stat1_desc:"Residential portfolios managed with a focus on quality.",stat2_title:"Average lease duration",stat2_desc:"Mid-term housing shaped around carefully considered resident needs.",stat3_title:"Rental cash-flow continuity",stat3_desc:"An operating model designed to provide greater payment certainty.",
+        label_expertise:"ASSET MANAGEMENT & OPERATIONS",steps_title:"The peace of mind of secured income, with no structural vacancy risk.",steps_intro:"An alternative to traditional management and the uncertainty of short-term tourist rentals. Our full-service operator approach protects income and asset condition.",
+        benefit1_title:"Secured rental payments",benefit1_desc:"Regular payments under a clear contractual framework help owners reduce income uncertainty.",benefit2_title:"No structural vacancy",benefit2_desc:"Our corporate and institutional network supports consistent demand for mid- and long-term accommodation.",benefit3_title:"Optimized net returns",benefit3_desc:"An integrated operating model with a transparent cost structure and no hidden passive management fees.",benefit4_title:"Long-term asset preservation",benefit4_desc:"Inspections, ongoing maintenance, and preventive care help preserve property quality over time.",estimate:"Estimate a mandate",
+        label_residents:"RESIDENT QUALITY",residents_title:"A pool of solvent residents, carefully selected.",residents_intro:"Our furnished residences are designed for professional and academic needs, with high standards of comfort, reliability, and living quality.",resident1_title:"Lake Geneva academic hub",resident1_desc:"Visiting professors, postdoctoral researchers, and executive education participants from institutions such as EPFL and EHL.",resident2_title:"Corporate & healthcare",resident2_desc:"Multinational managers, consultants, and specialist medical professionals seeking practical, high-quality accommodation.",resident3_title:"Professional mobility",resident3_desc:"Executives and employees on international assignments or temporary work relocation.",resident_caption:"FURNISHED RESIDENTIAL LIVING",
+        label_locations:"DOUBLE PRESENCE",locations_title:"Expertise rooted in two strategic locations.",lausanne_desc:"Residential asset management in line with Swiss tenancy law, with long-term furnished housing connected to business districts and campuses.",paris_desc:"Residential operations aligned with Paris regulations, including mobility lease and civil code lease arrangements for professional stays.",
+        label_owners:"PROPERTY OWNERS",about_title:"Do you own a building, a portfolio, or a residential unit?",about_text:"Entrust your assets to us to reduce rental vacancies and secure more predictable net returns. We prepare a confidential technical review and financial projection tailored to your property.",about_cta:"Request a rental income simulation",about_note:"A confidential initial study and financial projection within 48 hours, with no commitment.",
+        footer_tagline:"Managing property with certainty. Preserving value for the future.",footer_explore:"EXPLORE",footer_contact:"CONTACT",footer_inquiry:"Request a simulation",rights:"All rights reserved.",back_top:"Back to top ↑"
+      }
+    };
+
+    const languageButtons = document.querySelectorAll("[data-lang]");
+    function setLanguage(lang){
+      const dictionary = copy[lang] || copy.id;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.dataset.i18n;
+        if(dictionary[key]) el.textContent = dictionary[key];
+      });
+      const monthCounter = document.querySelector('[data-count="7"]');
+      if(monthCounter) monthCounter.dataset.suffix = lang === "en" ? " months" : " bulan";
+      languageButtons.forEach(button=>{
+        const active = button.dataset.lang === lang;
+        button.classList.toggle("active",active);
+        button.setAttribute("aria-pressed",String(active));
+      });
+      document.querySelector('meta[name="description"]').content = lang === "en"
+        ? "CONCRÈTE — Residential asset management and furnished housing in Lausanne and Paris."
+        : "CONCRÈTE — Pengelolaan aset residensial dan hunian furnished premium di Lausanne dan Paris.";
+    }
+    languageButtons.forEach(button=>button.addEventListener("click",()=>setLanguage(button.dataset.lang)));
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const mobilePanel = document.querySelector(".mobile-panel");
+    function closeMenu(){
+      menuButton.setAttribute("aria-expanded","false");
+      mobilePanel.classList.remove("open");
+      mobilePanel.setAttribute("aria-hidden","true");
+      document.body.classList.remove("menu-open");
+    }
+    menuButton.addEventListener("click",()=>{
+      const open = menuButton.getAttribute("aria-expanded") !== "true";
+      menuButton.setAttribute("aria-expanded",String(open));
+      mobilePanel.classList.toggle("open",open);
+      mobilePanel.setAttribute("aria-hidden",String(!open));
+      document.body.classList.toggle("menu-open",open);
+    });
+    mobilePanel.querySelectorAll("a").forEach(link=>link.addEventListener("click",closeMenu));
+    document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu();});
+
+    const revealObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12,rootMargin:"0px 0px -5% 0px"});
+    document.querySelectorAll("[data-reveal],.image-reveal").forEach(el=>revealObserver.observe(el));
+
+    const residentImages = [
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=72",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=72",
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1300&q=72"
+    ];
+    const residentCaptions = ["FURNISHED RESIDENTIAL LIVING","CORPORATE & HEALTHCARE STAYS","PROFESSIONAL MOBILITY"];
+    const residentItems = document.querySelectorAll("[data-resident]");
+    const residentImage = document.getElementById("resident-image");
+    const residentPhoto = document.getElementById("resident-photo");
+    const residentCaption = document.getElementById("resident-caption");
+    let currentResident = 0;
+    const residentObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const next = Number(entry.target.dataset.resident);
+          if(next !== currentResident){
+            currentResident = next;
+            residentPhoto.classList.add("is-changing");
+            window.setTimeout(()=>{
+              residentImage.src = residentImages[next];
+              residentCaption.textContent = residentCaptions[next];
+              residentPhoto.classList.remove("is-changing");
+            },180);
+          }
+        }
+      });
+    },{threshold:.55});
+    residentItems.forEach(item=>residentObserver.observe(item));
+
+    const counters = document.querySelectorAll("[data-count]");
+    const counterObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+        const el=entry.target, target=Number(el.dataset.count), suffix=el.dataset.suffix||"";
+        if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=target+suffix;counterObserver.unobserve(el);return;}
+        const start=performance.now(), duration=1050;
+        function tick(now){
+          const progress=Math.min((now-start)/duration,1);
+          const eased=1-Math.pow(1-progress,3);
+          el.textContent=Math.round(target*eased)+suffix;
+          if(progress<1)requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    },{threshold:.65});
+    counters.forEach(counter=>counterObserver.observe(counter));
+  </script>
+<script id="mx-script">window.__MX_BG=["https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=72", "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1300&q=72", "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1300&q=72"];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    ['ARAH', 'creative', 'Agensi kreatif dan kampanye', 'Creative agency and campaigns', 'portfolio/agensi-kreatif-bisnis/arah-creative-agency.html', 'previews/arah-creative-agency.webp', 'preview-videos/arah-creative-agency.mp4'],
+    ['Media Quest', 'creative', 'Agensi pemasaran dan pertumbuhan merek', 'Marketing agency and brand growth', 'portfolio/agensi-kreatif-bisnis/media-quest-marketing-agency.html', 'previews/media-quest-marketing-agency.webp', 'preview-videos/media-quest-marketing-agency.mp4'],
+    ['Northstar Studio', 'creative', 'Studio pertumbuhan bisnis', 'Business growth studio', 'portfolio/agensi-kreatif-bisnis/northstar-studio-growth.html', 'previews/northstar-studio-growth.webp', 'preview-videos/northstar-studio-growth.mp4'],
+    ['NŌVA Studio', 'creative', 'Studio kreatif dan pengalaman digital', 'Creative studio and digital experiences', 'portfolio/agensi-kreatif-bisnis/nova-studio-kreatif.html', 'previews/nova-studio-kreatif.webp', 'preview-videos/nova-studio-kreatif.mp4'],
+    ['Room & Pillar', 'creative', 'Venture studio dan portofolio bisnis', 'Venture studio and business portfolio', 'portfolio/agensi-kreatif-bisnis/room-pillar-venture-studio.html', 'previews/room-pillar-venture-studio.webp', 'preview-videos/room-pillar-venture-studio.mp4'],
+    ['CONCRÈTE', 'spaces', 'Manajemen properti', 'Property management', 'portfolio/arsitektur-properti-interior/concrete-property-management.html', 'previews/concrete-property-management.webp', 'preview-videos/concrete-property-management.mp4'],
+    ['Ruang Karya', 'spaces', 'Desain interior hunian', 'Residential interior design', 'portfolio/arsitektur-properti-interior/ruang-karya-interior-hunian.html', 'previews/ruang-karya-interior-hunian.webp', 'preview-videos/ruang-karya-interior-hunian.mp4'],
+    ['Ruang Reka', 'spaces', 'Studio arsitektur', 'Architecture studio', 'portfolio/arsitektur-properti-interior/ruang-reka-arsitektur.html', 'previews/ruang-reka-arsitektur.webp', 'preview-videos/ruang-reka-arsitektur.mp4'],
+    ['STRATA', 'spaces', 'Studio ruang dan arsitektur', 'Spatial design and architecture studio', 'portfolio/arsitektur-properti-interior/strata-studio-ruang.html', 'previews/strata-studio-ruang.webp', 'preview-videos/strata-studio-ruang.mp4'],
+    ['STRUCTURE', 'spaces', 'Rekayasa struktur dan ruang', 'Structural engineering and spaces', 'portfolio/arsitektur-properti-interior/structure-structural-engineering.html', 'previews/structure-structural-engineering.webp', 'preview-videos/structure-structural-engineering.mp4'],
+    ['Bageera', 'energy', 'Solusi performa energi', 'Energy performance solutions', 'portfolio/energi-industri/bageera-energi-performa.html', 'previews/bageera-energi-performa.webp', 'preview-videos/bageera-energi-performa.mp4'],
+    ['LumenGrid', 'energy', 'Solusi energi bersih', 'Clean energy solutions', 'portfolio/energi-industri/lumengrid-energi-bersih.html', 'previews/lumengrid-energi-bersih.webp', 'preview-videos/lumengrid-energi-bersih.mp4'],
+    ['Kalipso', 'legal', 'Kepatuhan regulasi berbasis AI', 'AI-powered regulatory compliance', 'portfolio/hukum-regulasi/kalipso-regulatory-compliance-ai.html', 'previews/kalipso-regulatory-compliance-ai.webp', 'preview-videos/kalipso-regulatory-compliance-ai.mp4'],
+    ['Ruang Hukum', 'legal', 'Layanan hukum', 'Legal services', 'portfolio/hukum-regulasi/ruang-hukum-layanan-hukum.html', 'previews/ruang-hukum-layanan-hukum.webp', 'preview-videos/ruang-hukum-layanan-hukum.mp4'],
+    ['AUREL Wealth', 'finance', 'Pengelolaan kekayaan', 'Wealth management', 'portfolio/keuangan-finance/aurel-wealth-management.html', 'previews/aurel-wealth-management.webp', 'preview-videos/aurel-wealth-management.mp4'],
+    ['Flowmint', 'finance', 'Fintech dan pengelolaan piutang', 'Fintech and receivables management', 'portfolio/keuangan-finance/flowmint-piutang-fintech.html', 'previews/flowmint-piutang-fintech.webp', 'preview-videos/flowmint-piutang-fintech.mp4'],
+    ['ARUS', 'adventure', 'Tim dan komunitas renang', 'Swimming team and community', 'portfolio/olahraga-petualangan/arus-tim-renang.html', 'previews/arus-tim-renang.webp', 'preview-videos/arus-tim-renang.mp4'],
+    ['NORTHWILD', 'adventure', 'Petualangan dan kegiatan alam', 'Outdoor adventures and activities', 'portfolio/olahraga-petualangan/northwild-petualangan-alam.html', 'previews/northwild-petualangan-alam.webp', 'preview-videos/northwild-petualangan-alam.mp4'],
+    ['Learnflow', 'education', 'Platform pembelajaran berbasis AI', 'AI-powered learning platform', 'portfolio/pendidikan/learnflow-elearning-ai.html', 'previews/learnflow-elearning-ai.webp', 'preview-videos/learnflow-elearning-ai.mp4'],
+    ['C12', 'tech', 'Perangkat keras komputasi kuantum', 'Quantum computing hardware', 'portfolio/teknologi-ai/c12-quantum-hardware.html', 'previews/c12-quantum-hardware.webp', 'preview-videos/c12-quantum-hardware.mp4'],
+    ['Nalar', 'tech', 'Teknologi dan kecerdasan buatan', 'Technology and artificial intelligence', 'portfolio/teknologi-ai/nalar-teknologi-ai.html', 'previews/nalar-teknologi-ai.webp', 'preview-videos/nalar-teknologi-ai.mp4'],
+    ['Revo', 'tech', 'Ruang kerja berbasis AI', 'AI-powered workspace', 'portfolio/teknologi-ai/revo-ai-workspace.html', 'previews/revo-ai-workspace.webp', 'preview-videos/revo-ai-workspace.mp4'],
+];

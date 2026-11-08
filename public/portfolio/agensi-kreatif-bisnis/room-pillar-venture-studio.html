@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room & Pillar — Venture Capital & Studio Portofolio</title>
+  <meta name="description" content="Room & Pillar bermitra dengan para pendiri untuk mengembangkan perusahaan tahap awal di bidang PropTech dan InsurTech.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #131419;
+      --surface-1: #1a1b22;
+      --surface-2: #24252c;
+      --muted: #72747e;
+      --paper: #f2f2f6;
+      --paper-dark: #e5e5ec;
+      --soft: #dbdbe9;
+      --lime: #d2fe71;
+      --lime-hover: #bde85b;
+      --coral: #ff8588;
+      --border-dark: rgba(255, 255, 255, 0.1);
+      --border-light: rgba(19, 20, 25, 0.12);
+      --page-max: 1540px;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+      --section-space: clamp(4.5rem, 9vw, 9.5rem);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--paper);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s var(--ease), opacity 0.25s var(--ease);
+    }
+
+    button {
+      font-family: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--lime);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 2 * var(--gutter)), var(--page-max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background: var(--lime);
+      color: var(--ink);
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+      z-index: 9999;
+      transform: translateY(-200%);
+      transition: transform 0.2s ease;
+      font-size: 0.875rem;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Header & Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(19, 20, 25, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-dark);
+      transition: border-color 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      background: var(--lime);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+      padding: 3px;
+    }
+
+    .brand-mark span {
+      background: var(--ink);
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--soft);
+      letter-spacing: -0.01em;
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--paper);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--lime);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-1);
+      border: 1px solid var(--border-dark);
+      padding: 3px;
+      border-radius: 4px;
+    }
+
+    .lang-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      color: var(--muted);
+      border-radius: 2px;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--lime);
+      color: var(--ink);
+    }
+
+    .btn-contact {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.65rem 1.25rem;
+      background: transparent;
+      border: 1px solid var(--border-dark);
+      color: var(--paper);
+      border-radius: 4px;
+      transition: all 0.25s var(--ease);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-contact:hover {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--paper);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--paper);
+      transition: 0.3s;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: calc(100svh - 84px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: var(--section-space);
+      border-bottom: 1px dashed var(--muted);
+      overflow: hidden;
+    }
+
+    /* 7 Vertical Architectural Bars from design spec */
+    .hero-bars {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.28;
+    }
+
+    .hero-bar {
+      border-right: 1px dashed rgba(255, 255, 255, 0.08);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bar::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 35%;
+      background: linear-gradient(to top, rgba(210, 254, 113, 0.04), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 1.75rem;
+    }
+
+    .badge-tag::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--lime);
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 7.5vw, 7.25rem);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      color: var(--paper);
+      margin-bottom: 2.25rem;
+      max-width: 18ch;
+    }
+
+    .hero-title .highlight {
+      color: var(--lime);
+      font-style: normal;
+    }
+
+    .hero-desc {
+      font-size: clamp(1.125rem, 1.8vw, 1.45rem);
+      line-height: 1.55;
+      color: var(--soft);
+      max-width: 62ch;
+      margin-bottom: 3.5rem;
+      font-weight: 400;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      max-width: 960px;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--paper);
+      letter-spacing: -0.04em;
+    }
+
+    .metric-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    /* Section Introduksi / Pendekatan */
+    .intro-section {
+      padding-block: var(--section-space);
+      border-bottom: 1px dashed var(--muted);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    .intro-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .tag-box {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--soft);
+      padding: 0.85rem 1.25rem;
+      border: 1px solid var(--border-dark);
+      background: var(--surface-1);
+      width: fit-content;
+      border-left: 3px solid var(--lime);
+    }
+
+    .intro-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .intro-headline {
+      font-size: clamp(1.85rem, 3.5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      color: var(--paper);
+    }
+
+    .intro-copy {
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--soft);
+      max-width: 68ch;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--lime);
+      margin-top: 0.5rem;
+      transition: transform 0.25s ease;
+    }
+
+    .link-arrow:hover {
+      color: var(--paper);
+      transform: translateX(4px);
+    }
+
+    /* Section Portfolio & Filter */
+    .portfolio-section {
+      padding-block: var(--section-space);
+      border-bottom: 1px dashed var(--muted);
+    }
+
+    .portfolio-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .portfolio-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5.5vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .partner-counter {
+      font-family: var(--font-mono);
+      font-size: 1.125rem;
+      color: var(--lime);
+      background: var(--surface-1);
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.6rem 1.1rem;
+      background: var(--surface-1);
+      border: 1px solid var(--border-dark);
+      color: var(--soft);
+      border-radius: 2px;
+      transition: all 0.2s var(--ease);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--soft);
+      color: var(--paper);
+    }
+
+    .filter-btn.active {
+      background: var(--lime);
+      color: var(--ink);
+      border-color: var(--lime);
+      font-weight: 700;
+    }
+
+    /* Portfolio Cards Grid / List */
+    .portfolio-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.45fr);
+      gap: clamp(2rem, 4.5vw, 4.5rem);
+      padding-block: clamp(3rem, 5.5vw, 4.75rem);
+      border-bottom: 1px dashed var(--muted);
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .portfolio-card:first-child {
+      border-top: 1px dashed var(--muted);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-category {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card-status {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+    }
+
+    .card-status.active {
+      background: rgba(210, 254, 113, 0.15);
+      color: var(--lime);
+      border: 1px solid rgba(210, 254, 113, 0.3);
+    }
+
+    .card-status.realized {
+      background: rgba(255, 133, 136, 0.15);
+      color: var(--coral);
+      border: 1px solid rgba(255, 133, 136, 0.3);
+    }
+
+    .card-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      color: var(--paper);
+    }
+
+    .card-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--lime);
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--soft);
+      margin-bottom: 2rem;
+      max-width: 52ch;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--paper);
+      padding: 0.6rem 1.15rem;
+      border: 1px solid var(--border-dark);
+      background: var(--surface-1);
+      border-radius: 2px;
+      transition: all 0.25s var(--ease);
+    }
+
+    .card-link:hover {
+      background: var(--lime);
+      color: var(--ink);
+      border-color: var(--lime);
+    }
+
+    .card-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3040 / 2040;
+      background: var(--surface-1);
+      border: 1px solid var(--border-dark);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+      filter: grayscale(18%) contrast(105%);
+    }
+
+    .portfolio-card:hover .card-media img {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(100%);
+    }
+
+    .load-more-wrapper {
+      display: flex;
+      justify-content: center;
+      padding-top: 3.5rem;
+    }
+
+    .btn-load-more {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 1rem 2.5rem;
+      background: var(--surface-1);
+      color: var(--paper);
+      border: 1px solid var(--border-dark);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.25s var(--ease);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-load-more:hover {
+      background: var(--lime);
+      color: var(--ink);
+      border-color: var(--lime);
+    }
+
+    /* Section Investment Focus (Kontras Terang #f2f2f6) */
+    .focus-section {
+      background-color: var(--paper);
+      color: var(--ink);
+      padding-block: var(--section-space);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .focus-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .focus-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .focus-tag::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: var(--ink);
+    }
+
+    .focus-title {
+      font-size: clamp(2.5rem, 5.5vw, 5rem);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+    }
+
+    .focus-desc {
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.6;
+      color: #3b3d48;
+      max-width: 58ch;
+    }
+
+    .focus-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .pillar-box {
+      border-top: 2px solid var(--ink);
+      padding-top: 1rem;
+    }
+
+    .pillar-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .pillar-desc {
+      font-size: 0.875rem;
+      color: #555762;
+      line-height: 1.5;
+    }
+
+    .focus-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .abstract-graphic {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1;
+    }
+
+    /* Section Penutup / Powering Innovation */
+    .closing-section {
+      padding-block: var(--section-space);
+      border-bottom: 1px dashed var(--muted);
+      position: relative;
+    }
+
+    .closing-statements {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .statement-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .statement-num {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--lime);
+    }
+
+    .statement-title {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .closing-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: flex-end;
+    }
+
+    .closing-headline {
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+
+    .closing-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .closing-text {
+      font-size: 1.125rem;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    .btn-cta-large {
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      padding: 1.125rem 2rem;
+      background: var(--lime);
+      color: var(--ink);
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: fit-content;
+      transition: all 0.25s var(--ease);
+    }
+
+    .btn-cta-large:hover {
+      background: var(--paper);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: 3rem;
+      background: var(--ink);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.25fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .footer-brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      max-width: 36ch;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--lime);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.9375rem;
+      color: var(--soft);
+    }
+
+    .footer-nav a:hover {
+      color: var(--paper);
+    }
+
+    .footer-contact-link {
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      color: var(--paper);
+      word-break: break-all;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--lime);
+    }
+
+    .footer-big-wordmark {
+      padding-block: clamp(2.5rem, 6vw, 5rem);
+      border-bottom: 1px solid var(--border-dark);
+      text-align: center;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .wordmark-text {
+      font-size: clamp(3.25rem, 13vw, 13.5rem);
+      font-weight: 900;
+      line-height: 0.85;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+      transition: color 0.4s ease;
+    }
+
+    .footer-big-wordmark:hover .wordmark-text {
+      color: rgba(210, 254, 113, 0.12);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .footer-legal-copy {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Modal Dialog Kontak */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 20, 25, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s var(--ease);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-dark);
+      width: min(100%, 560px);
+      padding: clamp(2rem, 4vw, 3rem);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s var(--ease);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: var(--muted);
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 0.5rem;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--paper);
+    }
+
+    .modal-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-desc {
+      font-size: 0.9375rem;
+      color: var(--soft);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--soft);
+    }
+
+    .form-input, .form-textarea {
+      background: var(--surface-2);
+      border: 1px solid var(--border-dark);
+      padding: 0.85rem 1rem;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: var(--paper);
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--lime);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 1rem;
+      background: var(--lime);
+      color: var(--ink);
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      transition: background 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--paper);
+    }
+
+    /* Responsif & Breakpoints */
+    @media (max-width: 1024px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+      .closing-statements {
+        grid-template-columns: 1fr;
+      }
+      .closing-hero {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .hero-bars {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .focus-pillars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+@media(max-width:420px){.btn-contact{padding:9px 12px}.btn-contact svg{display:none}.header-actions{gap:.5rem}.lang-btn{padding:5px 7px}}</style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content" data-i18n="skip_to_content">Lewati ke konten utama</a>
+
+  <!-- Header Navigasi -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand-logo" aria-label="Room & Pillar Beranda">
+        <div class="brand-mark">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span>Room &amp; Pillar</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navigasi Utama">
+        <a href="#hero" class="nav-link active" data-i18n="nav_home">Beranda</a>
+        <a href="#focus" class="nav-link" data-i18n="nav_focus">Fokus Kami</a>
+        <a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portofolio</a>
+        <a href="#closing" class="nav-link" data-i18n="nav_about">Visi Bersama</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Switcher Bahasa ID / EN -->
+        <div class="lang-switcher" role="group" aria-label="Pilihan Bahasa">
+          <button type="button" class="lang-btn active" id="lang-id" onclick="setLanguage('id')">ID</button>
+          <button type="button" class="lang-btn" id="lang-en" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <button type="button" class="btn-contact" onclick="openContactModal()" data-i18n="btn_contact_modal">
+          <span>Hubungi Kami</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </button>
+
+        <button type="button" class="mobile-menu-toggle" aria-label="Buka Menu" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bars" aria-hidden="true">
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+        <div class="hero-bar"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="badge-tag" data-i18n="hero_badge">Venture Capital &amp; Studio Operasional</div>
+        <h1 class="hero-title" data-i18n="hero_title">
+          Kami Mengembangkan <span class="highlight">Perusahaan</span> Tahap Awal
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          Investasi berfondasi kuat dan akselerasi operasional khusus bagi pionir di ekosistem PropTech dan InsurTech global.
+        </p>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <span class="metric-val">$280M+</span>
+            <span class="metric-label" data-i18n="metric_1">Total Modal Dikelola</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val" id="hero-partner-count">23</span>
+            <span class="metric-label" data-i18n="metric_2">Mitra Portofolio Aktif</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-val">94%</span>
+            <span class="metric-label" data-i18n="metric_3">Rasio Ketahanan Pendanaan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Pendekatan / Introduksi -->
+    <section class="intro-section">
+      <div class="container intro-grid">
+        <div class="intro-labels">
+          <div class="tag-box" data-i18n="tag_1">Teruji di Lapangan</div>
+          <div class="tag-box" data-i18n="tag_2">Keahlian Domain Khusus</div>
+          <div class="tag-box" data-i18n="tag_3">Modal Berfokus Tinggi</div>
+        </div>
+
+        <div class="intro-body">
+          <h2 class="intro-headline" data-i18n="intro_headline">
+            Kami mengombinasikan modal institusional dengan kedalaman teknis industri properti dan underwriting asuransi.
+          </h2>
+          <p class="intro-copy" data-i18n="intro_copy">
+            Bukan sekadar pemberi cek dana, tim kami terjun langsung bersama pendiri untuk merekayasa arsitektur data, integrasi API perizinan, otomatisasi klaim risiko, dan penetrasi jaringan enterprise.
+          </p>
+          <a href="#focus" class="link-arrow">
+            <span data-i18n="intro_cta">Pelajari Metodologi Investasi Kami</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Portofolio & Filter Interaktif -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="container">
+        <div class="portfolio-header">
+          <div class="portfolio-title-group">
+            <h2 class="section-title" data-i18n="portfolio_title">Portofolio Kami</h2>
+            <div class="partner-counter" id="active-counter-tag">[ 6 mitra ditampilkan ]</div>
+          </div>
+
+          <div class="filter-bar" role="tablist" aria-label="Filter Kategori Investasi">
+            <button type="button" class="filter-btn active" data-category="all" onclick="filterPortfolio('all')" data-i18n="filter_all">Semua Investasi</button>
+            <button type="button" class="filter-btn" data-category="insurtech" onclick="filterPortfolio('insurtech')" data-i18n="filter_insurtech">Asuransi &amp; Layanan Risiko</button>
+            <button type="button" class="filter-btn" data-category="proptech" onclick="filterPortfolio('proptech')" data-i18n="filter_proptech">Teknologi Properti</button>
+            <button type="button" class="filter-btn" data-category="vc" onclick="filterPortfolio('vc')" data-i18n="filter_vc">Modal Ventura Spesialis</button>
+          </div>
+        </div>
+
+        <div class="portfolio-list" id="portfolio-container">
+          <!-- Item 1: Armadillo -->
+          <article class="portfolio-card" data-category="insurtech">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p1_cat">Asuransi Properti &amp; Layanan</span>
+                <span class="card-status active" data-i18n="status_active">Aktif</span>
+              </div>
+              <h3 class="card-title">Armadillo</h3>
+              <div class="card-tagline" data-i18n="p1_tagline">Platform Garansi Rumah Berbasis Langganan Digital Generasi Baru</div>
+              <p class="card-desc" data-i18n="p1_desc">
+                Memodernisasi industri proteksi hunian lewat pengalaman pengguna serba digital, pembayaran klaim kilat, dan jaringan teknisi tepercaya berlisensi.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=72" alt="Arsitektur hunian modern dan terstruktur" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+
+          <!-- Item 2: Donan -->
+          <article class="portfolio-card" data-category="insurtech">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p2_cat">Rekayasa Forensik &amp; Analisis Kerusakan</span>
+                <span class="card-status active" data-i18n="status_active">Aktif</span>
+              </div>
+              <h3 class="card-title">Donan</h3>
+              <div class="card-tagline" data-i18n="p2_tagline">Investigasi Forensik dan Teknologi Verifikasi Kerusakan Struktural</div>
+              <p class="card-desc" data-i18n="p2_desc">
+                Memberikan wawasan investigasi forensik independen berbasis data untuk mengurai penyebab klaim struktural secara akurat dan tidak bias.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1400&q=72" alt="Pekerjaan analisis struktur konstruksi dan rekayasa bangunan" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+
+          <!-- Item 3: Eco Claim -->
+          <article class="portfolio-card" data-category="insurtech">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p3_cat">Sistem Restorasi Berkelanjutan</span>
+                <span class="card-status active" data-i18n="status_active">Aktif</span>
+              </div>
+              <h3 class="card-title">Eco Claim</h3>
+              <div class="card-tagline" data-i18n="p3_tagline">Pemulihan Klaim Properti Rendah Karbon dan Ramah Lingkungan</div>
+              <p class="card-desc" data-i18n="p3_desc">
+                Mengintegrasikan pengukuran jejak karbon dalam rantai pasok perbaikan properti asuransi, mengurangi limbah material secara terukur.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=72" alt="Bangunan komersial hemat energi dan ramah lingkungan" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+
+          <!-- Item 4: Flyreel -->
+          <article class="portfolio-card" data-category="proptech">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p4_cat">AI &amp; Computer Vision Properti</span>
+                <span class="card-status realized" data-i18n="status_realized">Terealisasi (Exit)</span>
+              </div>
+              <h3 class="card-title">Flyreel</h3>
+              <div class="card-tagline" data-i18n="p4_tagline">Survei Properti Mandiri Berpandukan AI untuk Penjaminan Risiko</div>
+              <p class="card-desc" data-i18n="p4_desc">
+                Teknologi kecerdasan buatan visual yang memandu pemilik properti melakukan inspeksi mandiri melalui ponsel pintar secara instan.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=72" alt="Fasad gedung modern bertingkat tinggi dengan arsitektur futuristik" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+
+          <!-- Item 5: UrbanSpatial -->
+          <article class="portfolio-card" data-category="proptech">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p5_cat">Teknologi Properti Komersial</span>
+                <span class="card-status active" data-i18n="status_active">Aktif</span>
+              </div>
+              <h3 class="card-title">UrbanSpatial</h3>
+              <div class="card-tagline" data-i18n="p5_tagline">Pemodelan Data Spasial Real-Time untuk Pengelolaan Aset Skala Besar</div>
+              <p class="card-desc" data-i18n="p5_desc">
+                Platform analitik 3D dan digital twin yang menghubungkan sensor IoT fasilitas dengan sistem manajemen persewaan properti komersial.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=72" alt="Tata ruang arsitektur interior modern dan efisien" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+
+          <!-- Item 6: Apex Ventures -->
+          <article class="portfolio-card" data-category="vc">
+            <div class="card-info">
+              <div class="card-meta">
+                <span class="card-category" data-i18n="p6_cat">Pendanaan Sindikasi &amp; Akselerator</span>
+                <span class="card-status active" data-i18n="status_active">Aktif</span>
+              </div>
+              <h3 class="card-title">Apex PropTech Capital</h3>
+              <div class="card-tagline" data-i18n="p6_tagline">Sindikasi Modal Tahap Benih Lintas Wilayah untuk Startup Infrastruktur</div>
+              <p class="card-desc" data-i18n="p6_desc">
+                Kemitraan strategis dana modal ventura khusus untuk mendanai inovasi logistik properti dan otomatisasi izin gedung cerdas.
+              </p>
+              <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="card-link">
+                <span data-i18n="visit_partner">Kunjungi Platform Mitra</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+            <div class="card-media">
+              <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1400&q=72" alt="Bangunan pusat finansial modern dengan pencahayaan alami" loading="lazy" width="1400" height="938" decoding="async">
+            </div>
+          </article>
+        </div>
+
+        <div class="load-more-wrapper">
+          <button type="button" class="btn-load-more" id="btn-load-more" onclick="loadMorePartners()">
+            <span data-i18n="btn_load_more">Muat Lebih Banyak Mitra</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Fokus Investasi (Kontras Latar Terang #f2f2f6) -->
+    <section class="focus-section" id="focus">
+      <div class="container focus-grid">
+        <div class="focus-content">
+          <div class="focus-tag" data-i18n="focus_badge">Tesis &amp; Sektor Unggulan</div>
+          <h2 class="focus-title" data-i18n="focus_title">Fokus Investasi Kami</h2>
+          <p class="focus-desc" data-i18n="focus_desc">
+            Kami memusatkan seluruh daya pikir dan modal pada simpul pertemuan antara aset fisik dan sistem underwriting digital. Kami mendukung pendiri yang membangun infrastruktur fundamental.
+          </p>
+
+          <div class="focus-pillars">
+            <div class="pillar-box">
+              <h4 class="pillar-title" data-i18n="pillar_1_title">InsurTech Otomatis</h4>
+              <p class="pillar-desc" data-i18n="pillar_1_desc">Penyelesaian klaim berbasis sensor terdesentralisasi, analitik risiko prediktif, dan asuransi parametrik cuaca ekstrem.</p>
+            </div>
+            <div class="pillar-box">
+              <h4 class="pillar-title" data-i18n="pillar_2_title">PropTech Generatif</h4>
+              <p class="pillar-desc" data-i18n="pillar_2_desc">Perangkat lunak otomatisasi tata ruang bangunan, sistem pemeliharaan cerdas mandiri, dan efisiensi konsumsi daya gedung.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="focus-visual" aria-hidden="true">
+          <svg class="abstract-graphic" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="160" stroke="#131419" stroke-width="1.5" stroke-dasharray="4 6"/>
+            <circle cx="200" cy="200" r="120" stroke="#131419" stroke-width="2"/>
+            <circle cx="200" cy="200" r="80" stroke="#d2fe71" stroke-width="3"/>
+            <rect x="140" y="140" width="120" height="120" stroke="#131419" stroke-width="2" transform="rotate(45 200 200)"/>
+            <circle cx="200" cy="200" r="12" fill="#131419"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Penutup & Pernyataan Visi -->
+    <section class="closing-section" id="closing">
+      <div class="container">
+        <div class="closing-statements">
+          <div class="statement-item">
+            <span class="statement-num">[01]</span>
+            <h3 class="statement-title" data-i18n="statement_1">Kami memahami lanskap properti yang dinamis</h3>
+          </div>
+          <div class="statement-item">
+            <span class="statement-num">[02]</span>
+            <h3 class="statement-title" data-i18n="statement_2">Kami menginspirasi visi berani para perintis</h3>
+          </div>
+          <div class="statement-item">
+            <span class="statement-num">[03]</span>
+            <h3 class="statement-title" data-i18n="statement_3">Kami menciptakan nilai jangka panjang bersama</h3>
+          </div>
+        </div>
+
+        <div class="closing-hero">
+          <h2 class="closing-headline" data-i18n="closing_headline">
+            Mendorong Inovasi, Bersama.
+          </h2>
+          <div class="closing-aside">
+            <p class="closing-text" data-i18n="closing_desc">
+              Apakah Anda tengah merekayasa solusi mutakhir di ranah PropTech atau InsurTech? Mari berdiskusi tentang bagaimana studio kami dapat mempercepat laju pertumbuhan Anda.
+            </p>
+            <button type="button" class="btn-cta-large" onclick="openContactModal()" data-i18n="btn_pitch_deck">
+              <span>Kirimkan Rencana Proyek Anda</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Komprehensif dengan Hak Cipta 2026 -->
+  <div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#d2fe71;--on:#111111;--glow:rgba(210,254,113,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-mark">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <span>Room &amp; Pillar</span>
+          </div>
+          <p class="footer-brand-desc" data-i18n="footer_brand_desc">
+            Perusahaan investasi modal ventura dan pendamping operasional terdedikasi untuk ekosistem properti dan proteksi masa depan.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer_col_nav">Navigasi</div>
+          <ul class="footer-nav">
+            <li><a href="#hero" data-i18n="nav_home">Beranda</a></li>
+            <li><a href="#focus" data-i18n="nav_focus">Fokus Kami</a></li>
+            <li><a href="#portfolio" data-i18n="nav_portfolio">Portofolio</a></li>
+            <li><a href="#closing" data-i18n="nav_about">Visi Bersama</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer_col_legal">Kebijakan</div>
+          <ul class="footer-nav">
+            <li><a href="#terms" onclick="event.preventDefault()" data-i18n="footer_terms">Ketentuan Layanan</a></li>
+            <li><a href="#privacy" onclick="event.preventDefault()" data-i18n="footer_privacy">Kebijakan Privasi</a></li>
+            <li><a href="#compliance" onclick="event.preventDefault()" data-i18n="footer_compliance">Kepatuhan Regulasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer_col_contact">Kontak Langsung</div>
+          <a href="mailto:partnerships@roomandpillar.vc" class="footer-contact-link">partnerships@roomandpillar.vc</a>
+          <p style="font-size: 0.8125rem; color: var(--muted); margin-top: 0.75rem; font-family: var(--font-mono);">San Francisco • New York • Singapore</p>
+        </div>
+      </div>
+
+      <!-- Wordmark Typographic Display -->
+      <div class="footer-big-wordmark" aria-hidden="true">
+        <div class="wordmark-text">ROOM &amp; PILLAR</div>
+      </div>
+
+      <!-- Hak Cipta 2026 -->
+      <div class="footer-bottom">
+        <div class="footer-legal-copy">
+          <span>&copy; 2026 Room &amp; Pillar.</span>
+          <span data-i18n="all_rights_reserved">Hak cipta dilindungi undang-undang.</span>
+        </div>
+        <div>
+          <span data-i18n="footer_edition">Edisi Portofolio Digital 2026</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Dialog Hubungi Kami / Pitch Deck -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" onclick="closeContactModal()" aria-label="Tutup Dialog">&times;</button>
+      <h3 class="modal-title" id="modalTitle" data-i18n="modal_title">Hubungi Tim Investasi</h3>
+      <p class="modal-desc" data-i18n="modal_desc">Ceritakan tentang perusahaan tahap awal Anda dan bagaimana kita dapat berkolaborasi.</p>
+
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="founderName" data-i18n="form_name">Nama Pendiri / Pengirim</label>
+          <input type="text" id="founderName" class="form-input" required placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="companyEmail" data-i18n="form_email">Alamat Email Bisnis</label>
+          <input type="email" id="companyEmail" class="form-input" required placeholder="nama@perusahaan.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="companyStage" data-i18n="form_stage">Sektor / Tahapan Pendanaan</label>
+          <input type="text" id="companyStage" class="form-input" placeholder="PropTech / Pre-Seed, Seed, Series A">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="projectBrief" data-i18n="form_brief">Ringkasan Singkat Ide / Pitch</label>
+          <textarea id="projectBrief" class="form-textarea" required placeholder="Tuliskan ringkasan singkat inovasi dan traksi Anda..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" data-i18n="form_submit">Kirimkan Informasi</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Kamus Dua Bahasa (Indonesian & English)
+    const translations = {
+      id: {
+        skip_to_content: "Lewati ke konten utama",
+        nav_home: "Beranda",
+        nav_focus: "Fokus Kami",
+        nav_portfolio: "Portofolio",
+        nav_about: "Visi Bersama",
+        btn_contact_modal: "Hubungi Kami",
+        hero_badge: "Venture Capital & Studio Operasional",
+        hero_title: 'Kami Mengembangkan <span class="highlight">Perusahaan</span> Tahap Awal',
+        hero_desc: "Investasi berfondasi kuat dan akselerasi operasional khusus bagi pionir di ekosistem PropTech dan InsurTech global.",
+        metric_1: "Total Modal Dikelola",
+        metric_2: "Mitra Portofolio Aktif",
+        metric_3: "Rasio Ketahanan Pendanaan",
+        tag_1: "Teruji di Lapangan",
+        tag_2: "Keahlian Domain Khusus",
+        tag_3: "Modal Berfokus Tinggi",
+        intro_headline: "Kami mengombinasikan modal institusional dengan kedalaman teknis industri properti dan underwriting asuransi.",
+        intro_copy: "Bukan sekadar pemberi cek dana, tim kami terjun langsung bersama pendiri untuk merekayasa arsitektur data, integrasi API perizinan, otomatisasi klaim risiko, dan penetrasi jaringan enterprise.",
+        intro_cta: "Pelajari Metodologi Investasi Kami",
+        portfolio_title: "Portofolio Kami",
+        filter_all: "Semua Investasi",
+        filter_insurtech: "Asuransi & Layanan Risiko",
+        filter_proptech: "Teknologi Properti",
+        filter_vc: "Modal Ventura Spesialis",
+        status_active: "Aktif",
+        status_realized: "Terealisasi (Exit)",
+        visit_partner: "Kunjungi Platform Mitra",
+        btn_load_more: "Muat Lebih Banyak Mitra",
+        all_partners_loaded: "Seluruh mitra telah ditampilkan",
+        focus_badge: "Tesis & Sektor Unggulan",
+        focus_title: "Fokus Investasi Kami",
+        focus_desc: "Kami memusatkan seluruh daya pikir dan modal pada simpul pertemuan antara aset fisik dan sistem underwriting digital. Kami mendukung pendiri yang membangun infrastruktur fundamental.",
+        pillar_1_title: "InsurTech Otomatis",
+        pillar_1_desc: "Penyelesaian klaim berbasis sensor terdesentralisasi, analitik risiko prediktif, dan asuransi parametrik cuaca ekstrem.",
+        pillar_2_title: "PropTech Generatif",
+        pillar_2_desc: "Perangkat lunak otomatisasi tata ruang bangunan, sistem pemeliharaan cerdas mandiri, dan efisiensi konsumsi daya gedung.",
+        statement_1: "Kami memahami lanskap properti yang dinamis",
+        statement_2: "Kami menginspirasi visi berani para perintis",
+        statement_3: "Kami menciptakan nilai jangka panjang bersama",
+        closing_headline: "Mendorong Inovasi, Bersama.",
+        closing_desc: "Apakah Anda tengah merekayasa solusi mutakhir di ranah PropTech atau InsurTech? Mari berdiskusi tentang bagaimana studio kami dapat mempercepat laju pertumbuhan Anda.",
+        btn_pitch_deck: "Kirimkan Rencana Proyek Anda",
+        footer_brand_desc: "Perusahaan investasi modal ventura dan pendamping operasional terdedikasi untuk ekosistem properti dan proteksi masa depan.",
+        footer_col_nav: "Navigasi",
+        footer_col_legal: "Kebijakan",
+        footer_col_contact: "Kontak Langsung",
+        footer_terms: "Ketentuan Layanan",
+        footer_privacy: "Kebijakan Privasi",
+        footer_compliance: "Kepatuhan Regulasi",
+        all_rights_reserved: "Hak cipta dilindungi undang-undang.",
+        footer_edition: "Edisi Portofolio Digital 2026",
+        modal_title: "Hubungi Tim Investasi",
+        modal_desc: "Ceritakan tentang perusahaan tahap awal Anda dan bagaimana kita dapat berkolaborasi.",
+        form_name: "Nama Pendiri / Pengirim",
+        form_email: "Alamat Email Bisnis",
+        form_stage: "Sektor / Tahapan Pendanaan",
+        form_brief: "Ringkasan Singkat Ide / Pitch",
+        form_submit: "Kirimkan Informasi",
+        p1_cat: "Asuransi Properti & Layanan",
+        p1_tagline: "Platform Garansi Rumah Berbasis Langganan Digital Generasi Baru",
+        p1_desc: "Memodernisasi industri proteksi hunian lewat pengalaman pengguna serba digital, pembayaran klaim kilat, dan jaringan teknisi tepercaya berlisensi.",
+        p2_cat: "Rekayasa Forensik & Analisis Kerusakan",
+        p2_tagline: "Investigasi Forensik dan Teknologi Verifikasi Kerusakan Struktural",
+        p2_desc: "Memberikan wawasan investigasi forensik independen berbasis data untuk mengurai penyebab klaim struktural secara akurat dan tidak bias.",
+        p3_cat: "Sistem Restorasi Berkelanjutan",
+        p3_tagline: "Pemulihan Klaim Properti Rendah Karbon dan Ramah Lingkungan",
+        p3_desc: "Mengintegrasikan pengukuran jejak karbon dalam rantai pasok perbaikan properti asuransi, mengurangi limbah material secara terukur.",
+        p4_cat: "AI & Computer Vision Properti",
+        p4_tagline: "Survei Properti Mandiri Berpandukan AI untuk Penjaminan Risiko",
+        p4_desc: "Teknologi kecerdasan buatan visual yang memandu pemilik properti melakukan inspeksi mandiri melalui ponsel pintar secara instan.",
+        p5_cat: "Teknologi Properti Komersial",
+        p5_tagline: "Pemodelan Data Spasial Real-Time untuk Pengelolaan Aset Skala Besar",
+        p5_desc: "Platform analitik 3D dan digital twin yang menghubungkan sensor IoT fasilitas dengan sistem manajemen persewaan properti komersial.",
+        p6_cat: "Pendanaan Sindikasi & Akselerator",
+        p6_tagline: "Sindikasi Modal Tahap Benih Lintas Wilayah untuk Startup Infrastruktur",
+        p6_desc: "Kemitraan strategis dana modal ventura khusus untuk mendanai inovasi logistik properti dan otomatisasi izin gedung cerdas."
+      },
+      en: {
+        skip_to_content: "Skip to main content",
+        nav_home: "Home",
+        nav_focus: "Our Focus",
+        nav_portfolio: "Portfolio",
+        nav_about: "Vision",
+        btn_contact_modal: "Contact Us",
+        hero_badge: "Venture Capital & Operating Studio",
+        hero_title: 'We Scaled <span class="highlight">Early Stage</span> Companies',
+        hero_desc: "Deep conviction capital and hands-on operational scaling for category-defining pioneers across global PropTech and InsurTech ecosystems.",
+        metric_1: "Total Capital Deployed",
+        metric_2: "Active Portfolio Partners",
+        metric_3: "Follow-On Funding Rate",
+        tag_1: "Field Tested",
+        tag_2: "Domain Expertise",
+        tag_3: "Focused Capital",
+        intro_headline: "We unite institutional capital with deep technical fluency in real estate infrastructure and insurance underwriting.",
+        intro_copy: "Far beyond passive capital checks, our operators work directly alongside founders to engineer scalable data pipelines, regulatory API integrations, automated risk settlement, and enterprise go-to-market motions.",
+        intro_cta: "Explore Our Investment Thesis",
+        portfolio_title: "Our Portfolio",
+        filter_all: "All Investments",
+        filter_insurtech: "Insurance Tech & Services",
+        filter_proptech: "Property Tech",
+        filter_vc: "PropTech Venture Capital",
+        status_active: "Active",
+        status_realized: "Realized (Exit)",
+        visit_partner: "Visit Partner Site",
+        btn_load_more: "Load More Partners",
+        all_partners_loaded: "All partners currently displayed",
+        focus_badge: "Core Thesis & Sectors",
+        focus_title: "Investment Focus",
+        focus_desc: "We focus our conviction on the intersection where physical real estate assets meet automated underwriting infrastructure, empowering builders of fundamental platforms.",
+        pillar_1_title: "Automated InsurTech",
+        pillar_1_desc: "Sensor-driven loss mitigation, decentralized algorithmic claims processing, and climate resilience parametric protection.",
+        pillar_2_title: "Generative PropTech",
+        pillar_2_desc: "Algorithmic spatial layout optimization, self-diagnosing facility telemetry, and autonomous building energy efficiency.",
+        statement_1: "We understand the current landscape",
+        statement_2: "We inspire vision",
+        statement_3: "We create value",
+        closing_headline: "Powering Innovation, Together.",
+        closing_desc: "Are you engineering transformative infrastructure at the forefront of PropTech or InsurTech? Let us discuss how our studio can accelerate your trajectory.",
+        btn_pitch_deck: "Submit Your Pitch Deck",
+        footer_brand_desc: "Specialized venture investment and hands-on operational scaling studio for the future of property and risk mitigation.",
+        footer_col_nav: "Navigation",
+        footer_col_legal: "Governance",
+        footer_col_contact: "Direct Inquiries",
+        footer_terms: "Terms of Engagement",
+        footer_privacy: "Privacy Standard",
+        footer_compliance: "Regulatory Compliance",
+        all_rights_reserved: "All rights reserved.",
+        footer_edition: "Digital Portfolio 2026 Edition",
+        modal_title: "Connect with Investment Team",
+        modal_desc: "Share your early-stage venture details and explore how we collaborate.",
+        form_name: "Founder / Principal Name",
+        form_email: "Corporate Work Email",
+        form_stage: "Sector / Round Stage",
+        form_brief: "Executive Thesis Summary",
+        form_submit: "Submit Proposal",
+        p1_cat: "Property Insurance & Services",
+        p1_tagline: "Subscription-First Modern Home Protection Architecture",
+        p1_desc: "Modernizing home warranty through fully digitized user experiences, instant claims adjudication, and certified vetted pro networks.",
+        p2_cat: "Forensic Engineering & Analysis",
+        p2_tagline: "Forensic Investigation & Structural Loss Verification",
+        p2_desc: "Providing objective, data-driven forensic investigation insights to clarify complex structural casualty causes without bias.",
+        p3_cat: "Sustainable Restoration Systems",
+        p3_tagline: "Low-Carbon Property Claim Recovery & Material Circularity",
+        p3_desc: "Embedding carbon-intensity tracking into insurance property restoration supply chains, drastically curbing landfill waste.",
+        p4_cat: "Property AI & Computer Vision",
+        p4_tagline: "Self-Guided Property Inspection Driven by Computer Vision",
+        p4_desc: "Visual AI that empowers property owners to conduct autonomous, high-fidelity condition surveys via smartphones.",
+        p5_cat: "Commercial Spatial Computing",
+        p5_tagline: "Real-Time Spatial Data Modeling for Enterprise Asset Management",
+        p5_desc: "3D building analytics and spatial digital twins linking IoT sensor streams with institutional lease administration systems.",
+        p6_cat: "Syndicate Capital & Acceleration",
+        p6_tagline: "Cross-Border Early-Stage Syndicate for Critical Infrastructure",
+        p6_desc: "Specialized venture partnership funding high-moat logistics facilities and automated municipal building compliance."
+      }
+    };
+
+    let currentLang = 'id';
+    let currentFilter = 'all';
+
+    // Penggantian Bahasa Dinamis
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Update tombol aktif
+      document.getElementById('lang-id').classList.toggle('active', lang === 'id');
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+
+      // Terapkan teks ke semua elemen data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      updateCounterTag();
+    }
+
+    // Filter Portofolio Interaktif
+    function filterPortfolio(category) {
+      currentFilter = category;
+      const cards = document.querySelectorAll('.portfolio-card');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+
+      filterBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-category') === category);
+      });
+
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'grid';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      updateCounterTag(visibleCount);
+    }
+
+    function updateCounterTag(count) {
+      const cards = document.querySelectorAll('.portfolio-card');
+      let visible = 0;
+      cards.forEach(card => {
+        if (card.style.display !== 'none') visible++;
+      });
+      const num = count !== undefined ? count : visible;
+      const counterEl = document.getElementById('active-counter-tag');
+      if (counterEl) {
+        if (currentLang === 'id') {
+          counterEl.textContent = `[ ${num} mitra ditampilkan ]`;
+        } else {
+          counterEl.textContent = `[ ${num} partners displayed ]`;
+        }
+      }
+    }
+
+    // Fungsi Load More Dinamis
+    function loadMorePartners() {
+      const btn = document.getElementById('btn-load-more');
+      btn.innerHTML = `<span>${currentLang === 'id' ? translations.id.all_partners_loaded : translations.en.all_partners_loaded}</span>`;
+      btn.style.opacity = '0.65';
+      btn.style.cursor = 'default';
+      btn.disabled = true;
+    }
+
+    // Modal Kontak & Form Dialog
+    function openContactModal() {
+      const modal = document.getElementById('contactModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('founderName').focus(), 100);
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById('contactModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handleOverlayClick(event) {
+      if (event.target === document.getElementById('contactModal')) {
+        closeContactModal();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeContactModal();
+      }
+    });
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const origText = submitBtn.innerHTML;
+      submitBtn.textContent = currentLang === 'id' ? 'Terkirim — Terima Kasih!' : 'Submitted — Thank You!';
+      submitBtn.style.background = '#d2fe71';
+      submitBtn.style.color = '#131419';
+      setTimeout(() => {
+        closeContactModal();
+        e.target.reset();
+        submitBtn.innerHTML = origText;
+        submitBtn.style.background = '';
+        submitBtn.style.color = '';
+      }, 1400);
+    }
+
+    function toggleMobileNav() {
+      const nav = document.querySelector('.nav-desktop');
+      if (nav.style.display === 'flex') {
+        nav.style.display = '';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.position = 'absolute';
+        nav.style.top = '84px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = 'var(--surface-1)';
+        nav.style.flexDirection = 'column';
+        nav.style.padding = '2rem';
+        nav.style.borderBottom = '1px solid var(--border-dark)';
+      }
+    }
+  </script>
+<script id="mx-script">window.__MX_BG=[];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body>
+</html>

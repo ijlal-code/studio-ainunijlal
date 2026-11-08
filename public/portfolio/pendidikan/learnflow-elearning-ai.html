@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="LEARNFLOW — AI learning that meets people where work happens.">
+<title>LEARNFLOW — Learning in the Flow of Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3D9EF3;--green:#00D28C;--title:#1E2D35;--body:#3A4F5C;--muted:#626C72;--light:#F7F7F7;--pale:#EFF7FE;--border:#E5E7EB;--card-border:#ECECEE;--white:#fff;--container:1400px;--gutter:24px;--section-y:96px;--radius:16px;--shadow:0 1px 2px rgba(16,24,40,.04),0 12px 32px -12px rgba(16,24,40,.14);--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;color:var(--body);background:#fff;font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{display:block;max-width:100%}
+::selection{background:#c9f7e7;color:var(--title)}
+.container{width:min(calc(100% - 2*var(--gutter)),var(--container));margin-inline:auto}
+section{padding:var(--section-y) 0;scroll-margin-top:82px}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{color:var(--title);letter-spacing:-.055em}
+h1{font-size:clamp(38px,4vw,56px);line-height:1.1;font-weight:650;margin:0}
+h2{font-size:clamp(34px,3.8vw,52px);line-height:1.1;font-weight:550;margin:0}
+h3{font-size:23px;line-height:1.25;font-weight:650;margin-bottom:10px}
+p{font-size:16px;line-height:1.65;color:var(--muted)}
+.gradient-text{background:linear-gradient(90deg,var(--blue),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#3d8fd0;display:inline-flex;align-items:center;gap:9px}
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green))}
+.btn{min-height:48px;padding:0 19px;border-radius:9px;border:1px solid transparent;background:linear-gradient(100deg,var(--blue),var(--green));color:#fff;font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:13px;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(61,158,243,.22);filter:saturate(1.08)}
+.btn .arrow{font-size:17px;transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-secondary{background:#fff;border-color:var(--border);color:var(--title)}
+.btn-secondary:hover{box-shadow:0 8px 22px rgba(30,45,53,.08);border-color:#c8e5fa}
+header{height:80px;position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(229,231,235,.8)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--title);font-size:19px;font-weight:800;letter-spacing:-.06em;white-space:nowrap}
+.brand-mark{width:29px;height:29px;border-radius:9px 9px 9px 3px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;color:white;font-size:17px;font-weight:800}
+.nav-links{display:flex;align-items:center;gap:clamp(17px,2.3vw,34px);margin-left:auto}
+.nav-links a{font-size:12px;font-weight:600;color:#53636c;transition:color .15s}
+.nav-links a:hover{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.login{font-size:12px;font-weight:650;color:var(--body);padding:10px}
+.lang{height:38px;min-width:54px;padding:0 10px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--title);font-size:11px;font-weight:700;cursor:pointer}
+.lang:hover{border-color:var(--blue);color:var(--blue)}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--border);border-radius:9px;background:#fff;cursor:pointer}
+.burger span{display:block;width:17px;height:2px;margin:4px auto;background:var(--title);transition:.2s}
+.mobile-menu{display:none}
+.hero{padding:72px 0 76px;overflow:hidden;background:radial-gradient(ellipse at 84% 15%,rgba(0,210,140,.08),transparent 35%),radial-gradient(ellipse at 65% 75%,rgba(61,158,243,.08),transparent 34%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr);gap:56px;align-items:center;max-width:1400px;margin:auto}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.hero h1{max-width:650px}
+.hero-copy>p{max-width:560px;font-size:18px;line-height:1.55;margin:0;color:#626c72}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{display:flex;align-items:center;gap:13px;color:#74818a;font-size:11px;font-weight:600}
+.avatar-stack{display:flex;padding-left:5px}
+.avatar-stack span{width:25px;height:25px;border-radius:50%;border:2px solid #fff;margin-left:-6px;background:linear-gradient(135deg,#b9e7fa,#baf0d9);display:grid;place-items:center;font-size:9px;color:#39718a}
+.hero-demo{width:100%;max-width:540px;margin-inline:auto;position:relative;padding:12px;border:1px solid #ececee;border-radius:21px;background:rgba(255,255,255,.9);box-shadow:0 24px 70px rgba(30,45,53,.11);background-image:linear-gradient(rgba(61,158,243,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(61,158,243,.045) 1px,transparent 1px);background-size:38px 38px}
+.demo-top{height:42px;display:flex;align-items:center;justify-content:space-between;padding:0 7px 9px}
+.window-dots{display:flex;gap:5px}.window-dots i{width:7px;height:7px;border-radius:50%;background:#d7dce0}
+.demo-label{font-size:10px;color:#8b969d;font-weight:700;letter-spacing:.04em}
+.demo-stage{height:395px;border:1px solid #ececee;border-radius:15px;background:rgba(255,255,255,.96);padding:18px 17px;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.demo-heading{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid #f0f2f3}
+.melty-avatar{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;color:#fff;font-size:16px;font-weight:800}
+.demo-heading strong{display:block;color:var(--title);font-size:12px}
+.demo-heading small{display:block;color:#8b969d;font-size:10px;margin-top:3px}
+.online{margin-left:auto;color:#00ad78;font-size:10px;font-weight:700}
+.chat-feed{display:flex;flex-direction:column;gap:11px;padding-top:16px;flex:1}
+.bubble{max-width:88%;padding:10px 13px;border-radius:11px;font-size:11px;line-height:1.5;opacity:0;transform:translateY(8px) scale(.98);animation:pop .34s var(--ease) forwards}
+.bubble.agent{align-self:flex-start;background:#f1f7fb;color:#3a4f5c;border-bottom-left-radius:4px}
+.bubble.user{align-self:flex-end;background:#eaf8f3;color:#27604e;border-bottom-right-radius:4px;animation-delay:.5s}
+.bubble.second{animation-delay:1.25s}
+.typing{display:flex;align-items:center;gap:4px;width:max-content;padding:10px 13px;border-radius:11px;background:#f1f7fb;animation:fadeIn .3s 1.85s both}
+.typing i{width:5px;height:5px;border-radius:50%;background:#7a9ba9;animation:bounce 1.2s ease-in-out infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.demo-card{margin-top:1px;border:1px solid #e5edf1;border-radius:12px;padding:11px 12px;background:#fff;box-shadow:0 5px 15px rgba(30,45,53,.04);opacity:0;transform:translateY(12px);animation:cardIn .42s 2.35s var(--ease) forwards}
+.demo-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.demo-card-head strong{font-size:10px;color:var(--title)}
+.pill{font-size:8px;padding:4px 7px;border-radius:6px;background:#e8fbf3;color:#11976b;font-weight:700}
+.demo-card p{font-size:9px;line-height:1.5;margin:0 0 9px}
+.progress{height:5px;border-radius:9px;background:#edf1f3;overflow:hidden}.progress span{display:block;height:100%;width:78%;border-radius:9px;background:linear-gradient(90deg,var(--blue),var(--green))}
+.demo-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;color:#89949b;font-size:8px}
+@keyframes pop{to{opacity:1;transform:none}}@keyframes cardIn{to{opacity:1;transform:none}}@keyframes fadeIn{to{opacity:1}}@keyframes bounce{0%,60%,100%{transform:translateY(0);opacity:.6}30%{transform:translateY(-4px);opacity:1}}
+.section-head{text-align:center;max-width:780px;margin:0 auto 48px}
+.section-head .eyebrow{margin-bottom:17px}
+.section-head h2{margin-bottom:16px}
+.section-head p{max-width:650px;margin:0 auto}
+.usecases{background:#fff}
+.usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.usecase-card{border:1px solid var(--card-border);border-radius:17px;padding:30px;background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.025);transition:transform .2s var(--ease),box-shadow .2s}
+.usecase-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,45,53,.12)}
+.usecase-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.usecase-icon{width:46px;height:46px;border-radius:13px;background:#eff7fe;color:#3d9ef3;display:grid;place-items:center;font-size:21px}
+.usecase-card:nth-child(2) .usecase-icon{background:#eafaf3;color:#00a875}
+.usecase-quote{font-size:21px;line-height:1.35;letter-spacing:-.04em;color:var(--title);font-weight:600;margin:0 0 25px;max-width:480px}
+.usecase-links{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:10px;font-weight:650;color:#51636d;background:#f6f8f9;border:1px solid #edf0f2;padding:8px 10px;border-radius:7px}
+.scenarios{background:var(--light)}
+.scenario-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;align-items:center}
+.scenario-copy h2{margin:14px 0 18px}
+.scenario-tabs{display:flex;flex-direction:column;gap:7px;margin-top:27px}
+.scenario-tab{border:1px solid transparent;background:transparent;border-radius:9px;padding:12px 14px;text-align:left;color:#64727a;font-size:12px;font-weight:650;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:.2s}
+.scenario-tab:hover{background:#fff;color:var(--title)}
+.scenario-tab.active{background:#fff;border-color:#d9eefa;color:#268bd5;box-shadow:0 4px 15px rgba(30,45,53,.05)}
+.scenario-panel{min-height:410px;border:1px solid #e7eaec;border-radius:18px;background:#fff;box-shadow:var(--shadow);padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.scenario-panel-top{display:flex;justify-content:space-between;align-items:center}
+.scenario-panel-top strong{font-size:12px;color:var(--title)}
+.scenario-panel-top span{font-size:10px;color:#00a875;background:#eafaf3;padding:7px 9px;border-radius:7px}
+.scenario-window{margin:28px 0;background:#f8fafb;border:1px solid #edf0f2;border-radius:13px;padding:20px}
+.scenario-window .mini-label{font-size:9px;font-weight:700;letter-spacing:.08em;color:#829099;text-transform:uppercase;margin-bottom:13px}
+.scenario-window h3{font-size:19px;margin-bottom:9px}
+.scenario-window p{font-size:12px;margin-bottom:16px}
+.task-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid #e9edef;font-size:11px;color:#52646e}
+.task-check{width:17px;height:17px;border-radius:5px;background:#e7faf2;color:#00a875;display:grid;place-items:center;font-size:10px}
+.scenario-panel-bottom{display:flex;align-items:center;justify-content:space-between;color:#87939a;font-size:10px}
+.scenario-panel-bottom b{color:#3d9ef3}
+.steps{background:#fff}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step-card{padding:26px 24px;border:1px solid var(--card-border);border-radius:15px;background:#fff;transition:transform .2s var(--ease),box-shadow .2s}
+.step-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,45,53,.1)}
+.step-no{width:35px;height:35px;border-radius:10px;background:linear-gradient(135deg,#eaf5ff,#e9fbf3);color:#3197cb;display:grid;place-items:center;font-size:12px;font-weight:800;margin-bottom:28px}
+.step-card h3{font-size:19px}
+.step-card p{font-size:13px;margin:0}
+.step-visual{height:115px;margin-top:24px;border-radius:11px;background:#f7fafb;border:1px solid #edf1f3;padding:13px;display:flex;flex-direction:column;gap:9px}
+.skeleton{height:8px;border-radius:5px;background:#e5edf1}.skeleton:nth-child(1){width:52%;background:#cde9fa}.skeleton:nth-child(2){width:90%}.skeleton:nth-child(3){width:73%}.skeleton:nth-child(4){width:60%;background:#c8f1e0}
+.comparison{background:var(--light)}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.compare-card{padding:25px;background:#fff;border:1px solid #e8ebed;border-radius:14px}
+.compare-card .vs{font-size:10px;font-weight:750;color:#3d9ef3;letter-spacing:.08em;text-transform:uppercase;margin-bottom:19px}
+.compare-card h3{font-size:19px}
+.compare-card p{font-size:13px;margin:0}
+.integrations{background:#fff}
+.integration-layout{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.integration-copy h2{margin:14px 0 18px}
+.integration-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.integration-tile{min-height:125px;border:1px solid var(--card-border);border-radius:13px;padding:19px;background:#fff;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,box-shadow .2s}
+.integration-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.integration-symbol{width:34px;height:34px;border-radius:10px;background:#eef7fe;color:#328fce;display:grid;place-items:center;font-weight:800}
+.integration-tile:nth-child(2) .integration-symbol,.integration-tile:nth-child(3) .integration-symbol{background:#eafaf3;color:#00a875}
+.integration-tile strong{font-size:12px;color:var(--title)}
+.integration-tile small{font-size:10px;color:#87939a;margin-top:4px}
+.testimonials{background:var(--light)}
+.trust-line{text-align:center;color:#8b969d;font-size:10px;font-weight:750;letter-spacing:.13em;margin:0 0 26px}
+.logo-row{display:flex;justify-content:center;align-items:center;gap:clamp(20px,5vw,65px);flex-wrap:wrap;margin-bottom:45px;color:#87939a;font-size:17px;font-weight:800;letter-spacing:-.04em}
+.quote-card{max-width:850px;margin:auto;background:#fff;border:1px solid #e8ebed;border-radius:17px;padding:34px;box-shadow:0 10px 30px rgba(30,45,53,.04);text-align:center}
+.quote-mark{font-size:35px;line-height:1;color:var(--blue)}
+.quote-card blockquote{font-size:clamp(18px,2.2vw,25px);line-height:1.45;letter-spacing:-.035em;color:var(--title);font-weight:550;margin:12px auto 22px;max-width:700px}
+.quote-person{font-size:11px;color:#829099}.quote-person strong{color:var(--title)}
+.resources{background:#fff}
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.resource-card{border:1px solid var(--card-border);border-radius:15px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.resource-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.resource-art{height:165px;position:relative;overflow:hidden;background:linear-gradient(135deg,#e9f6ff,#e9fbf3);display:grid;place-items:center}
+.resource-art:before,.resource-art:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(61,158,243,.2);width:190px;height:190px}
+.resource-art:after{width:130px;height:130px}
+.resource-art span{z-index:1;font-size:36px;color:#328fce}
+.resource-content{padding:20px}
+.resource-content .eyebrow{font-size:9px}
+.resource-content h3{font-size:17px;margin:11px 0 9px}
+.resource-content p{font-size:12px;margin-bottom:15px}
+.resource-link{font-size:11px;color:#318fd0;font-weight:750}
+.faq{background:var(--light)}
+.faq-wrap{max-width:800px;margin:auto}
+.faq-list{display:grid;gap:9px;margin-top:38px}
+.faq-item{background:#fff;border:1px solid #e8ebed;border-radius:11px;overflow:hidden}
+.faq-question{width:100%;border:0;background:transparent;padding:19px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px;text-align:left;color:var(--title);font-size:13px;font-weight:650;cursor:pointer}
+.faq-question span:last-child{font-size:19px;color:#3d9ef3;transition:transform .2s}
+.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.faq-answer>div{overflow:hidden}
+.faq-answer p{padding:0 20px 18px;margin:0;font-size:12px}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-item.open .faq-question span:last-child{transform:rotate(45deg)}
+.story{background:#fff;padding:105px 0}
+.story-inner{max-width:870px;margin:auto;text-align:center}
+.story-inner h2{margin:17px 0 20px}
+.story-inner p{max-width:710px;margin:0 auto}
+.final-cta{padding:0 0 96px;background:#fff}
+.cta-panel{border-radius:20px;padding:58px 35px;text-align:center;background:linear-gradient(115deg,#eaf5ff 0%,#effcf7 100%);border:1px solid #e1f0f2;overflow:hidden;position:relative}
+.cta-panel:before,.cta-panel:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(61,158,243,.13);top:-145px;left:5%}
+.cta-panel:after{left:auto;right:4%;top:auto;bottom:-180px;border-color:rgba(0,210,140,.18)}
+.cta-panel h2{max-width:800px;margin:0 auto 15px;position:relative;z-index:1}
+.cta-panel p{max-width:590px;margin:0 auto 25px;position:relative;z-index:1;font-size:14px}
+.cta-panel .btn{position:relative;z-index:1}
+footer{border-top:1px solid var(--border);background:#fff;padding:48px 0 23px}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:45px;padding-bottom:43px}
+.footer-brand p{font-size:12px;max-width:300px;margin:17px 0 0}
+.footer-title{font-size:10px;color:#89949b;font-weight:750;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.footer-links{display:grid;gap:11px}
+.footer-links a{font-size:12px;color:#53636c;width:max-content;max-width:100%;transition:color .15s}
+.footer-links a:hover{color:var(--blue)}
+.footer-bottom{border-top:1px solid #edf0f2;padding-top:20px;display:flex;justify-content:space-between;gap:20px;color:#89949b;font-size:10px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease-out,transform .65s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+@media(max-width:1100px){
+ .nav-links{gap:16px}.nav-links a{font-size:11px}.nav-right .login{display:none}
+ .hero-grid{grid-template-columns:1fr 1fr;gap:32px}
+ .hero-demo{max-width:500px}.demo-stage{height:380px}
+ .scenario-layout{gap:28px}.integration-layout{gap:35px}
+}
+@media(max-width:1023px){
+ header{height:70px}.nav-links,.nav-right .login,.nav-right>.btn{display:none}.burger{display:block}
+ .mobile-menu{display:flex;position:absolute;top:70px;left:0;right:0;background:rgba(255,255,255,.98);border-bottom:1px solid var(--border);padding:10px var(--gutter) 20px;flex-direction:column;gap:0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s}
+ .mobile-menu.open{opacity:1;visibility:visible;transform:none}
+ .mobile-menu a{padding:14px 2px;border-bottom:1px solid #edf0f2;font-size:13px;font-weight:600}
+ .mobile-menu .mobile-cta{margin-top:14px;border:0;padding:0}
+ .hero-grid{grid-template-columns:1fr;gap:42px}.hero-copy{max-width:760px}.hero-demo{max-width:620px}
+ .scenario-layout,.integration-layout{grid-template-columns:1fr}
+ .scenario-copy{max-width:720px}.scenario-tabs{display:grid;grid-template-columns:1fr 1fr}
+ .integration-copy{max-width:720px}.integration-grid{max-width:700px}
+}
+@media(max-width:768px){
+ :root{--gutter:20px;--section-y:74px}
+ h1{font-size:clamp(36px,7.8vw,46px);line-height:1.1}
+ h2{font-size:36px;line-height:1.1}
+ .hero{padding:60px 0 65px}.hero-grid{gap:34px}.hero-copy{gap:20px}
+ .hero-copy>p{font-size:16px}.hero-demo{padding:9px}.demo-stage{height:370px;padding:14px}
+ .section-head{margin-bottom:34px}
+ .usecase-grid,.steps-grid,.compare-grid,.resource-grid{grid-template-columns:1fr}
+ .usecase-card{padding:24px}.usecase-quote{font-size:22px}
+ .scenario-tabs{grid-template-columns:1fr 1fr}.scenario-panel{min-height:390px;padding:18px}
+ .step-card{padding:23px}.step-visual{height:95px}
+ .integration-grid{gap:9px}.integration-tile{min-height:112px;padding:15px}
+ .logo-row{gap:22px;font-size:15px}
+ .quote-card{padding:26px 20px}
+ .story{padding:75px 0}
+ .cta-panel{padding:45px 20px}
+ .footer-top{grid-template-columns:1fr 1fr;gap:30px 22px}
+ .footer-brand{grid-column:1/-1}
+ .footer-bottom{flex-direction:column;gap:9px}
+}
+@media(max-width:420px){
+ .brand{font-size:17px}.nav{gap:10px}.nav-right{gap:7px}
+ .hero-actions{width:100%}.hero-actions .btn{flex:1;padding-inline:12px;font-size:11px}
+ .hero-trust{font-size:10px}
+ .demo-stage{height:365px;padding:12px 10px}.bubble{font-size:10px}
+ .scenario-tabs{grid-template-columns:1fr}
+ .scenario-panel{padding:14px}.scenario-window{padding:15px}
+ .footer-top{grid-template-columns:1fr}
+ .footer-brand{grid-column:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .reveal{opacity:1;transform:none}
+ .bubble,.demo-card,.typing{opacity:1;transform:none;animation:none}
+ .typing i{animation:none}
+}
+</style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a class="brand" href="#top" aria-label="LEARNFLOW home"><span class="brand-mark">L</span>LEARNFLOW</a>
+  <nav class="nav-links" aria-label="Navigasi utama">
+   <a href="#features" data-i18n="navFeatures">Fitur</a><a href="#solutions" data-i18n="navSolutions">Solusi</a><a href="#how" data-i18n="navHow">Cara kerja</a><a href="#resources" data-i18n="navResources">Resources</a><a href="#faq">FAQ</a>
+  </nav>
+  <div class="nav-right">
+   <a class="login" href="#contact" data-i18n="login">Masuk</a>
+   <button class="lang" id="langToggle" type="button" aria-label="Switch language">EN</button>
+   <a class="btn" href="#contact"><span data-i18n="navCta">Buat Agent</span><span class="arrow">↗</span></a>
+  </div>
+  <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+ </div>
+ <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+  <a href="#features" data-i18n="navFeatures">Fitur</a><a href="#solutions" data-i18n="navSolutions">Solusi</a><a href="#how" data-i18n="navHow">Cara kerja</a><a href="#resources" data-i18n="navResources">Resources</a><a href="#faq">FAQ</a>
+  <a class="mobile-cta" href="#contact"><span class="btn"><span data-i18n="navCta">Buat Agent</span><span class="arrow">↗</span></span></a>
+ </nav>
+</header>
+
+<main>
+<section class="hero" id="top">
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <span class="eyebrow reveal" data-i18n="heroEyebrow">AI learning, langsung di dalam tools kamu</span>
+   <h1 class="reveal d1" data-i18n="heroTitle">Belajar tepat saat dibutuhkan, <span class="gradient-text">di dalam alur kerja.</span></h1>
+   <p class="reveal d2" data-i18n="heroCopy">Ubah pengetahuan perusahaan menjadi pengalaman belajar yang personal. AI Learning Agent membantu setiap orang memahami pekerjaan tanpa harus meninggalkan aplikasi yang mereka gunakan.</p>
+   <div class="hero-actions reveal d3">
+    <a class="btn" href="#contact"><span data-i18n="heroCta">Buat Agent pertamamu</span><span class="arrow">↗</span></a>
+    <a class="btn btn-secondary" href="#demo"><span data-i18n="heroDemo">Lihat demo interaktif</span><span class="arrow">▶</span></a>
+   </div>
+   <div class="hero-trust reveal d3"><div class="avatar-stack"><span>AI</span><span>HR</span><span>UX</span></div><span data-i18n="heroTrust">Mendukung tim belajar di setiap momen kerja</span></div>
+  </div>
+  <div class="hero-demo reveal d2" id="demo" aria-label="Simulasi percakapan AI Learning Agent">
+   <div class="demo-top"><div class="window-dots"><i></i><i></i><i></i></div><span class="demo-label">LEARNFLOW / LIVE COACH</span><span class="demo-label">● LIVE</span></div>
+   <div class="demo-stage">
+    <div class="demo-heading"><div class="melty-avatar">L</div><div><strong>Learnflow Coach</strong><small data-i18n="demoOnline">Learning assistant · Online</small></div><span class="online">● <span data-i18n="online">Aktif</span></span></div>
+    <div class="chat-feed">
+     <div class="bubble agent" data-i18n="bubble1">Hai! Aku bisa bantu kamu memahami proses onboarding pelanggan. Mau mulai dari mana?</div>
+     <div class="bubble user" data-i18n="bubble2">Bagaimana cara menangani pelanggan yang kesulitan aktivasi?</div>
+     <div class="bubble agent second" data-i18n="bubble3">Mulai dengan memeriksa status akun, lalu ikuti tiga langkah berikut. Aku sudah menyiapkan panduan singkat untukmu.</div>
+     <div class="typing" aria-label="AI sedang mengetik"><i></i><i></i><i></i></div>
+     <div class="demo-card">
+      <div class="demo-card-head"><strong data-i18n="demoCardTitle">Panduan aktivasi pelanggan</strong><span class="pill" data-i18n="demoBadge">Direkomendasikan</span></div>
+      <p data-i18n="demoCardCopy">Ikuti alur verifikasi akun, konfigurasi workspace, dan konfirmasi akses pengguna.</p>
+      <div class="progress"><span></span></div>
+      <div class="demo-foot"><span data-i18n="demoProgress">Materi pembelajaran</span><b>3 / 4 <span data-i18n="steps">langkah</span></b></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="usecases" id="solutions">
+ <div class="container">
+  <div class="section-head">
+   <span class="eyebrow reveal" data-i18n="useLabel">Temukan kebutuhan timmu</span>
+   <h2 class="reveal" data-i18n="useTitle">Siapa yang ingin kamu <span class="gradient-text">bantu berkembang?</span></h2>
+   <p class="reveal" data-i18n="useIntro">Satu learning agent dapat mendukung tim internal maupun pelanggan produk SaaS melalui pengalaman belajar yang kontekstual.</p>
+  </div>
+  <div class="usecase-grid">
+   <article class="usecase-card reveal">
+    <div class="usecase-top"><div class="usecase-icon">✳</div><span class="eyebrow" data-i18n="internalLabel">Tim internal</span></div>
+    <p class="usecase-quote" data-i18n="internalQuote">“Materi pelatihan sudah tersedia. Tantangannya adalah membuat orang menggunakannya.”</p>
+    <div class="usecase-links"><span class="tag">Learning & Development</span><span class="tag">Sales Enablement</span><span class="tag" data-i18n="rollout">Peluncuran software</span></div>
+   </article>
+   <article class="usecase-card reveal d1">
+    <div class="usecase-top"><div class="usecase-icon">◎</div><span class="eyebrow" data-i18n="customerLabel">Pelanggan SaaS</span></div>
+    <p class="usecase-quote" data-i18n="customerQuote">“Mereka mendaftar, kebingungan, lalu membuka tiket bantuan atau pergi.”</p>
+    <div class="usecase-links"><span class="tag">Customer Success</span><span class="tag">Customer Revenue</span><span class="tag">Product Marketing</span></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="scenarios" id="features">
+ <div class="container scenario-layout">
+  <div class="scenario-copy">
+   <span class="eyebrow reveal" data-i18n="scenarioLabel">Satu agent, banyak kemungkinan</span>
+   <h2 class="reveal" data-i18n="scenarioTitle">Satu agent. Pekerjaan berbeda untuk setiap tim.</h2>
+   <p class="reveal" data-i18n="scenarioCopy">Sesuaikan misi agent dengan peran pengguna. Pilih skenario untuk melihat bagaimana pembelajaran hadir di momen yang tepat.</p>
+   <div class="scenario-tabs reveal" role="tablist" aria-label="Pilih skenario">
+    <button class="scenario-tab active" role="tab" aria-selected="true" data-scenario="sales"><span data-i18n="tabSales">Sales enablement</span><span>↗</span></button>
+    <button class="scenario-tab" role="tab" aria-selected="false" data-scenario="onboarding"><span data-i18n="tabOnboarding">Onboarding karyawan</span><span>↗</span></button>
+    <button class="scenario-tab" role="tab" aria-selected="false" data-scenario="security"><span data-i18n="tabSecurity">Security training</span><span>↗</span></button>
+    <button class="scenario-tab" role="tab" aria-selected="false" data-scenario="customer"><span data-i18n="tabCustomer">Customer success</span><span>↗</span></button>
+   </div>
+  </div>
+  <div class="scenario-panel reveal d1" id="scenarioPanel" role="tabpanel" aria-live="polite">
+   <div class="scenario-panel-top"><strong id="scenarioName">Sales Enablement Agent</strong><span id="scenarioStatus">● <span data-i18n="activeAgent">Agent aktif</span></span></div>
+   <div class="scenario-window">
+    <div class="mini-label" data-i18n="scenarioPreview">PREVIEW PENGALAMAN</div>
+    <h3 id="scenarioHeading">Persiapkan demo produk berikutnya</h3>
+    <p id="scenarioDescription">Agent mengenali tahapan deal dan memberikan materi yang relevan sebelum pertemuan dengan calon pelanggan.</p>
+    <div class="task-row"><span class="task-check">✓</span><span id="taskOne">Tinjau kebutuhan calon pelanggan</span></div>
+    <div class="task-row"><span class="task-check">✓</span><span id="taskTwo">Pelajari fitur yang paling relevan</span></div>
+    <div class="task-row"><span class="task-check">✓</span><span id="taskThree">Latihan menjawab keberatan</span></div>
+   </div>
+   <div class="scenario-panel-bottom"><span data-i18n="powered">Didukung knowledge perusahaan</span><b data-i18n="personalized">Dibuat kontekstual ↗</b></div>
+  </div>
+ </div>
+</section>
+
+<section class="steps" id="how">
+ <div class="container">
+  <div class="section-head">
+   <span class="eyebrow reveal" data-i18n="howLabel">Sederhana untuk dimulai</span>
+   <h2 class="reveal" data-i18n="howTitle">Dari konten menjadi trainer di setiap tools.</h2>
+   <p class="reveal" data-i18n="howIntro">Hubungkan pengetahuan yang sudah dimiliki, tempatkan agent di alur kerja, lalu ukur hasil pembelajarannya.</p>
+  </div>
+  <div class="steps-grid">
+   <article class="step-card reveal"><div class="step-no">01</div><h3 data-i18n="step1Title">Buat agent-mu</h3><p data-i18n="step1Copy">Tentukan misi, berikan konteks, dan hubungkan materi yang sudah tersedia di perusahaan.</p><div class="step-visual"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></article>
+   <article class="step-card reveal d1"><div class="step-no">02</div><h3 data-i18n="step2Title">Hadir di tempat orang bekerja</h3><p data-i18n="step2Copy">Tempatkan learning agent di CRM, HRIS, ERP, software internal, atau produk SaaS.</p><div class="step-visual"><div class="skeleton" style="width:38%"></div><div style="display:flex;gap:7px"><div class="skeleton" style="width:33%;height:34px"></div><div class="skeleton" style="width:33%;height:34px"></div><div class="skeleton" style="width:33%;height:34px"></div></div><div class="skeleton" style="width:72%"></div></div></article>
+   <article class="step-card reveal d2"><div class="step-no">03</div><h3 data-i18n="step3Title">Ukur perkembangan</h3><p data-i18n="step3Copy">Pahami siapa mempelajari apa, di mana orang mengalami kesulitan, dan apa yang perlu ditingkatkan.</p><div class="step-visual" style="justify-content:flex-end"><div style="display:flex;align-items:end;gap:8px;height:60px"><i style="height:35%;width:13%;background:#c8e9fb;border-radius:4px 4px 0 0"></i><i style="height:62%;width:13%;background:#a8e9d0;border-radius:4px 4px 0 0"></i><i style="height:48%;width:13%;background:#c8e9fb;border-radius:4px 4px 0 0"></i><i style="height:88%;width:13%;background:#82d9b8;border-radius:4px 4px 0 0"></i><i style="height:72%;width:13%;background:#c8e9fb;border-radius:4px 4px 0 0"></i></div></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="comparison">
+ <div class="container">
+  <div class="section-head"><span class="eyebrow reveal" data-i18n="compareLabel">Pendekatan yang berbeda</span><h2 class="reveal" data-i18n="compareTitle">Mengapa pengalaman ini bekerja di tempat metode lain berhenti.</h2></div>
+  <div class="compare-grid">
+   <article class="compare-card reveal"><div class="vs" data-i18n="vsLms">Dibanding LMS</div><h3 data-i18n="lmsTitle">Belajar di dalam alur kerja</h3><p data-i18n="lmsCopy">Tidak perlu berpindah ke portal pelatihan. Agent hadir di software tempat pekerjaan berlangsung.</p></article>
+   <article class="compare-card reveal d1"><div class="vs" data-i18n="vsChat">Dibanding chatbot</div><h3 data-i18n="chatTitle">Bantuan yang memahami konteks</h3><p data-i18n="chatCopy">Bukan hanya menunggu pertanyaan. Agent dapat memberi panduan sesuai situasi dan kebutuhan pengguna.</p></article>
+   <article class="compare-card reveal d2"><div class="vs" data-i18n="vsTour">Dibanding product tour</div><h3 data-i18n="tourTitle">Memahami alasan, bukan sekadar klik</h3><p data-i18n="tourCopy">Agent menjelaskan langkah, memeriksa pemahaman, dan membantu pengguna menerapkan pengetahuan.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="integrations">
+ <div class="container integration-layout">
+  <div class="integration-copy">
+   <span class="eyebrow reveal" data-i18n="integrationLabel">Terhubung dengan pengetahuanmu</span>
+   <h2 class="reveal" data-i18n="integrationTitle">Pertahankan knowledge base. Buat pengetahuan benar-benar digunakan.</h2>
+   <p class="reveal" data-i18n="integrationCopy">LMS, wiki, shared drive, dan help center tetap menjadi sumber pengetahuan. Learnflow membawa pembelajaran dari sumber tersebut ke tempat orang bekerja.</p>
+   <a class="btn reveal" href="#contact"><span data-i18n="integrationCta">Jelajahi integrasi</span><span class="arrow">↗</span></a>
+  </div>
+  <div class="integration-grid">
+   <div class="integration-tile reveal"><span class="integration-symbol">▤</span><div><strong>LMS</strong><small data-i18n="lmsSub">Courses & learning paths</small></div></div>
+   <div class="integration-tile reveal d1"><span class="integration-symbol">⌘</span><div><strong>Wikis</strong><small data-i18n="wikiSub">Processes & playbooks</small></div></div>
+   <div class="integration-tile reveal d1"><span class="integration-symbol">▧</span><div><strong>Shared drives</strong><small data-i18n="driveSub">PDFs, slides & videos</small></div></div>
+   <div class="integration-tile reveal d2"><span class="integration-symbol">◎</span><div><strong>Helpdesk</strong><small data-i18n="helpSub">Support & knowledge tools</small></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="testimonials">
+ <div class="container">
+  <div class="section-head"><span class="eyebrow reveal" data-i18n="trustLabel">Belajar di tempat kerja</span><h2 class="reveal" data-i18n="trustTitle">Bantu tim dan pelanggan berkembang, tepat di dalam tools mereka.</h2></div>
+  <p class="trust-line reveal" data-i18n="trustSub">DIBUAT UNTUK ORGANISASI YANG TERUS BERTUMBUH</p>
+  <div class="logo-row reveal"><span>northstar</span><span>orbit</span><span>vertex</span><span>cloudwise</span><span>monogram</span></div>
+  <div class="quote-card reveal"><div class="quote-mark">“</div><blockquote data-i18n="quote">Pembelajaran paling efektif terjadi ketika seseorang membutuhkannya. Bukan beberapa minggu sebelumnya di ruang kelas, tetapi tepat saat pekerjaan berlangsung.</blockquote><div class="quote-person"><strong data-i18n="quoteName">Perspektif tim Learning & Development</strong> · <span data-i18n="quoteRole">Customer story concept</span></div></div>
+ </div>
+</section>
+
+<section class="resources" id="resources">
+ <div class="container">
+  <div class="section-head"><span class="eyebrow reveal" data-i18n="resourceLabel">Wawasan dan panduan</span><h2 class="reveal" data-i18n="resourceTitle">Pelajari cara membangun pengalaman belajar di alur kerja.</h2></div>
+  <div class="resource-grid">
+   <article class="resource-card reveal"><div class="resource-art"><span>◉</span></div><div class="resource-content"><span class="eyebrow" data-i18n="resourceType1">Workshop</span><h3 data-i18n="resource1">Merancang learning agent untuk tim modern</h3><p data-i18n="resourceCopy1">Panduan awal menyusun misi dan konteks agent.</p><a class="resource-link" href="#contact" data-i18n="readMore">Pelajari lebih lanjut ↗</a></div></article>
+   <article class="resource-card reveal d1"><div class="resource-art" style="background:linear-gradient(135deg,#eff4ff,#edf9f4)"><span>▤</span></div><div class="resource-content"><span class="eyebrow" data-i18n="resourceType2">E-book</span><h3 data-i18n="resource2">Panduan learning in the flow of work</h3><p data-i18n="resourceCopy2">Ide untuk membawa pembelajaran lebih dekat ke pekerjaan.</p><a class="resource-link" href="#contact" data-i18n="download">Unduh panduan ↗</a></div></article>
+   <article class="resource-card reveal d2"><div class="resource-art" style="background:linear-gradient(135deg,#eafaf3,#eaf5ff)"><span>✳</span></div><div class="resource-content"><span class="eyebrow" data-i18n="resourceType3">Artikel</span><h3 data-i18n="resource3">Dari knowledge base menuju aksi nyata</h3><p data-i18n="resourceCopy3">Cara mengubah pengetahuan menjadi kebiasaan kerja.</p><a class="resource-link" href="#contact" data-i18n="readMore">Pelajari lebih lanjut ↗</a></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="faq" id="faq">
+ <div class="container faq-wrap">
+  <div class="section-head"><span class="eyebrow reveal" data-i18n="faqLabel">Masih ingin tahu lebih banyak?</span><h2 class="reveal" data-i18n="faqTitle">Pertanyaan, terjawab.</h2></div>
+  <div class="faq-list">
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-i18n="q1">Apakah saya harus membuat konten pelatihan baru?</span><span>＋</span></button><div class="faq-answer"><div><p data-i18n="a1">Tidak harus. Agent dapat memanfaatkan materi dan knowledge base yang sudah dimiliki organisasi, lalu menyajikannya sesuai konteks pekerjaan.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-i18n="q2">Apakah Learnflow menggantikan LMS atau helpdesk?</span><span>＋</span></button><div class="faq-answer"><div><p data-i18n="a2">Tidak. Learnflow dirancang untuk melengkapi sumber pengetahuan yang ada dengan menghadirkan panduan di dalam alur kerja.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-i18n="q3">Di software apa agent dapat digunakan?</span><span>＋</span></button><div class="faq-answer"><div><p data-i18n="a3">Konsepnya mencakup CRM, HRIS, ERP, software internal, dan produk SaaS. Integrasi aktual perlu disesuaikan dengan kebutuhan implementasi.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-i18n="q4">Bagaimana cara memulai?</span><span>＋</span></button><div class="faq-answer"><div><p data-i18n="a4">Mulai dengan menentukan misi agent, menghubungkan materi relevan, lalu menempatkannya di titik kerja yang paling membutuhkan panduan.</p></div></div></div>
+   <div class="faq-item"><button class="faq-question" aria-expanded="false"><span data-i18n="q5">Apa yang dapat diukur?</span><span>＋</span></button><div class="faq-answer"><div><p data-i18n="a5">Contoh metrik meliputi interaksi pembelajaran, materi yang diakses, penyelesaian langkah, dan area yang masih membingungkan pengguna.</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="story">
+ <div class="container story-inner">
+  <span class="eyebrow reveal" data-i18n="storyLabel">Mengapa Learnflow</span>
+  <h2 class="reveal" data-i18n="storyTitle">Pelatihan seharusnya datang kepada orang-orang. Bukan sebaliknya.</h2>
+  <p class="reveal" data-i18n="storyCopy">Orang bekerja di berbagai software, sementara pengetahuan tersebar di LMS, wiki, shared drive, dan help center. Learnflow menjembatani keduanya agar setiap orang dapat belajar saat konteksnya paling relevan.</p>
+ </div>
+</section>
+
+<section class="final-cta" id="contact">
+ <div class="container">
+  <div class="cta-panel reveal">
+   <h2 data-i18n="ctaTitle">Orang-orangmu hidup di dalam tools mereka. Jadikan setiap tools tempat untuk berkembang.</h2>
+   <p data-i18n="ctaCopy">Mulai bangun pengalaman belajar yang lebih dekat, relevan, dan mudah diakses oleh setiap pengguna.</p>
+   <a class="btn" href="mailto:ijlalainun@gmail.com?subject=Learnflow%20AI%20Learning%20Agent"><span data-i18n="ctaButton">Mulai percakapan</span><span class="arrow">↗</span></a>
+  </div>
+ </div>
+</section>
+</main>
+
+<div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#00D28C;--on:#ffffff;--glow:rgba(0,210,140,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer>
+ <div class="container">
+  <div class="footer-top">
+   <div class="footer-brand">
+    <a class="brand" href="#top"><span class="brand-mark">L</span>LEARNFLOW</a>
+    <p data-i18n="footerCopy">Learning agents, di dalam tools yang digunakan setiap hari. Membantu setiap orang belajar di setiap momen kerja.</p>
+   </div>
+   <div><div class="footer-title" data-i18n="footerContact">Kontak</div><div class="footer-links">
+    <a href="mailto:ijlalainun@gmail.com">ijlalainun@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <a href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+   </div></div>
+   <div><div class="footer-title" data-i18n="footerSocial">Media sosial</div><div class="footer-links">
+    <a href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+    <a href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+   </div></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 LEARNFLOW. <span data-i18n="rights">Seluruh hak dilindungi.</span></span><span data-i18n="footerTag">Learning belongs in the flow of work.</span></div>
+ </div>
+</footer>
+
+<script>
+const copy={
+id:{
+navFeatures:"Fitur",navSolutions:"Solusi",navHow:"Cara kerja",navResources:"Resources",login:"Masuk",navCta:"Buat Agent",
+heroEyebrow:"AI learning, langsung di dalam tools kamu",heroTitle:"Belajar tepat saat dibutuhkan, <span class='gradient-text'>di dalam alur kerja.</span>",heroCopy:"Ubah pengetahuan perusahaan menjadi pengalaman belajar yang personal. AI Learning Agent membantu setiap orang memahami pekerjaan tanpa harus meninggalkan aplikasi yang mereka gunakan.",heroCta:"Buat Agent pertamamu",heroDemo:"Lihat demo interaktif",heroTrust:"Mendukung tim belajar di setiap momen kerja",
+demoOnline:"Learning assistant · Online",online:"Aktif",bubble1:"Hai! Aku bisa bantu kamu memahami proses onboarding pelanggan. Mau mulai dari mana?",bubble2:"Bagaimana cara menangani pelanggan yang kesulitan aktivasi?",bubble3:"Mulai dengan memeriksa status akun, lalu ikuti tiga langkah berikut. Aku sudah menyiapkan panduan singkat untukmu.",demoCardTitle:"Panduan aktivasi pelanggan",demoBadge:"Direkomendasikan",demoCardCopy:"Ikuti alur verifikasi akun, konfigurasi workspace, dan konfirmasi akses pengguna.",demoProgress:"Materi pembelajaran",steps:"langkah",
+useLabel:"Temukan kebutuhan timmu",useTitle:"Siapa yang ingin kamu <span class='gradient-text'>bantu berkembang?</span>",useIntro:"Satu learning agent dapat mendukung tim internal maupun pelanggan produk SaaS melalui pengalaman belajar yang kontekstual.",internalLabel:"Tim internal",internalQuote:"“Materi pelatihan sudah tersedia. Tantangannya adalah membuat orang menggunakannya.”",rollout:"Peluncuran software",customerLabel:"Pelanggan SaaS",customerQuote:"“Mereka mendaftar, kebingungan, lalu membuka tiket bantuan atau pergi.”",
+scenarioLabel:"Satu agent, banyak kemungkinan",scenarioTitle:"Satu agent. Pekerjaan berbeda untuk setiap tim.",scenarioCopy:"Sesuaikan misi agent dengan peran pengguna. Pilih skenario untuk melihat bagaimana pembelajaran hadir di momen yang tepat.",tabSales:"Sales enablement",tabOnboarding:"Onboarding karyawan",tabSecurity:"Security training",tabCustomer:"Customer success",activeAgent:"Agent aktif",scenarioPreview:"PREVIEW PENGALAMAN",powered:"Didukung knowledge perusahaan",personalized:"Dibuat kontekstual ↗",
+howLabel:"Sederhana untuk dimulai",howTitle:"Dari konten menjadi trainer di setiap tools.",howIntro:"Hubungkan pengetahuan yang sudah dimiliki, tempatkan agent di alur kerja, lalu ukur hasil pembelajarannya.",step1Title:"Buat agent-mu",step1Copy:"Tentukan misi, berikan konteks, dan hubungkan materi yang sudah tersedia di perusahaan.",step2Title:"Hadir di tempat orang bekerja",step2Copy:"Tempatkan learning agent di CRM, HRIS, ERP, software internal, atau produk SaaS.",step3Title:"Ukur perkembangan",step3Copy:"Pahami siapa mempelajari apa, di mana orang mengalami kesulitan, dan apa yang perlu ditingkatkan.",
+compareLabel:"Pendekatan yang berbeda",compareTitle:"Mengapa pengalaman ini bekerja di tempat metode lain berhenti.",vsLms:"Dibanding LMS",lmsTitle:"Belajar di dalam alur kerja",lmsCopy:"Tidak perlu berpindah ke portal pelatihan. Agent hadir di software tempat pekerjaan berlangsung.",vsChat:"Dibanding chatbot",chatTitle:"Bantuan yang memahami konteks",chatCopy:"Bukan hanya menunggu pertanyaan. Agent dapat memberi panduan sesuai situasi dan kebutuhan pengguna.",vsTour:"Dibanding product tour",tourTitle:"Memahami alasan, bukan sekadar klik",tourCopy:"Agent menjelaskan langkah, memeriksa pemahaman, dan membantu pengguna menerapkan pengetahuan.",
+integrationLabel:"Terhubung dengan pengetahuanmu",integrationTitle:"Pertahankan knowledge base. Buat pengetahuan benar-benar digunakan.",integrationCopy:"LMS, wiki, shared drive, dan help center tetap menjadi sumber pengetahuan. Learnflow membawa pembelajaran dari sumber tersebut ke tempat orang bekerja.",integrationCta:"Jelajahi integrasi",lmsSub:"Courses & learning paths",wikiSub:"Processes & playbooks",driveSub:"PDFs, slides & videos",helpSub:"Support & knowledge tools",
+trustLabel:"Belajar di tempat kerja",trustTitle:"Bantu tim dan pelanggan berkembang, tepat di dalam tools mereka.",trustSub:"DIBUAT UNTUK ORGANISASI YANG TERUS BERTUMBUH",quote:"Pembelajaran paling efektif terjadi ketika seseorang membutuhkannya. Bukan beberapa minggu sebelumnya di ruang kelas, tetapi tepat saat pekerjaan berlangsung.",quoteName:"Perspektif tim Learning & Development",quoteRole:"Konsep customer story",
+resourceLabel:"Wawasan dan panduan",resourceTitle:"Pelajari cara membangun pengalaman belajar di alur kerja.",resourceType1:"Workshop",resource1:"Merancang learning agent untuk tim modern",resourceCopy1:"Panduan awal menyusun misi dan konteks agent.",readMore:"Pelajari lebih lanjut ↗",resourceType2:"E-book",resource2:"Panduan learning in the flow of work",resourceCopy2:"Ide untuk membawa pembelajaran lebih dekat ke pekerjaan.",download:"Unduh panduan ↗",resourceType3:"Artikel",resource3:"Dari knowledge base menuju aksi nyata",resourceCopy3:"Cara mengubah pengetahuan menjadi kebiasaan kerja.",
+faqLabel:"Masih ingin tahu lebih banyak?",faqTitle:"Pertanyaan, terjawab.",q1:"Apakah saya harus membuat konten pelatihan baru?",a1:"Tidak harus. Agent dapat memanfaatkan materi dan knowledge base yang sudah dimiliki organisasi, lalu menyajikannya sesuai konteks pekerjaan.",q2:"Apakah Learnflow menggantikan LMS atau helpdesk?",a2:"Tidak. Learnflow dirancang untuk melengkapi sumber pengetahuan yang ada dengan menghadirkan panduan di dalam alur kerja.",q3:"Di software apa agent dapat digunakan?",a3:"Konsepnya mencakup CRM, HRIS, ERP, software internal, dan produk SaaS. Integrasi aktual perlu disesuaikan dengan kebutuhan implementasi.",q4:"Bagaimana cara memulai?",a4:"Mulai dengan menentukan misi agent, menghubungkan materi relevan, lalu menempatkannya di titik kerja yang paling membutuhkan panduan.",q5:"Apa yang dapat diukur?",a5:"Contoh metrik meliputi interaksi pembelajaran, materi yang diakses, penyelesaian langkah, dan area yang masih membingungkan pengguna.",
+storyLabel:"Mengapa Learnflow",storyTitle:"Pelatihan seharusnya datang kepada orang-orang. Bukan sebaliknya.",storyCopy:"Orang bekerja di berbagai software, sementara pengetahuan tersebar di LMS, wiki, shared drive, dan help center. Learnflow menjembatani keduanya agar setiap orang dapat belajar saat konteksnya paling relevan.",ctaTitle:"Orang-orangmu hidup di dalam tools mereka. Jadikan setiap tools tempat untuk berkembang.",ctaCopy:"Mulai bangun pengalaman belajar yang lebih dekat, relevan, dan mudah diakses oleh setiap pengguna.",ctaButton:"Mulai percakapan",footerCopy:"Learning agents, di dalam tools yang digunakan setiap hari. Membantu setiap orang belajar di setiap momen kerja.",footerContact:"Kontak",footerSocial:"Media sosial",rights:"Seluruh hak dilindungi.",footerTag:"Learning belongs in the flow of work."
+},
+en:{
+navFeatures:"Features",navSolutions:"Solutions",navHow:"How it works",navResources:"Resources",login:"Log in",navCta:"Create an Agent",
+heroEyebrow:"AI learning, right inside your tools",heroTitle:"Learn exactly when it matters, <span class='gradient-text'>in the flow of work.</span>",heroCopy:"Turn company knowledge into personal learning experiences. An AI Learning Agent helps everyone understand their work without leaving the applications they use every day.",heroCta:"Create your first Agent",heroDemo:"Play interactive demo",heroTrust:"Helping teams learn in every moment of work",
+demoOnline:"Learning assistant · Online",online:"Active",bubble1:"Hi! I can help you understand the customer onboarding process. Where would you like to start?",bubble2:"How should I help a customer who is having trouble activating their account?",bubble3:"Start by checking the account status, then follow these three steps. I've prepared a quick guide for you.",demoCardTitle:"Customer activation guide",demoBadge:"Recommended",demoCardCopy:"Follow account verification, workspace setup, and user access confirmation.",demoProgress:"Learning material",steps:"steps",
+useLabel:"Find your team's use case",useTitle:"Who are you helping <span class='gradient-text'>grow?</span>",useIntro:"One learning agent can support internal teams and SaaS customers through contextual learning experiences.",internalLabel:"Internal teams",internalQuote:"“We built the training. The challenge is getting people to use it.”",rollout:"Software rollouts",customerLabel:"SaaS customers",customerQuote:"“They sign up, get stuck, then open a ticket or leave.”",
+scenarioLabel:"One agent, many possibilities",scenarioTitle:"One agent. A different job for every team.",scenarioCopy:"Adapt your agent's mission to each user's role. Choose a scenario to see how learning appears at the right moment.",tabSales:"Sales enablement",tabOnboarding:"Employee onboarding",tabSecurity:"Security training",tabCustomer:"Customer success",activeAgent:"Agent active",scenarioPreview:"EXPERIENCE PREVIEW",powered:"Powered by company knowledge",personalized:"Contextual by design ↗",
+howLabel:"Simple to get started",howTitle:"From your content to a trainer in every tool.",howIntro:"Connect the knowledge you already have, put your agent in the flow of work, and measure learning outcomes.",step1Title:"Create your agent",step1Copy:"Set its mission, provide context, and connect the content your organization already has.",step2Title:"Meet people where they work",step2Copy:"Place your learning agent in your CRM, HRIS, ERP, internal software, or SaaS product.",step3Title:"Measure progress",step3Copy:"Understand who learns what, where people struggle, and what needs to improve.",
+compareLabel:"A different approach",compareTitle:"Why this experience works where other methods stop.",vsLms:"VS LMS",lmsTitle:"Learning in the flow of work",lmsCopy:"No need to switch to a training portal. Your agent appears in the software where work happens.",vsChat:"VS chatbots",chatTitle:"Guidance that understands context",chatCopy:"Not just waiting for questions. Your agent can offer guidance based on each user's situation and needs.",vsTour:"VS product tours",tourTitle:"Understand the why, not just the click",tourCopy:"Your agent explains steps, checks understanding, and helps people apply what they learn.",
+integrationLabel:"Connected to your knowledge",integrationTitle:"Keep your knowledge base. Make knowledge truly used.",integrationCopy:"Your LMS, wiki, shared drive, and help center remain your sources of knowledge. Learnflow brings learning from those sources to where people work.",integrationCta:"Explore integrations",lmsSub:"Courses & learning paths",wikiSub:"Processes & playbooks",driveSub:"PDFs, slides & videos",helpSub:"Support & knowledge tools",
+trustLabel:"Learning at work",trustTitle:"Help teams and customers grow, right inside their tools.",trustSub:"BUILT FOR ORGANIZATIONS THAT KEEP GROWING",quote:"Learning works best when someone needs it. Not weeks earlier in a classroom, but right when the work is happening.",quoteName:"Learning & Development team perspective",quoteRole:"Customer story concept",
+resourceLabel:"Insights and guides",resourceTitle:"Learn how to build learning experiences in the flow of work.",resourceType1:"Workshop",resource1:"Designing learning agents for modern teams",resourceCopy1:"A starting guide to defining your agent's mission and context.",readMore:"Learn more ↗",resourceType2:"E-book",resource2:"The guide to learning in the flow of work",resourceCopy2:"Ideas for bringing learning closer to everyday work.",download:"Download guide ↗",resourceType3:"Article",resource3:"From knowledge base to meaningful action",resourceCopy3:"How to turn knowledge into everyday work habits.",
+faqLabel:"Still curious?",faqTitle:"Questions, answered.",q1:"Do I need to create new training content?",a1:"Not necessarily. Your agent can use the materials and knowledge base your organization already has, then present them in the context of the work.",q2:"Does Learnflow replace an LMS or helpdesk?",a2:"No. Learnflow is designed to complement existing knowledge sources by bringing guidance into the flow of work.",q3:"Which software can the agent work in?",a3:"The concept covers CRMs, HRIS, ERPs, internal software, and SaaS products. Actual integrations should be tailored to implementation needs.",q4:"How do I get started?",a4:"Start by defining your agent's mission, connecting relevant materials, and placing it where guidance is most needed.",q5:"What can be measured?",a5:"Example metrics include learning interactions, accessed materials, completed steps, and areas that still cause confusion.",
+storyLabel:"Why Learnflow",storyTitle:"Training should come to people. Not the other way around.",storyCopy:"People work across many software tools, while knowledge lives in LMS platforms, wikis, shared drives, and help centers. Learnflow bridges the two so everyone can learn when context matters most.",ctaTitle:"Your people live in their tools. Make every tool a place to grow.",ctaCopy:"Start building learning experiences that are closer, more relevant, and easier for every user to access.",ctaButton:"Start a conversation",footerCopy:"Learning agents, inside the tools people use every day. Helping everyone learn in every moment of work.",footerContact:"Contact",footerSocial:"Social media",rights:"All rights reserved.",footerTag:"Learning belongs in the flow of work."
+}};
+let lang="id";
+const langButton=document.getElementById("langToggle");
+function setLanguage(next){
+ lang=next;document.documentElement.lang=next;langButton.textContent=next==="id"?"EN":"ID";
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[next][key])el.innerHTML=copy[next][key]});
+ renderScenario(activeScenario);
+}
+langButton.addEventListener("click",()=>setLanguage(lang==="id"?"en":"id"));
+const menu=document.getElementById("mobileMenu"),burger=document.getElementById("burger");
+function closeMenu(){menu.classList.remove("open");burger.setAttribute("aria-expanded","false")}
+burger.addEventListener("click",()=>{const open=!menu.classList.contains("open");menu.classList.toggle("open",open);burger.setAttribute("aria-expanded",String(open))});
+menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
+const revealObserver=new IntersectionObserver((entries,obs)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");obs.unobserve(entry.target)}})},{threshold:.12,rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".reveal").forEach(el=>revealObserver.observe(el));
+document.querySelectorAll(".faq-question").forEach(button=>button.addEventListener("click",()=>{const item=button.closest(".faq-item");const open=item.classList.toggle("open");button.setAttribute("aria-expanded",String(open))}));
+const scenarios={
+id:{
+sales:{name:"Sales Enablement Agent",heading:"Persiapkan demo produk berikutnya",description:"Agent mengenali tahapan deal dan memberikan materi yang relevan sebelum pertemuan dengan calon pelanggan.",tasks:["Tinjau kebutuhan calon pelanggan","Pelajari fitur yang paling relevan","Latihan menjawab keberatan"]},
+onboarding:{name:"Employee Onboarding Agent",heading:"Mulai bekerja dengan lebih percaya diri",description:"Agent memandu anggota baru memahami proses, tools, dan kebiasaan kerja sesuai peran mereka.",tasks:["Kenali alur kerja tim","Pelajari tools utama","Selesaikan checklist minggu pertama"]},
+security:{name:"Security Learning Agent",heading:"Perkuat kebiasaan keamanan digital",description:"Agent mengirim pengingat dan latihan singkat berdasarkan kebijakan keamanan perusahaan.",tasks:["Kenali email phishing","Periksa tautan mencurigakan","Laporkan aktivitas tidak biasa"]},
+customer:{name:"Customer Success Agent",heading:"Bantu pelanggan mencapai hasil",description:"Agent memberi panduan sesuai aktivitas pengguna agar mereka dapat memaksimalkan produk.",tasks:["Pahami tujuan penggunaan","Ikuti panduan fitur utama","Tinjau langkah berikutnya"]}
+},
+en:{
+sales:{name:"Sales Enablement Agent",heading:"Prepare for your next product demo",description:"The agent recognizes deal stages and shares relevant material before a prospect meeting.",tasks:["Review prospect needs","Explore the most relevant features","Practice handling objections"]},
+onboarding:{name:"Employee Onboarding Agent",heading:"Start your role with confidence",description:"The agent guides new teammates through processes, tools, and team practices for their role.",tasks:["Understand the team workflow","Learn the core tools","Complete your first-week checklist"]},
+security:{name:"Security Learning Agent",heading:"Build stronger digital security habits",description:"The agent shares reminders and short exercises based on your organization's security policies.",tasks:["Recognize phishing emails","Check suspicious links","Report unusual activity"]},
+customer:{name:"Customer Success Agent",heading:"Help customers reach their goals",description:"The agent offers guidance based on user activity so customers can get more from the product.",tasks:["Understand the use case","Follow the key feature guide","Review the next best step"]}
+}};
+let activeScenario="sales";
+function renderScenario(key){
+ const item=scenarios[lang][key];document.getElementById("scenarioName").textContent=item.name;document.getElementById("scenarioHeading").textContent=item.heading;document.getElementById("scenarioDescription").textContent=item.description;
+ ["taskOne","taskTwo","taskThree"].forEach((id,i)=>document.getElementById(id).textContent=item.tasks[i]);
+}
+document.querySelectorAll(".scenario-tab").forEach(button=>button.addEventListener("click",()=>{activeScenario=button.dataset.scenario;document.querySelectorAll(".scenario-tab").forEach(tab=>{const active=tab===button;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",String(active))});renderScenario(activeScenario)}));
+renderScenario(activeScenario);
+</script>
+<script id="mx-script">window.__MX_BG=[];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#08090a">
+<meta name="description" content="C12 menghadirkan pendekatan baru pada komputasi kuantum melalui teknologi berbasis karbon yang dirancang untuk skala besar.">
+<meta property="og:title" content="C12 — Unique at Scale">
+<meta property="og:description" content="Quantum hardware reimagined. A new material foundation for scalable quantum computing.">
+<meta property="og:type" content="website">
+<title>C12 — Unique at Scale | Quantum Hardware Reimagined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08090a;--surface:#111315;--surface2:#191b1d;--text:#f5f5f2;--muted:#a7aaa8;--accent:#e8d52a;--line:rgba(255,255,255,.14);--gutter:clamp(20px,5vw,76px);--max:1480px;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Saira",Arial,sans-serif;font-weight:400;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{display:block;max-width:100%}
+.container{width:min(calc(100% - 2 * var(--gutter)),var(--max));margin-inline:auto}
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .45s,height .45s,backdrop-filter .45s}
+header.scrolled{background:rgba(8,9,10,.88);backdrop-filter:blur(16px)}
+.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:28px;transition:height .45s}
+header.scrolled .nav{height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:700;letter-spacing:-1.8px}
+.logo-mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--accent);color:var(--accent);font-size:19px;font-weight:600;transform:rotate(45deg)}
+.logo-mark span{transform:rotate(-45deg)}
+.nav-links{display:flex;align-items:center;gap:clamp(13px,2vw,28px)}
+.nav-links a{font-size:12px;color:#d2d3d0;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang{border:0;background:none;color:#e9e9e5;font-size:11px;font-weight:600;cursor:pointer;padding:9px}
+.lang .active{color:var(--accent)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:12px 17px;border:1px solid var(--accent);color:var(--accent);transition:.25s}
+.nav-cta:hover{background:var(--accent);color:#08090a}
+.menu-btn{display:none;border:1px solid var(--line);background:none;color:white;width:42px;height:42px;font-size:20px}
+.hero{min-height:100svh;position:relative;display:flex;align-items:flex-end;overflow:hidden;padding:150px 0 72px;background:#08090a}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,6,7,.94) 0%,rgba(5,6,7,.65) 48%,rgba(5,6,7,.2) 100%),linear-gradient(0deg,#08090a 0%,transparent 45%),url("https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=72") center 48%/cover no-repeat;transform:scale(1.04);animation:heroZoom 18s ease-out forwards}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 78% 46%,rgba(232,213,42,.13),transparent 30%);pointer-events:none}
+.hero-content{position:relative;z-index:2;width:min(100% - 2 * var(--gutter),var(--max));margin:auto}
+.kicker{font-size:11px;letter-spacing:2.8px;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 24px}
+.hero-switch{position:relative;min-height:245px;max-width:1000px}
+.hero-message{position:absolute;inset:0 auto auto 0;max-width:1000px;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease),visibility .8s}
+.hero-message.active{opacity:1;visibility:visible;transform:translateY(0)}
+h1{font-size:clamp(58px,8.6vw,126px);line-height:.91;letter-spacing:-.055em;text-transform:uppercase;font-weight:600;margin:0;max-width:1000px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-message p{font-size:clamp(15px,1.4vw,19px);line-height:1.55;color:#c4c6c2;max-width:520px;margin:25px 0 0}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-top:40px}
+.hero-bottom-note{max-width:390px;font-size:12px;line-height:1.7;color:#a9aaa5}
+.action-link{display:inline-flex;align-items:center;gap:22px;color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1.1px;font-weight:600;padding-bottom:9px;border-bottom:1px solid var(--accent);transition:gap .25s}
+.action-link:hover{gap:31px}
+.action-link b{font-size:19px;font-weight:400}
+.hero-index{font-size:10px;letter-spacing:2px;color:#a9aaa5}
+.hero-index strong{color:var(--accent);font-size:17px;font-weight:500}
+.scroll-cue{position:absolute;right:var(--gutter);top:50%;z-index:3;writing-mode:vertical-rl;font-size:9px;letter-spacing:2px;color:#b5b5ae}
+.scroll-cue:after{content:"";display:inline-block;width:1px;height:60px;background:var(--accent);margin-top:15px}
+section{position:relative}
+.section-pad{padding:clamp(85px,11vw,160px) 0}
+.section-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:55px}
+.section-label{color:var(--accent);font-size:10px;letter-spacing:2.4px;text-transform:uppercase;font-weight:600;margin:0 0 18px}
+h2{font-size:clamp(42px,6.4vw,88px);line-height:.98;letter-spacing:-.045em;font-weight:500;text-transform:uppercase;margin:0;max-width:900px}
+.section-intro{max-width:370px;color:var(--muted);font-size:14px;line-height:1.75;margin:8px 0 0}
+.paris{background:#101214;overflow:hidden}
+.paris-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(35px,7vw,110px);align-items:center}
+.paris-copy h2{font-size:clamp(43px,6vw,82px)}
+.paris-copy p{max-width:460px;color:var(--muted);font-size:15px;line-height:1.8;margin:28px 0}
+.visual-frame{position:relative;overflow:hidden;min-height:520px;background:#191b1d}
+.visual-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;transform:scale(1.06);transition:transform 1.2s var(--ease),opacity .8s}
+.visual-frame.visible img{transform:scale(1);opacity:.9}
+.visual-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.48),transparent 55%),linear-gradient(110deg,rgba(232,213,42,.08),transparent 55%)}
+.frame-label{position:absolute;z-index:2;left:24px;bottom:22px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2f0e8}
+.frame-label span{color:var(--accent)}
+.monumental{background:#08090a}
+.monumental-head{margin-bottom:45px}
+.monumental-head h2{max-width:1000px}
+.monumental-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-height:490px}
+.monument-card{position:relative;min-height:490px;overflow:hidden;background:#17191b;cursor:pointer;isolation:isolate;transition:flex .6s var(--ease),opacity .6s,filter .6s}
+.monument-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.65);transition:transform .9s var(--ease),opacity .6s,filter .6s}
+.monument-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,.08) 75%);z-index:0}
+.monument-card:hover img,.monument-card.active img{transform:scale(1.07);opacity:.9;filter:saturate(.9)}
+.monument-card.active{outline:1px solid var(--accent);outline-offset:-1px}
+.wireframe{position:absolute;inset:0;z-index:1;opacity:0;background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(232,213,42,.35) 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(232,213,42,.35) 28px);mix-blend-mode:screen;transition:opacity .6s}
+.monument-card:hover .wireframe,.monument-card.active .wireframe{opacity:.28}
+.card-content{position:absolute;z-index:2;left:22px;right:20px;bottom:23px}
+.card-no{font-size:10px;color:var(--accent);letter-spacing:2px;margin-bottom:10px}
+.card-content h3{font-size:clamp(20px,2vw,28px);line-height:1.05;text-transform:uppercase;font-weight:500;margin:0 0 10px}
+.card-content p{font-size:11px;color:#c1c2bd;line-height:1.6;margin:0;max-width:230px}
+.card-arrow{position:absolute;right:20px;top:20px;z-index:2;color:var(--accent);font-size:22px;opacity:0;transform:translate(-5px,5px);transition:.3s}
+.monument-card:hover .card-arrow,.monument-card.active .card-arrow{opacity:1;transform:none}
+.roadmap{background:#e8d52a;color:#101112;overflow:hidden}
+.roadmap .section-label{color:#333}
+.roadmap h2{max-width:900px}
+.roadmap-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+.roadmap-intro{font-size:15px;line-height:1.8;max-width:390px}
+.roadmap-intro p{margin:25px 0;color:#34352f}
+.timeline{display:grid;gap:0}
+.timeline-item{display:grid;grid-template-columns:75px 1fr;gap:20px;padding:21px 0;opacity:.45;cursor:pointer;transition:opacity .3s}
+.timeline-item.active{opacity:1}
+.timeline-year{font-size:12px;font-weight:700;letter-spacing:1px}
+.timeline-body{position:relative;padding-bottom:15px}
+.timeline-body:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:rgba(0,0,0,.22)}
+.timeline-fill{position:absolute;left:0;bottom:0;width:0;height:2px;background:#111;z-index:1}
+.timeline-item.active .timeline-fill{animation:progress 6s linear forwards}
+.timeline-body h3{font-size:22px;text-transform:uppercase;font-weight:600;margin:0 0 5px}
+.timeline-body p{font-size:12px;line-height:1.6;margin:0;max-width:520px}
+.artisans{background:#111315;overflow:hidden}
+.artisans-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px}
+.artisans-head h2{max-width:700px}
+.gallery-wrap{overflow:hidden}
+.gallery-track{display:flex;gap:16px;transition:transform .9s var(--ease);will-change:transform}
+.gallery-slide{flex:0 0 42%;height:470px;position:relative;overflow:hidden;transform:scale(.88);opacity:.42;transition:transform .9s var(--ease),opacity .9s}
+.gallery-slide.active{transform:scale(1);opacity:1}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;filter:saturate(.7)}
+.gallery-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent 50%)}
+.gallery-caption{position:absolute;z-index:2;left:22px;bottom:20px;font-size:13px;text-transform:uppercase;letter-spacing:1px}
+.gallery-controls{display:flex;align-items:center;gap:12px;margin-top:28px}
+.gallery-controls button{width:44px;height:44px;border:1px solid var(--line);background:transparent;color:white;font-size:20px;cursor:pointer;transition:.2s}
+.gallery-controls button:hover{border-color:var(--accent);color:var(--accent)}
+.gallery-count{font-size:10px;color:var(--muted);letter-spacing:2px;margin-left:8px}
+.news{background:#e9e9e4;color:#111315}
+.news .section-label{color:#6c641b}
+.news-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
+.news-head h2{max-width:700px}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{min-width:0}
+.news-image{height:270px;overflow:hidden;background:#c6c6c0}
+.news-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.7);transition:transform .7s var(--ease)}
+.news-card:hover img{transform:scale(1.055)}
+.news-meta{display:flex;justify-content:space-between;gap:12px;margin:18px 0 10px;font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:#696b66}
+.news-card h3{font-size:clamp(19px,2vw,26px);line-height:1.18;text-transform:uppercase;font-weight:500;margin:0 0 16px;max-width:390px}
+.news-card a{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;border-bottom:1px solid #111;padding-bottom:6px}
+.news-card a span{margin-left:10px}
+footer{background:#08090a;padding:75px 0 25px}
+.footer-main{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:55px;padding-bottom:65px}
+.footer-brand .logo{font-size:29px}
+.footer-brand p{max-width:340px;color:#999d99;font-size:13px;line-height:1.8;margin:20px 0 0}
+.footer-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.footer-links{display:grid;gap:12px}
+.footer-links a{font-size:12px;color:#c1c4bf;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.social-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.social-list a{width:36px;height:36px;border:1px solid var(--line);display:grid;place-items:center;font-size:10px;font-weight:600;color:#e8e8e2;transition:.2s}
+.social-list a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);font-size:10px;color:#777d78}
+.footer-bottom a{color:#c6c8c3}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+[data-delay="1"]{transition-delay:.1s}[data-delay="2"]{transition-delay:.2s}[data-delay="3"]{transition-delay:.3s}
+@keyframes heroZoom{to{transform:scale(1)}}
+@keyframes progress{to{width:100%}}
+@media(max-width:1100px){.nav-links{gap:12px}.nav-links a{font-size:10px}.nav-cta{display:none}.monumental-grid{grid-template-columns:repeat(2,1fr)}.monument-card{min-height:420px}.footer-main{grid-template-columns:1.2fr 1fr 1fr;gap:30px}}
+@media(max-width:820px){:root{--gutter:26px}.nav{height:72px}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(8,9,10,.98);padding:18px 26px 25px;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 0;font-size:13px}.menu-btn{display:block}.nav-right{gap:10px}.hero{min-height:850px;padding-bottom:55px}.hero-switch{min-height:280px}.hero-bottom{align-items:flex-start;flex-direction:column}.scroll-cue{display:none}.section-top,.news-head,.artisans-head{display:block}.section-intro{margin-top:22px}.paris-grid,.roadmap-layout{grid-template-columns:1fr;gap:38px}.visual-frame{min-height:430px}.roadmap-layout{gap:35px}.gallery-slide{flex-basis:72%;height:420px}.news-grid{grid-template-columns:1fr 1fr}.news-card:last-child{display:none}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/3}}
+@media(max-width:540px){:root{--gutter:19px}.logo{font-size:22px}.logo-mark{width:30px;height:30px}.hero{min-height:790px;padding-top:130px}.hero-switch{min-height:320px}.kicker{font-size:9px;letter-spacing:2px}h1{font-size:clamp(49px,13vw,72px)}.hero-message p{font-size:14px;margin-top:20px}.hero-bottom-note{font-size:11px}.section-pad{padding:76px 0}h2{font-size:clamp(40px,11vw,58px)}.section-top{margin-bottom:35px}.paris-copy h2{font-size:clamp(43px,11vw,62px)}.visual-frame{min-height:340px}.monumental-grid{grid-template-columns:1fr;gap:10px}.monument-card{min-height:390px}.roadmap-layout{gap:24px}.timeline-item{grid-template-columns:55px 1fr;gap:12px;padding:17px 0}.timeline-body h3{font-size:18px}.gallery-slide{flex-basis:88%;height:360px}.news-grid{grid-template-columns:1fr}.news-card:last-child{display:block}.news-image{height:235px}.footer-main{grid-template-columns:1fr;gap:32px}.footer-brand{grid-column:auto}.footer-bottom{font-size:9px}.lang{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.hero-bg{transform:none}}
+</style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+</style>
+</head>
+<body>
+<header id="header">
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="C12 home"><span class="logo-mark"><span>C</span></span>C12</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Beranda</a>
+      <a href="#technology" data-i18n="navTech">Teknologi</a>
+      <a href="#solutions" data-i18n="navSolutions">Solusi</a>
+      <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+      <a href="#team" data-i18n="navTeam">Tim</a>
+      <a href="#news" data-i18n="navNews">Berita</a>
+    </nav>
+    <div class="nav-right">
+      <button class="lang" id="languageToggle" aria-label="Ganti bahasa"><span class="active">ID</span> / EN</button>
+      <a class="nav-cta" href="#contact" data-i18n="join">Bergabung dengan kami ↗</a>
+      <button class="menu-btn" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="scroll-cue" data-i18n="scroll">GULIR UNTUK MENJELAJAH</div>
+  <div class="hero-content">
+    <p class="kicker" data-i18n="heroKicker">KOMPUTASI KUANTUM BERBASIS KARBON</p>
+    <div class="hero-switch">
+      <div class="hero-message active" data-hero="0">
+        <h1 data-i18n="heroTitle1">Quantum hardware <em>reimagined.</em></h1>
+        <p data-i18n="heroCopy1">Kami membangun fondasi material baru untuk menghadirkan perangkat kuantum yang lebih kuat, efisien, dan siap berkembang.</p>
+      </div>
+      <div class="hero-message" data-hero="1">
+        <h1 data-i18n="heroTitle2">Unique at <em>scale.</em></h1>
+        <p data-i18n="heroCopy2">Teknologi karbon membuka jalan menuju arsitektur kuantum yang dapat diproduksi dan dikembangkan dalam skala besar.</p>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <p class="hero-bottom-note" data-i18n="heroNote">Mendefinisikan ulang perangkat keras kuantum melalui material karbon, rekayasa presisi, dan manufaktur yang dapat diskalakan.</p>
+      <a class="action-link" href="#technology"><span data-i18n="explore">Jelajahi teknologi kami</span><b>↗</b></a>
+      <div class="hero-index"><strong id="heroIndex">01</strong> / 02</div>
+    </div>
+  </div>
+</section>
+
+<section class="paris section-pad" id="technology">
+  <div class="container paris-grid">
+    <div class="paris-copy reveal">
+      <p class="section-label" data-i18n="parisLabel">01 / MISI KAMI</p>
+      <h2 data-i18n="parisTitle">The Paris Project</h2>
+      <p data-i18n="parisCopy">Terobosan besar dalam komputasi membutuhkan cara berpikir baru tentang material. C12 mengembangkan teknologi kuantum berbasis karbon untuk membangun perangkat yang lebih stabil dan dapat diproduksi pada skala industri.</p>
+      <a class="action-link" href="#solutions"><span data-i18n="learnTech">Kenali teknologi kami</span><b>↗</b></a>
+    </div>
+    <div class="visual-frame reveal">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1500&q=72" alt="Detail perangkat elektronik dan teknologi presisi" loading="lazy" decoding="async">
+      <div class="frame-label"><span>C12</span> / MATERIAL SCIENCE & QUANTUM ENGINEERING</div>
+    </div>
+  </div>
+</section>
+
+<section class="monumental section-pad" id="solutions">
+  <div class="container">
+    <div class="section-top monumental-head reveal">
+      <div><p class="section-label" data-i18n="solutionsLabel">02 / POTENSI TEKNOLOGI</p><h2 data-i18n="solutionsTitle">A monumental change in computing</h2></div>
+      <p class="section-intro" data-i18n="solutionsCopy">Komputasi kuantum membuka kemungkinan baru untuk menyelesaikan tantangan yang sulit dijangkau komputasi klasik. Teknologi kami dirancang untuk mendukung perubahan lintas industri.</p>
+    </div>
+    <div class="monumental-grid">
+      <article class="monument-card active" tabindex="0"><img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=900&q=72" alt="Instalasi industri dan infrastruktur" loading="lazy" decoding="async"><div class="wireframe"></div><span class="card-arrow">↗</span><div class="card-content"><div class="card-no">01 / INDUSTRY</div><h3 data-i18n="card1Title">Industrial systems</h3><p data-i18n="card1Copy">Optimasi proses dan material untuk sistem industri yang kompleks.</p></div></article>
+      <article class="monument-card" tabindex="0"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=72" alt="Bumi dilihat dari luar angkasa" loading="lazy" decoding="async"><div class="wireframe"></div><span class="card-arrow">↗</span><div class="card-content"><div class="card-no">02 / SPACE</div><h3 data-i18n="card2Title">Space & discovery</h3><p data-i18n="card2Copy">Mendukung pemodelan, simulasi, dan penemuan ilmiah generasi baru.</p></div></article>
+      <article class="monument-card" tabindex="0"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=72" alt="Langit malam dan bintang" loading="lazy" decoding="async"><div class="wireframe"></div><span class="card-arrow">↗</span><div class="card-content"><div class="card-no">03 / SCIENCE</div><h3 data-i18n="card3Title">Advanced science</h3><p data-i18n="card3Copy">Memperluas kemampuan riset melalui pendekatan komputasi baru.</p></div></article>
+      <article class="monument-card" tabindex="0"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=72" alt="Gedung pencakar langit modern" loading="lazy" decoding="async"><div class="wireframe"></div><span class="card-arrow">↗</span><div class="card-content"><div class="card-no">04 / CITIES</div><h3 data-i18n="card4Title">Future cities</h3><p data-i18n="card4Copy">Membuka pendekatan baru untuk sistem perkotaan yang lebih cerdas.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap section-pad" id="roadmap">
+  <div class="container">
+    <div class="section-top reveal"><div><p class="section-label" data-i18n="roadmapLabel">03 / PERJALANAN KAMI</p><h2 data-i18n="roadmapTitle">Building the next era</h2></div></div>
+    <div class="roadmap-layout">
+      <div class="roadmap-intro reveal"><p data-i18n="roadmapCopy">Membangun teknologi kuantum yang dapat diskalakan adalah perjalanan panjang. Setiap tahap membawa kami lebih dekat pada manufaktur presisi dan penerapan nyata.</p><a class="action-link" href="#contact"><span data-i18n="roadmapCta">Ikuti perkembangan kami</span><b>↗</b></a></div>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item active" tabindex="0"><div class="timeline-year">2024</div><div class="timeline-body"><h3 data-i18n="time1Title">Material breakthrough</h3><p data-i18n="time1Copy">Fondasi riset dan pengembangan arsitektur karbon untuk perangkat kuantum.</p><span class="timeline-fill"></span></div></div>
+        <div class="timeline-item" tabindex="0"><div class="timeline-year">2025</div><div class="timeline-body"><h3 data-i18n="time2Title">Precision engineering</h3><p data-i18n="time2Copy">Penyempurnaan proses fabrikasi dan integrasi komponen berpresisi tinggi.</p><span class="timeline-fill"></span></div></div>
+        <div class="timeline-item" tabindex="0"><div class="timeline-year">2026</div><div class="timeline-body"><h3 data-i18n="time3Title">Scaling the platform</h3><p data-i18n="time3Copy">Memperluas kapabilitas platform dan kesiapan manufaktur untuk tahap berikutnya.</p><span class="timeline-fill"></span></div></div>
+        <div class="timeline-item" tabindex="0"><div class="timeline-year">NEXT</div><div class="timeline-body"><h3 data-i18n="time4Title">Quantum at scale</h3><p data-i18n="time4Copy">Mendorong akses yang lebih luas terhadap perangkat keras komputasi kuantum.</p><span class="timeline-fill"></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="artisans section-pad" id="team">
+  <div class="container">
+    <div class="artisans-head reveal"><div><p class="section-label" data-i18n="teamLabel">04 / ORANG-ORANG DI BALIK C12</p><h2 data-i18n="teamTitle">Quantum artisans</h2></div><p class="section-intro" data-i18n="teamCopy">Tim lintas disiplin yang menggabungkan keahlian material, fisika, rekayasa, dan manufaktur untuk membawa komputasi kuantum ke tahap berikutnya.</p></div>
+  </div>
+  <div class="gallery-wrap" id="galleryWrap">
+    <div class="gallery-track" id="galleryTrack">
+      <article class="gallery-slide active"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1100&q=72" alt="Peralatan eksperimen laboratorium" loading="lazy" decoding="async"><div class="gallery-caption" data-i18n="gallery1">Research & discovery</div></article>
+      <article class="gallery-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1100&q=72" alt="Visual bumi dan jaringan teknologi" loading="lazy" decoding="async"><div class="gallery-caption" data-i18n="gallery2">Precision engineering</div></article>
+      <article class="gallery-slide"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1100&q=72" alt="Peralatan dan eksperimen laboratorium" loading="lazy" decoding="async"><div class="gallery-caption" data-i18n="gallery3">Advanced manufacturing</div></article>
+      <article class="gallery-slide"><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1100&q=72" alt="Eksperimen sains di laboratorium" loading="lazy" decoding="async"><div class="gallery-caption" data-i18n="gallery4">Material science</div></article>
+    </div>
+  </div>
+  <div class="container gallery-controls"><button id="galleryPrev" aria-label="Foto sebelumnya">←</button><button id="galleryNext" aria-label="Foto berikutnya">→</button><span class="gallery-count"><strong id="galleryCurrent">01</strong> / 04</span></div>
+</section>
+
+<section class="news section-pad" id="news">
+  <div class="container">
+    <div class="news-head reveal"><div><p class="section-label" data-i18n="newsLabel">05 / WAWASAN & PEMBARUAN</p><h2 data-i18n="newsTitle">Recent news</h2></div><a class="action-link" href="#contact" style="color:#111;border-color:#111"><span data-i18n="allNews">Lihat semua berita</span><b>↗</b></a></div>
+    <div class="news-grid">
+      <article class="news-card reveal"><div class="news-image"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=72" alt="Komponen teknologi dan sirkuit" loading="lazy" decoding="async"></div><div class="news-meta"><span>Technology</span><span>2026</span></div><h3 data-i18n="news1Title">Rethinking the foundations of quantum hardware</h3><a href="#contact"><span data-i18n="readMore">Baca selengkapnya</span> ↗</a></article>
+      <article class="news-card reveal" data-delay="1"><div class="news-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=72" alt="Visual bumi dan jaringan teknologi" loading="lazy" decoding="async"></div><div class="news-meta"><span>Research</span><span>2026</span></div><h3 data-i18n="news2Title">A roadmap towards scalable quantum systems</h3><a href="#contact"><span data-i18n="readMore">Baca selengkapnya</span> ↗</a></article>
+      <article class="news-card reveal" data-delay="2"><div class="news-image"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=72" alt="Komponen teknologi dan sirkuit" loading="lazy" decoding="async"></div><div class="news-meta"><span>Manufacturing</span><span>2026</span></div><h3 data-i18n="news3Title">Engineering precision for the next generation</h3><a href="#contact"><span data-i18n="readMore">Baca selengkapnya</span> ↗</a></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#e8d52a;--on:#111111;--glow:rgba(232,213,42,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="logo" href="#home"><span class="logo-mark"><span>C</span></span>C12</a>
+        <p data-i18n="footerDesc">Unique at scale. Mengembangkan fondasi baru untuk perangkat keras komputasi kuantum berbasis karbon.</p>
+        <div class="social-list">
+          <a href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener" aria-label="TikTok">tk</a>
+          <a href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+      <div><div class="footer-title" data-i18n="exploreTitle">Jelajahi</div><div class="footer-links"><a href="#technology" data-i18n="navTech">Teknologi</a><a href="#solutions" data-i18n="navSolutions">Solusi</a><a href="#roadmap" data-i18n="navRoadmap">Roadmap</a><a href="#team" data-i18n="navTeam">Tim</a><a href="#news" data-i18n="navNews">Berita</a></div></div>
+      <div><div class="footer-title" data-i18n="contactTitle">Kontak</div><div class="footer-links"><a href="mailto:ijlalainun@gmail.com">ijlalainun@gmail.com</a><a href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener">YouTube</a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 C12. <span data-i18n="copyright">Hak cipta dilindungi.</span></span><a href="#home" data-i18n="backTop">Kembali ke atas ↑</a></div>
+  </div>
+</footer>
+
+<script>
+const translations={
+id:{
+navHome:"Beranda",navTech:"Teknologi",navSolutions:"Solusi",navRoadmap:"Roadmap",navTeam:"Tim",navNews:"Berita",join:"Bergabung dengan kami ↗",scroll:"GULIR UNTUK MENJELAJAH",heroKicker:"KOMPUTASI KUANTUM BERBASIS KARBON",heroTitle1:"Quantum hardware <em>reimagined.</em>",heroCopy1:"Kami membangun fondasi material baru untuk menghadirkan perangkat kuantum yang lebih kuat, efisien, dan siap berkembang.",heroTitle2:"Unique at <em>scale.</em>",heroCopy2:"Teknologi karbon membuka jalan menuju arsitektur kuantum yang dapat diproduksi dan dikembangkan dalam skala besar.",heroNote:"Mendefinisikan ulang perangkat keras kuantum melalui material karbon, rekayasa presisi, dan manufaktur yang dapat diskalakan.",explore:"Jelajahi teknologi kami",parisLabel:"01 / MISI KAMI",parisTitle:"The Paris Project",parisCopy:"Terobosan besar dalam komputasi membutuhkan cara berpikir baru tentang material. C12 mengembangkan teknologi kuantum berbasis karbon untuk membangun perangkat yang lebih stabil dan dapat diproduksi pada skala industri.",learnTech:"Kenali teknologi kami",solutionsLabel:"02 / POTENSI TEKNOLOGI",solutionsTitle:"A monumental change in computing",solutionsCopy:"Komputasi kuantum membuka kemungkinan baru untuk menyelesaikan tantangan yang sulit dijangkau komputasi klasik. Teknologi kami dirancang untuk mendukung perubahan lintas industri.",card1Title:"Industrial systems",card1Copy:"Optimasi proses dan material untuk sistem industri yang kompleks.",card2Title:"Space & discovery",card2Copy:"Mendukung pemodelan, simulasi, dan penemuan ilmiah generasi baru.",card3Title:"Advanced science",card3Copy:"Memperluas kemampuan riset melalui pendekatan komputasi baru.",card4Title:"Future cities",card4Copy:"Membuka pendekatan baru untuk sistem perkotaan yang lebih cerdas.",roadmapLabel:"03 / PERJALANAN KAMI",roadmapTitle:"Building the next era",roadmapCopy:"Membangun teknologi kuantum yang dapat diskalakan adalah perjalanan panjang. Setiap tahap membawa kami lebih dekat pada manufaktur presisi dan penerapan nyata.",roadmapCta:"Ikuti perkembangan kami",time1Title:"Material breakthrough",time1Copy:"Fondasi riset dan pengembangan arsitektur karbon untuk perangkat kuantum.",time2Title:"Precision engineering",time2Copy:"Penyempurnaan proses fabrikasi dan integrasi komponen berpresisi tinggi.",time3Title:"Scaling the platform",time3Copy:"Memperluas kapabilitas platform dan kesiapan manufaktur untuk tahap berikutnya.",time4Title:"Quantum at scale",time4Copy:"Mendorong akses yang lebih luas terhadap perangkat keras komputasi kuantum.",teamLabel:"04 / ORANG-ORANG DI BALIK C12",teamTitle:"Quantum artisans",teamCopy:"Tim lintas disiplin yang menggabungkan keahlian material, fisika, rekayasa, dan manufaktur untuk membawa komputasi kuantum ke tahap berikutnya.",gallery1:"Research & discovery",gallery2:"Precision engineering",gallery3:"Advanced manufacturing",gallery4:"Material science",newsLabel:"05 / WAWASAN & PEMBARUAN",newsTitle:"Recent news",allNews:"Lihat semua berita",news1Title:"Rethinking the foundations of quantum hardware",news2Title:"A roadmap towards scalable quantum systems",news3Title:"Engineering precision for the next generation",readMore:"Baca selengkapnya",footerDesc:"Unique at scale. Mengembangkan fondasi baru untuk perangkat keras komputasi kuantum berbasis karbon.",exploreTitle:"Jelajahi",contactTitle:"Kontak",copyright:"Hak cipta dilindungi.",backTop:"Kembali ke atas ↑"
+},
+en:{
+navHome:"Home",navTech:"Technology",navSolutions:"Solutions",navRoadmap:"Roadmap",navTeam:"Team",navNews:"News",join:"Join us ↗",scroll:"SCROLL TO EXPLORE",heroKicker:"CARBON-BASED QUANTUM COMPUTING",heroTitle1:"Quantum hardware <em>reimagined.</em>",heroCopy1:"We are building a new material foundation for quantum devices that are more powerful, efficient, and ready to scale.",heroTitle2:"Unique at <em>scale.</em>",heroCopy2:"Carbon technology opens the way to quantum architectures that can be manufactured and developed at industrial scale.",heroNote:"Redefining quantum hardware through carbon materials, precision engineering, and scalable manufacturing.",explore:"Explore our technology",parisLabel:"01 / OUR MISSION",parisTitle:"The Paris Project",parisCopy:"A major breakthrough in computing requires a new way of thinking about materials. C12 is developing carbon-based quantum technology to build more stable devices that can be manufactured at industrial scale.",learnTech:"Discover our technology",solutionsLabel:"02 / TECHNOLOGY POTENTIAL",solutionsTitle:"A monumental change in computing",solutionsCopy:"Quantum computing opens new possibilities for solving challenges beyond the reach of classical computing. Our technology is designed to support change across industries.",card1Title:"Industrial systems",card1Copy:"Optimising processes and materials for complex industrial systems.",card2Title:"Space & discovery",card2Copy:"Enabling next-generation modelling, simulation, and scientific discovery.",card3Title:"Advanced science",card3Copy:"Expanding research capabilities through new computational approaches.",card4Title:"Future cities",card4Copy:"Unlocking new approaches to smarter urban systems.",roadmapLabel:"03 / OUR JOURNEY",roadmapTitle:"Building the next era",roadmapCopy:"Building scalable quantum technology is a long-term journey. Each milestone brings us closer to precision manufacturing and real-world applications.",roadmapCta:"Follow our progress",time1Title:"Material breakthrough",time1Copy:"Research foundations and development of carbon architectures for quantum devices.",time2Title:"Precision engineering",time2Copy:"Refining fabrication processes and integrating high-precision components.",time3Title:"Scaling the platform",time3Copy:"Expanding platform capabilities and manufacturing readiness for the next stage.",time4Title:"Quantum at scale",time4Copy:"Broadening access to quantum computing hardware.",teamLabel:"04 / THE PEOPLE BEHIND C12",teamTitle:"Quantum artisans",teamCopy:"A multidisciplinary team combining expertise in materials, physics, engineering, and manufacturing to move quantum computing forward.",gallery1:"Research & discovery",gallery2:"Precision engineering",gallery3:"Advanced manufacturing",gallery4:"Material science",newsLabel:"05 / INSIGHTS & UPDATES",newsTitle:"Recent news",allNews:"See all news",news1Title:"Rethinking the foundations of quantum hardware",news2Title:"A roadmap towards scalable quantum systems",news3Title:"Engineering precision for the next generation",readMore:"Read more",footerDesc:"Unique at scale. Building a new foundation for carbon-based quantum computing hardware.",exploreTitle:"Explore",contactTitle:"Contact",copyright:"All rights reserved.",backTop:"Back to top ↑"
+}
+};
+let language="id";
+const languageButton=document.getElementById("languageToggle");
+function setLanguage(next){
+ language=next;document.documentElement.lang=next;
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const value=translations[next][el.dataset.i18n];if(value)el.innerHTML=value});
+ languageButton.innerHTML=next==="id"?'<span class="active">ID</span> / EN':'ID / <span class="active">EN</span>';
+}
+languageButton.addEventListener("click",()=>setLanguage(language==="id"?"en":"id"));
+
+const header=document.getElementById("header");
+window.addEventListener("scroll",()=>header.classList.toggle("scrolled",window.scrollY>30),{passive:true});
+const menuToggle=document.getElementById("menuToggle"),navLinks=document.getElementById("navLinks");
+menuToggle.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(open));menuToggle.textContent=open?"×":"☰"});
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰"}));
+
+let heroSlide=0;const heroMessages=[...document.querySelectorAll(".hero-message")];const heroIndex=document.getElementById("heroIndex");
+function showHero(index){heroSlide=index;heroMessages.forEach((el,i)=>el.classList.toggle("active",i===index));heroIndex.textContent=String(index+1).padStart(2,"0")}
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches){setInterval(()=>showHero((heroSlide+1)%2),10000)}
+
+const cards=[...document.querySelectorAll(".monument-card")];
+function activateCard(card){cards.forEach(c=>c.classList.toggle("active",c===card))}
+cards.forEach(card=>{card.addEventListener("mouseenter",()=>activateCard(card));card.addEventListener("focus",()=>activateCard(card));card.addEventListener("click",()=>activateCard(card));card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateCard(card)}})});
+
+const timelineItems=[...document.querySelectorAll(".timeline-item")];let timelineIndex=0;let timelineTimer;
+function activateTimeline(index){timelineIndex=index;timelineItems.forEach((item,i)=>{item.classList.toggle("active",i===index);const fill=item.querySelector(".timeline-fill");if(fill){fill.style.animation="none";void fill.offsetWidth;if(i===index)fill.style.animation="progress 6s linear forwards"}})}
+function startTimeline(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;clearInterval(timelineTimer);timelineTimer=setInterval(()=>activateTimeline((timelineIndex+1)%timelineItems.length),6000)}
+timelineItems.forEach((item,i)=>{item.addEventListener("click",()=>{activateTimeline(i);startTimeline()});item.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateTimeline(i);startTimeline()}})});
+startTimeline();
+
+const galleryTrack=document.getElementById("galleryTrack"),slides=[...document.querySelectorAll(".gallery-slide")],galleryCurrent=document.getElementById("galleryCurrent");let galleryIndex=0;
+function setGallery(index){galleryIndex=(index+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle("active",i===galleryIndex));const slideWidth=slides[0].getBoundingClientRect().width+16;const centerOffset=(galleryTrack.parentElement.clientWidth-slideWidth)/2;galleryTrack.style.transform=`translateX(${-galleryIndex*slideWidth+centerOffset}px)`;galleryCurrent.textContent=String(galleryIndex+1).padStart(2,"0")}
+document.getElementById("galleryPrev").addEventListener("click",()=>setGallery(galleryIndex-1));
+document.getElementById("galleryNext").addEventListener("click",()=>setGallery(galleryIndex+1));
+window.addEventListener("resize",()=>setGallery(galleryIndex));
+setGallery(0);
+
+const revealObserver=new IntersectionObserver((entries,observer)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}})},{threshold:.12,rootMargin:"0px 0px -7% 0px"});
+document.querySelectorAll(".reveal,.visual-frame").forEach(el=>revealObserver.observe(el));
+</script>
+<script id="mx-script">window.__MX_BG=["https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=72"];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Northstar Studio membantu aplikasi digital tumbuh melalui strategi, akuisisi, dan kemitraan yang tepat.">
+  <title>Northstar Studio — Grow What Matters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#08090b;--surface:#101216;--surface2:#15181d;--white:#f7f8fa;--muted:rgba(247,248,250,.66);--soft:rgba(247,248,250,.44);--line:rgba(255,255,255,.105);--gutter:5vw;--max:1200px;--ease:cubic-bezier(.22,1,.36,1);--pill:999px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% -18%,rgba(255,255,255,.105),transparent 43%),radial-gradient(ellipse at 88% 48%,rgba(100,125,155,.055),transparent 30%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(calc(100% - 2 * var(--gutter)),var(--max));margin-inline:auto}
+    .site-header{position:absolute;top:0;left:0;width:100%;z-index:20;padding:24px 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px}
+    .brand{display:inline-flex;align-items:center;gap:11px;font:800 18px Manrope,sans-serif;letter-spacing:-.7px;white-space:nowrap}
+    .brand-mark{width:34px;height:34px;border:1px solid rgba(255,255,255,.7);border-radius:11px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .brand-mark:before,.brand-mark:after{content:"";position:absolute;width:17px;height:17px;border:1px solid white;border-radius:50%}
+    .brand-mark:after{transform:translate(7px,5px);opacity:.45}
+    .nav-links{display:flex;align-items:center;gap:5px;margin-left:auto;margin-right:16px}
+    .nav-links a{font-size:13px;color:var(--muted);padding:10px 13px;border-radius:var(--pill);transition:background .22s,color .22s}
+    .nav-links a:hover{background:rgba(255,255,255,.07);color:white}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .lang-switch{border:1px solid var(--line);background:rgba(255,255,255,.035);color:white;border-radius:var(--pill);padding:9px 13px;font-size:12px;cursor:pointer;transition:.2s}
+    .lang-switch:hover{background:rgba(255,255,255,.11)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid rgba(255,255,255,.85);border-radius:var(--pill);padding:13px 19px;background:var(--white);color:#090a0c;font-size:13px;font-weight:700;transition:transform .22s var(--ease),background .22s,color .22s}
+    .button:hover{transform:translateY(-3px);background:transparent;color:white}
+    .button .arrow{font-size:17px;line-height:0;transition:transform .22s}
+    .button:hover .arrow{transform:translate(3px,-2px)}
+    .button.ghost{background:transparent;color:white;border-color:var(--line)}
+    .button.ghost:hover{background:white;color:#090a0c}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:white;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}
+    .hero{min-height:850px;height:min(100svh,980px);max-height:980px;display:flex;align-items:center;position:relative;padding:150px 0 70px;overflow:hidden}
+    .hero-glow{position:absolute;width:760px;height:520px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.13),rgba(255,255,255,.025) 42%,transparent 70%);filter:blur(8px);top:18%;left:50%;transform:translateX(-50%);pointer-events:none}
+    .hero-grid{position:absolute;inset:0;opacity:.14;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:90px 90px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+    .hero-content{position:relative;text-align:center;max-width:1020px;margin:0 auto;z-index:2}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid var(--line);border-radius:var(--pill);background:rgba(255,255,255,.035);color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .eyebrow-dot{width:6px;height:6px;background:#b9d5c6;border-radius:50%;box-shadow:0 0 12px #b9d5c6}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.055em}
+    h1{font-size:clamp(54px,7.1vw,92px);line-height:.99;font-weight:600;margin:30px auto 24px;max-width:1000px}
+    .gradient-text{background:linear-gradient(180deg,#fff 15%,rgba(255,255,255,.46) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{max-width:590px;margin:0 auto;color:var(--muted);font-size:17px;line-height:1.75}
+    .hero-buttons{display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+    .hero-visual{position:relative;max-width:920px;height:250px;margin:60px auto 0}
+    .hero-photo{position:absolute;inset:0 10% 0;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.2);transform:perspective(1000px) rotateX(5deg)}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.68;filter:saturate(.7)}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.2),rgba(8,9,11,.02) 50%,rgba(8,9,11,.35)),linear-gradient(0deg,rgba(8,9,11,.5),transparent 70%)}
+    .floating-card{position:absolute;z-index:2;bottom:22px;left:2%;padding:15px 18px;border:1px solid var(--line);background:rgba(16,18,22,.82);backdrop-filter:blur(14px);border-radius:15px;text-align:left;box-shadow:0 18px 60px #0005}
+    .floating-card.right{left:auto;right:2%;top:18px;bottom:auto}
+    .floating-label{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--soft)}
+    .floating-value{font:600 19px Manrope,sans-serif;margin-top:4px}
+    .floating-value span{color:#b9d5c6}
+    .section{padding:var(--section-space,clamp(88px,9vw,140px)) 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:48px}
+    .section-kicker{font-size:11px;color:var(--soft);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+    h2{font-size:clamp(38px,5vw,62px);line-height:1.04;font-weight:550;margin-bottom:0;max-width:700px}
+    .section-intro{max-width:370px;color:var(--muted);font-size:15px;margin:0 0 5px;line-height:1.75}
+    .feature-panel{display:grid;grid-template-columns:.88fr 1.12fr;min-height:460px;background:linear-gradient(135deg,#15191f,#0d0f13);border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative}
+    .feature-copy{padding:clamp(30px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;z-index:2}
+    .feature-copy h3{font-size:clamp(30px,3.5vw,46px);line-height:1.08;margin-bottom:18px}
+    .feature-copy p{color:var(--muted);max-width:390px;font-size:15px;line-height:1.8;margin-bottom:27px}
+    .feature-image{min-height:380px;position:relative;overflow:hidden}
+    .feature-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;opacity:.82;mask-image:linear-gradient(90deg,transparent 0%,black 24%)}
+    .feature-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,15,.45),transparent 65%)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .stat{padding:24px 25px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:16px}
+    .stat strong{display:block;font:600 clamp(27px,3vw,38px) Manrope,sans-serif;letter-spacing:-.05em}
+    .stat span{font-size:12px;color:var(--muted)}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .process-card{padding:27px 23px 30px;min-height:245px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:17px;transition:transform .25s var(--ease),border-color .25s,background .25s}
+    .process-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.065)}
+    .step-no{font:500 13px Manrope,sans-serif;color:var(--soft);display:block;margin-bottom:45px}
+    .process-card h3{font-size:21px;line-height:1.2;margin-bottom:11px;letter-spacing:-.04em}
+    .process-card p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .work-card{border:1px solid var(--line);background:var(--surface);border-radius:17px;overflow:hidden;transition:transform .3s var(--ease),border-color .3s}
+    .work-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28)}
+    .work-image{height:230px;overflow:hidden;position:relative}
+    .work-image img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);filter:saturate(.75)}
+    .work-card:hover .work-image img{transform:scale(1.045)}
+    .work-image:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(0deg,rgba(16,18,22,.5),transparent)}
+    .work-info{padding:22px 22px 24px}
+    .work-type{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+    .work-info h3{font-size:23px;margin:9px 0 8px;letter-spacing:-.04em}
+    .work-info p{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
+    .quote-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+    .quote-card{padding:clamp(27px,4vw,48px);border:1px solid var(--line);background:linear-gradient(145deg,#15181d,#0e1014);border-radius:18px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
+    .quote-mark{font:500 55px Manrope,sans-serif;color:rgba(255,255,255,.35);line-height:.8}
+    .quote-card blockquote{font:500 clamp(20px,2.5vw,30px)/1.35 Manrope,sans-serif;letter-spacing:-.04em;margin:28px 0}
+    .quote-author{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px}
+    .avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d2d7d9,#626a70)}
+    .quote-card.small blockquote{font-size:21px}
+    .contact-panel{position:relative;text-align:center;padding:clamp(55px,8vw,100px) 25px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.12),transparent 58%),linear-gradient(145deg,#15181d,#0c0e12)}
+    .contact-panel h2{margin:0 auto 20px;max-width:780px}
+    .contact-panel p{color:var(--muted);max-width:500px;margin:0 auto 28px;font-size:15px}
+    .footer{padding:55px 0 28px;border-top:1px solid var(--line)}
+    .footer-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px;padding-bottom:50px}
+    .footer-brand p{max-width:270px;color:var(--muted);font-size:13px;line-height:1.8;margin:17px 0 0}
+    .footer-heading{font-size:11px;color:var(--soft);letter-spacing:.14em;text-transform:uppercase;margin-bottom:17px}
+    .social-links{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
+    .social-links a,.contact-links a{font-size:13px;color:var(--muted);transition:color .2s}
+    .social-links a:hover,.contact-links a:hover{color:white}
+    .contact-links{display:grid;gap:12px}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:18px;color:var(--soft);font-size:11px}
+    [data-reveal]{opacity:0;transform:translate3d(0,24px,0);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    [data-reveal].is-visible{opacity:1;transform:translate3d(0,0,0)}
+    .delay-1{transition-delay:90ms}.delay-2{transition-delay:170ms}.delay-3{transition-delay:250ms}
+    @media(max-width:991px){.nav-links{gap:0}.nav-links a{padding:9px 8px;font-size:12px}.process-grid{grid-template-columns:repeat(2,1fr)}.feature-panel{grid-template-columns:1fr 1fr}.hero{min-height:800px}.hero-visual{height:220px}}
+    @media(max-width:767px){:root{--gutter:5vw}.site-header{padding:16px 0}.menu-toggle{display:grid;place-items:center}.nav-actions .button{display:none}.nav-links{display:none;position:absolute;top:72px;left:5vw;right:5vw;margin:0;padding:12px;background:#14171c;border:1px solid var(--line);border-radius:16px;flex-direction:column;align-items:stretch;box-shadow:0 20px 60px #0009}.nav-links.open{display:flex}.nav-links a{padding:13px 14px;font-size:14px}.nav{gap:10px}.hero{height:auto;min-height:0;padding:145px 0 70px}.hero h1{font-size:clamp(43px,9vw,64px);margin:24px auto 18px}.hero-copy{font-size:15px}.hero-visual{height:210px;margin-top:45px}.hero-photo{inset:0 2%}.floating-card{left:0;bottom:10px;padding:11px 13px}.floating-card.right{right:0;top:8px}.floating-value{font-size:15px}.section-head{display:block;margin-bottom:30px}.section-intro{margin-top:17px}.feature-panel{grid-template-columns:1fr}.feature-copy{padding:32px 26px 10px}.feature-image{min-height:250px}.feature-image img{mask-image:linear-gradient(180deg,transparent 0%,black 18%)}.stats{gap:8px}.stat{padding:17px 13px}.stat span{font-size:10px}.work-grid{grid-template-columns:repeat(2,1fr)}.work-image{height:180px}.work-info{padding:17px}.work-info h3{font-size:19px}.quote-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+    @media(max-width:479px){.brand{font-size:16px}.brand-mark{width:31px;height:31px}.lang-switch{padding:8px 10px}.hero h1{font-size:43px}.hero-visual{height:175px}.floating-label{font-size:8px}.floating-value{font-size:13px}.process-grid,.work-grid{grid-template-columns:1fr}.process-card{min-height:190px}.step-no{margin-bottom:27px}.work-image{height:210px}.stats{grid-template-columns:1fr}.stat{display:flex;align-items:center;justify-content:space-between}.footer-top{grid-template-columns:1fr}.footer-brand{grid-column:auto}.social-links{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column}.button{padding:12px 16px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}[data-reveal]{opacity:1;transform:none}}
+  </style>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Northstar Studio home"><span class="brand-mark"></span><span>northstar<span style="font-weight:400;color:#9da2aa">.</span></span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#approach" data-i18n="navApproach">Pendekatan</a>
+        <a href="#process" data-i18n="navProcess">Proses</a>
+        <a href="#work" data-i18n="navWork">Karya</a>
+        <a href="#voices" data-i18n="navVoices">Cerita</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-switch" id="languageToggle" type="button" aria-label="Switch language">EN</button>
+        <a class="button" href="#contact"><span data-i18n="navContact">Mari berbincang</span><span class="arrow">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid"></div><div class="hero-glow"></div>
+      <div class="container hero-content">
+        <div class="eyebrow" data-reveal><span class="eyebrow-dot"></span><span data-i18n="eyebrow">Mitra pertumbuhan produk digital</span></div>
+        <h1 data-reveal class="delay-1"><span class="gradient-text" data-i18n="heroTitle">Ide hebat layak tumbuh menjadi sesuatu yang besar.</span></h1>
+        <p class="hero-copy delay-2" data-reveal data-i18n="heroCopy">Kami membantu aplikasi dan bisnis digital menemukan arah, menjangkau lebih banyak pengguna, dan membangun pertumbuhan yang bertahan lama.</p>
+        <div class="hero-buttons" data-reveal>
+          <a class="button" href="#contact"><span data-i18n="heroCta">Mulai kolaborasi</span><span class="arrow">↗</span></a>
+          <a class="button ghost" href="#work"><span data-i18n="heroSecondary">Lihat pendekatan kami</span></a>
+        </div>
+        <div class="hero-visual" data-reveal>
+          <div class="hero-photo"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=72" alt="Ruang kerja kreatif modern" decoding="async"></div>
+          <div class="floating-card"><div class="floating-label" data-i18n="floatOne">Fokus kami</div><div class="floating-value" data-i18n="floatOneValue">Strategi <span>+</span> Eksekusi</div></div>
+          <div class="floating-card right"><div class="floating-label" data-i18n="floatTwo">Cara kami bekerja</div><div class="floating-value" data-i18n="floatTwoValue">Jelas. Terukur. <span>Kolaboratif.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><div class="section-kicker" data-i18n="approachKicker">01 / Mengapa Northstar</div><h2 data-i18n="approachTitle">Pertumbuhan yang baik dimulai dari arah yang tepat.</h2></div>
+          <p class="section-intro" data-i18n="approachIntro">Kami menyatukan pemahaman produk, strategi akuisisi, dan kreativitas agar setiap langkah punya tujuan yang jelas.</p>
+        </div>
+        <div class="feature-panel" data-reveal>
+          <div class="feature-copy">
+            <div class="section-kicker" data-i18n="featureKicker">Partner untuk perjalanan digital</div>
+            <h3 data-i18n="featureTitle">Dari potensi menjadi performa.</h3>
+            <p data-i18n="featureCopy">Tidak ada formula instan untuk produk yang hebat. Kami bekerja berdampingan dengan tim Anda untuk memahami pengguna, menguji peluang, dan membangun strategi yang relevan.</p>
+            <a class="button ghost" href="#process"><span data-i18n="featureCta">Kenali proses kami</span><span class="arrow">↗</span></a>
+          </div>
+          <div class="feature-image"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=72" alt="Ruang kerja modern" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="stats" data-reveal>
+          <div class="stat"><strong>01</strong><span data-i18n="statOne">Strategi berbasis insight</span></div>
+          <div class="stat"><strong>02</strong><span data-i18n="statTwo">Eksekusi yang terarah</span></div>
+          <div class="stat"><strong>03</strong><span data-i18n="statThree">Kemitraan jangka panjang</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><div class="section-kicker" data-i18n="processKicker">02 / Cara kerja</div><h2 data-i18n="processTitle">Langkah sederhana. Keputusan yang lebih cerdas.</h2></div>
+          <p class="section-intro" data-i18n="processIntro">Proses yang transparan menjaga semua pihak tetap selaras, dari percakapan pertama hingga hasil yang bisa dievaluasi.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card" data-reveal><span class="step-no">01 / DISCOVER</span><h3 data-i18n="stepOneTitle">Pahami potensi</h3><p data-i18n="stepOneCopy">Kami mendalami produk, audiens, tantangan, dan peluang yang paling menjanjikan.</p></article>
+          <article class="process-card delay-1" data-reveal><span class="step-no">02 / DEFINE</span><h3 data-i18n="stepTwoTitle">Tentukan arah</h3><p data-i18n="stepTwoCopy">Tujuan dan prioritas disepakati agar strategi berangkat dari kebutuhan nyata.</p></article>
+          <article class="process-card delay-2" data-reveal><span class="step-no">03 / BUILD</span><h3 data-i18n="stepThreeTitle">Jalankan strategi</h3><p data-i18n="stepThreeCopy">Eksperimen, kreativitas, dan optimasi diterapkan dengan ritme yang terukur.</p></article>
+          <article class="process-card delay-3" data-reveal><span class="step-no">04 / GROW</span><h3 data-i18n="stepFourTitle">Tumbuh bersama</h3><p data-i18n="stepFourCopy">Kami membaca hasil, mengambil pelajaran, dan menyempurnakan langkah berikutnya.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><div class="section-kicker" data-i18n="workKicker">03 / Area keahlian</div><h2 data-i18n="workTitle">Ruang untuk ide yang ingin melangkah lebih jauh.</h2></div>
+          <p class="section-intro" data-i18n="workIntro">Pendekatan fleksibel untuk membantu produk digital bergerak dari tahap awal hingga fase pertumbuhan berikutnya.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card" data-reveal><div class="work-image"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=72" alt="Meja kerja dengan laptop dan catatan" loading="lazy" decoding="async"></div><div class="work-info"><div class="work-type" data-i18n="workTypeOne">Strategi produk</div><h3 data-i18n="workOneTitle">Product direction</h3><p data-i18n="workOneCopy">Menemukan positioning, nilai utama, dan peluang yang paling berarti bagi pengguna.</p></div></article>
+          <article class="work-card delay-1" data-reveal><div class="work-image"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=72" alt="Layar laptop dengan kode" loading="lazy" decoding="async"></div><div class="work-info"><div class="work-type" data-i18n="workTypeTwo">Akuisisi pengguna</div><h3 data-i18n="workTwoTitle">Audience growth</h3><p data-i18n="workTwoCopy">Menghubungkan produk dengan audiens yang tepat melalui strategi yang relevan.</p></div></article>
+          <article class="work-card delay-2" data-reveal><div class="work-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=72" alt="Analisis performa digital" loading="lazy" decoding="async"></div><div class="work-info"><div class="work-type" data-i18n="workTypeThree">Optimasi performa</div><h3 data-i18n="workThreeTitle">Sustainable scale</h3><p data-i18n="workThreeCopy">Mengukur hal yang penting dan mengubah insight menjadi peningkatan berkelanjutan.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voices">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <div><div class="section-kicker" data-i18n="voicesKicker">04 / Prinsip kolaborasi</div><h2 data-i18n="voicesTitle">Hubungan yang kuat menghasilkan pekerjaan yang lebih baik.</h2></div>
+          <p class="section-intro" data-i18n="voicesIntro">Kami percaya pada komunikasi terbuka, rasa ingin tahu, dan kemajuan yang dibangun bersama.</p>
+        </div>
+        <div class="quote-grid">
+          <article class="quote-card" data-reveal><div><div class="quote-mark">“</div><blockquote data-i18n="quoteOne">Mitra terbaik bukan hanya memberi jawaban. Mereka membantu kita mengajukan pertanyaan yang lebih tepat.</blockquote></div><div class="quote-author"><span class="avatar"></span><span data-i18n="quoteAuthorOne">Prinsip kami dalam setiap kolaborasi</span></div></article>
+          <article class="quote-card small delay-1" data-reveal><div><div class="quote-mark">“</div><blockquote data-i18n="quoteTwo">Kemajuan yang konsisten selalu lebih berarti daripada sekadar terlihat sibuk.</blockquote></div><div class="quote-author"><span class="avatar"></span><span data-i18n="quoteAuthorTwo">Cara kami mengukur pertumbuhan</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-panel" data-reveal>
+          <div class="section-kicker" data-i18n="contactKicker">Langkah berikutnya dimulai di sini</div>
+          <h2 class="gradient-text" data-i18n="contactTitle">Punya ide besar? Mari tumbuh bersama.</h2>
+          <p data-i18n="contactCopy">Ceritakan tantangan atau rencana Anda. Kita mulai dengan percakapan yang sederhana dan bermakna.</p>
+          <a class="button" href="mailto:ijlalainun@gmail.com"><span data-i18n="contactCta">Hubungi kami</span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#7aa2ff;--on:#111111;--glow:rgba(122,162,255,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top"><span class="brand-mark"></span><span>northstar<span style="font-weight:400;color:#9da2aa">.</span></span></a>
+          <p data-i18n="footerCopy">Membantu ide digital menemukan arah dan bertumbuh dengan tujuan yang jelas.</p>
+        </div>
+        <div>
+          <div class="footer-heading" data-i18n="socialHeading">Temukan saya</div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+            <a href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading" data-i18n="contactHeading">Kontak</div>
+          <div class="contact-links">
+            <a href="mailto:ijlalainun@gmail.com">ijlalainun@gmail.com ↗</a>
+            <a href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer" data-i18n="linkedinLink">Terhubung di LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Northstar Studio. <span data-i18n="rights">Hak cipta dilindungi.</span></span><span data-i18n="footerTag">Dibuat dengan tujuan dan rasa ingin tahu.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      id: {
+        navApproach:"Pendekatan",navProcess:"Proses",navWork:"Karya",navVoices:"Cerita",navContact:"Mari berbincang",
+        eyebrow:"Mitra pertumbuhan produk digital",heroTitle:"Ide hebat layak tumbuh menjadi sesuatu yang besar.",heroCopy:"Kami membantu aplikasi dan bisnis digital menemukan arah, menjangkau lebih banyak pengguna, dan membangun pertumbuhan yang bertahan lama.",heroCta:"Mulai kolaborasi",heroSecondary:"Lihat pendekatan kami",floatOne:"Fokus kami",floatOneValue:"Strategi + Eksekusi",floatTwo:"Cara kami bekerja",floatTwoValue:"Jelas. Terukur. Kolaboratif.",
+        approachKicker:"01 / Mengapa Northstar",approachTitle:"Pertumbuhan yang baik dimulai dari arah yang tepat.",approachIntro:"Kami menyatukan pemahaman produk, strategi akuisisi, dan kreativitas agar setiap langkah punya tujuan yang jelas.",featureKicker:"Partner untuk perjalanan digital",featureTitle:"Dari potensi menjadi performa.",featureCopy:"Tidak ada formula instan untuk produk yang hebat. Kami bekerja berdampingan dengan tim Anda untuk memahami pengguna, menguji peluang, dan membangun strategi yang relevan.",featureCta:"Kenali proses kami",statOne:"Strategi berbasis insight",statTwo:"Eksekusi yang terarah",statThree:"Kemitraan jangka panjang",
+        processKicker:"02 / Cara kerja",processTitle:"Langkah sederhana. Keputusan yang lebih cerdas.",processIntro:"Proses yang transparan menjaga semua pihak tetap selaras, dari percakapan pertama hingga hasil yang bisa dievaluasi.",stepOneTitle:"Pahami potensi",stepOneCopy:"Kami mendalami produk, audiens, tantangan, dan peluang yang paling menjanjikan.",stepTwoTitle:"Tentukan arah",stepTwoCopy:"Tujuan dan prioritas disepakati agar strategi berangkat dari kebutuhan nyata.",stepThreeTitle:"Jalankan strategi",stepThreeCopy:"Eksperimen, kreativitas, dan optimasi diterapkan dengan ritme yang terukur.",stepFourTitle:"Tumbuh bersama",stepFourCopy:"Kami membaca hasil, mengambil pelajaran, dan menyempurnakan langkah berikutnya.",
+        workKicker:"03 / Area keahlian",workTitle:"Ruang untuk ide yang ingin melangkah lebih jauh.",workIntro:"Pendekatan fleksibel untuk membantu produk digital bergerak dari tahap awal hingga fase pertumbuhan berikutnya.",workTypeOne:"Strategi produk",workOneTitle:"Product direction",workOneCopy:"Menemukan positioning, nilai utama, dan peluang yang paling berarti bagi pengguna.",workTypeTwo:"Akuisisi pengguna",workTwoTitle:"Audience growth",workTwoCopy:"Menghubungkan produk dengan audiens yang tepat melalui strategi yang relevan.",workTypeThree:"Optimasi performa",workThreeTitle:"Sustainable scale",workThreeCopy:"Mengukur hal yang penting dan mengubah insight menjadi peningkatan berkelanjutan.",
+        voicesKicker:"04 / Prinsip kolaborasi",voicesTitle:"Hubungan yang kuat menghasilkan pekerjaan yang lebih baik.",voicesIntro:"Kami percaya pada komunikasi terbuka, rasa ingin tahu, dan kemajuan yang dibangun bersama.",quoteOne:"Mitra terbaik bukan hanya memberi jawaban. Mereka membantu kita mengajukan pertanyaan yang lebih tepat.",quoteAuthorOne:"Prinsip kami dalam setiap kolaborasi",quoteTwo:"Kemajuan yang konsisten selalu lebih berarti daripada sekadar terlihat sibuk.",quoteAuthorTwo:"Cara kami mengukur pertumbuhan",
+        contactKicker:"Langkah berikutnya dimulai di sini",contactTitle:"Punya ide besar? Mari tumbuh bersama.",contactCopy:"Ceritakan tantangan atau rencana Anda. Kita mulai dengan percakapan yang sederhana dan bermakna.",contactCta:"Hubungi kami",footerCopy:"Membantu ide digital menemukan arah dan bertumbuh dengan tujuan yang jelas.",socialHeading:"Temukan saya",contactHeading:"Kontak",linkedinLink:"Terhubung di LinkedIn ↗",rights:"Hak cipta dilindungi.",footerTag:"Dibuat dengan tujuan dan rasa ingin tahu."
+      },
+      en: {
+        navApproach:"Approach",navProcess:"Process",navWork:"Expertise",navVoices:"Perspectives",navContact:"Let's talk",
+        eyebrow:"Digital product growth partner",heroTitle:"Great ideas deserve to grow into something extraordinary.",heroCopy:"We help apps and digital businesses find direction, reach more people, and build growth that lasts.",heroCta:"Start a conversation",heroSecondary:"Explore our approach",floatOne:"Our focus",floatOneValue:"Strategy + Execution",floatTwo:"How we work",floatTwoValue:"Clear. Measurable. Collaborative.",
+        approachKicker:"01 / Why Northstar",approachTitle:"Meaningful growth starts with the right direction.",approachIntro:"We bring product understanding, acquisition strategy, and creativity together so every move has a clear purpose.",featureKicker:"A partner for your digital journey",featureTitle:"Turn potential into performance.",featureCopy:"There is no shortcut to building a great product. We work alongside your team to understand users, test opportunities, and shape a strategy that matters.",featureCta:"Explore our process",statOne:"Insight-led strategy",statTwo:"Purposeful execution",statThree:"Long-term partnership",
+        processKicker:"02 / How we work",processTitle:"Simple steps. Smarter decisions.",processIntro:"A transparent process keeps everyone aligned, from the first conversation to outcomes you can evaluate.",stepOneTitle:"Discover potential",stepOneCopy:"We explore your product, audience, challenges, and most promising opportunities.",stepTwoTitle:"Define direction",stepTwoCopy:"We align on goals and priorities so the strategy starts with real needs.",stepThreeTitle:"Put strategy to work",stepThreeCopy:"Experiments, creativity, and optimization move forward at a measurable pace.",stepFourTitle:"Grow together",stepFourCopy:"We review outcomes, learn from the data, and refine what comes next.",
+        workKicker:"03 / What we do",workTitle:"Room for ideas ready to go further.",workIntro:"A flexible approach that helps digital products move from early stages into their next phase of growth.",workTypeOne:"Product strategy",workOneTitle:"Product direction",workOneCopy:"Find your positioning, core value, and the opportunities that matter most to users.",workTypeTwo:"User acquisition",workTwoTitle:"Audience growth",workTwoCopy:"Connect your product with the right audience through relevant strategies.",workTypeThree:"Performance optimization",workThreeTitle:"Sustainable scale",workThreeCopy:"Measure what matters and turn insight into continuous improvement.",
+        voicesKicker:"04 / Our principles",voicesTitle:"Strong relationships make better work possible.",voicesIntro:"We believe in open communication, curiosity, and progress built together.",quoteOne:"The best partners do more than provide answers. They help us ask better questions.",quoteAuthorOne:"A principle behind every collaboration",quoteTwo:"Consistent progress will always mean more than simply looking busy.",quoteAuthorTwo:"How we think about growth",
+        contactKicker:"Your next step starts here",contactTitle:"Have a big idea? Let's grow it together.",contactCopy:"Tell us about your challenge or ambition. We can start with a simple, meaningful conversation.",contactCta:"Get in touch",footerCopy:"Helping digital ideas find direction and grow with purpose.",socialHeading:"Find me online",contactHeading:"Contact",linkedinLink:"Connect on LinkedIn ↗",rights:"All rights reserved.",footerTag:"Built with purpose and curiosity."
+      }
+    };
+    let currentLanguage = "id";
+    const languageToggle = document.getElementById("languageToggle");
+    function setLanguage(lang){
+      currentLanguage = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.dataset.i18n;
+        if(translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      languageToggle.textContent = lang === "id" ? "EN" : "ID";
+      languageToggle.setAttribute("aria-label", lang === "id" ? "Switch to English" : "Ganti ke Bahasa Indonesia");
+    }
+    languageToggle.addEventListener("click",()=>setLanguage(currentLanguage === "id" ? "en" : "id"));
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click",()=>{
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded",String(open));
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded","false");
+      menuToggle.textContent="☰";
+    }));
+    const observer = new IntersectionObserver((entries,obs)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add("is-visible");obs.unobserve(entry.target);}
+      });
+    },{threshold:.13,rootMargin:"0px 0px -6% 0px"});
+    document.querySelectorAll("[data-reveal]").forEach(el=>observer.observe(el));
+  </script>
+<script id="mx-script">window.__MX_BG=[];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e9e8df"><title>Nalar — Teknologi dengan pertimbangan</title>
+<style>
+:root{--paper:#e9e8df;--cream:#f2f0e7;--green:#174e40;--green2:#173a31;--ink:#1d2924;--muted:#4d6259;--dark:#10251f}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.5 Arial,Helvetica,sans-serif;background:var(--paper);color:var(--green)}button,a{font:inherit}a{color:inherit;text-decoration:none}button{cursor:pointer}img{display:block;width:100%;height:100%;object-fit:cover}::selection{background:#91ae9c;color:#10251f}:focus-visible{outline:3px solid #d0902a;outline-offset:4px}.wrap{width:min(94%,1440px);margin:0 auto}.skip{position:fixed;left:8px;top:-100px;z-index:100;background:#fff;color:#10251f;padding:12px}.skip:focus{top:8px}.navbar{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:27px;font-weight:700;letter-spacing:-.06em}.nav-right{display:flex;gap:28px;align-items:center}.nav-right>a:not(.button){font-size:14px}.languages{display:flex;gap:5px}.languages button{border:0;padding:9px 8px;background:transparent;color:#4c6259;font-size:14px;min-width:38px;min-height:44px}.languages button[aria-pressed=true]{color:#173e32;font-weight:700;text-decoration:underline;text-underline-offset:6px}.button{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:46px;background:var(--green2);color:#fff;padding:10px 19px;font-size:14px;transition:background .25s}.button:hover{background:#315f50}.button.invert{background:var(--paper);color:var(--dark)}.button.invert:hover{background:#c3d0c4}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:min(780px,calc(100svh - 78px));background:var(--cream);overflow:hidden}.hero-text{padding:clamp(36px,4.5vw,72px);display:flex;flex-direction:column;justify-content:space-between;align-items:start;gap:70px}.eyebrow{text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:.12em}.hero-main{max-width:750px}.hero h1{font-size:clamp(60px,7vw,108px);line-height:.99;letter-spacing:-.065em;font-weight:400;margin:0 0 32px}.hero p{font-size:18px;line-height:1.5;max-width:430px;margin:0 0 30px;color:#3f5e52}.hero-visual{position:relative;overflow:hidden;background:#293a33;min-height:580px}.hero-visual img{filter:saturate(.7);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}.hero-visual:after{content:"";position:absolute;inset:0;background:rgba(17,46,37,.22)}.hero:hover img{transform:scale(1.035)}.hero-visual span{position:absolute;z-index:1;bottom:28px;left:28px;color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase}.scroll-note{font-size:13px;color:#52695f}
+.section{padding:clamp(90px,11vw,165px) 0}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:start;margin-bottom:80px}.section-head h2,.closing h2{font-size:clamp(48px,6.6vw,96px);line-height:1.03;letter-spacing:-.06em;font-weight:400;margin:0}.section-head .lead{max-width:570px;margin:24px 0 0;font-size:18px;color:var(--muted)}.intro{padding:clamp(100px,12vw,180px) 0}.intro .eyebrow{margin-bottom:48px}.intro p{font-size:clamp(34px,4.7vw,68px);letter-spacing:-.045em;line-height:1.15;max-width:1120px;margin:0;font-weight:400}.subtle{color:#658176}.approach{background:#e0e3d9}.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}.approach-item{display:flex;flex-direction:column;min-height:230px}.index{font-size:13px;color:#4d6c5d}.approach-item h3{font-size:clamp(28px,3vw,43px);font-weight:400;letter-spacing:-.04em;margin:58px 0 18px}.approach-item p{max-width:340px;color:#405d50;font-size:16px;margin:0}
+.image-statement{position:relative;height:min(840px,90svh);min-height:560px;background:#15251f;display:flex;align-items:end;color:#fff;overflow:hidden}.image-statement img{position:absolute;inset:0;filter:saturate(.75)}.image-statement:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,27,21,.78),rgba(10,27,21,.14)),linear-gradient(0deg,rgba(10,27,21,.5),transparent 60%)}.image-statement .inner{position:relative;z-index:1;padding:0 0 72px}.image-statement p{max-width:970px;font-size:clamp(38px,5.7vw,80px);line-height:1.07;letter-spacing:-.055em;margin:24px 0 0}
+.services{background:var(--cream)}.service{display:grid;grid-template-columns:1fr 1fr;gap:clamp(60px,9vw,140px);align-items:center;margin:0 0 140px}.service:last-child{margin-bottom:0}.service:nth-child(even) .service-photo{order:2}.service-photo{height:620px;overflow:hidden;background:#c9d1c7}.service-photo img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}.service:hover img{transform:scale(1.04)}.service-content{max-width:500px}.service-content h3{font-size:clamp(42px,5vw,72px);letter-spacing:-.055em;line-height:1.04;font-weight:400;margin:48px 0 24px}.service-content p{color:var(--muted);font-size:18px;line-height:1.5;margin:0}.service-content .link{display:inline-block;margin-top:30px;font-size:14px;font-weight:700}.link:hover{opacity:.6}
+.thinking{background:var(--dark);color:var(--cream)}.thinking .section-head .lead{color:#c1d0c6}.story-controls{display:flex;gap:10px}.story-controls button{height:48px;width:52px;color:var(--cream);background:#29463b;border:0;font-size:19px}.story-controls button:hover{background:#3e6555}.stories-head{display:flex;align-items:end;justify-content:space-between;gap:20px}.stories-head .section-head{flex:1}.stories{display:grid;grid-auto-flow:column;grid-auto-columns:38%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#809d8d transparent;padding-bottom:20px}.story{scroll-snap-align:start;min-width:0}.story-img{height:340px;overflow:hidden;background:#355047}.story-img img{filter:saturate(.75)}.story-info{padding:27px 0}.story-info span{font-size:12px;color:#b9cbbf;letter-spacing:.12em}.story-info h3{font-size:clamp(29px,3.1vw,44px);letter-spacing:-.04em;line-height:1.1;font-weight:400;margin:28px 0 15px}.story-info p{max-width:410px;color:#c3d2c7;margin:0}
+.closing{padding:clamp(110px,13vw,200px) 0;background:#becdc0;color:var(--green2)}.closing .eyebrow{margin-bottom:44px}.closing h2{max-width:1000px}.closing p{font-size:18px;max-width:500px;margin:32px 0}.footer{padding:55px 0 30px;background:var(--dark);color:var(--cream)}.footer-main{display:flex;justify-content:space-between;gap:30px}.footer p{color:#b6c8bb;max-width:340px}.footer-links{display:flex;gap:30px;flex-wrap:wrap}.footer-links a{font-size:14px}.copyright{text-align:center;margin:90px auto 0!important;font-size:13px;color:#c4d1c6!important}
+.js .reveal{opacity:0;transform:translateY(25px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.js .reveal.shown{opacity:1;transform:none}
+
+/* Variasi animasi teks: tetap lembut dan mengikuti urutan membaca. */
+@keyframes textRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes textFromLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes textFromRight{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes textUnveil{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes textSoftFocus{from{opacity:0;filter:blur(5px);transform:translateY(10px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@media (prefers-reduced-motion: no-preference){
+  .hero-text .eyebrow{animation:textFromLeft .8s .1s both}
+  .hero h1{animation:textRise 1s .25s both}
+  .hero-main p{animation:textSoftFocus .85s .5s both}
+  .hero-main .button,.scroll-note{animation:textRise .75s .7s both}
+  .hero-visual span{animation:textFromRight .9s .55s both}
+  .reveal.shown .eyebrow,.reveal.shown .index,.story.reveal.shown .story-info span{animation:textFromLeft .7s .05s both}
+  .intro.reveal.shown p,.image-statement .reveal.shown p{animation:textSoftFocus 1s .15s both}
+  .section-head.reveal.shown h2,.closing .reveal.shown h2{animation:textUnveil 1s .12s both}
+  .section-head.reveal.shown .lead,.closing .reveal.shown p{animation:textRise .8s .35s both}
+  .approach-item.reveal.shown h3,.story.reveal.shown h3{animation:textFromLeft .8s .15s both}
+  .approach-item.reveal.shown p,.story.reveal.shown p{animation:textRise .8s .3s both}
+  .service-content.reveal.shown h3{animation:textFromRight .85s .15s both}
+  .service-content.reveal.shown p{animation:textSoftFocus .8s .3s both}
+  .service-content.reveal.shown .link,.closing .reveal.shown .button{animation:textRise .7s .45s both}
+}
+@media(max-width:900px){.nav-right>a:not(.button){display:none}.hero{grid-template-columns:1fr 1fr}.hero-text{padding:30px}.hero h1{font-size:clamp(50px,7vw,72px)}.section-head{grid-template-columns:1fr 2fr}.service{gap:45px}.service-photo{height:500px}.stories{grid-auto-columns:48%}}
+@media(max-width:650px){.wrap{width:90%}.navbar{height:70px}.brand{font-size:25px}.nav-right{gap:10px}.nav-right .button{padding:10px 12px;gap:0}.languages{gap:0}.languages button{min-width:34px;padding:8px 5px}.hero{display:flex;flex-direction:column;min-height:0}.hero-text{min-height:520px;padding:35px 24px 40px;gap:60px}.hero h1{font-size:clamp(51px,12vw,72px);margin-bottom:22px}.hero p{font-size:16px}.hero-visual{min-height:390px;height:47vh}.hero-visual span{bottom:20px;left:20px}.scroll-note{display:none}.section{padding:85px 0}.section-head{display:block;margin-bottom:48px}.section-head .eyebrow{display:block;margin-bottom:28px}.section-head h2,.closing h2{font-size:48px}.intro{padding:100px 0}.intro .eyebrow{margin-bottom:32px}.intro p{font-size:37px}.approach-grid{grid-template-columns:1fr;gap:58px}.approach-item{min-height:0}.approach-item h3{margin:22px 0 12px}.image-statement{height:75svh;min-height:530px}.image-statement .inner{padding-bottom:42px}.image-statement p{font-size:42px}.service,.service:nth-child(even){display:flex;flex-direction:column;align-items:stretch;gap:28px;margin-bottom:80px}.service:nth-child(even) .service-photo{order:0}.service-photo{height:430px}.service-content h3{margin:22px 0 16px;font-size:46px}.service-content p{font-size:16px}.stories-head{align-items:start}.stories-head .section-head{margin-bottom:45px}.story-controls button{width:44px;height:44px}.stories{grid-auto-columns:86%}.story-img{height:310px}.closing{padding:100px 0}.footer-main{display:block}.footer-links{margin-top:45px}.copyright{margin-top:70px!important}}
+@media(max-width:350px){.nav-right .button{display:none}.hero h1{font-size:48px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}.js .reveal{opacity:1;transform:none}}
+</style><link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+@media(max-width:650px){.stories-head{flex-wrap:wrap}.stories-head .section-head{flex:1 1 100%;min-width:0}}</style>
+</head><body>
+<a class="skip" href="#main" data-i18n="skip">Langsung ke isi</a>
+<header class="wrap navbar"><a href="#top" class="brand" aria-label="Nalar">nalar</a><div class="nav-right"><a href="#pendekatan" data-i18n="navApproach">Pendekatan</a><a href="#layanan" data-i18n="navServices">Keahlian</a><div class="languages" aria-label="Bahasa / Language"><button data-language="id" aria-pressed="true">ID</button><button data-language="en" aria-pressed="false">EN</button></div><a class="button" href="#layanan" data-i18n="navCta">Jelajahi keahlian ↗</a></div></header>
+<main id="main"><div id="top"></div>
+<section class="hero"><div class="hero-text"><span class="eyebrow" data-i18n="heroLabel">Konsultansi teknologi &amp; tata kelola</span><div class="hero-main"><h1 data-i18n="heroTitle">Teknologi maju, pertimbangan manusia.</h1><p data-i18n="heroDescription">Membantu organisasi memahami risiko dan peluang di tengah perubahan teknologi.</p><a class="button" href="#pendekatan" data-i18n="heroButton">Kenali pendekatan kami ↗</a></div><span class="scroll-note" data-i18n="scroll">Gulir untuk menjelajah ↓</span></div><div class="hero-visual"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=75" alt="" fetchpriority="high" decoding="async"><span data-i18n="heroVisual">Perspektif untuk dunia digital</span></div></section>
+<section class="intro wrap reveal"><div class="eyebrow" data-i18n="introLabel">Cara pandang kami</div><p data-i18n-html="introText">Teknologi tidak pernah berdiri sendiri. <span class="subtle">Keputusan yang baik membutuhkan konteks, kejelasan, dan manusia di dalamnya.</span></p></section>
+<section class="section approach" id="pendekatan"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="approachLabel">01 / Pendekatan</span><div><h2 data-i18n="approachTitle">Berpikir jernih. Bertindak tepat.</h2><p class="lead" data-i18n="approachText">Kami menghubungkan perspektif teknologi, risiko, dan organisasi untuk menjawab persoalan yang kompleks.</p></div></div><div class="approach-grid"><article class="approach-item reveal"><span class="index">01</span><h3 data-i18n="approach1Title">Peka konteks</h3><p data-i18n="approach1Text">Memahami tujuan, orang, dan lingkungan sebelum menentukan arah.</p></article><article class="approach-item reveal"><span class="index">02</span><h3 data-i18n="approach2Title">Lintas disiplin</h3><p data-i18n="approach2Text">Memadukan pemikiran teknis dan strategis dalam satu percakapan.</p></article><article class="approach-item reveal"><span class="index">03</span><h3 data-i18n="approach3Title">Dapat diterapkan</h3><p data-i18n="approach3Text">Mengubah gagasan menjadi langkah yang jelas dan relevan untuk organisasi.</p></article></div></div></section>
+<section class="image-statement"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"><div class="wrap inner reveal"><span class="eyebrow" data-i18n="visionLabel">Perspektif</span><p data-i18n="visionText">Kemajuan yang berarti dimulai dari pertanyaan yang tepat.</p></div></section>
+<section class="section services" id="layanan"><div class="wrap"><div class="section-head reveal"><span class="eyebrow" data-i18n="serviceLabel">02 / Keahlian</span><div><h2 data-i18n="serviceTitle">Arah yang jelas di dunia yang berubah.</h2><p class="lead" data-i18n="serviceIntro">Bidang kerja yang saling terhubung, dengan pertimbangan manusia sebagai titik awal.</p></div></div><article class="service"><div class="service-photo reveal"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="service-content reveal"><span class="eyebrow" data-i18n="s1Label">01 / Kecerdasan buatan</span><h3 data-i18n="s1Title">Tata kelola AI</h3><p data-i18n="s1Text">Menyusun prinsip, peran, dan proses untuk membantu penggunaan AI yang bertanggung jawab dan sesuai tujuan organisasi.</p><a class="link" href="#perspektif" data-i18n="serviceLink">Lihat perspektif kami ↗</a></div></article><article class="service"><div class="service-photo reveal"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="service-content reveal"><span class="eyebrow" data-i18n="s2Label">02 / Data</span><h3 data-i18n="s2Title">Strategi data</h3><p data-i18n="s2Text">Membantu organisasi memahami bagaimana data dikelola, digunakan, dan dijaga dalam pengambilan keputusan.</p><a class="link" href="#perspektif" data-i18n="serviceLink">Lihat perspektif kami ↗</a></div></article><article class="service"><div class="service-photo reveal"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="service-content reveal"><span class="eyebrow" data-i18n="s3Label">03 / Organisasi</span><h3 data-i18n="s3Title">Risiko teknologi</h3><p data-i18n="s3Text">Menghubungkan perubahan teknologi dengan kebutuhan operasional, tanggung jawab, dan keputusan jangka panjang.</p><a class="link" href="#perspektif" data-i18n="serviceLink">Lihat perspektif kami ↗</a></div></article></div></section>
+<section class="section thinking" id="perspektif"><div class="wrap"><div class="stories-head"><div class="section-head reveal"><span class="eyebrow" data-i18n="thinkingLabel">03 / Perspektif</span><div><h2 data-i18n="thinkingTitle">Untuk kemajuan yang lebih bertanggung jawab.</h2><p class="lead" data-i18n="thinkingText">Tiga cara melihat hubungan antara manusia, organisasi, dan teknologi.</p></div></div><div class="story-controls"><button id="previous" type="button" aria-label="Sebelumnya" data-i18n-aria="previous">←</button><button id="next" type="button" aria-label="Berikutnya" data-i18n-aria="next">→</button></div></div><div class="stories" id="stories"><article class="story reveal"><div class="story-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="story-info"><span>01</span><h3 data-i18n="story1Title">Manusia sebagai pusat</h3><p data-i18n="story1Text">Teknologi lebih bermakna ketika dirancang untuk kebutuhan nyata.</p></div></article><article class="story reveal"><div class="story-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="story-info"><span>02</span><h3 data-i18n="story2Title">Inovasi dengan arah</h3><p data-i18n="story2Text">Keputusan yang matang membantu peluang berkembang secara bertanggung jawab.</p></div></article><article class="story reveal"><div class="story-img"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1200&q=75" alt="" loading="lazy" decoding="async"></div><div class="story-info"><span>03</span><h3 data-i18n="story3Title">Melihat gambaran utuh</h3><p data-i18n="story3Text">Memahami keterkaitan sebelum menentukan langkah berikutnya.</p></div></article></div></div></section>
+<section class="closing"><div class="wrap reveal"><div class="eyebrow" data-i18n="closingLabel">Melangkah dengan nalar</div><h2 data-i18n="closingTitle">Masa depan yang baik dibangun dengan keputusan yang bijak.</h2><p data-i18n="closingText">Mulai dengan memahami bagaimana teknologi dapat melayani manusia dengan lebih baik.</p><a href="#layanan" class="button" data-i18n="closingButton">Jelajahi keahlian ↗</a></div></section>
+</main><div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#9fe0c4;--on:#111111;--glow:rgba(159,224,196,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer class="footer"><div class="wrap"><div class="footer-main"><div><a href="#top" class="brand">nalar</a><p data-i18n="footerText">Perspektif manusia untuk dunia teknologi yang terus berkembang.</p></div><nav class="footer-links" aria-label="Navigasi footer" data-i18n-aria="footerAria"><a href="#pendekatan" data-i18n="navApproach">Pendekatan</a><a href="#layanan" data-i18n="navServices">Keahlian</a><a href="#perspektif" data-i18n="navThinking">Perspektif</a></nav></div><p class="copyright">© <span id="year">2026</span> Nalar</p></div></footer>
+<script>
+const translations={id:{skip:'Langsung ke isi',navApproach:'Pendekatan',navServices:'Keahlian',navThinking:'Perspektif',navCta:'Jelajahi keahlian ↗',heroLabel:'Konsultansi teknologi & tata kelola',heroTitle:'Teknologi maju, pertimbangan manusia.',heroDescription:'Membantu organisasi memahami risiko dan peluang di tengah perubahan teknologi.',heroButton:'Kenali pendekatan kami ↗',scroll:'Gulir untuk menjelajah ↓',heroVisual:'Perspektif untuk dunia digital',introLabel:'Cara pandang kami',introText:'Teknologi tidak pernah berdiri sendiri. <span class="subtle">Keputusan yang baik membutuhkan konteks, kejelasan, dan manusia di dalamnya.</span>',approachLabel:'01 / Pendekatan',approachTitle:'Berpikir jernih. Bertindak tepat.',approachText:'Kami menghubungkan perspektif teknologi, risiko, dan organisasi untuk menjawab persoalan yang kompleks.',approach1Title:'Peka konteks',approach1Text:'Memahami tujuan, orang, dan lingkungan sebelum menentukan arah.',approach2Title:'Lintas disiplin',approach2Text:'Memadukan pemikiran teknis dan strategis dalam satu percakapan.',approach3Title:'Dapat diterapkan',approach3Text:'Mengubah gagasan menjadi langkah yang jelas dan relevan untuk organisasi.',visionLabel:'Perspektif',visionText:'Kemajuan yang berarti dimulai dari pertanyaan yang tepat.',serviceLabel:'02 / Keahlian',serviceTitle:'Arah yang jelas di dunia yang berubah.',serviceIntro:'Bidang kerja yang saling terhubung, dengan pertimbangan manusia sebagai titik awal.',s1Label:'01 / Kecerdasan buatan',s1Title:'Tata kelola AI',s1Text:'Menyusun prinsip, peran, dan proses untuk membantu penggunaan AI yang bertanggung jawab dan sesuai tujuan organisasi.',s2Label:'02 / Data',s2Title:'Strategi data',s2Text:'Membantu organisasi memahami bagaimana data dikelola, digunakan, dan dijaga dalam pengambilan keputusan.',s3Label:'03 / Organisasi',s3Title:'Risiko teknologi',s3Text:'Menghubungkan perubahan teknologi dengan kebutuhan operasional, tanggung jawab, dan keputusan jangka panjang.',serviceLink:'Lihat perspektif kami ↗',thinkingLabel:'03 / Perspektif',thinkingTitle:'Untuk kemajuan yang lebih bertanggung jawab.',thinkingText:'Tiga cara melihat hubungan antara manusia, organisasi, dan teknologi.',previous:'Sebelumnya',next:'Berikutnya',story1Title:'Manusia sebagai pusat',story1Text:'Teknologi lebih bermakna ketika dirancang untuk kebutuhan nyata.',story2Title:'Inovasi dengan arah',story2Text:'Keputusan yang matang membantu peluang berkembang secara bertanggung jawab.',story3Title:'Melihat gambaran utuh',story3Text:'Memahami keterkaitan sebelum menentukan langkah berikutnya.',closingLabel:'Melangkah dengan nalar',closingTitle:'Masa depan yang baik dibangun dengan keputusan yang bijak.',closingText:'Mulai dengan memahami bagaimana teknologi dapat melayani manusia dengan lebih baik.',closingButton:'Jelajahi keahlian ↗',footerText:'Perspektif manusia untuk dunia teknologi yang terus berkembang.',footerAria:'Navigasi footer'},en:{skip:'Skip to content',navApproach:'Approach',navServices:'Expertise',navThinking:'Perspectives',navCta:'Explore expertise ↗',heroLabel:'Technology & governance advisory',heroTitle:'Advancing technology, human judgment.',heroDescription:'Helping organisations navigate risk and opportunity as technology changes.',heroButton:'Discover our approach ↗',scroll:'Scroll to explore ↓',heroVisual:'Perspective for a digital world',introLabel:'Our perspective',introText:'Technology never stands alone. <span class="subtle">Good decisions need context, clarity, and people at their heart.</span>',approachLabel:'01 / Approach',approachTitle:'Think clearly. Act thoughtfully.',approachText:'We connect perspectives on technology, risk, and organisations to address complex questions.',approach1Title:'Context first',approach1Text:'Understand the purpose, people, and environment before choosing a direction.',approach2Title:'Across disciplines',approach2Text:'Bring technical and strategic thinking together in one conversation.',approach3Title:'Made practical',approach3Text:'Turn ideas into clear, relevant steps for the organisation.',visionLabel:'Perspective',visionText:'Meaningful progress starts with asking the right questions.',serviceLabel:'02 / Expertise',serviceTitle:'Clear direction in a changing world.',serviceIntro:'Interconnected areas of work, with human judgment as the starting point.',s1Label:'01 / Artificial intelligence',s1Title:'AI governance',s1Text:'Shape principles, roles, and processes that support responsible AI use aligned with organisational goals.',s2Label:'02 / Data',s2Title:'Data strategy',s2Text:'Help organisations understand how data is managed, used, and safeguarded in decision-making.',s3Label:'03 / Organisations',s3Title:'Technology risk',s3Text:'Connect technological change with operational needs, responsibility, and long-term decisions.',serviceLink:'Explore our perspectives ↗',thinkingLabel:'03 / Perspectives',thinkingTitle:'For more responsible progress.',thinkingText:'Three ways to view the relationship between people, organisations, and technology.',previous:'Previous',next:'Next',story1Title:'People at the centre',story1Text:'Technology is more meaningful when it is designed around real needs.',story2Title:'Innovation with direction',story2Text:'Thoughtful decisions help opportunities grow responsibly.',story3Title:'Seeing the whole picture',story3Text:'Understand connections before choosing the next step.',closingLabel:'Moving forward with nalar',closingTitle:'A better future is built on thoughtful decisions.',closingText:'Start by understanding how technology can better serve people.',closingButton:'Explore expertise ↗',footerText:'A human perspective for a world of evolving technology.',footerAria:'Footer navigation'}};
+function setLanguage(lang){const t=translations[lang];document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t[el.dataset.i18n]});document.querySelectorAll('[data-i18n-html]').forEach(el=>{el.innerHTML=t[el.dataset.i18nHtml]});document.querySelectorAll('[data-i18n-aria]').forEach(el=>{el.setAttribute('aria-label',t[el.dataset.i18nAria])});document.querySelectorAll('[data-language]').forEach(el=>{el.setAttribute('aria-pressed',String(el.dataset.language===lang))});document.title=lang==='id'?'Nalar — Teknologi dengan pertimbangan':'Nalar — Technology with judgment'}
+document.querySelectorAll('[data-language]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.language)));
+const stories=document.getElementById('stories');function moveStory(direction){let distance=stories.firstElementChild.getBoundingClientRect().width+16;stories.scrollBy({left:direction*distance,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}document.getElementById('previous').addEventListener('click',()=>moveStory(-1));document.getElementById('next').addEventListener('click',()=>moveStory(1));document.getElementById('year').textContent=new Date().getFullYear();
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('shown');observer.unobserve(entry.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}
+</script><script id="mx-script">window.__MX_BG=[];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body></html>

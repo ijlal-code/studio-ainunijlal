@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#121212"><meta name="description" content="RUANG KARYA — merancang dan membangun ruang yang bermakna."><title>RUANG KARYA — Ruang untuk hidup lebih baik</title>
+<style>
+:root{color-scheme:dark;--bg:#121212;--panel:#252525;--paper:#f3f1ec;--text:#faf9f6;--muted:#bcbcb7;--red:#db273b;--gutter:clamp(22px,4.5vw,72px);--max:1480px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}img{display:block;width:100%;height:100%;object-fit:cover}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid #ff5c6d;outline-offset:4px}.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}.skip{position:fixed;left:16px;top:16px;z-index:999;background:white;color:#121212;padding:12px;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}.skip:focus{clip-path:none;width:auto;height:auto}.header{position:absolute;top:0;left:0;width:100%;z-index:10}.header-in{height:86px;display:flex;align-items:center;justify-content:space-between;gap:30px}.logo{font-weight:800;letter-spacing:-.07em;font-size:23px;line-height:.9}.logo span{color:var(--red)}.nav{display:flex;gap:32px;align-items:center;font-size:14px}.nav a{color:#eee}.nav a:hover{color:#ff6979}.header-actions{display:flex;gap:18px;align-items:center}.lang{display:flex;gap:2px}.lang button{background:none;border:0;color:#aaa;padding:10px 8px;min-height:44px;font-size:12px;font-weight:700}.lang button.active{color:#fff}.lang button.active:after{content:'';display:block;background:var(--red);height:2px;margin-top:3px}.menu{display:none;background:transparent;border:0;color:white;padding:10px;min-height:44px}.btn{display:inline-flex;align-items:center;gap:38px;justify-content:space-between;padding:16px 20px;min-height:54px;font-size:14px;font-weight:700;background:#d0112b;color:white;transition:background .25s}.btn:hover{background:#b71d30}.btn.dark{background:#252525}.btn.dark:hover{background:#3a3a3a}.btn.light{background:#f3f1ec;color:#121212}.btn.light:hover{background:#ddd9d1}.eyebrow{font-family:monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#d2d0cb}.eyebrow strong{color:#ff5a6c;font-weight:600;margin-right:12px}.hero{padding-top:clamp(130px,12vw,190px);padding-bottom:100px}.hero-word{font-size:clamp(72px,15.7vw,242px);font-weight:800;line-height:.72;letter-spacing:-.09em;margin:0 0 70px;white-space:nowrap}.hero-word span{color:var(--red)}.hero-intro{display:grid;grid-template-columns:1.05fr .95fr;align-items:end;gap:64px}.hero h1{font-size:clamp(42px,5.2vw,79px);line-height:1.03;letter-spacing:-.055em;font-weight:500;margin:0;color:#a8a8a2;max-width:750px}.hero h1 strong{color:#faf9f6;font-weight:600}.hero-detail{max-width:410px;margin-left:auto}.hero-detail p{color:#d1d0cb;font-size:16px;max-width:350px;margin:0 0 26px}.hero-links{display:flex;flex-wrap:wrap;gap:8px}.hero-image{margin-top:58px;height:clamp(380px,48vw,700px);overflow:hidden}.hero-image img{object-position:center 58%}.image{overflow:hidden;background:#252525}.image img{transition:transform 1s cubic-bezier(.22,1,.36,1)}.image:hover img{transform:scale(1.035)}.img-caption{display:flex;justify-content:space-between;color:#aaa;font-size:12px;margin-top:14px;font-family:monospace;text-transform:uppercase;letter-spacing:.04em}
+.section{padding-block:clamp(90px,11vw,170px)}.about-head{display:grid;grid-template-columns:1fr 2fr;gap:40px}.heading{font-size:clamp(48px,7.7vw,115px);line-height:.98;letter-spacing:-.065em;font-weight:600;margin:0}.about-body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,130px);align-items:end;margin-top:80px}.about-photo{height:clamp(400px,50vw,700px)}.about-copy{max-width:520px;padding-bottom:18px}.lead{font-size:clamp(24px,2.7vw,40px);line-height:1.18;letter-spacing:-.035em;margin:0 0 28px}.copy{color:#c4c4bf;max-width:490px;margin:0 0 30px;font-size:16px;line-height:1.65}.textlink{display:inline-block;color:#fff;font-weight:700;font-size:14px;padding:12px 0}.textlink:hover{color:#ff6979}.textlink span{margin-left:24px}
+.audience{background:#202020}.section-top{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:60px}.section-top .heading{max-width:900px}.section-top p{max-width:300px;color:#c4c4bf;margin:0}.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.audience-card{position:relative;min-height:500px;overflow:hidden;background:#30302e;display:flex;align-items:end}.audience-card img{position:absolute;inset:0;transition:transform 1s cubic-bezier(.22,1,.36,1)}.audience-card:hover img{transform:scale(1.035)}.audience-card:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.84),rgba(0,0,0,.05) 80%)}.audience-content{position:relative;z-index:1;padding:28px}.audience-content h3{font-size:clamp(25px,2.4vw,37px);line-height:1.05;letter-spacing:-.04em;margin:0 0 12px}.audience-content p{margin:0;color:#e5e5df;font-size:15px;max-width:340px}
+.expertise-head{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:80px}.expertise-list{display:grid;gap:14px}.expertise-card{width:62%;min-height:300px;background:#252525;padding:clamp(30px,4vw,60px);display:flex;flex-direction:column;justify-content:space-between}.expertise-card:nth-child(even){margin-left:auto}.expertise-card:last-child{margin-right:auto;margin-left:auto}.expertise-card .number{font:13px monospace;color:#ff7785}.expertise-card h3{font-size:clamp(30px,4vw,60px);line-height:1;letter-spacing:-.05em;margin:25px 0 18px;font-weight:600}.expertise-card p{color:#c4c4bf;margin:0;max-width:450px}
+.projects{background:var(--paper);color:#191919}.projects .eyebrow{color:#555}.projects .eyebrow strong{color:#bb1d30}.projects .section-top p{color:#565650}.project-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,80px)}.project:nth-child(2){padding-top:140px}.project:nth-child(3){grid-column:1 / -1;width:65%;margin-left:auto}.project-image{aspect-ratio:1.17/1}.project:nth-child(2) .project-image{aspect-ratio:4/5}.project:nth-child(3) .project-image{aspect-ratio:1.7/1}.project-meta{display:flex;justify-content:space-between;align-items:start;gap:20px;padding-top:20px}.project-meta h3{font-size:clamp(23px,2.6vw,38px);line-height:1.1;letter-spacing:-.04em;margin:0}.project-meta p{margin:4px 0 0;color:#4e4e48;font-size:14px}.project-meta>span{font:14px monospace;color:#555}
+.principle{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,8vw,120px);align-items:center}.principle-image{aspect-ratio:4/5}.principle-text .heading{font-size:clamp(47px,6vw,90px);margin:28px 0}.principle-text .copy{max-width:500px}.end{background:#df293d;padding-block:clamp(90px,10vw,155px)}.end .eyebrow{color:#fff}.end .heading{max-width:1000px;font-size:clamp(48px,7.5vw,110px)}.end-bottom{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-top:48px}.end-bottom p{max-width:390px;margin:0}.footer{padding:60px 0 35px}.footer-top{display:flex;justify-content:space-between;align-items:start;gap:30px}.footer-nav{display:flex;flex-wrap:wrap;gap:24px;font-size:14px}.footer-nav a:hover{color:#ff6979}.footer-word{font-weight:800;font-size:clamp(56px,14vw,215px);letter-spacing:-.09em;line-height:.8;margin:100px 0 30px;white-space:nowrap;color:#f1f0ec}.footer-word span{color:var(--red)}.footer-note{font-size:13px;color:#b8b8b2}
+.motion .reveal{opacity:0;transform:translateY(32px);transition:opacity 850ms cubic-bezier(.22,1,.36,1),transform 850ms cubic-bezier(.22,1,.36,1);transition-delay:var(--delay,0ms)}.motion .reveal.from-left{transform:translateX(-28px)}.motion .reveal.from-right{transform:translateX(28px)}.motion .reveal.visible{opacity:1;transform:none}.motion .image-reveal{opacity:0;transform:translateY(32px);transition:opacity 1000ms cubic-bezier(.22,1,.36,1),transform 1000ms cubic-bezier(.22,1,.36,1)}.motion .image-reveal.visible{opacity:1;transform:none}
+@media(max-width:850px){.nav{display:none;position:absolute;top:78px;left:0;right:0;background:#242424;padding:16px var(--gutter) 25px;box-shadow:0 12px 20px #0005}.nav.open{display:flex;flex-direction:column;align-items:stretch;gap:0}.nav a{padding:13px 0}.menu{display:block}.hero-intro{grid-template-columns:1fr;gap:25px}.hero-detail{margin:0}.audience-grid{grid-template-columns:1fr 1fr}.audience-card{min-height:400px}.audience-card:last-child{grid-column:1 / -1}.expertise-card{width:80%}.about-head,.expertise-head{grid-template-columns:1fr;gap:25px}.about-body{gap:35px}.principle{gap:40px}}
+@media(max-width:600px){.header-in{height:72px}.logo{font-size:21px}.header-actions{gap:3px}.hero{padding-top:130px;padding-bottom:60px}.hero-word{font-size:clamp(52px,15.4vw,92px);margin-bottom:50px}.hero h1{font-size:clamp(38px,10vw,56px)}.hero-image{margin-top:40px;height:420px}.section{padding-block:90px}.heading{font-size:clamp(45px,10vw,64px)}.about-body{display:flex;flex-direction:column;align-items:stretch;margin-top:45px}.about-photo{height:440px}.section-top{display:block;margin-bottom:36px}.section-top p{margin-top:24px}.audience-grid{grid-template-columns:1fr}.audience-card,.audience-card:last-child{grid-column:auto;min-height:420px}.expertise-head{margin-bottom:45px}.expertise-card,.expertise-card:nth-child(n){width:100%;margin:0;min-height:260px}.project-grid{display:block}.project:nth-child(n){width:100%;padding:0;margin:0 0 45px}.project:nth-child(n) .project-image{aspect-ratio:4/4}.principle{display:flex;flex-direction:column;align-items:stretch}.principle-image{aspect-ratio:4/4.4}.end-bottom{display:block}.end-bottom p{margin-bottom:25px}.footer-top{display:block}.footer-nav{margin-top:32px;gap:18px}.footer-word{margin-top:80px}.img-caption{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.motion .reveal{opacity:1;transform:none}.motion .image-reveal{opacity:1;transform:none}}
+</style><link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<style id="mx-style">/* === Motion layer: hanya aktif jika JS jalan; tanpa JS konten tetap tampil === */
+html [data-mx]:not([data-mx="words"]){opacity:0}
+.mx-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.1em .04em .16em;margin:-.1em -.04em -.16em}
+.mx-w>span{display:inline-block}
+[data-mx="words"] .mx-w>span{translate:0 112%}
+.mx-fin .mx-w{overflow:visible;padding:0;margin:0}
+@media (prefers-reduced-motion:reduce){[data-mx]{opacity:1!important}[data-mx="words"] .mx-w>span{translate:none!important}}
+html,body{overflow-x:clip}
+/* === Card kontak kerja sama (scoped, tidak mengubah style halaman) === */
+.mx-contact{--ac:#d4af37;--on:#111;--glow:rgba(212,175,55,.22);box-sizing:border-box;display:block;width:100%;padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px);font-family:inherit;font-size:16px;line-height:1.5;color:#f4f5f7;text-align:left;position:relative;z-index:1}
+.mx-contact *,.mx-contact *::before,.mx-contact *::after{box-sizing:border-box}
+.mx-contact .mx-panel{position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,4.5vw,56px);border-radius:clamp(20px,3vw,32px);background:radial-gradient(110% 130% at 100% 0%,var(--glow),transparent 58%),linear-gradient(160deg,#10131a,#090b10);border:1px solid rgba(255,255,255,.1);box-shadow:0 34px 80px -34px rgba(0,0,0,.6);overflow:hidden;isolation:isolate}
+.mx-contact .mx-panel::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%);mask-image:radial-gradient(80% 90% at 0% 100%,#000,transparent 70%)}
+.mx-contact .mx-badge{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:none;color:#e9ebef}
+.mx-contact .mx-badge i{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 0 var(--glow);animation:mxPulse 2.4s ease-out infinite}
+@keyframes mxPulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mx-contact .mx-title{margin:0 0 16px;padding:0;font-family:inherit;font-size:clamp(1.55rem,1rem + 2.6vw,2.7rem);font-weight:650;line-height:1.14;letter-spacing:-.02em;text-transform:none;color:#fff;max-width:none}
+.mx-contact .mx-text{margin:0 0 26px;padding:0;max-width:52ch;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.65;color:rgba(244,245,247,.72)}
+.mx-contact .mx-cta{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;background:var(--ac);color:var(--on);font-weight:650;font-size:.97rem;text-decoration:none;border:0;transition:transform .25s,box-shadow .25s,filter .25s}
+.mx-contact .mx-cta svg{width:18px;height:18px;transition:transform .25s}
+.mx-contact .mx-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px var(--ac);filter:brightness(1.05)}
+.mx-contact .mx-cta:hover svg{transform:translateX(3px)}
+.mx-contact .mx-note{margin:0 0 12px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,245,247,.5)}
+.mx-contact .mx-links{display:grid;grid-template-columns:1fr;gap:10px;margin:0;padding:0;list-style:none}
+.mx-contact .mx-tile{display:flex;align-items:center;gap:14px;min-height:64px;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;text-decoration:none;transition:transform .25s,background .25s,border-color .25s}
+.mx-contact .mx-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:var(--ac)}
+.mx-contact a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.mx-contact .mx-ico{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#fff}
+.mx-contact .mx-ico svg{width:24px;height:24px;display:block}
+.mx-contact .mx-t{min-width:0;flex:1}
+.mx-contact .mx-t b{display:block;font-size:.96rem;font-weight:600;line-height:1.25;color:#fff}
+.mx-contact .mx-t small{display:block;margin-top:2px;font-size:.8rem;line-height:1.3;color:rgba(244,245,247,.62);overflow-wrap:anywhere}
+.mx-contact .mx-go{flex:none;width:18px;height:18px;opacity:.5;transition:transform .25s,opacity .25s}
+.mx-contact .mx-tile:hover .mx-go{transform:translateX(3px);opacity:1}
+@media (max-width:900px){.mx-contact .mx-panel{grid-template-columns:1fr}.mx-contact .mx-text{max-width:none}}
+@media (min-width:560px) and (max-width:900px){.mx-contact .mx-links{grid-template-columns:1fr 1fr}.mx-contact .mx-links li:last-child{grid-column:1/-1}}
+@media (max-width:380px){.mx-contact{padding-left:12px;padding-right:12px}.mx-contact .mx-panel{padding:20px 16px}.mx-contact .mx-cta{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.mx-contact .mx-badge i{animation:none}.mx-contact *{transition:none!important}}
+</style>
+</head><body>
+<a class="skip" href="#main" data-id="Lewati ke konten" data-en="Skip to content">Lewati ke konten</a>
+<header class="header"><div class="header-in wrap"><a class="logo" href="#top" aria-label="Ruang Karya, home">RUANG<br>KARYA</a><div class="header-actions"><nav class="nav" id="nav" aria-label="Navigasi utama"><a href="#tentang" data-id="Tentang" data-en="About">Tentang</a><a href="#keahlian" data-id="Keahlian" data-en="Expertise">Keahlian</a><a href="#ruang" data-id="Eksplorasi" data-en="Explorations">Eksplorasi</a><a href="#mulai" data-id="Mulai" data-en="Get started">Mulai</a></nav><div class="lang" aria-label="Bahasa / Language"><button class="active" type="button" data-lang="id" aria-pressed="true">ID</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div><button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button></div></div></header>
+<main id="main"><section class="hero wrap" id="top"><div class="hero-word" aria-hidden="true">RUANG</div><div class="hero-intro"><h1><span data-id="Ruang yang dipikirkan dengan matang." data-en="Thoughtful spaces.">Ruang yang dipikirkan dengan matang.</span> <strong data-id="Dibangun untuk kehidupan." data-en="Built for living.">Dibangun untuk kehidupan.</strong></h1><div class="hero-detail"><p data-id="Kami menyatukan gagasan, desain, dan konstruksi untuk menciptakan ruang yang terasa tepat, hari ini dan nanti." data-en="We bring ideas, design, and construction together to create spaces that feel right, today and tomorrow.">Kami menyatukan gagasan, desain, dan konstruksi untuk menciptakan ruang yang terasa tepat, hari ini dan nanti.</p><div class="hero-links"><a class="btn" href="#keahlian"><span data-id="Kenali keahlian kami" data-en="Explore our expertise">Kenali keahlian kami</span><span aria-hidden="true">↗</span></a><a class="btn dark" href="#ruang"><span data-id="Lihat eksplorasi" data-en="See explorations">Lihat eksplorasi</span><span aria-hidden="true">↗</span></a></div></div></div><div class="image hero-image"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=75" alt="Ruang interior modern yang hangat" data-alt-id="Ruang interior modern yang hangat" data-alt-en="A warm modern interior" decoding="async"></div><div class="img-caption"><span data-id="Desain yang punya tujuan" data-en="Design with purpose">Desain yang punya tujuan</span><span data-id="Dari gagasan ke ruang" data-en="From ideas to places">Dari gagasan ke ruang</span></div></section>
+<section class="section wrap" id="tentang"><div class="about-head"><div class="eyebrow"><strong>01</strong><span data-id="Tentang kami" data-en="About us">Tentang kami</span></div><h2 class="heading reveal from-left" data-id="Ruang yang baik dimulai dari pemahaman." data-en="Better spaces begin with understanding.">Ruang yang baik dimulai dari pemahaman.</h2></div><div class="about-body"><div class="image image-reveal about-photo"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=75" alt="Interior rumah dengan material alami" data-alt-id="Interior rumah dengan material alami" data-alt-en="A residential interior with natural materials" decoding="async"></div><div class="about-copy"><p class="lead reveal" data-id="Setiap ruang punya cerita. Tugas kami adalah membantu cerita itu menjadi nyata." data-en="Every space has a story. Our role is to help bring it to life.">Setiap ruang punya cerita. Tugas kami adalah membantu cerita itu menjadi nyata.</p><p class="copy reveal" data-id="Dari percakapan awal hingga detail terakhir, kami menggabungkan cara berpikir kreatif dan pendekatan yang terarah. Hasilnya adalah ruang yang mendukung orang-orang di dalamnya." data-en="From the first conversation to the final detail, we combine creative thinking with a considered approach. The result is a space that supports the people within it.">Dari percakapan awal hingga detail terakhir, kami menggabungkan cara berpikir kreatif dan pendekatan yang terarah. Hasilnya adalah ruang yang mendukung orang-orang di dalamnya.</p><a class="textlink" href="#pendekatan"><span data-id="Cara kami berpikir" data-en="How we think">Cara kami berpikir</span><span aria-hidden="true">↗</span></a></div></div></section>
+<section class="audience section"><div class="wrap"><div class="section-top"><div><div class="eyebrow"><strong>02</strong><span data-id="Untuk siapa" data-en="Who it's for">Untuk siapa</span></div><h2 class="heading reveal" data-id="Dibuat untuk cara Anda hidup dan bekerja." data-en="Made for how you live and work.">Dibuat untuk cara Anda hidup dan bekerja.</h2></div><p class="reveal" data-id="Kebutuhan berbeda, tujuan yang sama: ruang yang bekerja lebih baik." data-en="Different needs, a shared goal: spaces that work better.">Kebutuhan berbeda, tujuan yang sama: ruang yang bekerja lebih baik.</p></div><div class="audience-grid"><article class="audience-card image-reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=75" alt="Interior tempat tinggal dengan cahaya alami" data-alt-id="Interior tempat tinggal dengan cahaya alami" data-alt-en="A naturally lit residential interior" decoding="async" loading="lazy"><div class="audience-content"><h3 data-id="Hunian" data-en="Homes">Hunian</h3><p data-id="Tempat yang terasa personal dan nyaman untuk keseharian." data-en="Personal, comfortable places for everyday life.">Tempat yang terasa personal dan nyaman untuk keseharian.</p></div></article><article class="audience-card image-reveal"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=75" alt="Area ruang kerja yang terang" data-alt-id="Area ruang kerja yang terang" data-alt-en="A bright workspace" decoding="async" loading="lazy"><div class="audience-content"><h3 data-id="Ruang kerja" data-en="Workplaces">Ruang kerja</h3><p data-id="Lingkungan yang mendukung fokus, kolaborasi, dan pertumbuhan." data-en="Environments for focus, collaboration, and growth.">Lingkungan yang mendukung fokus, kolaborasi, dan pertumbuhan.</p></div></article><article class="audience-card image-reveal"><img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=75" alt="Bangunan modern dengan fasad geometris" data-alt-id="Bangunan modern dengan fasad geometris" data-alt-en="A modern building with a geometric facade" decoding="async" loading="lazy"><div class="audience-content"><h3 data-id="Ruang komersial" data-en="Commercial spaces">Ruang komersial</h3><p data-id="Ruang yang mempertemukan identitas, fungsi, dan pengalaman." data-en="Spaces that bring identity, function, and experience together.">Ruang yang mempertemukan identitas, fungsi, dan pengalaman.</p></div></article></div></div></section>
+<section class="section wrap" id="keahlian"><div class="expertise-head"><div class="eyebrow"><strong>03</strong><span data-id="Keahlian" data-en="Expertise">Keahlian</span></div><h2 class="heading reveal from-right" data-id="Satu arah, banyak keahlian." data-en="One direction, many disciplines.">Satu arah, banyak keahlian.</h2></div><div class="expertise-list"><article class="expertise-card"><div class="number">01 / 04</div><div><h3 class="reveal from-left" data-id="Strategi ruang" data-en="Spatial strategy">Strategi ruang</h3><p class="reveal" data-id="Memahami kebutuhan, potensi, dan prioritas sebagai dasar setiap keputusan." data-en="Understanding needs, potential, and priorities as the basis for every decision.">Memahami kebutuhan, potensi, dan prioritas sebagai dasar setiap keputusan.</p></div></article><article class="expertise-card"><div class="number">02 / 04</div><div><h3 class="reveal from-right" data-id="Desain &amp; konsep" data-en="Design &amp; concept">Desain &amp; konsep</h3><p class="reveal" data-id="Menerjemahkan ide menjadi konsep yang seimbang antara karakter dan fungsi." data-en="Turning ideas into concepts that balance character and function.">Menerjemahkan ide menjadi konsep yang seimbang antara karakter dan fungsi.</p></div></article><article class="expertise-card"><div class="number">03 / 04</div><div><h3 class="reveal from-left" data-id="Perencanaan" data-en="Planning">Perencanaan</h3><p class="reveal" data-id="Menyusun langkah dan detail agar setiap tahap bergerak dengan jelas." data-en="Organizing the steps and details so each phase moves forward clearly.">Menyusun langkah dan detail agar setiap tahap bergerak dengan jelas.</p></div></article><article class="expertise-card"><div class="number">04 / 04</div><div><h3 class="reveal from-right" data-id="Pelaksanaan" data-en="Delivery">Pelaksanaan</h3><p class="reveal" data-id="Membawa visi menjadi ruang yang dapat digunakan dan dinikmati." data-en="Bringing the vision into a space to use and enjoy.">Membawa visi menjadi ruang yang dapat digunakan dan dinikmati.</p></div></article></div></section>
+<section class="projects section" id="ruang"><div class="wrap"><div class="section-top"><div><div class="eyebrow"><strong>04</strong><span data-id="Eksplorasi ruang" data-en="Spatial explorations">Eksplorasi ruang</span></div><h2 class="heading reveal" data-id="Gagasan yang menemukan bentuknya." data-en="Ideas taking shape.">Gagasan yang menemukan bentuknya.</h2></div><p class="reveal" data-id="Tiga studi visual tentang cahaya, material, dan cara ruang digunakan." data-en="Three visual studies of light, materials, and how spaces are used.">Tiga studi visual tentang cahaya, material, dan cara ruang digunakan.</p></div><div class="project-grid"><article class="project"><div class="image image-reveal project-image"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=75" alt="Ruang keluarga dengan furnitur modern" data-alt-id="Ruang keluarga dengan furnitur modern" data-alt-en="A living area with modern furniture" decoding="async" loading="lazy"></div><div class="project-meta"><div><h3 class="reveal" data-id="Ketenangan sehari-hari" data-en="Everyday calm">Ketenangan sehari-hari</h3><p data-id="Eksplorasi hunian" data-en="Residential exploration">Eksplorasi hunian</p></div><span>01</span></div></article><article class="project"><div class="image image-reveal project-image"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75" alt="Detail ruang dalam dan material bertekstur" data-alt-id="Detail ruang dalam dan material bertekstur" data-alt-en="Interior detail with textured materials" decoding="async" loading="lazy"></div><div class="project-meta"><div><h3 class="reveal" data-id="Detail yang hangat" data-en="Warm details">Detail yang hangat</h3><p data-id="Eksplorasi interior" data-en="Interior exploration">Eksplorasi interior</p></div><span>02</span></div></article><article class="project"><div class="image image-reveal project-image"><img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=75" alt="Arsitektur bangunan modern" data-alt-id="Arsitektur bangunan modern" data-alt-en="Modern building architecture" decoding="async" loading="lazy"></div><div class="project-meta"><div><h3 class="reveal" data-id="Bentuk dan lingkungan" data-en="Form and setting">Bentuk dan lingkungan</h3><p data-id="Eksplorasi arsitektur" data-en="Architectural exploration">Eksplorasi arsitektur</p></div><span>03</span></div></article></div></div></section>
+<section class="section wrap principle" id="pendekatan"><div class="image image-reveal principle-image"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=75" alt="Ruang dengan bukaan dan cahaya alami" data-alt-id="Ruang dengan bukaan dan cahaya alami" data-alt-en="A room with openings and natural light" decoding="async" loading="lazy"></div><div class="principle-text"><div class="eyebrow"><strong>05</strong><span data-id="Pendekatan" data-en="Our approach">Pendekatan</span></div><h2 class="heading reveal from-right" data-id="Dipikirkan untuk bertahan." data-en="Thoughtfully made to last.">Dipikirkan untuk bertahan.</h2><p class="copy reveal" data-id="Kami percaya pilihan yang baik mempertimbangkan kegunaan, material, dan kehidupan sebuah ruang dalam jangka panjang. Karena ruang yang bermakna terus memberi manfaat setelah selesai dibangun." data-en="We believe good choices consider function, materials, and the long life of a space. Meaningful spaces continue to give back long after they are built.">Kami percaya pilihan yang baik mempertimbangkan kegunaan, material, dan kehidupan sebuah ruang dalam jangka panjang. Karena ruang yang bermakna terus memberi manfaat setelah selesai dibangun.</p><a class="textlink" href="#keahlian"><span data-id="Jelajahi keahlian" data-en="Explore our expertise">Jelajahi keahlian</span><span aria-hidden="true">↗</span></a></div></section>
+<section class="end" id="mulai"><div class="wrap"><div class="eyebrow" data-id="Langkah berikutnya" data-en="The next step">Langkah berikutnya</div><h2 class="heading reveal" data-id="Mari bayangkan kemungkinan berikutnya." data-en="Let's imagine what comes next.">Mari bayangkan kemungkinan berikutnya.</h2><div class="end-bottom"><p data-id="Setiap ruang yang bermakna dimulai dengan sebuah ide." data-en="Every meaningful space begins with an idea.">Setiap ruang yang bermakna dimulai dengan sebuah ide.</p><a class="btn light" href="#tentang"><span data-id="Mulai menjelajah" data-en="Start exploring">Mulai menjelajah</span><span aria-hidden="true">↗</span></a></div></div></section></main>
+<div class="mx-contact" id="kontak-kerja-sama" role="region" aria-labelledby="mx-ct-title" style="--ac:#db273b;--on:#ffffff;--glow:rgba(219,39,59,.24)">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="mxIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".3" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient>
+<symbol id="mxi-gmail" viewBox="0 0 24 24"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></symbol>
+<symbol id="mxi-linkedin" viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+<symbol id="mxi-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="url(#mxIg)" stroke-width="2.1"/><circle cx="17.4" cy="6.6" r="1.3" fill="url(#mxIg)"/></symbol>
+<symbol id="mxi-tiktok" viewBox="0 0 24 24"><path id="mxTk" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#25F4EE" transform="translate(-.7 -.5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FE2C55" transform="translate(.7 .5)"/><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000"/></symbol>
+<symbol id="mxi-youtube" viewBox="0 0 24 24"><rect x="1" y="4.2" width="22" height="15.6" rx="4.4" fill="#FF0000"/><path d="M9.9 8.9l5.6 3.1-5.6 3.1z" fill="#fff"/></symbol>
+<symbol id="mxi-go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<div class="mx-panel">
+<div class="mx-intro" data-mx-v="left">
+<p class="mx-badge"><i></i><span data-mxt="badge">Terbuka untuk kolaborasi</span></p>
+<h2 class="mx-title" id="mx-ct-title" data-mxt="title">Tertarik bekerja sama, endorse, atau butuh website seperti ini?</h2>
+<p class="mx-text" data-mxt="text">Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.</p>
+<a class="mx-cta" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span data-mxt="cta">Kirim email sekarang</span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a>
+</div>
+<div class="mx-side">
+<p class="mx-note" data-mxt="note">Temukan saya di</p>
+<ul class="mx-links" data-mx-group="up">
+<li><a class="mx-tile" href="mailto:ijlalainun@gmail.com?subject=Kerja%20sama%20/%20jasa%20pembuatan%20website"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-gmail"/></svg></span><span class="mx-t"><b>Email (Gmail)</b><small>ijlalainun@gmail.com</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.linkedin.com/in/ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-linkedin"/></svg></span><span class="mx-t"><b>LinkedIn</b><small>linkedin.com/in/ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.instagram.com/ainunijlal_ai/" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-instagram"/></svg></span><span class="mx-t"><b>Instagram</b><small>@ainunijlal_ai</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.tiktok.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-tiktok"/></svg></span><span class="mx-t"><b>TikTok</b><small>@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+<li><a class="mx-tile" href="https://www.youtube.com/@ainunijlal" target="_blank" rel="noopener noreferrer"><span class="mx-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-youtube"/></svg></span><span class="mx-t"><b>YouTube</b><small>youtube.com/@ainunijlal</small></span><svg class="mx-go" viewBox="0 0 24 24" aria-hidden="true"><use href="#mxi-go"/></svg></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<footer class="footer"><div class="wrap"><div class="footer-top"><a class="logo" href="#top">RUANG<br>KARYA</a><nav class="footer-nav" aria-label="Footer"><a href="#tentang" data-id="Tentang" data-en="About">Tentang</a><a href="#keahlian" data-id="Keahlian" data-en="Expertise">Keahlian</a><a href="#ruang" data-id="Eksplorasi" data-en="Explorations">Eksplorasi</a><a href="#top" data-id="Kembali ke atas ↑" data-en="Back to top ↑">Kembali ke atas ↑</a></nav></div><div class="footer-word" aria-hidden="true">RUANG</div><div class="footer-note" data-id="RUANG KARYA — Ruang yang berarti." data-en="RUANG KARYA — Spaces with meaning.">RUANG KARYA — Ruang yang berarti.</div></div></footer>
+<script>
+(function(){const langs=document.querySelectorAll('[data-lang]'),menu=document.querySelector('.menu'),nav=document.querySelector('#nav');function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-id][data-en]').forEach(el=>{el.textContent=el.getAttribute('data-'+lang)});document.querySelectorAll('[data-alt-id]').forEach(el=>{el.alt=el.getAttribute('data-alt-'+lang)});langs.forEach(el=>{let active=el.dataset.lang===lang;el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active))});nav.setAttribute('aria-label',lang==='id'?'Navigasi utama':'Main navigation');document.title=lang==='id'?'RUANG KARYA — Ruang untuk hidup lebih baik':'RUANG KARYA — Thoughtful spaces'}langs.forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));menu.addEventListener('click',()=>{let open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.focus()}});
+if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('motion');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -20px 0px'});document.querySelectorAll('.reveal,.image-reveal').forEach(el=>observer.observe(el))}
+})();
+</script><script id="mx-script">window.__MX_BG=[];
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+
+  /* ---------- 1. Foto rusak -> placeholder (tidak pernah tampil broken) ---------- */
+  var PH = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4150"/><stop offset="1" stop-color="#1d222c"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><path d="M0 470l170-150 110 90 170-170 180 160 170-120v320H0z" fill="#fff" fill-opacity=".07"/><circle cx="610" cy="170" r="46" fill="#fff" fill-opacity=".09"/></svg>');
+  function bad(img) {
+    if (img.src === PH) return;
+    img.removeAttribute('srcset');
+    img.src = PH;
+  }
+  d.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') bad(e.target);
+  }, true);
+  Array.prototype.forEach.call(d.images, function (i) {
+    if (i.complete && i.naturalWidth === 0 && i.getAttribute('src') && i.src.indexOf('data:') !== 0) bad(i);
+  });
+  (window.__MX_BG || []).forEach(function (u) {
+    var im = new Image();
+    im.onerror = function () {
+      var id = (u.match(/photo-[\w-]+/) || [''])[0];
+      if (!id) return;
+      Array.prototype.forEach.call(d.querySelectorAll('*'), function (el) {
+        if ((getComputedStyle(el).backgroundImage || '').indexOf(id) > -1)
+          el.style.setProperty('background-image', 'url("' + PH + '")', 'important');
+      });
+    };
+    im.src = u;
+  });
+
+  /* ---------- 2. Teks card kontak mengikuti bahasa halaman ---------- */
+  var T = {
+    id: { badge: 'Terbuka untuk kolaborasi', title: 'Tertarik bekerja sama, endorse, atau butuh website seperti ini?', text: 'Hubungi saya untuk kolaborasi, endorsement, atau jasa pembuatan landing page dan website profesional, dari konsep, desain, animasi, sampai siap online.', cta: 'Kirim email sekarang', note: 'Temukan saya di' },
+    en: { badge: 'Open for collaboration', title: 'Interested in working together, endorsements, or a website like this?', text: 'Get in touch for collaborations, endorsements, or professional landing page and website design, from concept and design to animation and launch.', cta: 'Send an email', note: 'Find me on' }
+  };
+  function applyLang() {
+    var l = (root.lang || 'id').slice(0, 2) === 'en' ? 'en' : 'id';
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mxt]'), function (el) {
+      var v = T[l][el.getAttribute('data-mxt')];
+      if (v) el.textContent = v;
+    });
+  }
+  applyLang();
+  try { new MutationObserver(applyLang).observe(root, { attributes: true, attributeFilter: ['lang'] }); } catch (e) {}
+
+  /* ---------- 3. Animasi scroll (WAAPI: ringan, tidak bentrok dengan CSS bawaan) ---------- */
+  if (!('IntersectionObserver' in window) || !root.animate) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  try {
+    var small = innerWidth < 700;
+    var Y = small ? 20 : 42, X = small ? 26 : 56;
+    var EASE = 'cubic-bezier(.22,1,.36,1)';
+    var HOOK = '[class*="reveal"],[data-reveal],[class*="fx-"],.word,.line-mask,.split-copy,[data-parallax],[class*="parallax"]';
+    var SKIP = 'header,nav,dialog,[role="dialog"],[aria-hidden="true"],[hidden],[class*="marquee"],[class*="ticker"],[class*="slider"],[class*="carousel"],[class*="modal"],[class*="drawer"],[class*="menu"]';
+    var items = [], map = new Map(), gi = 0, mi = 0, ti = 0;
+
+    function usable(el) {
+      if (el.closest('[data-mxc]') || el.closest(SKIP)) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed' || cs.position === 'sticky') return false;
+      if (cs.animationName !== 'none') return false;
+      return true;
+    }
+
+    function kf(v, hooked) {
+      var f, t;
+      switch (v) {
+        case 'left':  f = { opacity: 0, translate: (-X) + 'px 0' }; t = { opacity: 1, translate: '0 0' }; break;
+        case 'right': f = { opacity: 0, translate: X + 'px 0' };    t = { opacity: 1, translate: '0 0' }; break;
+        case 'scale': f = { opacity: 0, scale: .9 };                t = { opacity: 1, scale: 1 }; break;
+        case 'zoom':  f = { opacity: 0, scale: 1.2 };               t = { opacity: 1, scale: 1 }; break;
+        case 'tilt':  f = { opacity: 0, rotate: '-3deg', translate: '0 ' + Y + 'px', scale: .96 }; t = { opacity: 1, rotate: '0deg', translate: '0 0', scale: 1 }; break;
+        case 'blur':  f = { opacity: 0, filter: 'blur(10px)', translate: '0 ' + (Y / 2) + 'px' }; t = { opacity: 1, filter: 'blur(0px)', translate: '0 0' }; break;
+        case 'clipup':    f = { opacity: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.08 }; t = { opacity: 1, clipPath: 'inset(0% 0 0 0)', scale: 1 }; break;
+        case 'clipleft':  f = { opacity: 1, clipPath: 'inset(0 100% 0 0)' }; t = { opacity: 1, clipPath: 'inset(0 0% 0 0)' }; break;
+        case 'clipright': f = { opacity: 1, clipPath: 'inset(0 0 0 100%)' }; t = { opacity: 1, clipPath: 'inset(0 0 0% 0)' }; break;
+        case 'circle':    f = { opacity: 1, clipPath: 'circle(0% at 50% 50%)', scale: 1.1 }; t = { opacity: 1, clipPath: 'circle(75% at 50% 50%)', scale: 1 }; break;
+        default:      f = { opacity: 0, translate: '0 ' + Y + 'px' }; t = { opacity: 1, translate: '0 0' };
+      }
+      if (hooked) { [f, t].forEach(function (o) { delete o.opacity; delete o.filter; delete o.clipPath; }); }
+      return [f, t];
+    }
+
+    function add(el, v, delay, dur, kind) {
+      var hooked = el.matches(HOOK);
+      el.setAttribute('data-mxc', '1');
+      if (!hooked) el.setAttribute('data-mx', v === 'words' ? 'words' : '1');
+      var it = { el: el, v: v, delay: delay || 0, dur: dur || (kind === 'media' ? 1100 : 900), hooked: hooked, done: false };
+      items.push(it); map.set(el, it);
+    }
+
+    /* pisah kata judul (aman: hanya node teks + inline) */
+    function split(h) {
+      if (h.querySelector('svg,img,picture,video,canvas,input,button,select')) return null;
+      if (h.textContent.length > 170) return null;
+      var cs = getComputedStyle(h), bad = (cs.webkitBackgroundClip === 'text' || cs.backgroundClip === 'text');
+      var kids = h.querySelectorAll('*');
+      for (var k = 0; k < kids.length; k++) {
+        var c = getComputedStyle(kids[k]);
+        if (c.webkitBackgroundClip === 'text' || c.backgroundClip === 'text' || /transparent|rgba\(0, 0, 0, 0\)/.test(c.webkitTextFillColor || '')) bad = true;
+      }
+      if (bad || /transparent|rgba\(0, 0, 0, 0\)/.test(cs.webkitTextFillColor || '')) return null;
+      var n = 0, inner = [];
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = d.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (p) {
+              if (!p) return;
+              if (/^\s+$/.test(p)) { frag.appendChild(d.createTextNode(p)); return; }
+              var o = d.createElement('span'), i = d.createElement('span');
+              o.className = 'mx-w'; i.textContent = p; o.appendChild(i); frag.appendChild(o); inner.push(i); n++;
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+      })(h);
+      return (n > 0 && n <= 20) ? inner : null;
+    }
+
+    /* --- fase 1: baca layout (tanpa menulis DOM) --- */
+    var plan = [];
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx-v],[data-mx-group]'), function (el) { plan.push({ t: 'explicit', el: el }); });
+
+    var GV = ['up', 'scale', 'lr', 'tilt', 'blur', 'up'];
+    Array.prototype.forEach.call(d.querySelectorAll('div,ul,ol,section,article,main'), function (c) {
+      var k = c.children, n = k.length;
+      if (n < 2 || n > 14 || c.hasAttribute('data-mx-group') || c.closest(SKIP) || c.closest('footer')) return;
+      var tag = k[0].tagName, first = k[0].offsetTop, cols = 0, i, ok = true;
+      for (i = 0; i < n; i++) {
+        var e = k[i];
+        if (e.tagName !== tag || !(e.className || /^(LI|ARTICLE|FIGURE|DETAILS)$/.test(tag))) { ok = false; break; }
+        if (e.offsetWidth < 110 || e.offsetHeight < 70) { ok = false; break; }
+        if (e.offsetTop === first) cols++;
+      }
+      if (ok) plan.push({ t: 'group', el: c, cols: Math.max(cols, 1) });
+    });
+
+    var singles = d.querySelectorAll('h1,h2,h3,h4,p,blockquote,ul,ol,dl,img,picture,video,figure,form,table,[class*="btn"],[class*="button"],[class*="cta"]');
+    var bgs = [];
+    Array.prototype.forEach.call(d.querySelectorAll('div[class*="hero"],div[class*="visual"],div[class*="media"],div[class*="image"],div[class*="photo"],div[class*="bg"]'), function (el) {
+      if (el.offsetWidth > 200 && el.offsetHeight > 120 && /url\(/.test(getComputedStyle(el).backgroundImage)) bgs.push(el);
+    });
+
+    /* --- fase 2: tandai & jadwalkan --- */
+    plan.forEach(function (p) {
+      var el = p.el;
+      if (p.t === 'explicit') {
+        if (el.hasAttribute('data-mx-group')) {
+          var v = el.getAttribute('data-mx-group') || 'up';
+          Array.prototype.forEach.call(el.children, function (c, i) { if (usable(c)) add(c, v, i * 90, 800); });
+        } else if (usable(el)) add(el, el.getAttribute('data-mx-v'), 0, 1000);
+        return;
+      }
+      if (el.closest('[data-mxc]')) return;
+      var v = GV[gi++ % GV.length];
+      Array.prototype.forEach.call(el.children, function (c, i) {
+        if (!usable(c)) return;
+        var vv = v === 'lr' ? (i % p.cols < p.cols / 2 ? 'left' : 'right') : v;
+        if (p.cols === 1 && v === 'lr') vv = i % 2 ? 'right' : 'left';
+        add(c, vv, Math.min((i % p.cols) * 90, 450), 900, 'group');
+      });
+    });
+
+    var MED = ['clipup', 'zoom', 'clipleft', 'circle', 'tilt', 'clipright'];
+    var HMED = ['scale', 'tilt', 'left', 'right'];
+    var TXT = ['up', 'blur', 'up', 'left'];
+    function media(el) {
+      if (!usable(el)) return;
+      var hooked = el.matches(HOOK) || !!el.closest(HOOK);
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      var v = hooked ? HMED[mi++ % HMED.length] : MED[mi++ % MED.length];
+      var par = el.parentElement && getComputedStyle(el.parentElement).overflow !== 'visible';
+      if (v === 'zoom' && !par) v = 'scale';
+      add(el, v, 0, 1100, 'media');
+    }
+    Array.prototype.forEach.call(singles, function (el) {
+      if (el.closest('[data-mxc]')) return;
+      var tag = el.tagName;
+      if (/^(IMG|PICTURE|VIDEO|FIGURE)$/.test(tag)) { media(el); return; }
+      if (!usable(el)) return;
+      if (el.closest(HOOK) && !el.matches(HOOK)) return;
+      if (/^H[12]$/.test(tag)) {
+        var w = el.matches(HOOK) ? null : split(el);
+        if (w) { add(el, 'words', 0, 900); map.get(el).words = w; } else add(el, 'up', 0, 900);
+      } else if (/^H[34]$/.test(tag)) add(el, ti++ % 2 ? 'left' : 'up', 0, 850);
+      else if (tag === 'P' || tag === 'BLOCKQUOTE') add(el, TXT[ti++ % TXT.length], 0, 900);
+      else add(el, 'up', 0, 800);
+    });
+    bgs.forEach(function (el) { if (!el.closest('[data-mxc]')) media(el); });
+
+    /* --- animasi saat masuk viewport --- */
+    function finish(it) {
+      if (it.done) return; it.done = true;
+      it.el.removeAttribute('data-mx');
+      if (it.v === 'words') it.el.classList.add('mx-fin');
+    }
+    function play(it, instant) {
+      if (it.done) return;
+      var el = it.el;
+      if (instant) { finish(it); return; }
+      if (it.v === 'words' && it.words) {
+        var last = null;
+        it.words.forEach(function (w, i) {
+          last = w.animate([{ translate: '0 112%' }, { translate: '0 0' }], { duration: 850, delay: Math.min(i * 45, 600), easing: EASE, fill: 'both' });
+        });
+        if (last) last.onfinish = function () { finish(it); it.words.forEach(function (w) { w.getAnimations().forEach(function (a) { a.cancel(); }); }); };
+        el.removeAttribute('data-mx');
+        el.classList.add('mx-run');
+        setTimeout(function () { el.classList.add('mx-fin'); }, 1800);
+        it.done = true;
+        return;
+      }
+      var fr = kf(it.v, it.hooked);
+      if (!Object.keys(fr[0]).length) { finish(it); return; }
+      var a = el.animate(fr, { duration: it.dur, delay: it.delay, easing: EASE, fill: 'both' });
+      it.done = true;
+      a.onfinish = function () { el.removeAttribute('data-mx'); a.cancel(); };
+    }
+
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var it = map.get(e.target); if (it) play(it, false);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    items.forEach(function (it) { io.observe(it.el); });
+
+    /* loncat anchor / scroll cepat: elemen yang terlewat (di atas layar) langsung tampil */
+    var tm;
+    function sweep() {
+      items.forEach(function (it) {
+        if (it.done) return;
+        var r = it.el.getBoundingClientRect();
+        var atEnd = scrollY + innerHeight >= d.documentElement.scrollHeight - 4;
+        if (r.bottom < 0 || (r.width === 0 && r.height === 0) || (atEnd && r.top < innerHeight)) { io.unobserve(it.el); play(it, true); }
+      });
+    }
+    addEventListener('scroll', function () { clearTimeout(tm); tm = setTimeout(sweep, 140); }, { passive: true });
+    addEventListener('load', function () { setTimeout(sweep, 400); });
+    addEventListener('hashchange', function () { setTimeout(sweep, 400); });
+  } catch (err) {
+    /* gagal aman: tampilkan semua konten */
+    Array.prototype.forEach.call(d.querySelectorAll('[data-mx]'), function (el) { el.removeAttribute('data-mx'); });
+    if (window.console) console.warn('motion layer off:', err);
+  }
+})();
+</script>
+</body></html>
